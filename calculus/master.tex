@@ -1,0 +1,39 @@
+\documentclass[a4paper]{report}
+\input{./preamble.tex}
+% \usepackage{cmbright}
+
+\usepackage{faktor}
+
+\makeatletter
+\DeclareRobustCommand*{\mfaktor}[3][]
+{
+   { \mathpalette{\mfaktor@impl@}{{#1}{#2}{#3}} }
+}
+\newcommand*{\mfaktor@impl@}[2]{\mfaktor@impl#1#2}
+\newcommand*{\mfaktor@impl}[4]{
+   \settoheight{\faktor@zaehlerhoehe}{\ensuremath{#1#2{#3}}}%
+   \settoheight{\faktor@nennerhoehe}{\ensuremath{#1#2{#4}}}%
+      \raisebox{-0.5\faktor@zaehlerhoehe}{\ensuremath{#1#2{#3}}}%
+      \mkern-4mu\diagdown\mkern-5mu%
+      \raisebox{0.5\faktor@nennerhoehe}{\ensuremath{#1#2{#4}}}%
+}
+\makeatother
+
+\DeclareMathOperator{\Ker}{ker}
+\DeclareMathOperator{\im}{Im}
+
+\title{Математический анализ}
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\setcounter{chapter}{4}
+\setcounter{section}{4}
+\chapter{Дифференциальное исчисление функций многих переменных}
+
+% start lessons
+\input{lectures/course_2/lec_01.tex}
+\input{lectures/course_2/lec_02.tex}
+% end lessons
+\end{document}

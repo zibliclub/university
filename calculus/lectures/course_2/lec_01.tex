@@ -1,0 +1,262 @@
+\lesson{1}{от 01 сен 2023 10:28}{Функции многих переменных}
+
+
+\section{Производная по вектору}
+
+Пусть $ x = (x_1,x_2,x_3) = x(t), \ f\big(x(t)\big) = f(x_1,x_2,x_3)$, тогда:
+
+\begin{multline*}
+    \frac{df\big(x(t)\big)}{dt} = \frac{\delta f}{\delta x_1} \cdot \frac{dx_1}{dt} + \frac{\delta f}{\delta x_2} \cdot \frac{dx_2}{dt} + \frac{\delta f}{\delta x_3} \cdot \frac{dx_3}{dt} = \\
+    = \frac{\delta f}{\delta x_1} \cdot v_1 + \frac{\delta f}{\delta x_2} \cdot v_2 + \frac{\delta f}{\delta x_3} \cdot v_3,
+\end{multline*}
+где $\vec{v} = \{v_1,v_2,v_3\}$ -- скорость частицы, перемещающейся по $\gamma$-ну $x(t)$.
+
+\begin{definition}[Производная функции по вектору]
+    Пусть $ D $ в $ \R^n $ -- область, $ f:D\rightarrow \R, \ x_0 \in D $, вектор $ v\in T\R_{x_0}^n $ -- касательное пространство к $ R^n $ в точке $ x_0 $ (совокупность всех векторов, исходящих из точки $ x_0 $).
+
+    \emph{Производной функции $ f $ по вектору $ v $} называется величина
+    \[
+        \frac{\delta f}{\delta \vec{v}} = D \vec{v} f(x_0) \coloneqq \underset{t \rightarrow 0}{\lim}\frac{f(x_0 + tv) - f(x_0)}{t}\text{, если }\lim \exists.
+    \]
+\end{definition}
+
+\begin{statement}
+    Пусть $ f:D\rightarrow\R $ -- дифференцируемо в точке $ x_0\in D $. Тогда $ \forall \vec{v}\in T\R_{x_0}^n \exists \frac{\delta f}{\delta \vec{v}}(x_0):$
+    \[
+        \frac{\delta f}{\delta \vec{v}}(x_0) = \frac{\delta f}{\delta x_1}(x_0) \cdot v_1 + \frac{\delta f}{\delta x_2}(x_0) \cdot v_2 + \ldots +\frac{\delta f}{\delta x_n}(x_0) \cdot v_n = df(x_0)\cdot \vec{v},
+    \] где $df(x_0)\cdot \vec{v}$ -- скалярное произведение,
+    \begin{align*}
+         & df(x_0) = \left\{\frac{\delta f}{\delta x_1}(x_0), \frac{\delta f}{\delta x_2}(x_0), \ldots, \frac{\delta f}{\delta x_n}(x_0)\right\}, \\
+         & \vec{v} = \{v_1,v_2,\ldots,v_n\}
+    \end{align*}
+\end{statement}
+\begin{proof}
+    Рассмотрим отображение $\gamma:[0;1]\rightarrow \mathbb{R}^n$:
+    \[
+        \vec{\gamma}(t) = \vec{x_0} + \vec{v}\cdot t \iff \vec{\gamma}(t) = \left\{\begin{array}{l}
+            x_1 = x_0^{(1)} + v_1 \cdot t \\
+            x_2 = x_0^{(2)} + v_2 \cdot t \\
+            \vdots                        \\
+            x_n = x_0^{(n)} + v_n \cdot t
+        \end{array}\right\}, \quad t \in [0;1]
+    \]
+
+    Заметим, что $\gamma(t)$ дифференцируемо в точке $t = 0 \implies$ отображение $f \circ \gamma:[0;1]\rightarrow\mathbb{R}$ -- дифференцируемо в точке $t = 0$.
+
+    \[
+        f\circ\gamma = f\big(\gamma(t)\big) \implies
+    \]
+    \begin{multline*}
+        \implies \frac{df\big(\gamma(t)\big)}{dt}\bigg|_{t=0} = \left(\frac{\delta f}{\delta x_1} \cdot \frac{d x_1}{dt} + \frac{\delta f}{\delta x_2}\cdot\frac{dx_2}{dt} + \ldots + \frac{\delta f}{\delta x_n}\cdot\frac{dx_n}{dt}\right)\bigg|_{t=0} = \\
+        = \left(\frac{\delta f}{\delta x_1} \cdot v_1 + \frac{\delta f}{\delta x_2} \cdot v_2 + \ldots + \frac{\delta f}{\delta x_n} \cdot v_n\right)\bigg|_{t=0} = df\big(\gamma(0)\big)\cdot \vec{v}
+    \end{multline*}
+
+    Если $f$ дифференцируемо в точке $x_0 \implies \forall \vec{\gamma}(t) = \vec{x_0} + \vec{v}\cdot t$:
+    \[
+        \frac{df\big(\gamma(t)\big)}{dt} \coloneqq \underset{t\rightarrow0}{\lim}\frac{f(x_0 + v\cdot t) - f(x_0)}{t} = \frac{\delta f}{\delta \vec{v}}(x_0)
+    \]
+\end{proof}
+
+\begin{statement}[Известно из алгебры]
+    Если $L:\mathbb{R}^n \rightarrow \mathbb{R}$ -- линейное, то $\exists ! \vec{a}\in \mathbb{R}^n: \forall x \in \mathbb{R}^n$
+    \[
+        L(x) = \vec{a}\cdot \vec{x},
+    \]
+    \[
+        \big(L(\lambda_1 x_1 + \lambda_2 x_2) = \lambda_1L(x_1) + \lambda_2 L(x_2)\big)
+    \]
+    где $\vec{a}\cdot \vec{x}$ -- скалярное произведение.
+\end{statement}
+
+\begin{definition}[Градиент функции в точке]
+    Пусть $f:D\rightarrow \R, \ D$ -- область в $\R^n, \ f$ -- дифференцируема в точке $x \in D$. Вектор $\vec{a} \in \R^n$:
+    \[
+        df(x)\cdot h = \vec{a} \cdot h, \quad h \in \mathbb{R}
+    \]
+    называется \emph{градиентом функции $f$ в точке} $x \in \mathbb{R}^n$ и обозначается
+    \[
+        gradf(x)
+    \]
+
+    Если в $\R^n$ зафиксировать ортонормированный базис, то
+    \[
+        gradf(x) = \left\{\frac{\delta f}{\delta x_1}(x),\frac{\delta f}{\delta x_2}(x),\ldots,\frac{\delta f}{\delta x_n}(x)\right\}
+    \]
+\end{definition}
+
+\begin{definition}[Производная по направлению вектора]
+    Если $ \vec{v}\in T\R_{x_0}^n, $ $ |\vec{v}| = 1 $, то $ \frac{\delta f}{\delta \vec{v}}(x) $ называется \emph{производной по направлению вектора} $ \vec{v} $.
+\end{definition}
+
+\begin{example}
+    \[
+        \left\{\begin{array}{l}
+            \cos\alpha = \cos\langle \vec{v},0x \rangle \\
+            \cos\beta = \cos\langle \vec{v},0y \rangle
+        \end{array}\right.\text{ -- направляющие косинусы}
+    \]
+    \begin{figure}[H]
+        \centering
+        \incfig{fig_01}
+        \caption{$ \vec{v}=\{\cos\alpha,\cos\beta\} $}
+        \label{fig:fig_01}
+    \end{figure}
+
+    Так как при данных условиях $ \vec{v} = \{\cos\alpha_1,\cos\alpha_2,\ldots,\cos\alpha_n\} $:
+    \[
+        \frac{\delta f}{\delta \vec{v}}(x)=\frac{\delta f}{\delta x_1}\cdot \cos\alpha_1 + \ldots + \frac{\delta f}{\delta x_n}\cdot \cos\alpha_n.
+    \]
+\end{example}
+
+Смысл градиента: градиент показывает направление самого быстрого возрастания функции.
+
+\section{Основные теоремы дифференциального исчисления функций многих переменных}
+
+\begin{theorem}[О среднем]
+    Пусть $ D $ -- область в $ \R^n, \ x \in D, \ x + h \in D, \ [x, x+h]\subset D, \ f: D \rightarrow\R $ -- дифференцируемо на $ (x,x+h) $ и непрерывно на $ [x,x+h] $. Тогда $ \exists \xi \in (x,x+h): $
+    \[
+        f(x+h)-f(x) = f'(\xi)\cdot h = \frac{\delta f}{\delta x_1}(\xi)\cdot h^1 + \frac{\delta f}{\delta x_2}(\xi)\cdot h^2 + \ldots + \frac{\delta f}{\delta x_n}(\xi)\cdot h^n,
+    \] где $ \{1,2,\ldots,n\} $ над $ h $ -- индексы.
+\end{theorem}
+
+\begin{proof}
+    Рассмотрим отображение $ \gamma:[0;1]\rightarrow D $, определенное:
+    \[
+        \gamma(t) = x + t\cdot h, \quad \gamma(t) = \left\{\begin{array}{l}
+            x_1(t) = x_1 + t\cdot h^1 \\
+            x_2(t) = x_2 + t\cdot h^2 \\
+            \vdots                    \\
+            x_n(t) = x_n + t\cdot h^n
+        \end{array}\right.,
+    \]
+    \[
+        x = (x_1,x_2,\ldots,x_n),\quad h = \{h^1,h^2,\ldots,h^n\}, \ t\in [0;1],
+    \]
+    \[
+        \begin{array}{l}
+            \gamma(0) = x, \\
+            \gamma(1) = x+h
+        \end{array}, \quad [0;1]\overset{\gamma}{\longrightarrow}[x;x+h].
+    \]
+
+    Заметим, что $ gamma(t) $ дифференцируемо на $ (0;1) $, непрерывно на $ [0;1] $, причем $ \big(x_i(t)\big)' = h^i $.
+
+    Рассмотрим функцию $ F(t) = f\big(\gamma(t)\big), \ F:[0;1]\rightarrow\R $. Имеем:
+    \begin{enumerate}
+        \item $ F $ -- дифференцируема на $ (0;1) $ (как композиция двух дифференцируемых).
+        \item $ F $ -- непрерывна на $ [0;1] $ (как композиция двух непрерывных).
+    \end{enumerate}
+
+    Следовательно, по теореме Лагранжа:
+    \[
+        \begin{array}{cccl}
+            F(1)    & - & F(0)    & = F'(\tau)\cdot(1-0), \ \tau \in (0;1) \\
+            \verteq &   & \verteq &                                        \\
+            f(x+h)  & - & f(x)    & = \Big(f\big(\gamma(\tau)\big)\Big)' \cdot 1
+        \end{array},
+    \]
+    \[
+        \Big(f\big(\gamma(\tau)\big)\Big)' \cdot 1 = f'\big(\gamma(\tau)\big) \cdot \gamma'(\tau) = \equalto{\frac{\delta f}{\delta x_1} \cdot h'}{x_1'(t)} + \frac{\delta f}{\delta x_2}\cdot h_2 + \ldots + \frac{\delta f}{\delta x_n} \cdot h^n.
+    \]
+
+    Пусть $ \gamma(\tau) = \xi \in D $, тогда:
+    \[
+        f(x+h) - f(x) = \left(\begin{matrix}
+                \frac{\delta f}{\delta x_1}(\xi) & \frac{\delta f}{\delta x_2}(\xi) & \cdots & \frac{\delta f}{\delta x_n}(\xi)
+            \end{matrix}\right) \cdot \left(\begin{matrix}
+                h^1 \\ h^2 \\ \vdots \\ h^n
+            \end{matrix}\right) = f'(\xi)\cdot h.
+    \]
+\end{proof}
+
+\begin{corollary}
+    Пусть $ D $ -- область в $ \R^n, \ f:D \rightarrow \R $ -- дифференцируема на $ D $ и $ \forall x \in D \ d(fx) = 0 $ (то есть $ \forall i \ \frac{\delta f}{\delta x_i} = 0 $). Тогда $ f(x) = const $.
+\end{corollary}
+
+\begin{proof}
+    Пусть $ x_0 \in D $ и $ B(x_0,\rho)\subset D $ -- шар $ \exists $, так как $ D $ -- область. Тогда $ \forall x \in B(x_0,\rho) \quad [x_0;x]\subset B(x_0,\rho)\subset D $. Следовательно:
+    \[
+       f(x) - f(x_0) = \equalto{f'(\xi)}{\left\{\frac{\delta f}{\delta x_1}(\xi),\ldots,\frac{\delta f}{\delta x_n}(\xi)\right\}}\cdot (x-x_0) = 0.
+    \]
+
+    Таким образом, $ \forall x \in B(x_0,\rho) \ f(x) = f(x_0) $.
+
+    Построим путь из точки $ x_0 $ к некоторой точке $ x \in D $:
+    \[
+       \gamma:[0;1]\rightarrow D, \quad \begin{array}{l}
+          \gamma(0) = x_0 \\
+          \gamma(1) = x
+       \end{array}.
+    \]
+
+    По определению пути, $ \gamma $ -- непрерывно. Тогда $ \exists\delta: \ \forall 0 \leqslant t \leqslant\delta$
+    \[
+       \gamma(t) \in B(x_0,\rho) \implies f\big(\gamma(t)\big) = f(x_0), \ t \in [0;\delta],
+    \] где $ t $ -- точка из $ B(x_0,\rho) $.
+
+    Пусть $ \Delta = \sup\delta \implies f\big(\gamma(\Delta)\big) = f(x_0) $. Покажем, что $\Delta = 1$.
+
+    Пусть $ \Delta < 1 \ (\Delta \ne 1) $. Построим шар $ B\big(\gamma(\Delta),\rho_\Delta\big) $. Тогда $ \exists \epsilon > 0: \ \Delta - \epsilon < t < \Delta + \epsilon $.
+
+    Но тогда $ f\big(\gamma(\Delta + \epsilon)\big) = f(x_0) $ (так как точка $ \gamma(\Delta + \epsilon) \in B\big(\gamma(\Delta),\rho_\Delta\big) $) -- противоречие с тем, что $ \Delta = \sup\delta \implies \Delta = 1 $.
+
+    $ \gamma(1) = x $ и $ f(x) = f(x_0) \implies $ так как $ x \in D $ -- произведение точек, то имеем, что $ \forall x \in D \ f(x) = f(x_0) \implies f(x)\text{ -- }const $.
+\end{proof}
+
+\begin{theorem}[Достаточное условие дифференцируемости функции]
+    Пусть $ D $ -- область в $ \R^n, \ f:D \rightarrow\R, \ f $ имеет непрерывные частные производные в каждой окрестности точки $ x\in D $. Тогда $ f $ -- дифференцируема в точке $ x $.
+\end{theorem}
+
+\begin{proof}
+    Без ограничения общности, будем считать, что окрестность точки $ x_0\in D $ является шаром $ B(x_0,\rho)\subset D $.
+
+    Пусть $ h:x_0+h \in B(x_0,\rho) $. Здесь
+    \[
+        \begin{array}{l}
+            x_0 = (x^1,x^2,\ldots,x^n) \\
+            x_0 + h = (x^1 + h^1,x^2 + h^2,\ldots,x^n+h^n)
+        \end{array}.
+    \]
+
+    Заметим, что точки
+    \[
+        \begin{array}{l}
+            x_1 = (x^1,x^2+h^2,\ldots,x^n+h^n)       \\
+            x_2 = (x^1,x^2,x^3 + h^3,\ldots,x^n+h^n) \\
+            \vdots                                   \\
+            x_{n-1} = (x^1,x^2,x^3,\ldots,x^{n-1},x^n+h^n)
+        \end{array} \in B(x_0,\rho).
+    \]
+    \begin{multline*}
+        f(x_0 + h) - f(x_0) = \\
+        = f(x_0 + h) - f(x_1) + f(x_1) - f(x_2) + f(x_2) - \ldots\\
+        \ldots - f(x_{n-1}) + f(x_{n-1}) - f(x_0) = \\
+        = f(x^1 + h^1, \ldots,  x^n + h^n) - f(x^1, x^2 + h^2,  \ldots,  x^n + h^n) + \\
+        + f(x^1,  x^2 + h^2,  \ldots,  x^n + h^n) - f(x^1,  x^2,  \ldots,  x^n + h^n) + \\
+        + f(x^1,  x^2,  \ldots,  x^n + h^n) - \ldots - f(x^1,  x^2,  \ldots,  x^{n-1},  x^n) + \\
+        + f(x^1,  x^2,  \ldots,  x^{n-1},  x^n + h^n) - f(x^1,  x^2,  \ldots,  x^n) = \\
+        = \left|\begin{array}{c}
+            \text{Теорема Лагранжа для} \\
+            \text{функции одной переменной}
+        \end{array}\right| = \\
+        = \frac{\delta f}{\delta x_1}(x^1 + \theta^1 h^1,  x^2 + h^2,  \ldots,  x^n + h^n) \cdot h^1 + \\
+        + \frac{\delta f}{\delta x^2}(x^1,  x^2 + \theta^2 h^2,  \ldots,  x^n + h^n) \cdot h^2 + \ldots \\
+        \ldots + \frac{\delta f}{\delta x^n}(x^1,  x^2,  \ldots,  x^n + \theta^n h^n) \cdot h^n.
+    \end{multline*}
+
+    Используя непрерывность частных производных, запишем:
+    \begin{multline*}
+        f(x_0 + h) - f(x_0) = \\
+        = \frac{\delta f}{\delta x^1}(x^1, x^2, \ldots, x^n) \cdot h^1 + \alpha^1(h^1) + \ldots \\
+        \ldots + \frac{\delta f}{\delta x^n}(x^1, x^2, \ldots, x^n) \cdot h^n + \alpha^n(h^n),
+    \end{multline*}
+    где $\alpha^1,\alpha^2,\ldots,\alpha^n$ стремятся к нулю при $\vec{h}\rightarrow0$.
+
+    Это означает, что:
+    \[
+        \begin{array}{c}
+            f(x_0 + h) - f(x_0) = L(x_0)\cdot h + \underset{h\rightarrow0}{o}(h) \\
+            \left(\text{где} \ L(x_0) = \frac{\delta f}{\delta x^1}(x_0)\cdot h^1 + \ldots + \frac{\delta f}{\delta x^n}(x_0) \cdot h^n = df(x_0)\right)
+        \end{array} \implies
+    \]$\implies$ по определению $f(x)$ дифференцируема в точке $x_0$.
+\end{proof}

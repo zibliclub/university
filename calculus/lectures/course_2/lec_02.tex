@@ -1,0 +1,306 @@
+\lesson{2}{от 06 сен 2023 08:47}{Производные высших порядков}
+
+
+\section{Производные высших порядков}
+
+\begin{definition}[Вторая производная функции по переменным]
+    Пусть $ f:D \rightarrow\R, \ D $ -- область в $ \R^n $. Производная по переменной $ x^j $ от производной по переменной $ x^i $ называется \emph{второй производной функции $ f $ по переменным} $ x^i,x^j $ и обозначается
+    \[
+        \frac{\delta^2f}{\delta x^i\delta x^j}(x)\text{ или }f_{x^i,x^j}''(x).
+    \]
+\end{definition}
+
+\begin{theorem}[О смешанных производных]
+    Пусть $ D $ -- область в $ \R^n, \ f: D \rightarrow\R, \ x \in D, \ f $ имеет в $ D $ непрерывные смешанные производные (второго порядка). Тогда эти производные не зависят от порядка дифференцирования.
+\end{theorem}
+
+\begin{proof}
+    Пусть $ \frac{\delta^2f}{\delta x^i\delta x^j} $ и $ \frac{\delta^2f}{\delta x^j\delta x^i} $ -- непрерывны в точке $ x\in D $.
+
+    Так как остальные переменные фиксированы, то можно считать, что $ f $ зависит только от двух переменных.
+
+    Тогда $ D\subset\R^2,\ f:D \rightarrow\R $ и $ \frac{\delta^2f}{\delta x\delta y} $ и $ \frac{\delta^2f}{\delta y\delta x} $ -- непрерывны в точке $ x_0 = (x,y) \in D $.
+
+    Покажем, что $ \frac{\delta^2f}{\delta x\delta y} = \frac{\delta^2f}{\delta y\delta x} $.
+
+    Рассмотрим функции:
+    \[
+        \begin{array}{l}
+            \phi(t) = f(x+t\cdot\Delta x,y + \Delta y) - f(x + t\cdot \Delta x, y) \\
+            \psi(t) = f(x + \Delta x, y + t\cdot \Delta y) - f(x,y+t\cdot\Delta y)
+        \end{array}, \quad t \in [0;1].
+    \]
+
+    Имеем:
+    \begin{multline*}
+        \phi(1) - \phi(0) = \\
+        = f(x + \Delta x, y + \Delta y) - f(x + \Delta x, y) - f(x,y+ \Delta y) + f(x,y)
+    \end{multline*}
+    \begin{multline*}
+        \psi(1) - \psi(0) = \\
+        = f(x + \Delta x,y + \Delta y) - f(x,y+\Delta y) - f(x+\Delta x,y) + f(x,y)
+    \end{multline*}
+
+    Тогда:
+    \begin{equation}\label{eq:1}
+        \phi(1) - \phi(0) =\psi(1) - \psi(0)
+    \end{equation}
+    \begin{multline*}
+        \phi(1) - \phi(0) = \phi'(\xi) \cdot (1-0) = \\
+        = \frac{\delta f}{\delta x}(x + \xi \cdot \Delta x, y + \Delta y)\cdot \Delta x + \frac{\delta f}{\delta y}(x + \xi \cdot \Delta x,y + \Delta y) - \\
+        - \frac{\delta f}{\delta x}(x + \xi \cdot \Delta x,y) \cdot \Delta x - \frac{\delta f}{\delta y}(x + \xi \cdot \Delta x, y) \cdot 0 = \\
+        = \left(\frac{\delta f}{\delta x}(x + \xi \cdot \Delta x, y + \Delta y) - \frac{\delta f}{\delta x}(x + \xi \cdot \Delta x, y) \right) = \\
+        = \left|\begin{array}{c}
+            \text{по теореме Лагранжа для} \\
+            \text{функции 1-ой переменной}
+        \end{array}\right| = \\
+        = \frac{\delta^2 f}{\delta x \delta y}(x + \xi \cdot \Delta x, y + \eta \cdot \Delta y)\Delta x\Delta y.
+    \end{multline*}
+
+    Положим $ (x + \xi \Delta x, y + \eta\cdot \Delta y) = P \in \Pi $.
+
+    Аналогично:
+    \begin{multline*}
+        \psi(1) - \psi(0) = \psi'(\xi) \cdot (1-0) = \\
+        = \frac{\delta f}{\delta x}(x + \Delta x, y + \xi \cdot \Delta y) \cdot 0 + \frac{\delta f}{\delta y}(x + \Delta x, y + \xi \cdot \Delta y) \cdot \Delta y - \\
+        - \frac{\delta f}{\delta x}(x, y + \xi \cdot \Delta y) \cdot 0 - \frac{\delta f}{\delta y}(x, y + \xi \cdot \Delta y) \cdot \Delta y = \\
+        = \left(\frac{\delta f}{\delta y}(x + \Delta x,y + \xi \cdot \Delta y) - \frac{\delta f}{\delta y}(x, y + \xi \cdot \Delta y)\right) \Delta y = \\
+        = \left|\begin{array}{c}
+            \text{по теореме Лагранжа для} \\
+            \text{функции 1-ой переменной}
+        \end{array}\right| = \\
+        = \frac{\delta^2f}{\delta y\delta x}(x + \tau \cdot \Delta x, y + \xi \cdot \Delta y)\Delta y \Delta x
+    \end{multline*}
+
+    Положим, что $ (x + \tau\cdot \Delta x, y + \xi \cdot \Delta y) = Q $.
+
+    Тогда из \ref{eq:1} следует, что:
+    \[
+        \begin{array}{ccc}
+            \frac{\delta^2f}{\delta x\delta y}(P)\Delta x\Delta y                             & = & \frac{\delta^2f}{\delta y\delta x}(Q)\Delta x\Delta y                           \\
+            \verteq                                                                           &   & \verteq                                                                         \\
+            \frac{\delta^2f}{\delta x\delta y}(x + \xi \cdot \Delta x, y + \eta\cdot\Delta y) & = & \frac{\delta^2f}{\delta y\delta x}(x + \tau \cdot \Delta x, y+\xi\cdot\Delta y)
+        \end{array}.
+    \]
+
+    Используя непрерывность частных производных при $ \Delta x \rightarrow0 $ и $ \Delta y \rightarrow0 \implies $
+    \[
+        x + \xi \cdot \Delta x \rightarrow x, \quad y + \eta \cdot \Delta y \rightarrow y.
+    \]
+
+    Таким образом,
+    \[
+        \frac{\delta^2f}{\delta x\delta y} = \frac{\delta^2f}{\delta y\delta x}.
+    \]
+\end{proof}
+
+\section{Формула Тейлора}
+
+\begin{definition}[Гладкая функция класса $ C^{(k)} $]
+    Пусть $ D $ -- область в $ \R^n, \ f:D \rightarrow \R $. Будем говорить, что $ f $ является \emph{гладкой функцией класса $ C^{(k)} $} ($ k $-го порядка), то есть $ f\in C^{(k)}(D,\R) $, если $ f $ имеет непрерывные частные производные до $k$-го порядка включительно.
+\end{definition}
+
+\begin{theorem}[Формула Тейлора]
+    Пусть $D$ -- область в $\R^n, \ f:D\rightarrow\R, \ f\in C^{(k)}(D,\R), \ x \in D, \ x + h \in D, \ [x;x+h] \subset D$. Тогда:
+    \[
+        f(x + h) = f(x) + \sum_{i=1}^{k-1}\frac{1}{i!}\left(\frac{\delta}{\delta x^1}\cdot h^1 + \ldots + \frac{\delta}{\delta x^n}\cdot h^n\right)^i \cdot f(x) + R^k,
+    \]
+    где $R^k$ -- остаточный член,
+    \[
+        R^k = \frac{1}{k!}\left(\frac{\delta}{\delta x^1}\cdot h^1 + \ldots + \frac{\delta}{\delta x^n}\cdot h^n\right)^k \cdot f(x + \xi \cdot h),
+    \]
+    \[
+        x = (x^1,\ldots,x^n), \quad h = (h^1,\ldots,h^n).
+    \]
+\end{theorem}
+
+\begin{proof}
+    Рассмотрим функцию:
+    \[
+        \phi(t) = f(x + t\cdot h), \ t \in [0;1]
+    \]
+
+    Применим формулу Тейлора к $\phi(t)$:
+    \begin{multline}\label{eq:2}
+        \phi(1) = \phi(0) + \frac{1}{1!} \cdot \phi'(0) \cdot (1-0) + \frac{1}{2!} \cdot \phi''(0) \cdot (1-0)^2 + \\
+        + \frac{1}{3!} \cdot \phi'''(0) \cdot (1-0)^3 + \ldots + \frac{1}{k!} \cdot \phi^{(k)} \cdot (1-0)^k.
+    \end{multline}
+
+    \[
+        \phi(1) = f(x + h), \quad \phi(0) = f(x).
+    \]
+
+    \begin{multline*}
+        \phi'(0) = f'(x + th) \cdot (x + t\cdot h)_k'\Big|_{t = 0} = \\
+        = \left(\begin{matrix}
+                \frac{\delta f(x + t\cdot h)}{\delta x^1} & \frac{\delta f(x + t\cdot h)}{\delta x^2} & \cdots & \frac{\delta f(x + t\cdot h)}{\delta x^n}
+            \end{matrix}\right) \cdot \left(\begin{matrix}
+                h^1 \\ h^2 \\ \vdots \\ h^n
+            \end{matrix}\right)\Bigg|_{t=0} = \\
+        = \left(\frac{\delta f(x + t\cdot h)}{\delta x^1} \cdot h^1 + \frac{\delta f(x+t\cdot h)}{\delta x^2} \cdot h^2 + \ldots + \frac{\delta f(x + t\cdot h)}{\delta x^n}\cdot h^n\right) \Bigg|_{t=0} = \\
+        = \frac{\delta f}{\delta x^1}(x)\cdot h^1 + \frac{\delta f}{\delta x^2}(x)\cdot h^2 + \ldots + \frac{\delta f}{\delta x^n}(x) \cdot h^n = \\
+        = \left(\frac{\delta}{\delta x^1} \cdot h^1 + \ldots + \frac{\delta}{\delta x^n}\cdot h^n\right)\cdot f(x)
+    \end{multline*}
+    \begin{multline*}
+        \phi''(0) = \left(\sum_{i = 1}^{n} \frac{\delta f(x + t\cdot h)}{\delta x^i}\cdot h^i\right)_t' \Bigg|_{t = 0} = \\
+        = \left(\sum_{i = 1}^{n} \sum_{j = 1}^{n} \frac{\delta^2 f(x + t\cdot h)}{\delta x^i \delta x^j}\cdot h^i h^j\right) \Bigg|_{t = 0} = \sum_{i = 1}^{n}\sum_{j = 1}^{n}\frac{\delta^2 f(x)}{\delta x^i \delta x^j}\cdot h^i h^j = \\
+        = \left(\frac{\delta}{\delta x^1}\cdot h^1 + \ldots + \frac{\delta}{\delta x^n}\cdot h^n\right)^2 \cdot f(x)
+    \end{multline*}
+
+    И так далее. Подставим получившиеся выражения в \ref{eq:2} и получим искомое.
+\end{proof}
+
+\begin{example}
+    Запишем формулу Тейлора для функции $f(x,y)$:
+    \begin{multline*}
+        f(x,y) = f(x_0,y_0) + \frac{1}{1!}\left(\frac{\delta f}{\delta x}(x_0,y_0)\Delta x + \frac{\delta f}{\delta y}(x_0,y_0)\Delta y\right) + \\
+        + \frac{1}{2!}\bigg(\frac{\delta^2f}{\delta x^2}(x_0,y_0)\cdot (\Delta x)^2 + \\
+        + 2 \cdot \frac{\delta^2f}{\delta x \delta y}(x_0,y_0)\Delta x\Delta y + \frac{\delta^2f}{\delta y^2}(x_0,y_0)\cdot(\Delta y)^2\bigg) +\\
+        + \frac{1}{3!}\cdot \bigg(\frac{\delta^3f}{\delta x^3}(x_0,y_0) \cdot (\Delta x)^3 + 3 \cdot \frac{\delta^3f}{\delta x^2\delta y}(x_0, y_0) \cdot (\Delta x)^2\Delta y + \\
+        + 3\cdot\frac{\delta^3f}{\delta x\delta y^2}(x_0,y_0)\cdot \Delta x(\Delta y)^2 + \frac{\delta^3f}{\delta y^3}(x_0,y_0)\cdot(\Delta y)^3\bigg) + \ldots \\
+        \ldots + \frac{1}{k!}\cdot\left(\frac{\delta}{\delta x}\Delta x + \frac{\delta}{\delta y}\Delta y\right)^k \cdot f(x_0 + \xi \cdot \Delta x, y_0 + \eta \cdot \Delta y),
+    \end{multline*}
+    \[
+        \Delta x = x - x_0, \quad \Delta y = y - y_0.
+    \]
+\end{example}
+
+\section{Экстремумы функций многих переменных}
+
+\begin{definition}[Точка локального максимума (минимума)]
+    Пусть $ X $ -- метрическое пространство (МП), $ f:X \rightarrow\R $. Точка $ x_0 $ называется \emph{точкой локального максимума (минимума)}, если $ \exists U(x_0) \subset X: \ \forall x \in U(x_0) $
+    \[
+        f(x)\leqslant f(x_0) \quad \big(f(x) \geqslant f(x_0)\big)
+    \]
+\end{definition}
+
+\begin{theorem}[Необходимое условие локального экстремума]
+    Пусть $D$ -- область в $ \R^n, \ f:D \rightarrow\R, \ x_0 \in D $ -- точка локального экстремума, тогда в точке $ x_0 \ \forall i = \overline{1,n}$
+    \[
+        \frac{\delta(x_0)}{\delta x^i} = 0.
+    \]
+\end{theorem}
+
+\begin{proof}
+    Фиксируем все переменные за исключением $ x^i $, тогда можно рассматривать функцию $ f(x^1,\ldots,x^i,\ldots,x^n) $ как функцию одной переменной, для которой $ x_0 $ -- точка локального экстремума, следовательно $ \frac{\delta f}{\delta x^i}(x_0) = 0 $,
+    \[
+        i \text{ -- произвольная }\implies \forall i \text{ выполняется}.
+    \]
+\end{proof}
+
+\begin{definition}[Критическая точка функции]
+    Пусть $ D $ -- область в $ \R^n, \ f:D \rightarrow\R^k $ -- дифференцируемо в точке $ x_0 \in D $. Точка $ x_0 $ называется \emph{критической точкой функции} $ f(x) $, если:
+    \[
+        rank \mathfrak{I} f(x_0) < \min(n,k),
+    \] где $ \mathfrak{I}f(x_0) $ -- матрица Якоби функции $ f(x_0) $.
+\end{definition}
+
+\begin{example}
+    $f:\mathbb{R}^3 \rightarrow\mathbb{R}^2$
+    \[
+        \begin{array}{l}
+            f(x,y,z) = \left(\begin{matrix}
+                                     x\cdot y \\ y - z
+                                 \end{matrix}\right) = \left(\begin{matrix}
+                                                                 u \\ v
+                                                             \end{matrix}\right) \\
+            \mathfrak{I} f(x,y,z) = \left(\begin{matrix}
+                                                  \frac{\delta u}{\delta x} & \frac{\delta u}{\delta y} & \frac{\delta u}{\delta z} \\ \frac{\delta v}{\delta x} & \frac{\delta v}{\delta y} & \frac{\delta v}{\delta z}
+                                              \end{matrix}\right) = \left(\begin{matrix}
+                                                                              y & x & 0 \\ 0 & 1 & -1
+                                                                          \end{matrix} \right)
+        \end{array} \implies
+    \]
+    \[
+        \implies (x_0) = \left\{ \begin{array}{l}
+            x = 0 \\
+            y = 0 \\
+            z = t
+        \end{array}\right.\text{ -- критическая точка}.
+    \]
+
+    \begin{equation*}
+        n = 3, \quad k = 2
+    \end{equation*}
+\end{example}
+
+Множество точек прямой, получаемой пересечением плоскостей $x = 0$ и $y = 0$ -- множество критических точек функции $f(x,y,z)$.
+
+\begin{definition}[Квадратичная форма на касательном пространстве]
+    Пусть $ D $ -- область в $ \R^n, \ f: D \rightarrow\R, \ f $ имеет производную в точке $ x_0 \in D $. На касательном пространстве $ T\R_{(x_0)}^n $ определим квадратичную форму
+    \[
+        Q(h) = \sum_{i,j = 1}^{n}\frac{\delta^2f}{\delta x^i\delta x^j}(x_0)\cdot h^ih^j,\quad Q:T\R^n \rightarrow \R.
+    \]
+\end{definition}
+
+\begin{theorem}[Достаточное условие локального экстремума]
+    Пусть $D$ -- область в $\R^n, \ f: D \rightarrow \R$ дифференцируема в точке $x \in D, \ x$ -- критическая точка для $f, \ f \in C^n(D,\R), \ n = 2$. Тогда, если:
+    \begin{enumerate}
+        \item $Q(h)$ -- знакоположительна, то в точке $x$ -- локальный минимум.
+        \item $Q(h)$ -- знакоотрицательна, то в точке $x$ -- локальный максимум.
+        \item $Q(h)$ может принимать различные значения ($>0, < 0$), тогда в точке $x$ нет экстремума.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    По формуле Тейлора:
+    \begin{multline*}
+        f(x+h) - f(x) = \frac{1}{2}\cdot \sum_{i,j=1}^{n}\frac{\delta^2f(x)}{\delta x^i \delta x^j}\cdot h^ih^j + o\big(\|h\|^2\big) = \\
+        = \frac{\|h\|^2}{2}\cdot\left(\sum_{i,j=1}^{n}\frac{\delta^2f(x)}{\delta x^i\delta x^j}\cdot \frac{h^i}{\|h\|}\frac{h^j}{\|h\|} + \alpha(h)\right) = \left|\begin{array}{c}
+            \text{где }\alpha(h)\rightarrow 0\text{ при} \\
+            h \rightarrow 0
+        \end{array}\right| = \\
+        = \frac{\|h\|^2}{2}\cdot\left(Q\left(\frac{h}{\|h\|}\right) + \alpha(h)\right).
+    \end{multline*}
+
+    Вектор $\frac{h}{\|h\|} < S^{(n-1)}$ -- единичная $(n-1)$-мерная сфера. Сфера $S^{(n-1)}$ -- компактное множество $\implies$ по теореме Больцано - Вейерштраса, $\exists e_1,e_2 \in S^{(n-1)}:$
+    \[
+        Q_1(e_1) = \max Q(h) = M, \quad Q_2(e_2) = \min Q(h) = m
+    \]
+
+    \begin{enumerate}
+        \item Если $Q(h)$ -- знакоположительна $\implies m > 0$. Следовательно, $ \exists \delta > 0: \forall h \ \|h\| < \delta, \ |\alpha(h)| < m $
+              \[
+                  Q\left(\frac{h}{\|h\|}\right) + \alpha(h) > 0,
+              \] следовательно, $ \forall h: \ \|h\| < \delta $
+              \[
+                  f(x+h) - f(x) > 0,
+              \] по определению, $x$ -- точка локального минимума (здесь $\|h\| < \delta$ -- аналог понятия окрестности точки $x$).
+        \item Если $Q(h)$ -- знакоотрицательна, то $M < 0$. Тогда $ \exists \delta > 0: \forall h \ \|h\| < \delta \ |\alpha(h)| < -M$
+              \[
+                  Q\left(\frac{h}{\|h\|}\right) + \alpha(h) < 0,
+              \] следовательно, $ \forall h: \ \|h\| < \delta $
+              \[
+                  f(x+h) - f(x) < 0,
+              \] тогда $ x $ -- точка локального максимума.
+        \item Если $Q(h)$ -- знакопеременна, то $m < 0 < M, \ \forall t > 0$
+              \[
+                  Q(t\cdot e_2) < 0, \quad Q(t \cdot e_1) > 0,
+              \] тогда в точке $x$ нет экстремума.
+    \end{enumerate}
+\end{proof}
+
+\begin{remark}
+    На практике для определения $\max$ и $\min$ можно пользоваться критерием Сильвестра из алгебры.
+\end{remark}
+
+\begin{definition}[Наеявно заданная уравнением функция]
+    Пусть $D$ -- область в $\R^k, \ \Omega$ -- область в $\R^k, \ F: D \times \Omega \rightarrow \mathbb{R}^k $.
+
+    Пусть функция $f:D \rightarrow\Omega:$
+    \[
+        y = f(x) \iff F(x,y) = 0.
+    \]
+
+    Говорят, что уравнение $F(x,y) = 0$ \emph{неявно задает} функцию $y = f(x)$.
+\end{definition}
+
+\begin{example}
+    $x^2 + y^2 = 1$
+    \[
+        y = \pm\sqrt{1 - x^2}, \quad y = \left\{\begin{array}{rl}
+            \sqrt{1-x^2},  & x \in Q    \\
+            -\sqrt{1-x^2}, & x \notin Q
+        \end{array}\right.
+    \]
+\end{example}
