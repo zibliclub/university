@@ -1,0 +1,389 @@
+\lesson{3}{от 17 сен 2023 8:44}{Продолжение}
+
+
+\begin{definition}[$ k $-мерная поверхность]
+    Множество $ S \subset \R^n $ называется \emph{$ k $-мерной поверхностью}, если $ \forall x \in S \ \exists U(x)\subset\R^n $ и $ \exists $ диффиоморфизм $ \phi: U(x)\rightarrow I^n $:
+    \[
+        \phi\big(U(x)\cap S\big) = I^k,
+    \] где $ I^n = \big\{x \in \R^n \ \big| \ |x^i| < 1 \big\} $,
+    \[
+        I^k = \big\{x \in \R^n \ \big| \ x^{k+1} = x^{k+2} = \ldots = x^n = 0\big\}.
+    \]
+\end{definition}
+
+\begin{example}
+    $S = \R^n$ -- поверхность в $\R^n$,
+    \[
+        t^i(x^i) = \frac{2}{\pi}\cdot \arctan x^i,
+    \]
+    \begin{multline*}
+        \mathfrak{I} = \left(\begin{matrix}
+                \frac{\delta t^1}{\delta x^1} & \frac{\delta t^1}{\delta x^2} & \ldots & \frac{\delta t^1}{\delta x^n} \\
+                \frac{\delta t^2}{\delta x^1} & \frac{\delta t^2}{\delta x^2} & \ldots & \frac{\delta t^2}{\delta x^n} \\
+                \vdots                        & \vdots                        & \ddots & \vdots                        \\
+                \frac{\delta t^n}{\delta x^1} & \frac{\delta t^n}{\delta x^2} & \ldots & \frac{\delta t^n}{\delta x^n} \\
+            \end{matrix}\right) = \\
+        = \left(\begin{matrix}
+                \frac{2}{\pi} \cdot \frac{1}{1 + (x^1)^2} & 0                                         & \ldots & 0                                         \\
+                0                                         & \frac{2}{\pi} \cdot \frac{1}{1 + (x^2)^2} & \ldots & 0                                         \\
+                \vdots                                    & \vdots                                    & \ddots & \vdots                                    \\
+                0                                         & 0                                         & \ldots & \frac{2}{\pi} \cdot \frac{1}{1 + (x^n)^2}
+            \end{matrix}\right)
+    \end{multline*}
+\end{example}
+
+\begin{statement}
+    Пусть задана система уравнений:
+    \begin{equation}\label{eq:7}
+        \left\{\begin{array}{l}
+            F^1(x^1,\ldots,x^n) = 0 \\
+            \vdots                  \\
+            F^{n-k}(x^1,\ldots,x^n) = 0
+        \end{array}\right.,\quad F^i(x)\in C^{(1)}
+    \end{equation}
+
+    Кроме того,
+    \[
+        \left|\begin{matrix}
+            \frac{\delta F^1}{\delta x^1}     & \ldots & \frac{\delta F^1}{\delta x^n}     \\
+            \vdots                            & \ddots & \vdots                            \\
+            \frac{\delta F^{n-k}}{\delta x^1} & \ldots & \frac{\delta F^{n-k}}{\delta x^n}
+        \end{matrix}\right|(x) \ne 0, \quad \forall x \in \R^n
+    \]
+
+    Тогда решение этой системы является $k$-мерной поверхностью в $\R^n$.
+\end{statement}
+
+\begin{proof}
+    По теореме о неявной функции, система \ref{eq:7} эквивалентна системе
+    \[
+        \left\{\begin{array}{l}
+            x^{k+1} = f^1(x^1,\ldots,x^k) \\
+            x^{k+2} = f^2(x^1,\ldots,x^k) \\
+            \vdots                        \\
+            x^n = f^{n-k}(x^1,\ldots,x^k)
+        \end{array}\right.
+    \]
+
+    Положим:
+    \begin{align*}
+        t^1     & = x^1                               \\
+        t^2     & = x^2                               \\
+        \vdots                                        \\
+        t^k     & = x^k                               \\
+        t^{k+1} & = x^{k+1} - f^1(x^1,\ldots,x^k) = 0 \\
+        t^{k+2} & = x^{k+2} - f^2(x^1,\ldots,x^k) = 0 \\
+                & \vdots                              \\
+        t^{n}   & = x^n - f^{n-k}(x^1,\ldots,x^k) = 0
+    \end{align*}
+
+    Таким образом построенное отображение является диффиоморфизмом $\implies$ решение системы \ref{eq:7} -- $k$-мерная поверхность в $\R^n$.
+\end{proof}
+
+\begin{definition}[Локальная карта или параметризация поверхности]
+    Пусть $S$ -- $k$-мерная поверхность в $\R^n, \ x_0 \in S$ и $\phi: U(x_0) \rightarrow I^n$ -- диффиоморфизм:
+    \[
+        \phi\big(U(x_0)\cap S\big) = I^k.
+    \]
+
+    Ограничение $\phi^{-1}$ на $I^k$ будем называть \emph{локальной картой} или \emph{параметризацией поверхности} $S$ в окрестности точки $x_0$.
+\end{definition}
+
+\begin{definition}[Касательное пространство]
+    Пусть $ S $ -- $ k $-мерная поверхность в $ \R^n, \ x_0 \in S, \ x = x(t):\R^k \rightarrow \R^n $ -- параметризация $ S $ в окрестности точки $ x_0 $, при этом $ x_0 = x(0) $.
+
+    \emph{Касательным пространством} (или плоскостью) к $S$ в точке $x_0$ называется $k$-мерная плоскость, заданная уравнением:
+    \begin{equation}\label{eq:8}
+        x = x_0 + x'(0) \cdot t,
+    \end{equation}
+    \begin{align*}
+        x_0   & = (x^1_0,x^2_0,\ldots,x^n_0)                                                   \\
+        x(t)  & = \left\{\begin{array}{l}
+                             x^1(t^1,\ldots,t^k) \\
+                             x^2(t^1,\ldots,t^k) \\
+                             \vdots              \\
+                             x^n(t^1,\ldots,t^k)
+                         \end{array}\right.                                                   \\
+        x'(t) & = \left(\begin{matrix}
+                                \frac{\delta x^1}{\delta t^1} & \ldots & \frac{\delta x^1}{\delta t^k} \\
+                                \vdots                        & \ddots & \vdots                        \\
+                                \frac{\delta x^n}{\delta t^1} & \ldots & \frac{\delta x^n}{\delta t^k} \\
+                            \end{matrix}\right)(t), \quad t = \left(\begin{matrix}
+                                                                        t^1 \\ t^2 \\ \vdots \\ t^k
+                                                                    \end{matrix}\right)
+    \end{align*}
+
+    Таким образом касательное пространство задается системой из \ref{eq:8}:
+    \[
+        \left\{\begin{array}{l}
+            x^1 = x^1_0 + \frac{\delta x^1}{\delta t^1} (0)\cdot t^1 + \ldots + \frac{\delta x^1}{\delta t^k}(0)\cdot t^k \\
+            x^2 = x^2_0 + \frac{\delta x^2}{\delta t^1} (0)\cdot t^1 + \ldots + \frac{\delta x^2}{\delta t^k}(0)\cdot t^k \\
+            \vdots                                                                                                        \\
+            x^n = x^n_0 + \frac{\delta x^n}{\delta t^1} (0)\cdot t^1 + \ldots + \frac{\delta x^n}{\delta t^k}(0)\cdot t^k
+        \end{array}\right..
+    \]
+\end{definition}
+
+\begin{example}
+    Пусть $\gamma = \gamma (t)$ -- гладкая кривая в $\R^3, \ \gamma:\left\{\begin{array}{c}
+            x = x(t) \\
+            y = y(t) \\
+            z = z(t)
+        \end{array}\right.$.
+
+    Обозначим $x_0 = x(0), \ y_0 = y(0), \ z_0 = z(0)$.
+
+    \ref{eq:8} -- касательное пространство к кривой $\gamma$ в точке $x_0$.
+    \[
+        \left\{\begin{array}{l}
+            x = x_0 + x'(0) \cdot t \\
+            y = y_0 + y'(0) \cdot t \\
+            z = z_0 + z'(0) \cdot t \\
+        \end{array}\right. \implies \left\{\begin{array}{l}
+            x - x_0 = x'(0)\cdot t \\
+            y - y_0 = y'(0)\cdot t \\
+            z - z_0 = z'(0)\cdot t \\
+        \end{array}\right. \implies
+    \]
+    \[
+        \implies \frac{x - x_0}{x'(0)} = \frac{y - y_0}{y'(0)} = \frac{z - z_0}{z'(0)} = t.
+    \]
+\end{example}
+
+\begin{example}
+    $x^2 + y^2 + z^2 = 1$
+
+    Пусть $z_0 > 0$, тогда в окрестности точки $(x_0,y_0,z_0)$ сферу можно параметризировать следующими уравнениями:
+    \[
+        \left\{\begin{array}{l}
+            x = u \\
+            y = v \\
+            z = \sqrt{1 - u^2 - v^2}
+        \end{array}\right..
+    \]
+
+    Касательное пространство к сфере в точке $(x_0,y_0,z_0)$:
+    \[
+        \left(\begin{matrix}
+                x \\
+                y \\
+                z
+            \end{matrix}\right) = \left(\begin{matrix}
+                x_0 \\
+                y_0 \\
+                z_0
+            \end{matrix}\right) + \left(\begin{matrix}
+                \frac{\delta x}{\delta u} & \frac{\delta x}{\delta v} \\
+                \frac{\delta y}{\delta u} & \frac{\delta y}{\delta v} \\
+                \frac{\delta z}{\delta u} & \frac{\delta z}{\delta v} \\
+            \end{matrix}\right) (u_0,v_0) \cdot \left(\begin{matrix}
+                u \\
+                v
+            \end{matrix}\right) \implies
+    \]
+    \[
+        \implies \left\{\begin{array}{l}
+            x = x_0 + \frac{\delta x}{\delta u}(u_0,v_0) \cdot u + \frac{\delta x}{\delta v}(u_0,v_0)\cdot v \\
+            y = y_0 + \frac{\delta y}{\delta u}(u_0,v_0) \cdot u + \frac{\delta y}{\delta v}(u_0,v_0)\cdot v \\
+            z = z_0 + \frac{\delta z}{\delta u}(u_0,v_0) \cdot u + \frac{\delta z}{\delta v}(u_0,v_0)\cdot v \\
+        \end{array}\right. \implies
+    \]
+    \[
+        \implies \left\{\begin{array}{l}
+            x = x_0 + u \\
+            y = y_0 + v \\
+            z = z_0 - \frac{u_0}{\sqrt{1 - u_0^2 - v_0^2}}\cdot u - \frac{v_0}{\sqrt{1 - u_0^2 - v_0^2}}\cdot v
+        \end{array}\right..
+    \]
+\end{example}
+
+\begin{statement}
+    Пусть $S$ -- $k$-мерная поверхность в $\R^n$ задается системой уравнений:
+    \begin{equation}\label{eq:9}
+        \left\{\begin{array}{l}
+            F^1(x^1,\ldots,x^n) = 0 \\
+            \vdots                  \\
+            F^{n-k}(x^1,\ldots,x^n) = 0,
+        \end{array}\right.\text{, причем }\left|\begin{array}{ccc}
+            \frac{\delta F^1}{\delta x^{k+1}}     & \ldots & \frac{\delta F^1}{\delta x^n}     \\
+            \vdots                                & \ddots & \vdots                            \\
+            \frac{\delta F^{n-1}}{\delta x^{k+1}} & \ldots & \frac{\delta F^{n-1}}{\delta x^n} \\
+        \end{array}\right|(x_0) \ne 0
+    \end{equation}
+
+    Тогда касательная плоскость к $S$ в точке $x_0$ задается системой уравнений:
+    \[
+        \left\{\begin{array}{l}
+            \frac{\delta F^1}{\delta x^1}(x_0)\cdot (x^1-x^1_0) + \ldots + \frac{\delta F^1}{\delta x^n}(x_0)(x^n - x_0^n) = 0 \\
+            \vdots                                                                                                             \\
+            \frac{\delta F^{n-k}}{\delta x^1}(x_0)\cdot (x^1-x^1_0) + \ldots + \frac{\delta F^{n-k}}{\delta x^n}(x_0)(x^n - x_0^n) = 0
+        \end{array}\right.,
+    \]
+    или кратко:
+    \[
+        F'(x_0)\cdot(x-x_0) = 0.
+    \]
+\end{statement}
+
+\begin{proof}
+    Обозначим $(x^1,\ldots,x^k) = u, \ (x^{k+1},\ldots,x^n) = v$,
+    \[
+        F = \left(\begin{matrix}
+                F^1    \\
+                \vdots \\
+                F^{n-k}
+            \end{matrix}\right).
+    \]
+
+    Тогда условия утверждения запишем в виде:
+    \begin{equation*}
+        F(u,v) = 0, \quad \big|F'_v(u_0,v_0)\big| \ne 0.
+    \end{equation*}
+
+    Тогда по теореме о неявной функции система \ref{eq:9} эквивалентна системе
+    \[
+        \left\{\begin{array}{l}
+            u = u \\
+            v = f(u)
+        \end{array}\right..
+    \]
+
+    Тогда касательная плоскость задается:
+    \[
+        \text{роль }t = \left(\begin{array}{c}
+                t^1    \\
+                \vdots \\
+                t^k
+            \end{array}\right)\text{ играет } u = \left(\begin{array}{c}
+                x^1    \\
+                \vdots \\
+                x^k
+            \end{array}\right).
+    \]
+
+    Тогда систему можно записать в виде:
+    \[
+        \left\{\begin{array}{l}
+            x^1 = t^1                       \\
+            \vdots                          \\
+            x^k = t^k                       \\
+            x^{k + 1} = f^1(t^1,\ldots,t^k) \\
+            \vdots                          \\
+            x^n = f^{n-k}(t^1,\ldots,t^k)
+        \end{array}\right.,
+    \]
+    \[
+        t_0 = (t_0^k,\ldots,t_0^k) = (x_0^1,\ldots,x_0^k).
+    \]
+
+    \[
+        x'(t_0) = \left(\begin{matrix}
+                \frac{\delta x^1}{\delta t^1}     & \ldots & \frac{\delta x^1}{\delta t^k}     \\
+                \vdots                            & \ddots & \vdots                            \\
+                \frac{\delta x^k}{\delta t^1}     & \ldots & \frac{\delta x^k}{\delta t^k}     \\
+                \frac{\delta f^1}{\delta t^1}     & \ldots & \frac{\delta f^1}{\delta t^k}     \\
+                \vdots                            & \ddots & \vdots                            \\
+                \frac{\delta f^{n-k}}{\delta t^1} & \ldots & \frac{\delta f^{n-k}}{\delta t^k}
+            \end{matrix}\right)(t_0),
+    \]
+    \[
+        x = x_0 + x'(t_0)\cdot t.
+    \]
+    \begin{equation}\label{eq:10}
+        \left\{\begin{array}{l}
+            x^1 = x_0^1 + 1 \cdot t^1                                                                                                 \\
+            \vdots                                                                                                                    \\
+            x^k = x_0^k + 1 \cdot t^k                                                                                                 \\
+            x^{k+1} = x_0^{k+1} + \frac{\delta f^1}{\delta t^1}(t_0) \cdot t^1 + \ldots + \frac{\delta f^1}{\delta t^k}(x_0)\cdot t^k \\
+            \vdots                                                                                                                    \\
+            x^n = x_0^n + \frac{\delta f^{n-k}}{\delta t^1}(t_0)\cdot t^1 + \ldots + \frac{\delta f^{n-k}}{\delta t^k}(t_0)\cdot t^k
+        \end{array}\right.
+    \end{equation}
+
+    Из \ref{eq:10} следует, что:
+    \begin{align*}
+         & t^1 = x^1 - x_0^1, \\
+         & t^2 = x^2 - x_0^2, \\
+         & \vdots             \\
+         & t^k = x^k - x_0^k.
+    \end{align*}
+
+    Из теоремы \ref{theorem:1}:
+    \[
+        f'(u_0) = -\big[F_v'(u_0,v_0)\big]^{-1} \cdot F_u'(u_0,v_0).
+    \]
+
+    Преобразуем \ref{eq:10}:
+    \[
+        \left\{\begin{array}{l}
+            \left.\begin{array}{l}
+                      x^1 - x_0^1 = t^1 \\
+                      \vdots            \\
+                      x^k - x_0^k = t^k
+                  \end{array}\right\} \ u - u_0 = u - u_0                                                                                                \\
+            x^{k+1} - x_0^{k+1} = \frac{\delta f^1}{\delta t^1}(t_0)\cdot (x^1 - x_0^1) + \ldots + \frac{\delta f^1}{\delta t^k}(t_0)\cdot (x^k - x_0^k) \\
+            \vdots                                                                                                                                       \\
+            x^n - x_0^n = \frac{\delta f^{n-k}}{\delta t^1}(t_0)\cdot (x^1 - x_0^1) + \ldots + \frac{\delta f^{n-k}}{\delta t^k}(t_0)\cdot (x^k - x_0^k)
+        \end{array}\right.
+    \]
+    \[
+        \left\{\begin{array}{l}
+            u-u_0 = u-u_0 \\
+            v-v_0 = f'(u_0) \cdot (u-u_0)
+        \end{array}\right.
+    \]
+    \[
+        \left\{\begin{array}{l}
+            u-u_0 = u-u_0 \\
+            v - v_0 = \underbrace{-\big[F_v'(u_0,v_0)\big]^{-1}\cdot F_u'(u_0,v_0)\cdot (u-u_0)}_{f'(u_0)} \quad \Big| \cdot F_v'(u_0,v_0)
+        \end{array}\right.
+    \]
+    $ \implies \big[F_v'(u_0,v_0)\big](v-v_0) + F_u'(u_0,v_0)\cdot(u-u_0) = 0 $.
+\end{proof}
+
+Итак, мы вывели, что если поверхность задана системой уравнений
+\[
+    \left\{\begin{array}{l}
+        F^1(x^1,\ldots,x^n) = 0 \\
+        \vdots                  \\
+        F^{n-k}(x^1,\ldots,x^n) = 0
+    \end{array}\right.\text{ или }F(x) = 0,
+\]
+\[
+    F = \left(\begin{matrix}
+            F^1(x) \\
+            \vdots \\
+            F^{n-k}(x)
+        \end{matrix}\right), \begin{array}{l}
+        x = (x^1,\ldots,x^n) \\
+        x_0 = (x_0^1,\ldots,x_0^n)
+    \end{array}.
+\]
+
+Тогда уравнение касательной плоскости кратко записывается:
+\[
+    F_x'(x_0)\cdot(x-x_0) = 0.
+\]
+
+Обозначим $x - x_0 = \xi$, то есть:
+\[
+    \xi = \left(\begin{matrix}
+        \xi^1  \\
+        \vdots \\
+        \xi^n
+    \end{matrix}\right) = \left(\begin{matrix}
+        x'-x_0' \\
+        \vdots  \\
+        x^n-x_0^n
+    \end{matrix}\right).
+\]
+
+Таким образом получаем, что уравнение касательного пространства (плоскости) имеет вид:
+\[
+    F_x'(x_0)\cdot \xi = 0.
+\]
+
+Таким образом касательнаое пространство (плоскость) к поверхности, заданной уравнением $F(x) = 0$, в точке $x_0$ состоит из векторов $\xi$, удовлетворяющих уравнению:
+\begin{equation}\label{eq:11}
+    F_x'(x_0)\cdot \xi = 0
+\end{equation}
