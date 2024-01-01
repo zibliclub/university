@@ -3,13 +3,15 @@
 
 \section{Производная по вектору}
 
-Пусть $ x = (x_1,x_2,x_3) = x(t), \ f\big(x(t)\big) = f(x_1,x_2,x_3)$, тогда:
+\begin{note}
+    Пусть $ x = (x_1,x_2,x_3) = x(t), \ f\big(x(t)\big) = f(x_1,x_2,x_3)$, тогда:
 
-\begin{multline*}
-    \frac{df\big(x(t)\big)}{dt} = \frac{\delta f}{\delta x_1} \cdot \frac{dx_1}{dt} + \frac{\delta f}{\delta x_2} \cdot \frac{dx_2}{dt} + \frac{\delta f}{\delta x_3} \cdot \frac{dx_3}{dt} = \\
-    = \frac{\delta f}{\delta x_1} \cdot v_1 + \frac{\delta f}{\delta x_2} \cdot v_2 + \frac{\delta f}{\delta x_3} \cdot v_3,
-\end{multline*}
-где $\vec{v} = \{v_1,v_2,v_3\}$ -- скорость частицы, перемещающейся по $\gamma$-ну $x(t)$.
+    \begin{multline*}
+        \frac{df\big(x(t)\big)}{dt} = \frac{\delta f}{\delta x_1} \cdot \frac{dx_1}{dt} + \frac{\delta f}{\delta x_2} \cdot \frac{dx_2}{dt} + \frac{\delta f}{\delta x_3} \cdot \frac{dx_3}{dt} = \\
+        = \frac{\delta f}{\delta x_1} \cdot v_1 + \frac{\delta f}{\delta x_2} \cdot v_2 + \frac{\delta f}{\delta x_3} \cdot v_3,
+    \end{multline*}
+    где $\vec{v} = \{v_1,v_2,v_3\}$ -- скорость частицы, перемещающейся по $\gamma$-ну $x(t)$.
+\end{note}
 
 \begin{definition}[Производная функции по вектору]
     Пусть $ D $ в $ \R^n $ -- область, $ f:D\rightarrow \R, \ x_0 \in D $, вектор $ v\in T\R_{x_0}^n $ -- касательное пространство к $ R^n $ в точке $ x_0 $ (совокупность всех векторов, исходящих из точки $ x_0 $).
@@ -19,6 +21,8 @@
         \frac{\delta f}{\delta \vec{v}} = D \vec{v} f(x_0) \coloneqq \underset{t \rightarrow 0}{\lim}\frac{f(x_0 + tv) - f(x_0)}{t}\text{, если }\lim \exists.
     \]
 \end{definition}
+
+\newpage
 
 \begin{statement}
     Пусть $ f:D\rightarrow\R $ -- дифференцируемо в точке $ x_0\in D $. Тогда $ \forall \vec{v}\in T\R_{x_0}^n \exists \frac{\delta f}{\delta \vec{v}}(x_0):$
@@ -68,6 +72,8 @@
     где $\vec{a}\cdot \vec{x}$ -- скалярное произведение.
 \end{statement}
 
+\newpage
+
 \begin{definition}[Градиент функции в точке]
     Пусть $f:D\rightarrow \R, \ D$ -- область в $\R^n, \ f$ -- дифференцируема в точке $x \in D$. Вектор $\vec{a} \in \R^n$:
     \[
@@ -108,7 +114,11 @@
     \]
 \end{example}
 
-Смысл градиента: градиент показывает направление самого быстрого возрастания функции.
+\begin{note}[Смысл градиента]
+    Градиент показывает направление самого быстрого возрастания функции.
+\end{note}
+
+\newpage
 
 \section{Основные теоремы дифференциального исчисления функций многих переменных}
 
@@ -150,8 +160,8 @@
     Следовательно, по теореме Лагранжа:
     \[
         \begin{array}{cccl}
-            F(1)    & - & F(0)    & = F'(\tau)\cdot(1-0), \ \tau \in (0;1) \\
-            \verteq &   & \verteq &                                        \\
+            F(1)    & - & F(0)    & = F'(\tau)\cdot(1-0), \ \tau \in (0;1)       \\
+            \verteq &   & \verteq &                                              \\
             f(x+h)  & - & f(x)    & = \Big(f\big(\gamma(\tau)\big)\Big)' \cdot 1
         \end{array},
     \]
@@ -162,9 +172,9 @@
     Пусть $ \gamma(\tau) = \xi \in D $, тогда:
     \[
         f(x+h) - f(x) = \left(\begin{matrix}
-                \frac{\delta f}{\delta x_1}(\xi) & \frac{\delta f}{\delta x_2}(\xi) & \cdots & \frac{\delta f}{\delta x_n}(\xi)
+                \frac{\delta f}{\delta x_1}(\xi) & \cdots & \frac{\delta f}{\delta x_n}(\xi)
             \end{matrix}\right) \cdot \left(\begin{matrix}
-                h^1 \\ h^2 \\ \vdots \\ h^n
+                h^1 \\ \vdots \\ h^n
             \end{matrix}\right) = f'(\xi)\cdot h.
     \]
 \end{proof}
@@ -176,22 +186,22 @@
 \begin{proof}
     Пусть $ x_0 \in D $ и $ B(x_0,\rho)\subset D $ -- шар $ \exists $, так как $ D $ -- область. Тогда $ \forall x \in B(x_0,\rho) \quad [x_0;x]\subset B(x_0,\rho)\subset D $. Следовательно:
     \[
-       f(x) - f(x_0) = \equalto{f'(\xi)}{\left\{\frac{\delta f}{\delta x_1}(\xi),\ldots,\frac{\delta f}{\delta x_n}(\xi)\right\}}\cdot (x-x_0) = 0.
+        f(x) - f(x_0) = \equalto{f'(\xi)}{\left\{\frac{\delta f}{\delta x_1}(\xi),\ldots,\frac{\delta f}{\delta x_n}(\xi)\right\}}\cdot (x-x_0) = 0.
     \]
 
     Таким образом, $ \forall x \in B(x_0,\rho) \ f(x) = f(x_0) $.
 
     Построим путь из точки $ x_0 $ к некоторой точке $ x \in D $:
     \[
-       \gamma:[0;1]\rightarrow D, \quad \begin{array}{l}
-          \gamma(0) = x_0 \\
-          \gamma(1) = x
-       \end{array}.
+        \gamma:[0;1]\rightarrow D, \quad \begin{array}{l}
+            \gamma(0) = x_0 \\
+            \gamma(1) = x
+        \end{array}.
     \]
 
     По определению пути, $ \gamma $ -- непрерывно. Тогда $ \exists\delta: \ \forall 0 \leqslant t \leqslant\delta$
     \[
-       \gamma(t) \in B(x_0,\rho) \implies f\big(\gamma(t)\big) = f(x_0), \ t \in [0;\delta],
+        \gamma(t) \in B(x_0,\rho) \implies f\big(\gamma(t)\big) = f(x_0), \ t \in [0;\delta],
     \] где $ t $ -- точка из $ B(x_0,\rho) $.
 
     Пусть $ \Delta = \sup\delta \implies f\big(\gamma(\Delta)\big) = f(x_0) $. Покажем, что $\Delta = 1$.

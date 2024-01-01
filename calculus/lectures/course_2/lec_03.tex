@@ -128,62 +128,62 @@
     \]
 \end{proof}
 
-Далее, рассмотрим общий случай.
+\begin{note}[Общий случай]
+    Рассмотрим систему уравнений:
+    \begin{equation}
+        \left\{\begin{array}{l}\label{eq:5}
+            F^1 (x^1,\ldots,x^m,y^1,\ldots,y^n) = 0 \\
+            F^2 (x^1,\ldots,x^m,y^1,\ldots,y^n) = 0 \\
+            \vdots                                  \\
+            F^n (x^1,\ldots,x^m,y^1,\ldots,y^n) = 0
+        \end{array}\right.,
+    \end{equation} которую будем решать относительно $ y^1,\ldots,y^n $, то есть искать \emph{локально} эквивалентную систему функциональных связей,
+    \begin{equation}
+        \left\{\begin{array}{l}\label{eq:6}
+            y^1 = f^1(x^1,\ldots,x^m) \\
+            y^2 = f^1(x^1,\ldots,x^m) \\
+            \vdots                    \\
+            y^n = f^1(x^1,\ldots,x^m)
+        \end{array}\right..
+    \end{equation}
 
-Рассмотрим систему уравнений:
-\begin{equation}
-    \left\{\begin{array}{l}\label{eq:5}
-        F^1 (x^1,\ldots,x^m,y^1,\ldots,y^n) = 0 \\
-        F^2 (x^1,\ldots,x^m,y^1,\ldots,y^n) = 0 \\
-        \vdots                                  \\
-        F^n (x^1,\ldots,x^m,y^1,\ldots,y^n) = 0
-    \end{array}\right.,
-\end{equation} которую будем решать относительно $ y^1,\ldots,y^n $, то есть искать \emph{локально} эквивалентную систему функциональных связей,
-\begin{equation}
-    \left\{\begin{array}{l}\label{eq:6}
-        y^1 = f^1(x^1,\ldots,x^m) \\
-        y^2 = f^1(x^1,\ldots,x^m) \\
-        \vdots                    \\
-        y^n = f^1(x^1,\ldots,x^m)
-    \end{array}\right..
-\end{equation}
+    Для кратности и удобства будем считать, что $ x=(x^1,\ldots,x^m), \ y = (y^1,\ldots,y^n) $, тогда систему \ref{eq:5} будем записывать как $ F(x,y) = 0 $, а систему \ref{eq:6} -- как $ y=f(x) $. Если
+    \[
+        \begin{array}{cc}
+            x_0 = (x_0^1,\ldots,x_0^m),          & y_0 = (y_0^1,\ldots,y_0^n),       \\
+            \alpha = (\alpha^1,\ldots,\alpha^m), & \beta = (\beta^1,\ldots,\beta^n),
+        \end{array}
+    \] то запись $ |x-x_0| < \alpha $ или $ |y-y_0| < \beta $ будет означать, что
+    \[
+        \begin{array}{l}
+            |x^i - x_0^i| < \alpha^i, \ i = \overline{1,m} \\
+            |y^i - y_0^i| <\beta^i,\ i = \overline{1,n}
+        \end{array}.
+    \]
 
-Для кратности и удобства будем считать, что $ x=(x^1,\ldots,x^m), \ y = (y^1,\ldots,y^n) $, тогда систему \ref{eq:5} будем записывать как $ F(x,y) = 0 $, а систему \ref{eq:6} -- как $ y=f(x) $. Если
-\[
-    \begin{array}{cc}
-        x_0 = (x_0^1,\ldots,x_0^m),          & y_0 = (y_0^1,\ldots,y_0^n),       \\
-        \alpha = (\alpha^1,\ldots,\alpha^m), & \beta = (\beta^1,\ldots,\beta^n),
-    \end{array}
-\] то запись $ |x-x_0| < \alpha $ или $ |y-y_0| < \beta $ будет означать, что
-\[
-    \begin{array}{l}
-        |x^i - x_0^i| < \alpha^i, \ i = \overline{1,m} \\
-        |y^i - y_0^i| <\beta^i,\ i = \overline{1,n}
-    \end{array}.
-\]
-
-Далее положим, что
-\begin{align*}
-     & f'(x) = \left(\begin{matrix}
-                         \frac{\delta f^1}{\delta x^1} & \cdots & \frac{\delta f^1}{\delta x^m} \\
-                         \vdots                        & \ddots & \vdots                        \\
-                         \frac{\delta f^n}{\delta x^1} & \cdots & \frac{\delta f^n}{\delta x^m}
-                     \end{matrix}\right) (x)     \\
-     & F_x'(x,y) = \left(\begin{matrix}
-                             \frac{\delta F^1}{\delta x^1} & \cdots & \frac{\delta F^1}{\delta x^m} \\
+    Далее положим, что
+    \begin{align*}
+         & f'(x) = \left(\begin{matrix}
+                             \frac{\delta f^1}{\delta x^1} & \cdots & \frac{\delta f^1}{\delta x^m} \\
                              \vdots                        & \ddots & \vdots                        \\
-                             \frac{\delta F^n}{\delta x^1} & \cdots & \frac{\delta F^n}{\delta x^m}
-                         \end{matrix}\right) (x,y) \\
-     & F_y'(x,y) = \left(\begin{matrix}
-                             \frac{\delta F^1}{\delta y^1} & \cdots & \frac{\delta F^1}{\delta y^m} \\
-                             \vdots                        & \ddots & \vdots                        \\
-                             \frac{\delta F^n}{\delta y^1} & \cdots & \frac{\delta F^n}{\delta y^m}
-                         \end{matrix}\right) (x,y)
-\end{align*}
+                             \frac{\delta f^n}{\delta x^1} & \cdots & \frac{\delta f^n}{\delta x^m}
+                         \end{matrix}\right) (x)     \\
+         & F_x'(x,y) = \left(\begin{matrix}
+                                 \frac{\delta F^1}{\delta x^1} & \cdots & \frac{\delta F^1}{\delta x^m} \\
+                                 \vdots                        & \ddots & \vdots                        \\
+                                 \frac{\delta F^n}{\delta x^1} & \cdots & \frac{\delta F^n}{\delta x^m}
+                             \end{matrix}\right) (x,y) \\
+         & F_y'(x,y) = \left(\begin{matrix}
+                                 \frac{\delta F^1}{\delta y^1} & \cdots & \frac{\delta F^1}{\delta y^m} \\
+                                 \vdots                        & \ddots & \vdots                        \\
+                                 \frac{\delta F^n}{\delta y^1} & \cdots & \frac{\delta F^n}{\delta y^m}
+                             \end{matrix}\right) (x,y)
+    \end{align*}
 
-Заметим, что матрица $ F_y'(x,y) $ -- квадратная, следовательно она обратима тогда и только тогда, когда $ \big|F_y'(x,y)\big| \ne 0 $ (определитель $ \ne 0 $).
+    Заметим, что матрица $ F_y'(x,y) $ -- квадратная, следовательно она обратима тогда и только тогда, когда $ \big|F_y'(x,y)\big| \ne 0 $ (определитель $ \ne 0 $).
 
-Обозначим матрицу, обратную к $ F_y'(x,y) $ как $ \big[F_y'(x,y)\big]^{-1} $.
+    Обозначим матрицу, обратную к $ F_y'(x,y) $ как $ \big[F_y'(x,y)\big]^{-1} $.
+\end{note}
 
 \begin{theorem}[О неявной функции, общий случай]
     Пусть $ F:U(x_0,y_0) \rightarrow \R^n $, где $ U(x_0,y_0) \subset \R^{m+n} $ -- окрестность точки $ (x_0,y_0) $ такая, что

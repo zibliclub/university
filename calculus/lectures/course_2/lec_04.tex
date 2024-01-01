@@ -199,6 +199,8 @@
     \]
 \end{example}
 
+\newpage
+
 \begin{statement}
     Пусть $S$ -- $k$-мерная поверхность в $\R^n$ задается системой уравнений:
     \begin{equation}\label{eq:9}
@@ -343,49 +345,51 @@
     $ \implies \big[F_v'(u_0,v_0)\big](v-v_0) + F_u'(u_0,v_0)\cdot(u-u_0) = 0 $.
 \end{proof}
 
-Итак, мы вывели, что если поверхность задана системой уравнений
-\[
-    \left\{\begin{array}{l}
-        F^1(x^1,\ldots,x^n) = 0 \\
-        \vdots                  \\
-        F^{n-k}(x^1,\ldots,x^n) = 0
-    \end{array}\right.\text{ или }F(x) = 0,
-\]
-\[
-    F = \left(\begin{matrix}
-            F^1(x) \\
-            \vdots \\
-            F^{n-k}(x)
-        \end{matrix}\right), \begin{array}{l}
-        x = (x^1,\ldots,x^n) \\
-        x_0 = (x_0^1,\ldots,x_0^n)
-    \end{array}.
-\]
+\begin{note}
+    Итак, мы вывели, что если поверхность задана системой уравнений
+    \[
+        \left\{\begin{array}{l}
+            F^1(x^1,\ldots,x^n) = 0 \\
+            \vdots                  \\
+            F^{n-k}(x^1,\ldots,x^n) = 0
+        \end{array}\right.\text{ или }F(x) = 0,
+    \]
+    \[
+        F = \left(\begin{matrix}
+                F^1(x) \\
+                \vdots \\
+                F^{n-k}(x)
+            \end{matrix}\right), \begin{array}{l}
+            x = (x^1,\ldots,x^n) \\
+            x_0 = (x_0^1,\ldots,x_0^n)
+        \end{array}.
+    \]
 
-Тогда уравнение касательной плоскости кратко записывается:
-\[
-    F_x'(x_0)\cdot(x-x_0) = 0.
-\]
+    Тогда уравнение касательной плоскости кратко записывается:
+    \[
+        F_x'(x_0)\cdot(x-x_0) = 0.
+    \]
 
-Обозначим $x - x_0 = \xi$, то есть:
-\[
-    \xi = \left(\begin{matrix}
-        \xi^1  \\
-        \vdots \\
-        \xi^n
-    \end{matrix}\right) = \left(\begin{matrix}
-        x'-x_0' \\
-        \vdots  \\
-        x^n-x_0^n
-    \end{matrix}\right).
-\]
+    Обозначим $x - x_0 = \xi$, то есть:
+    \[
+        \xi = \left(\begin{matrix}
+                \xi^1  \\
+                \vdots \\
+                \xi^n
+            \end{matrix}\right) = \left(\begin{matrix}
+                x'-x_0' \\
+                \vdots  \\
+                x^n-x_0^n
+            \end{matrix}\right).
+    \]
 
-Таким образом получаем, что уравнение касательного пространства (плоскости) имеет вид:
-\[
-    F_x'(x_0)\cdot \xi = 0.
-\]
+    Таким образом получаем, что уравнение касательного пространства (плоскости) имеет вид:
+    \[
+        F_x'(x_0)\cdot \xi = 0.
+    \]
 
-Таким образом касательнаое пространство (плоскость) к поверхности, заданной уравнением $F(x) = 0$, в точке $x_0$ состоит из векторов $\xi$, удовлетворяющих уравнению:
-\begin{equation}\label{eq:11}
-    F_x'(x_0)\cdot \xi = 0
-\end{equation}
+    Таким образом касательнаое пространство (плоскость) к поверхности, заданной уравнением $F(x) = 0$, в точке $x_0$ состоит из векторов $\xi$, удовлетворяющих уравнению:
+    \begin{equation}\label{eq:11}
+        F_x'(x_0)\cdot \xi = 0
+    \end{equation}
+\end{note}
