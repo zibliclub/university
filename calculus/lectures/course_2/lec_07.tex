@@ -1,0 +1,332 @@
+\lesson{7}{от 2 окт 2023 10:32}{Продолжение}
+
+
+\begin{definition}[$ m $-ый остатный ряд]
+    Пусть дан ряд \ref{eq:6.1}. Ряд вида
+    \begin{equation}\label{eq:6.3}
+        \sum_{n=m+1}^{\infty}a_n
+    \end{equation}
+    называется \emph{$ m $-ым остатным ряда} \ref{eq:6.1}.
+\end{definition}
+
+\begin{theorem}[Об остатке ряда]
+    Следующие условия эквивалентны:
+    \begin{enumerate}
+        \item Ряд \ref{eq:6.1} сходится.
+        \item Любой его остаток сходится.
+        \item Некоторый его остаток \ref{eq:6.3} сходится.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}\leavevmode
+    \begin{itemize}
+        \item Докажем, что из 1. $ \implies $ 2.
+
+              Пусть ряд \ref{eq:6.1} сходится и его сумма равна $ A $.
+
+              Пусть $ A_k^* = \sum_{n=m+1}^{m+k}a_n $ -- $ k $-тая частичная сумма ряда \ref{eq:6.3}.
+
+              Ряд \ref{eq:6.3} сходится, если $ \exists \underset{k \rightarrow\infty}{\lim} A_k^*$.
+              \[
+                  A_k^* = \underbrace{A_{m+k}}_{\begin{array}{c}
+                          \text{частичная сумма} \\
+                          \text{ряда \ref{eq:6.1}}
+                      \end{array}} - A_m.
+              \]
+              \begin{eqnarray*}
+                  \underset{k \rightarrow\infty}{\lim}A_k^* & = & \underset{k \rightarrow\infty}{\lim}(A_{m+k} - A_m) = \\
+                  = \underset{k \rightarrow\infty}{\lim}A_{m+k} - \equalto{\underset{k \rightarrow\infty}{\lim}A_m}{const = A_m} &=& A - A_m.
+              \end{eqnarray*}
+
+        \item Доказательство того, что из 2. $ \implies $ 3. -- очевидно.
+
+        \item Докажем, что из 3. $ \implies $ 1.
+
+              Пусть ряд \ref{eq:6.3} -- сходится.
+
+              Тогда при $ n > m $:
+              \[
+                  A_n = A_m + \overbrace{\equalto{A_{n-m}^*}{\sum_{k=m+1}^{m+(n-m)}a_k}}^{\begin{array}{c}
+                          m\text{-тая частичная} \\
+                          \text{сумма ряда \ref{eq:6.3}}
+                      \end{array}}
+              \]
+              \[
+                  A_n = \underbrace{a_1 + a_2 + \ldots + a_m}_{A_m} + \overbrace{\underbrace{a_{m+1} + \ldots + a_n}_{A_{n-m}^*}}^{k \text{ штук, }k=n-m}.
+              \]
+
+              Ряд \ref{eq:6.1} сходится $ \underset{\text{по опр.}}{\iff} \exists \underset{n \rightarrow\infty}{\lim}A_n $.
+
+              Рассмотрим:
+              \[
+                  \underset{n \rightarrow\infty}{\lim}A_n = \underset{n \rightarrow\infty}{\lim}(\equalto{A_m}{const} + A_{n-m}^*) = \equalto{\underset{n \rightarrow\infty}{\lim}A_m}{A_m = const} + \underbrace{\underset{n \rightarrow\infty}{\lim}A_{n-m}^*}_{\begin{array}{c}
+                      \exists \text{, так как ряд} \\
+                      \text{\ref{eq:6.3} сходится}
+                  \end{array}} \implies
+              \]
+              $ \implies \exists \underset{n \rightarrow\infty}{\lim}A_n \implies $ \ref{eq:6.1} сходится.
+    \end{itemize}
+\end{proof}
+
+\begin{note}
+    Обозначим $\alpha_m$ -- сумма $m$-того остатка ряда  $=$ сумме ряда \ref{eq:6.3}:
+    \[
+        \alpha_m = \sum_{n=m+1}^{\infty}a_n
+    \]
+    \begin{center}
+        (\ref{eq:6.3} сходится в этом случае)
+    \end{center}
+\end{note}
+
+\begin{corollary}
+    Ряд \ref{eq:6.1} сходится $\iff \underset{m\rightarrow\infty}{\lim} \alpha_m = 0$.
+\end{corollary}
+
+\begin{proof}
+    Самостоятельно.
+\end{proof}
+
+\begin{definition}[Сумма рядов]
+    Пусть даны ряды
+    \[
+        A \ \sum_{n=1}^{\infty}a_n, \quad B \ \sum_{n=1}^{\infty}b_n.
+    \]
+
+    \emph{Суммой рядов} $ A, B $ называется ряд:
+    \[
+        A+B \ \sum_{n=1}^{\infty}(a_n + b_n).
+    \]
+\end{definition}
+
+\begin{theorem}
+    Если ряды $ A,B $ сходятся, то:
+    \begin{enumerate}
+        \item $ \forall a \in \R $ ряд $ \sum_{n=1}^{\infty}\alpha a_n $ -- сходится и его сумма равна $ \alpha \cdot A $, где $ A = \sum_{n=1}^{\infty}a_n $.
+
+        \item Ряд $ A+B $ сходится и его сумма равна $ A^* + B^* $, где $ A* = \sum_{n=1}^{\infty}a_n,$ $ B* = \sum_{n=1}^{\infty}b_n $.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    \begin{enumerate}
+        \item Пусть ряд $ A $ сходится.
+
+              Рассмотрим ряд $ \sum_{n=1}^{\infty}\alpha \cdot a_n $:
+              \[
+                  A_n' = \sum_{k=1}^{n}\alpha \cdot a_k,
+              \]
+              \[
+                  \underset{n \rightarrow\infty}{\lim}A_n' = \underset{n \rightarrow\infty}{\lim}\sum_{k=1}^{n} \alpha \cdot a_k = \alpha \cdot \underset{n \rightarrow\infty}{\lim}\sum_{k=1}^{n}a_k = \alpha \cdot A
+              \]
+
+        \item Самостоятельно.
+    \end{enumerate}
+\end{proof}
+
+\section{Сходимость положительных рядов}
+
+\begin{definition}[Положительный ряд]
+    Ряд $ A $ называется \emph{положительным}, если $ \forall n \ a_n>0 $.
+\end{definition}
+
+\begin{theorem}\label{theorem:2.1}
+    Положительный ряд $ A $ сходится $ \iff $ его частичные суммы ограничены, то есть $ \exists M > 0: \ \forall n \ A_n < M $.
+\end{theorem}
+
+\begin{proof}
+    Заметим, что последовательность частичных сумм $ A_n $ возрастает, то есть $ \forall n \ A_{n+1} > A_n $.
+
+    По теореме Вейерштрасса, возрастающая последовательность $ A_n $ имеет предел $ \iff $ она ограничена, то есть $ \exists M>0: \ \forall n \ A_n < M $.
+\end{proof}
+
+\begin{theorem}[1-ый признак сравнения]\label{theorem:6.2}
+    Пусть даны ряды $ A,B $, причем $a_n > 0, \ b_n > 0 \ \forall n$.
+
+    Если $\exists N \in \mathbb{N}: \ \forall n > N \ a_n \leqslant b_n$, то:
+    \begin{enumerate}
+        \item Из сходимости ряда $B \implies$ сходимость ряда $A$.
+        \item Из расходимости ряда $A \implies$ расходимость ряда $B$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}\leavevmode
+    \begin{enumerate}
+        \item Пусть ряд $B$ -- сходится $\implies$ по теореме \ref{theorem:2.1} его частичные суммы ограничены $\implies$ по неравенству $a_n\leqslant b_n$ частичные суммы ряда $A$ также ограничены $\implies$ по \ref{theorem:2.1} ряд $A$ сходится.
+        \item Аналогично.
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}[2-ой признак сравнения]
+    Пусть даны ряды $ A,B $, причем $a_n > 0, \ b_n > 0 \ \forall n$.
+
+    Если $\underset{n\rightarrow\infty}{\lim}\frac{a_n}{b_n}=k, \ k\in [0;\infty]$, то:
+    \begin{enumerate}
+        \item При $k=\infty$ из сходимости $A \implies$ сходимость ряда $B$.
+        \item При $k=0$ из сходимости ряда $B \implies$ сходимость ряда $A$.
+        \item При $0<\equalto{k}{const \ne 0}<\infty$ ряды $A$ и $B$ ведут себя одинаково.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Переписать доказательство для несобственных интегралов, заменив слово "интеграл" на слово "ряд".
+\end{proof}
+
+\begin{theorem}[3-й признак сравнения]
+    Пусть даны ряды $ A,B $, причем $a_n > 0, \ b_n > 0 \ \forall n$.
+
+    Если $\exists N \in \mathbb{N} \cup \{0\}: \ \forall n > N \ \frac{a_{n+1}}{a_n}\leqslant\frac{b_{n+1}}{b_n} $, то:
+    \begin{enumerate}
+        \item Из сходимости ряда $B \implies$ сходимость ряда $A$.
+        \item Из расходимости ряда $A \implies$ расходимость ряда $B$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Можно считать, что $N = 0$. Тогда $\forall n > N$ имеем:
+    \[
+        \frac{a_2}{a_1}\leqslant\frac{b_2}{b_1}; \quad \frac{a_3}{a_2}\leqslant\frac{b_3}{b_2}; \quad \frac{a_4}{a_3}\leqslant\frac{b_4}{b_3}; \quad \ldots; \quad \frac{a_{n+1}}{a_n} \leqslant \frac{b_{n+1}}{b_n}.
+    \]
+
+    Перемножим левые и правые части:
+    \[
+        \frac{a_2 \cdot a_3 \cdot a_4 \cdot \ldots \cdot a_{n+1}}{a_1 \cdot a_2 \cdot a_3 \cdot \ldots \cdot a_n} \leqslant \frac{b_2 \cdot b_3 \cdot b_4 \cdot \ldots \cdot b_{n+1}}{b_1 \cdot b_2 \cdot b_3 \cdot \ldots \cdot b_n},
+    \]
+    \[
+        \frac{a_{n+1}}{a_1} \leqslant \frac{b_{n+1}}{b_n} \implies a_{n+1} \leqslant \frac{a_1}{b_1}\cdot b_{n+1}\text{ (по теореме \ref{theorem:6.2})}.
+    \]
+    \begin{enumerate}
+        \item Если ряд $B$ сходится $\implies$ сходится ряд $\sum_{n=1}^{\infty}\frac{a_1}{b_1}\cdot b_{n+1} \implies$ сходится ряд $\sum_{n=1}^{\infty}a_{n+1} \implies $ сходится $ A $.
+        \item Аналогично.
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}[Интегральный признак Коши-Маклорена]
+    Пусть дан положительный ряд $ A $.
+
+    Пусть функция $f(x)$ удовлетворяет следующим условиям:
+    \begin{enumerate}
+        \item $f(x): \ [1;+\infty) \rightarrow\R$.
+        \item $f(x)$ -- непрерывна.
+        \item $f(x)$ -- монотонна.
+        \item $f(x) = a_n, \ \forall n \in \N$.
+    \end{enumerate}
+
+    Тогда ряд $A$ и интеграл $\int_{1}^{\infty}f(x)dx$ ведут себя одинаково.
+\end{theorem}
+
+\begin{proof}
+    Ограничимся случаем, когда $f(x)$ монотонно убывает.
+
+    Рассмотрим функцию $\phi(x) = a_n$ при $n \leqslant x < n+1$ и $\psi(x) = a_{n+1}$ при $n\leqslant x <n + 1$. Тогда $\forall x \in [1;+\infty)$:
+    \[
+        \psi(x) \leqslant f(x) \leqslant\phi(x).
+    \]
+
+    Отсюда
+    \begin{multline*}
+        \int_{1}^{N}\psi(x)dx \leqslant \int_{1}^{N}f(x)dx \leqslant\int_{1}^{N}\phi(x)dx \implies \\
+        \implies \underbrace{\sum_{n=1}^{N}a_{n+1}}_{\begin{array}{c}
+            \text{частичная сумма} \\
+            \text{ряда }A
+        \end{array}} \leqslant \int_{1}^{N}f(x)dx \leqslant \underbrace{\sum_{n=1}^{N}a_n}_{\begin{array}{c}
+                \text{частичная сумма} \\
+                \text{ряда }A
+            \end{array}}
+    \end{multline*}
+    \begin{itemize}
+        \item Если интеграл сходится, то частичная сумма $\sum_{n=1}^{N}a_{n+1}$ ограничена $\implies$ ряд $A$ сходится.
+
+        \item Если интеграл расходится, то частичная сумма $\sum_{n=1}^{N}a_n$ непрерывна $\implies$ ряд $A$ -- расходится.
+
+        \item Если ряд $A$ сходится, то $\sum_{n=1}^{N}a_n$ -- ограничена $\implies$ $\int_{1}^{N}f(x)dx$ -- ограничен $\implies \int_{1}^{\infty}f(x)dx$ -- сходится.
+
+        \item Если ряд $A$ расходится $\implies$ частичная сумма $\sum_{n=1}^{N}a_{n+1}$ неограничена $\implies$ интеграл расходится.
+    \end{itemize}
+\end{proof}
+
+\begin{example}
+    $\sum_{n=1}^{\infty}\frac{1}{n^p}$.
+
+    Рассмотрим $f(x) = \frac{1}{x^p}$ на $[1;+\infty)$ -- неограниченно монотонно $\searrow$,
+    \[
+        f(n) = \frac{1}{n^p}.
+    \]
+
+    $\sum_{n=1}^{\infty}\frac{1}{n^p}$ ведет себя одинаково с интегралом $\int_{1}^{\infty}\frac{dx}{x^p}$ -- сходится при $p>1$ и расходится при $p\leqslant1 \implies$ ряд $\sum_{n=1}^{\infty}\frac{1}{n^p}$ сходится при $p>1$ и расходится при $p\leqslant1$.
+\end{example}
+
+\begin{example}
+    $\sum_{n=1}^{\infty}\frac{1}{n\cdot \ln n}$.
+
+    $f(x) = \frac{1}{x\ln x}, \ x \in [e;+\infty), \ \nearrow$, непрерывна.
+    \begin{multline*}
+        \int_{e}^{\infty}\frac{dx}{x\ln x} = \underset{b\rightarrow\infty}{\lim}\int_{e}^{b}\frac{d(\ln x)}{\ln x} =\\
+        = \underset{b\rightarrow\infty}{\lim}\big(\ln(\ln x)\big)\Big|_e^b = \underset{b\rightarrow\infty}{\lim}\ln (\ln b) = \infty \implies
+    \end{multline*}
+    $\implies$ ряд $\sum_{n=1}^{\infty}\frac{1}{n\ln n}$ расходится (по интегралу Коши-Маклорена).
+\end{example}
+
+\begin{theorem}[Радикальный признак Коши]
+    Пусть ряд $A$ положительный и $\underset{n\rightarrow\infty}{\overline{\lim}}\sqrt[n]{a_n} = q$. Тогда:
+    \begin{enumerate}
+        \item При $q < 1$ ряд $A$ сходится.
+        \item При $q > 1$ ряд $A$ расходится.
+        \item При $q = 1$ может как сходиться, так и расходиться.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}\leavevmode
+    \begin{enumerate}
+        \item Пусть $q < 1$. Возьмем число $r: \ q < r < 1$. Тогда $\exists N: \ \forall n > N$
+              \[
+                  \sqrt[n]{a_n} < r \implies a_n < r^n.
+              \]
+
+              $0 < r < 1 \implies \sum_{n=1}^{\infty}r^n$ -- сходится $\implies$ по 1-му признаку сравнения сходится ряд $A$.
+
+        \item Пусть $q > 1$, тогда существует подпоследовательность $\sqrt[n_i]{a_{n_i}} \rightarrow q$ при $i\rightarrow\infty \implies a_{n_i}\rightarrow q^{n_i} > 1 \implies a_n \nrightarrow  0 \implies $ необходимое условие сходимости не выполняется $ \implies $ ряд $A$ расходится.
+
+        \item Рассмотрим ряды $\underset{\text{расходится}}{\sum_{n=1}^{\infty}\frac{1}{n}}$ и $\underset{\text{сходится}}{\sum_{n=1}^{\infty}\frac{1}{n^2}}$:
+              \[
+                  \underset{n\rightarrow\infty}{\lim}\sqrt[n]{\frac{1}{n}} = \underset{n\rightarrow\infty}{\lim}\sqrt[n]{\frac{1}{n^2}} = 1.
+              \]
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}[Признак Даламбера]
+    Пусть ряд $A$ положительный и  \\ $ \underset{n\rightarrow\infty}{\lim}\frac{a_{n+1}}{a_n} = d $. Тогда:
+    \begin{enumerate}
+        \item При $d < 1$ ряд $A$ сходится.
+        \item При $d > 1$ ряд $A$ расходится.
+        \item При $d = 1$ может как сходиться, так и расходиться.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}\leavevmode
+    \begin{enumerate}
+        \item Пусть $d < 1$. Возьмем $d < r < 1 \implies \exists N: \ \forall n > N \ \frac{a_{n+1}}{a_n}<r $,
+              \[
+                  b_1 = \frac{a_2}{a_1}; \quad b_2 = \frac{a_3}{a_2}; \quad b_3 = \frac{a_4}{a_3}; \quad \ldots; \quad b_n = \frac{a_{n+1}}{a_n}; \quad \ldots.
+              \]
+              Можно считать, что $N=0$, тогда $\forall n > N$:
+              \[
+                  \begin{array}{l}
+                      a_2 < r \cdot a_1                 \\
+                      a_3 < r \cdot a_2 < r^2 \cdot a_1 \\
+                      a_4 < r \cdot a_3 < r^3 \cdot a_1 \\
+                      \vdots                            \\
+                      a_{n+1} < r^n \cdot a_1
+                  \end{array}.
+              \]
+
+              Так как $0 < r < 1$, то $\sum_{n=1}^{\infty} r^n \cdot a_1$ сходится $\implies$ сходится ряд $A$ по 1 признаку сравнения.
+        \item Самостоятельно.
+        \item $\sum_{n=1}^{\infty}\frac{1}{n}, \quad \sum_{n=1}^{\infty}\frac{1}{n^2}$.
+              \[
+                  \underset{n\rightarrow\infty}{\lim}\frac{a_{n+1}}{a_n} = \underset{n\rightarrow\infty}{\lim}\frac{\frac{1}{n+1}}{\frac{1}{n}} = \underset{n\rightarrow\infty}{\lim}\frac{n}{n+1} = 1,
+              \]
+              \[
+                  \underset{n\rightarrow\infty}{\lim}\frac{\frac{1}{(n+1)^2}}{\frac{1}{n^2}} = \underset{n\rightarrow\infty}{\lim}\frac{n^2}{(n+1)^2} = 1.
+              \]
+    \end{enumerate}
+\end{proof}
