@@ -1,0 +1,593 @@
+\section{Теория булевых функций}
+
+\subsection{Определение булевой функции (БФ). Количество БФ от n переменных. Таблица истинности БФ.}
+
+\begin{definition}[Булева функция от $n$ переменных]
+    \emph{Булева функция от $n$ переменных} -- это отображение вида:
+    \[
+        \{0,1\}^n \rightarrow \{0,1\}.
+    \]
+\end{definition}
+
+\begin{remark}
+    Количество БФ от $n$ переменных -- $2^{2^n}$
+
+    \begin{center}
+        \begin{tabular}{c c c c | c}
+            $x_1$    & $x_2$    & $\cdots$ & $x_n$    & $f(x_1,x_2,\ldots,x_n)$ \\ [0.5ex]
+            \hline
+            $0$      & $0$      & $\cdots$ & $0$      & $f(0,0,\ldots,0)$       \\
+            $0$      & $0$      & $\cdots$ & $1$      & $f(0,0,\ldots,1)$       \\
+            $\vdots$ & $\vdots$ & $\ddots$ & $\vdots$ & $\vdots$                \\
+            $1$      & $1$      & $\cdots$ & $1$      & $f(1,1,\ldots,1)$
+        \end{tabular}
+        \captionof{table}{Таблица истинности БФ.}
+        \label{table:1}
+    \end{center}
+\end{remark}
+
+\subsection{Булевы функции одной и двух переменных (их таблицы, названия). Логические связки и их таблицы истинности.}
+
+\begin{note}
+    Булевы функции одной переменной:
+    \[
+        \begin{array}{l}
+            f_1\text{ -- тождественный }0,       \\
+            f_2\text{ -- тождественная формула}, \\
+            f_3\text{ -- отрицание }(\lnot1),    \\
+            f_4\text{ -- тождественная 1}.
+        \end{array}
+    \]
+
+    \begin{center}
+        \begin{tabular}{c | c c c c}
+            $x$ & $f_1$ & $f_2$ & $f_3$ & $f_4$ \\ [0.5ex]
+            \hline
+            $0$ & $0$   & $0$   & $1$   & $1$   \\
+            $1$ & $0$   & $1$   & $0$   & $1$
+        \end{tabular}
+        \captionof{table}{Булевы функции одной переменной.}
+        \label{table:2}
+    \end{center}
+
+    Булевы функции двух переменных:
+    \[
+        \begin{array}{l}
+            \land\text{ -- конъюнкция},                     \\
+            \leftarrow\text{ -- антиимпликация},            \\
+            \rightarrow\text{ -- импликация},               \\
+            \lor\text{ -- дизъюнкция},                      \\
+            \vert\text{ -- штрих Шеффера }(\lnot\land),     \\
+            \downarrow\text{ -- стрелка Пирса }(\lnot\lor), \\
+            \oplus\text{ -- взаимоисключающее или}.         \\
+        \end{array}
+    \]
+
+    \begin{center}
+        \begin{tabular}{c c | c c c c c c c c c c c c c c c c}
+            $x$ & $y$ & $0$ & $\land$ & $\lnot\rightarrow$ & $x$ & $\lnot\leftarrow$ & $y$ & $\oplus$ & $\lor$ & $\downarrow$ & $\leftrightarrow$ & $\lnot y$ & $\leftarrow$ & $\lnot x$ & $\rightarrow$ & $\vert$ & $1$ \\ [0.5ex]
+            \hline
+            $0$ & $0$ & $0$ & $0$     & $0$                & $0$ & $0$               & $0$ & $0$      & $0$    & $1$          & $1$               & $1$       & $1$          & $1$       & $1$           & $1$     & $1$ \\
+            $0$ & $1$ & $0$ & $0$     & $0$                & $0$ & $1$               & $1$ & $1$      & $1$    & $0$          & $0$               & $0$       & $0$          & $1$       & $1$           & $1$     & $1$ \\
+            $1$ & $0$ & $0$ & $0$     & $1$                & $1$ & $0$               & $0$ & $1$      & $1$    & $0$          & $0$               & $1$       & $1$          & $0$       & $0$           & $1$     & $1$ \\
+            $1$ & $1$ & $0$ & $1$     & $0$                & $1$ & $0$               & $1$ & $0$      & $1$    & $0$          & $1$               & $0$       & $1$          & $0$       & $1$           & $0$     & $1$
+        \end{tabular}
+        \captionof{table}{Булевы функции одной переменной.}
+        \label{table:3}
+    \end{center}
+\end{note}
+
+\subsection{Формулы логики высказываний. Представление БФ формулами.}
+
+\begin{definition}[Формула логики высказывания]
+    \emph{Формула логики высказывания} -- это слово алфавита $A_{\text{ЛВ}}$, построенное по правилам:
+    \begin{enumerate}
+        \item Символ переменной -- формула.
+        \item Символы $0,1$ -- формулы.
+        \item Если $\Phi_1,\Phi_2$ -- формулы, то слова
+              \[
+                  (\Phi_1 \land \Phi_2), \ (\Phi_1 \leftrightarrow \Phi_2), \ (\Phi_1 \rightarrow \Phi_2), \ \ldots, \ \lnot\Phi_1\text{ -- тоже формулы.}
+              \]
+    \end{enumerate}
+\end{definition}
+
+\begin{remark}
+    \emph{Алфавит} -- произвольное множество, элементы этого множества -- \emph{символы алфавита}.
+
+    \emph{Слова алфавита $A$} -- это конечная последовательность символов алфавита $A$. \emph{Алфавит логики высказываний}:
+    \[
+        A_{\text{ЛВ}} = \left\{x,y,z,\ldots,\land,\lor,\rightarrow,\leftrightarrow,\oplus,\vert,\downarrow,\lnot,(,),0,1\right\}
+    \]
+\end{remark}
+
+\begin{remark}
+    Очевидно, что каждой формуле логики высказываний можно поставить в соответствие булеву функцию, причем если формуле $\Phi_1$ соответствует функция $f_1$, а формуле $\Phi_2$ -- функция $f_2$ и $\Phi_1 \equiv \Phi_2$, то $f_1 \equiv f_2$.
+
+    Каждая формула $\Phi(x_1,\ldots,x_n)$ логики высказываний однозначно определяет некоторую булеву функцию $f(x_1,\ldots,x_n)$. Это булева функция, определенная таблицей истинности формулы $\Phi$.
+\end{remark}
+
+\subsection{Тождественно истинные (ложные) и выполнимые БФ.}
+
+\begin{definition}[Тождественно истинная (ложная) формула]
+    Формула $\Phi(x_1,\ldots,x_n)$ называется \emph{тождественно истинной (ложной)}, если для любого набора значений
+    \[
+        \Phi(x_1,\ldots,x_n) = 1 \ (0).
+    \]
+\end{definition}
+
+\begin{definition}[Выполнимая формула]
+    Формула $\Phi(x_1,\ldots,x_n)$ называется \emph{выполнимой}, если существует набор значений, для которого
+    \[
+        \Phi(x_1,\ldots,x_n) = 1.
+    \]
+\end{definition}
+
+\subsection{Эквивалентные формулы. Основные эквивалентности теории булевых функций.}
+
+\begin{definition}[Эквивалентные формулы]
+    Формулы $\Phi(x_1,\ldots,x_n)$ и $U(x_1,\ldots,x_n)$ -- \emph{эквивалентные}, если:
+    \[
+        \forall a_1,\ldots,a_n \in \{0,1\}: \ \Phi(a_1,\ldots,a_n) = 1 \iff U(x_1,\ldots,x_n) = 1.
+    \]
+
+    Основные эквивалентности теории булевых функций:
+    \begin{itemize}
+        \item $x \lor y \sim y \lor x, \quad xy \sim yx$;
+        \item $x \lor (y\lor z) \sim (x \lor y) \lor z, \quad x(yz) \sim (xy)z$;
+        \item $x \lor (yz) \sim xy \lor xz, \quad (x\lor y)(x\lor z) \sim x \lor yz$;
+        \item $x \lor x \sim x, \quad xx \sim x$;
+        \item $\lnot(x \lor y) \sim \lnot x\lnot y, \quad \lnot(xy) \sim \lnot x \lor \lnot y$;
+        \item $\lnot\lnot x \sim x$;
+        \item $x \lor xy \sim x, \quad x(x\lor y)\sim x$;
+        \item $\lnot x \lor xy \sim \lnot x\lor y, \quad \lnot x(x \lor y)\sim \lnot xy$;
+        \item $x \lor 0 \sim x, \quad x \land 0 \sim 0$;
+        \item $x \lor 1 \sim 1, \quad x \land 1 \sim x$;
+        \item $x \lor \lnot x \sim 1, \quad x\lnot x \sim 0$;
+        \item $x \rightarrow y \sim \lnot x \lor y, \quad x \vert y \sim \lnot(xy), \quad x \downarrow y \sim \lnot(x \lor y)$;
+        \item $x \leftrightarrow y \sim xy \lor \lnot x \lnot y \sim (x\rightarrow y)(y\rightarrow x)$;
+        \item $x \oplus y \sim \lnot(x \leftrightarrow y) \sim \lnot x y \lor x \lnot y$.
+    \end{itemize}
+\end{definition}
+
+\subsection{Двойственные булевы функции. Двойственные формулы. Принцип двойственности.}
+
+\begin{definition}[Двойственная булева функция]
+    \emph{Двойственной функцией} к булевой функции $f(x_1,\ldots,x_n)$ называется функция:
+    \[
+        f^\times(x_1,\ldots,x_n) = \lnot f(\lnot x_1,\ldots, \lnot x_n).
+    \]
+\end{definition}
+
+\begin{definition}[Двойственная формула]
+    Пусть $\Phi$ -- формула, не содержащая импликаций. \emph{Двойственной формулой} к формуле $\Phi$ называется формула $\Phi^\times$, полученная из $\Phi$ заменой каждой связки на двойственную связку.
+\end{definition}
+
+\begin{theorem}[Принцип двойственности]\leavevmode
+    \begin{enumerate}
+        \item Пусть $\Phi(x_1,\ldots,x_n)$ -- формула. Тогда формула $\Phi^\times$ определяет булеву функцию, двойственную к функции, которую определяет $\Phi: \ (f_\Phi)^\times = f_{\Phi^\times}$.
+        \item $\Phi \sim \Psi \iff \Phi^\times \sim \Psi^\times$.
+    \end{enumerate}
+\end{theorem}
+
+\subsection{ДНФ и КНФ, алгоритмы приведения.}
+
+\begin{definition}[Литера, конъюнкт, ДНФ, дизъюнкт, КНФ]
+    \emph{Литера} -- переменная или отрицание переменной.
+
+    \emph{Конъюнкт} -- литера или конъюнкция литер:
+    \[
+        x,\lnot x, xy, \lnot xyz,\ldots.
+    \]
+
+    \emph{ДНФ} -- конъюнкт или дизъюнкция конъюнктов:
+    \[
+        x \lor \lnot y \lor xy \lor x\lnot yz.
+    \]
+
+    \emph{Дизъюнкт} -- литера или дизъюнкция литер:
+    \[
+        x,\lnot x, x \lor y, \lnot x \lor y \lor z, \ldots.
+    \]
+
+    \emph{КНФ} -- дизъюнкт или конъюнкция дизъюнктов:
+    \[
+        (\lnot x \lor z)(y \lor \lnot z)x\lnot y.
+    \]
+\end{definition}
+
+\begin{note}[Алгоритм построения ДНФ (КНФ) по заданной таблице истинности]\leavevmode
+    \begin{enumerate}
+        \item Выбрать в таблице все строки со значением функции $f = 1 \ (f = 0)$.
+        \item Для каждой такой строки $(x,y,z) = (a_1,a_2,a_3)$ выписать конъюнкт (дизъюнкт) по принципу: пишем переменную с отрицанием если ее значение $0 \ (1)$, иначе пишем переменную без отрицания.
+        \item Берем дизъюнкцию (конъюнкцию) построенных конъюнктов (дизъюнктов).
+    \end{enumerate}
+\end{note}
+
+\begin{note}[Алгоритм построения ДНФ (КНФ) методом эквивалентностей]\leavevmode
+    \begin{enumerate}
+        \item Выразить все связки в формуле через конъюнкцию, дизъюнкцию и отрицание.
+        \item Внести все отрицания внутрь скобок.
+        \item Устранить двойные операции.
+        \item Применять свойство дистрибутивности, пока это возможно.
+    \end{enumerate}
+\end{note}
+
+\subsection{СДНФ и СКНФ, теоремы существования и единственности, алгоритмы приведения.}
+
+\begin{definition}[Совершенный конъюнкт (дизъюнкт)]
+    \emph{Совершенный конъюнкт (дизъюнкт)} от переменных $x_1,\ldots,x_n$ -- это формула вида:
+    \[
+        x_1^{a_1}\ldots x_n^{a_n} \quad (x_1^{a_1}\lor \ldots \lor x_n^{a_n}),
+    \]
+    где $a_1,\ldots,a_n \in \{0,1\}$.
+\end{definition}
+
+\begin{definition}[СКНФ (СДНФ)]
+    \emph{СКНФ (СДНФ)} -- это дизъюнкция совершенных конъюнктов без повторяющихся слагаемых (конъюнкция совершеных дизъюнктов без повторящихся множителей).
+\end{definition}
+
+\begin{example}\leavevmode
+    \begin{itemize}
+        \item $xy \lor z$ -- ДНФ, но не СКНФ,
+        \item $xy\lnot z \lor xyz \lor \lnot xyz \lor x\lnot yz \lor \lnot x\lnot yz$ -- СДНФ,
+        \item $(x\lor y\lor z)(x \lor \lnot y \lor z)$ -- СКНФ,
+        \item $\lnot x \lor y$ -- ДНФ, но не СДНФ и при этом СКНФ.
+    \end{itemize}
+\end{example}
+
+\begin{theorem}[О существовании и единственности СДНФ (СКНФ)]
+    Любая булева функция $f\ne 0 \ (f\ne1)$ может быть представлена в виде СДНФ (СКНФ) единственным способом с точностью до перестановок.
+\end{theorem}
+
+\begin{note}[Алгоритм приведения формулы к СДНФ (СКНФ)]\leavevmode
+    \begin{enumerate}
+        \item Строим ДНФ (КНФ) формулы.
+        \item Вычеркиваем тождественно ложные (истинные) слагаемые (множители).
+        \item В каждое слагаемое (множитель) добавляем переменные по правилам:
+              \[
+                  \begin{array}{l}
+                      \text{СДНФ: }\Phi(x_1,\ldots,x_n) \equiv \Phi(y \lor \lnot y) \equiv \Phi \land y \lor \Phi \land \lnot y \\
+                      \text{СКНФ: }\Phi(x_1,\ldots,x_n) \equiv \Phi \lor y \land \lnot y \equiv (\Phi \lor y)\land(\Phi \lor \lnot y)
+                  \end{array}
+              \]
+        \item Вычеркиваем повторяющиеся слагаемые (множители).
+    \end{enumerate}
+\end{note}
+
+\subsection{Минимальная ДНФ. Алгоритмы минимизации (карты Карно).}
+
+\begin{definition}[Минимальная ДНФ]
+    ДНФ $\Phi$ булевой функции называется \emph{минимальной}, если в любой ДНФ этой функции количество литер не меньше, чем в $\Phi$.
+\end{definition}
+
+\begin{definition}[Карта Карно]
+    Карта Карно функции $f(x_1,\ldots,x_n)$ -- это двумерная таблица, построенная следующим образом:
+    \begin{enumerate}
+        \item Разделим набор переменных $x_1,\ldots,x_n$ на две части:
+              \[
+                  x_1,\ldots,x_k\text{ и }x_{k+1},\ldots,x_n
+              \]
+        \item Строкам таблицы соответствуют всевозможные наборы значений переменных $x_1,\ldots,x_k$, колонкам -- $x_{k+1},\ldots,x_n$. При этом наборы в двух соседних строках/колонках должны отличаться не более, чем одним значением. Крайние строки/колонки считаются соседними.
+        \item В ячейки заносятся значения функции $f(x_1,\ldots,x_n)$ на соответствующих наборах.
+    \end{enumerate}
+\end{definition}
+
+\begin{note}[Алгоритм минимизации (карты Карно)]\leavevmode
+    \begin{enumerate}
+        \item Строим карту Карно функции $f$.
+        \item В карте находим покрытие всех ячеек со значением $1$ прямоугольникам со свойствами:
+              \begin{itemize}
+                  \item длины сторон прямоугольника -- $2^k, \ k \leqslant 0$;
+                  \item каждый прямоугольник содержит только $1$;
+                  \item каждая ячейка с $1$ покрыта прямоугольником максимальной площади;
+                  \item количество прямоугольников минимально.
+              \end{itemize}
+        \item По каждому прямоугольнику выписываем конъюнкт. Конъюнкты образуют литеры, значения которых в прямоугольнике не меняются.
+    \end{enumerate}
+\end{note}
+
+\subsection{Полином Жегалкина, его существование и единственность. Алгоритм построения.}
+
+\begin{definition}[Моном]
+    \emph{Моном} от переменных $x_1,\ldots,x_n$ -- это либо $1$, либо конъюнкт вида $x_{i_1}\ldots x_{i_k}$, где $x_{i_j}$ -- переменная из списка $x_1,\ldots,x_n$, без повторяющихся множителей.
+\end{definition}
+
+\begin{definition}[Полином Жегалкина]
+    \emph{Полином Жегалкина} от переменных $x_1,\ldots,x_n$ -- это либо $0$, либо сумма мономов от переменных $x_1,\ldots,x_n$ без эквивалентных слагаемых.
+\end{definition}
+
+\begin{theorem}[О существовании и единственности полинома Жегалкина]
+    Любая функция может быть определена полиномом Жегалкина единственным образом с точностью до перестановок слагаемых и множителей.
+\end{theorem}
+
+Алгоритм я не нашел.
+
+\subsection{Суперпозиция булевых функций. Замкнутые классы булевых функций.}
+
+\begin{definition}[Суперпозиция булевых функций]
+    \emph{Суперпозицией} функции $f(x_1,\ldots,x_n)$ и функций $f_1(x_1,\ldots,x_k),\ldots,f_n(x_1,\ldots,x_k)$ называется функция
+    \[
+        g(x_1,\ldots,x_k) = f(f_1,\ldots,f_n)
+    \]
+\end{definition}
+
+\begin{example}
+    $f(x,y,z,t) = (xy \lor z)\rightarrow \lnot t$:
+    \begin{itemize}
+        \item $f_1(x,y) = x \rightarrow y$;
+        \item $f_2(x,y) = x \lor y$;
+        \item $f_3(x,y) = xy$;
+        \item $f_4(x) = \lnot x$.
+    \end{itemize}
+    \[
+        f(x,y,z,y) = f_1(f_2(f_3(x,y),z),f_4(t))
+    \]
+\end{example}
+
+\begin{definition}[Замкнутый класс булевых функций]
+    Класс $K$ называется \emph{замкнутым}, если для любого набора $f,f_1,\ldots,f_n \in K$ суперпозиция $f(f_1,\ldots,f_n)$ -- снова функция класса $K$ и \emph{разомкнутым}, если подстановки любой переменной -- тоже функция класса $K$.
+\end{definition}
+
+\begin{example}\leavevmode
+    \begin{itemize}
+        \item $\emptyset, B$ -- замкнутые;
+        \item $\{0,1\}$ -- замкнут;
+        \item $\{x,y\}$ -- не является замкнутым (не выдерживает подстановок переменных);
+        \item $\{x,x\}$ -- не замкнут.
+    \end{itemize}
+\end{example}
+
+\subsection{Полные системы булевых функций, базисы.}
+
+\begin{definition}[Замыкание класса]
+    \emph{Замыкание класса} $K$ -- это наименьшее замкнутое множество, содержащее $K$ как подмножество.
+    \[
+        \text{Обозначение: }[K]
+    \]
+
+    Если $A$ -- замкнуто, то $[A] = A$.
+\end{definition}
+
+\begin{example}\leavevmode
+    \begin{itemize}
+        \item $[\{0,1\}] = \{0,1\}$;
+        \item $[\{x,y\}] = \{x_{i_1},\ldots,x_{i_k} \ \big| \ i > k\}$
+    \end{itemize}
+\end{example}
+
+\begin{definition}[Полная система БФ]
+    Система булевых функций $\Sigma$ называется \emph{полной} (в классе $K$), если:
+    \[
+        [\Sigma] = B \ ([\Sigma] = K)
+    \]
+\end{definition}
+
+\begin{example}\leavevmode
+    \begin{itemize}
+        \item $\{\land,\lor,\lnot\}$ -- полная система (так как каждая булева функция имеет ДНФ);
+        \item $\{\land,\lnot\},\{\lor,\lnot\}$ -- полные;
+        \item $\{\vert\},\{\downarrow\}$ -- полные.
+    \end{itemize}
+\end{example}
+
+\begin{definition}[Базис]
+    Система булевых функций $\Sigma$ называется \emph{базисом} (в классе $K$), если она полна и любая ее подсистема $\widetilde{\Sigma} \subsetneq \Sigma$ не является полной (в классе $K$).
+\end{definition}
+
+\begin{example}\leavevmode
+    \begin{itemize}
+        \item $\{\land,\lor,\lnot\}$ -- не базис;
+        \item $\{\land,\lnot\},\{\lor,\lnot\}$ -- базисы.
+    \end{itemize}
+\end{example}
+
+\subsection{Классы $T_0$, $T_1$ (функции, сохраняющие $0$ и $1$).}
+
+\begin{definition}[Классы $T_0, \ T_1$]
+    \[
+        \begin{array}{l}
+            T_0 = \{f(x_1,\ldots,x_n) \ \big| \ f(0,\ldots,0) = 0\} \\
+            T_1 = \{f(x_1,\ldots,x_n) \ \big| \ f(1,\ldots,1) = 1\}
+        \end{array}
+    \]
+
+    \begin{center}
+        \begin{tabular}{c | c c}
+                                  & $T_0$ & $T_1$ \\ [0.5ex]
+            \hline
+            $0$                   & $+$   & $-$   \\
+            $1$                   & $-$   & $+$   \\
+            $x$                   & $+$   & $+$   \\
+            $\lnot x$             & $-$   & $-$   \\
+            $xy$                  & $+$   & $+$   \\
+            $x\lor y$             & $+$   & $+$   \\
+            $x \oplus y$          & $+$   & $-$   \\
+            $x \leftrightarrow y$ & $-$   & $+$   \\
+            $x \rightarrow y$     & $-$   & $+$   \\
+            $x \vert y$           & $-$   & $-$   \\
+            $x \downarrow y$      & $-$   & $-$   \\
+        \end{tabular}
+        \captionof{table}{Примеры $T_0, \ T_1$.}
+        \label{table:4}
+    \end{center}
+\end{definition}
+
+\subsection{Класс $S$ самодвойственных функций, определение двойственной БФ.}
+
+\begin{definition}[Двойственная булева функция]
+    \emph{Двойственной функцией} к булевой функции $f(x_1,\ldots,x_n)$ называется функция:
+    \[
+        f^\times(x_1,\ldots,x_n) = \lnot f(\lnot x_1,\ldots, \lnot x_n)
+    \]
+\end{definition}
+
+\begin{definition}[Самодвойственная функция]
+    Булева функция $f$ называется \emph{самодвойственной}, если $f = f^\times$.
+    \[
+        S = \{f(x_1,\ldots,x_n) \ \big| \ f = f^\times\}
+    \]
+
+    \begin{center}
+        \begin{tabular}{c | c}
+                                  & $S$ \\ [0.5ex]
+            \hline
+            $0$                   & $-$ \\
+            $1$                   & $-$ \\
+            $x$                   & $+$ \\
+            $\lnot x$             & $+$ \\
+            $xy$                  & $-$ \\
+            $x\lor y$             & $-$ \\
+            $x \oplus y$          & $-$ \\
+            $x \leftrightarrow y$ & $-$ \\
+            $x \rightarrow y$     & $-$ \\
+            $x \vert y$           & $-$ \\
+            $x \downarrow y$      & $-$ \\
+        \end{tabular}
+        \captionof{table}{Примеры $S$.}
+        \label{table:5}
+    \end{center}
+\end{definition}
+
+\subsection{Класс монотонных функций.}
+
+\begin{definition}[Монотонная функция]
+    Булева функция $f(x_1,\ldots,x_n)$ называется \emph{монотонной}, если $\forall \alpha,\beta \in \{0,1\}^n$:
+    \[
+        \alpha \leqslant \beta \implies f(\alpha) \leqslant f(\beta)
+    \]
+    \[
+        M = \{f(x_1,\ldots,x_n) \ \big| \ f\text{ -- монотонна}\}
+    \]
+
+    \begin{center}
+        \begin{tabular}{c | c}
+                                  & $M$ \\ [0.5ex]
+            \hline
+            $0$                   & $+$ \\
+            $1$                   & $+$ \\
+            $x$                   & $+$ \\
+            $\lnot x$             & $-$ \\
+            $xy$                  & $+$ \\
+            $x\lor y$             & $+$ \\
+            $x \oplus y$          & $-$ \\
+            $x \leftrightarrow y$ & $-$ \\
+            $x \rightarrow y$     & $-$ \\
+            $x \vert y$           & $-$ \\
+            $x \downarrow y$      & $-$ \\
+        \end{tabular}
+        \captionof{table}{Примеры $M$.}
+        \label{table:6}
+    \end{center}
+\end{definition}
+
+\subsection{Класс линейных функций.}
+
+\begin{definition}[Линейная функция]
+    Булева функция называется \emph{линейной}, если ее полином Жегалкина линеен, то есть не содержит конъюнкции, то есть его степень не выше $1$.
+    \[
+        L = \{f(x_1,\ldots,x_n) \ \big| \ f\text{ -- линейная}\}
+    \]
+
+    \begin{center}
+        \begin{tabular}{c | c}
+                                  & $L$ \\ [0.5ex]
+            \hline
+            $0$                   & $+$ \\
+            $1$                   & $+$ \\
+            $x$                   & $+$ \\
+            $\lnot x$             & $+$ \\
+            $xy$                  & $-$ \\
+            $x\lor y$             & $-$ \\
+            $x \oplus y$          & $+$ \\
+            $x \leftrightarrow y$ & $+$ \\
+            $x \rightarrow y$     & $-$ \\
+            $x \vert y$           & $-$ \\
+            $x \downarrow y$      & $-$ \\
+        \end{tabular}
+        \captionof{table}{Примеры $L$.}
+        \label{table:7}
+    \end{center}
+\end{definition}
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{c | c c c c c}
+                              & $T_0$ & $T_1$ & $S$ & $M$ & $L$ \\ [0.5ex]
+        \hline
+        $0$                   & $+$   & $-$   & $-$ & $+$ & $+$ \\
+        $1$                   & $-$   & $+$   & $-$ & $+$ & $+$ \\
+        $x$                   & $+$   & $+$   & $+$ & $+$ & $+$ \\
+        $\lnot x$             & $-$   & $-$   & $+$ & $-$ & $+$ \\
+        $xy$                  & $+$   & $+$   & $-$ & $+$ & $-$ \\
+        $x\lor y$             & $+$   & $+$   & $-$ & $+$ & $-$ \\
+        $x \oplus y$          & $+$   & $-$   & $-$ & $-$ & $+$ \\
+        $x \leftrightarrow y$ & $-$   & $+$   & $-$ & $-$ & $+$ \\
+        $x \rightarrow y$     & $-$   & $+$   & $-$ & $-$ & $-$ \\
+        $x \vert y$           & $-$   & $-$   & $-$ & $-$ & $-$ \\
+        $x \downarrow y$      & $-$   & $-$   & $-$ & $-$ & $-$
+    \end{tabular}
+    \caption{Классы Поста.}
+    \label{table:8}
+\end{table}
+
+\newpage
+
+\subsection{Леммы о несамодвойственной, немонотонной, нелинейной функциях.}
+
+\begin{lemma}[О несамодвойственной функции]
+    Из несамодвойственной функции подставновками $\lnot x$ и переменных можно получить $0$ и $1$.
+    \[
+        f \notin S\implies0,1 \in [\{f,\lnot x\}]
+    \]
+\end{lemma}
+
+\begin{lemma}[О немонотонной функции]
+    Из немонотонной функции с помощью подстановок $0,1$ и переменных можно получить $\lnot x$.
+    \[
+        f \notin M\implies\lnot x \in [\{f,0,1\}]
+    \]
+\end{lemma}
+
+\begin{lemma}[О нелинейной функции]
+    \[
+        f \notin L \implies x,y \in [\{f,0,1,\lnot x\}]
+    \]
+\end{lemma}
+
+\subsection{Теорема Поста о полноте системы булевых функций.}
+
+\begin{theorem}[Поста о полноте системы булевых функций]
+    Система БФ является полной тогда и только тогда, когда она не лежит целиком ни в одном из классов Поста.
+\end{theorem}
+
+\subsection{Релейно-контактные схемы: определение, примеры, функция проводимости. Анализ и синтез РКС (умение решать задачи).}
+
+\begin{definition}[Реле]
+    \emph{Реле} -- это некоторое устройство, которое может находиться в одном из двух возможных состояний: включенном и выключенном.
+\end{definition}
+
+\begin{example}
+    Различные выключатели, термодатчики, датчик движения и тому подобное.
+\end{example}
+
+\begin{note}   
+    Реле используется в построении различных электрических схем. Включение или выключение реле приводит к появлению или исчезновению тока на определенных участках электрической схемы.
+
+    Пусть $S$ -- некоторая электрическая схема, содержащая реле $x_1,\ldots,x_n$. Со схемой $S$ можно связать функцию проводимости $f_S$, которая равна $1$, если схема проводит ток при заданном состоянии реле (и $f_S = 0$ в противном случае). Возникает вопрос: а какие аргументы имеет функция $f_S$? Для определения аргументов $f_S$ мы будем рассматривать каждое реле $x_i$ как переменную, принимающую значения из множества $\{0,1\}$ с очевидной интерпретацией: $x_i = 0$, если реле выключено и $x_i = 1$, если реле включено.
+    
+    Таким образом функция проводимости $f_S(x_1,\ldots,x_n)$ становится булевой функцией, зависящей от текущего состояния своих реле.
+    \begin{enumerate}
+        \item Цепь замкнута: $f_S = 1$.
+        \item Цепь не замкнута: $f_S = 0$.
+        \item Последовательное соединение: $f_S(x,y) = xy$.
+        \item Параллельное соединение: $f_S(x,y) = x \lor y$.
+    \end{enumerate}
+    
+    Задачи, связанные с релейно-контактными схемами можно подразделить на две большие группы:
+    \begin{enumerate}
+        \item Дана схема, нужно построить более простую схему с такой же функцией проводимости.
+        \item Нужно построить схему по описанию ее функции проводимости.
+    \end{enumerate}
+\end{note} 
+
+\newpage

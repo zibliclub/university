@@ -1,0 +1,314 @@
+\lesson{12}{от 20 окт 2023 10:31}{Продолжение}
+
+
+\begin{definition}[Абсолютная сходимость]
+    Ряд \ref{eq:6.14} сходится абсолютно на $X$, если на $X$ сходится ряд
+    \[
+        \sum_{n=1}^{\infty}\big|f_n(x)\big|.
+    \]
+\end{definition}
+
+\begin{theorem}
+    Пусть ряды $ (A),(B) $ такие, что:
+    \begin{enumerate}
+        \item $\forall n$ функции $a_n(x)$ и $b_n(x)$ определены на $X$.
+        \item $\exists N: \ \forall n > N$
+              \[
+                  \big|a_n(x)\big| \leqslant b_n(x) \quad \forall x \in X.
+              \]
+        \item Ряд $(B)$ сходится на $X$ равномерно.
+    \end{enumerate}
+
+    Тогда ряд $(A)$ сходится на $X$ равномерно.
+\end{theorem}
+
+\begin{proof}
+    Пусть $\epsilon > 0$ задано. Выберем $N: \ \forall n > N, \ \forall p > 0 \ \forall x \in X$
+    \[
+        b_{n+1}(x) + \ldots + b_{n+p}(x) < \epsilon.
+    \]
+
+    Тогда $\forall n > N, \ \forall p > 0, \ \forall x \in X$
+    \begin{multline*}
+        \big|a_{n+1}(x) + \ldots + a_{n+p}(x)\big| \leqslant \\
+        \leqslant \big|a_{n+1}(x)\big| + \ldots + \big|a_{n+p}(x)\big| \leqslant b_{n+1}(x) + \ldots + b_{n+p}(x) < \epsilon \implies
+    \end{multline*}
+    $\implies$ по критерию Коши ряд $(A)$ сходится равномерно на $X$.
+\end{proof}
+
+\begin{corollary}[Мажорантный признак Вейерштрасса]
+    Пусть
+    \begin{enumerate}
+        \item $\forall n \ \exists M_n$:
+              \[
+                  \big|a_n(x)\big| \leqslant M_n \quad \forall x \in X.
+              \]
+        \item Ряд $\sum_{n=1}^{\infty} M_n$ сходится.
+    \end{enumerate}
+
+    Тогда ряд $\sum_{n=1}^{\infty}a_n(x)$ сходится на $X$ абсолютно и равномерно.
+\end{corollary}
+
+\begin{definition}[Неубывающая (невозрастающая) последовательность]
+    Последовательность $f_n: X \rightarrow\R$ называется \emph{неубывающей (невозрастающей)} на $X$, если $\forall x \in X$ последовательность $f_n$ не убывает (не возрастает).
+\end{definition}
+
+\begin{theorem}[Признаки Абеля и Дирихле]\leavevmode
+    \begin{enumerate}
+        \item \textbf{Абеля}
+
+              Пусть функции $a_n(x)$ и $b_n(x)$ удовлетворяют условиям:
+              \begin{itemize}
+                  \item ряд $\sum_{n=1}^{\infty}a_n(x)$ сходится равномерно на $X$,
+                  \item последовательность $\big\{b_n(x)\big\}$ равномерно ограничена на $X$ и монотонна (то есть $\exists L > 0: \ \forall n \in \N$ и $\forall x \in X \quad \big|b_n(x)\big| \leqslant L$),
+              \end{itemize}
+              тогда ряд
+              \[
+                  \sum_{n=1}^{\infty}\big(a_n(x) \cdot b_n(x)\big)
+              \]
+              сходится на $X$ равномерно.
+
+        \item \textbf{Дирихле}
+
+              \begin{itemize}
+                  \item частичные суммы ряда $\sum_{n=1}^{\infty}a_n(x)$ равномерно ограничены на $X$ (то есть $\exists M > 0: \ \forall n$ и $\forall x \in X \quad \big|\sum_{k=1}^{n}a_k(x)\big| \leqslant M$),
+                  \item последовательность $ \big\{b_n(x)\big\} $ монотонна и равномерно на $ X $ стремится к $ 0 $,
+              \end{itemize}
+              тогда ряд
+              \[
+                  \sum_{n=1}^{\infty}\big(a_n(x) \cdot b_n(x)\big)
+              \]
+              сходится на $X$ равномерно.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Рассмотрим
+    \begin{multline*}
+        \big|a_{n+1}(x)\cdot b_{n+1}(x) + a_{n+2}(x)\cdot b_{n+2}(x) + \ldots + a_{n+p}(x)\cdot b_{n+p}(x)\big| = \\
+        = \Big|(A_{n+1} - A_n)\cdot b_{n+1}(x) + \big((A_{n+2} - A_n) - (A_{n+1} - A_n)\big)\cdot b_{n+2}(x) + \ldots \\
+        \ldots + \big((A_{n+p} -A_n) - (A_{n+p-1} - A_n)\big)\cdot b_{n+p}(x)\Big| = \\
+        = \big|(A_{n+1} - A_n)\cdot b_{n+1}(x) + (A_{n+2} - A_n)\cdot b_{n+2}(x) - (A_{n+1} - A_n)\cdot b_{n+2}(x) + \ldots \\
+        \ldots + (A_{n+p} -A_n)\cdot b_{n+p}(x) - (A_{n+p-1} - A_n)\cdot b_{n+p}(x)\big| = \\
+        = \Big|(A_{n+1}-A_n)\cdot\big(b_{n+1}(x)-b_{n+2}(x)\big) + (A_{n+2}-A_n)\cdot\big(b_{n+2}(x)-b_{n+3}(x)\big) + \ldots \\
+        \ldots + (A_{n+p-1}-A_n)\cdot\big(b_{n+p-1}(x)-b_{n+p}(x)\big) + (A_{n+p} - A_n)\cdot b_{n+p}(x)\Big| = \\
+        = \left|\sum_{k=1}^{p-1}\Bigl((A_{n+k} - A_n)\cdot\big(b_{n+k}(x) - b_{n+k-1}(x)\big)\Bigr) + (A_{n+p} - A_n)\cdot b_{n+p}(x) \right| \leqslant \\
+        \leqslant \sum_{k=1}^{p-1}\Bigl(|A_{n+k} - A_n| \cdot \big|b_{n+k}(x) - b_{n+k+1}(x)\big|\Bigr) + | A_{n+p} - A_n | \cdot | b_{n+p}(x) |.
+    \end{multline*}
+
+    Если выполнены условия Абеля, то $ \forall \epsilon > 0 $ выберем $ N: \ \forall n > N, \ \forall p > 0 \ \forall x \in X $
+    \[
+        \big|a_{n+1}(x) + a_{n+2}(x) + \ldots + a_{n+p}(x)\big| < \frac{\epsilon}{3\cdot L}.
+    \]
+
+    Тогда
+    \begin{multline*}
+        \sum_{k=1}^{p-1}\Bigl(|A_{n+k} - A_n| \cdot \big|b_{n+k}(x) - b_{n+k+1}(x)\big|\Bigr) + | A_{n+p} - A_n | \cdot | b_{n+p}(x) | < \\
+        < \frac{\epsilon}{3\cdot L}\left(\sum_{k=1}^{p-1}\big|b_{n+k}(x) - b_{n+k+1}(x)\big| + \big|b_{n+p}(x)\big|\right) \leqslant \\
+        \leqslant \frac{\epsilon}{3\cdot L}\Bigl(\big|b_{n+1}(x)\big| + 2\big|b_{n+p}(x)\big|\Bigr) < \frac{\epsilon}{3\cdot L} \cdot 3\cdot L = \epsilon \implies
+    \end{multline*}
+    $ \implies $ по критерию Коши, $ \sum_{n=1}^{\infty}\big(a_n(x)\cdot b_n(x)\big) $ сходится равномерно на $ X $.
+
+    Пусть выполнены условия Дирихле. Тогда $ \forall \epsilon > 0 $ выберем $ N: \ \forall n > N \ \forall x > X $
+    \[
+        \big|b_n(x)\big| < \frac{\epsilon}{3\cdot M}.
+    \]
+    \begin{multline*}
+        \sum_{k=1}^{p-1}\Bigl(|A_{n+k} - A_n| \cdot \big|b_{n+k}(x) - b_{n+k+1}(x)\big|\Bigr) + | A_{n+p} - A_n | \cdot | b_{n+p}(x) | \leqslant \\
+        \leqslant \frac{\epsilon}{p\cdot M}\left(\sum_{k=1}^{p-1}| A_{n+k} - A_n | + | A_{n+p} - A_n |  \right) = \\
+        = \frac{\epsilon}{p\cdot M}\Big(\big| a_{n+1}(x) \big| + \big|a_{n+1}(x) + a_{n+2}(x)\big| + \ldots + \big|a_{n+1}(x) + \ldots + a_{n+p}(x)\big|\Big) \leqslant \\
+        \leqslant \frac{\epsilon}{p\cdot M}\cdot (p \cdot M) = \epsilon.
+    \end{multline*}
+\end{proof}
+
+\section{Свойства предельной функции}
+
+\begin{theorem}[Условия коммутирования двупредельных переходов]\label{theorem:6.3}
+    Пусть $ X,T $ -- множества, $ \mathfrak{B}_x $ -- база на $ X, \ \mathfrak{B}_T  $ -- база на $ T $, $ Y $ -- полное МП, $ f_t: X \rightarrow Y, \ f: X \rightarrow Y $:
+    \begin{itemize}
+        \item $ f_t \xrightrightarrows[\mathfrak{B}_T]{} f $ на $ X $,
+        \item $ \forall t \in T \ \exists \underset{\mathfrak{B}_X}{\lim} = A_t $,
+    \end{itemize}
+    тогда существуют и равны два повторных предела:
+    \[
+        \underset{\mathfrak{B}_T}{\lim}\underset{\mathfrak{B}_X}{\lim} f_t(x) = \underset{\mathfrak{B}_X}{\lim}\underset{\mathfrak{B}_T}{\lim} f_t(x).
+    \]
+
+    Запишем условия и утверждение теоремы в форме диаграмы:
+    \[
+        \begin{matrix}
+            f_t(x)                                                      & \xrightrightarrows[\mathfrak{B}_T]{} & f(x)                                               \\
+            {\scriptstyle\forall t, \ \mathfrak{B}_X} \xdownarrow[22pt] &                                      & \xdashdownarrow[20pt] {\scriptstyle\mathfrak{B}_X} \\
+            A_t                                                         & \xdashrightarrow[\mathfrak{B}_T]{}   & A
+        \end{matrix}
+    \]
+    \[
+        \rightarrow \text{ -- дано,}\quad \dashrightarrow \text{ -- утверждение}
+    \]
+\end{theorem}
+
+\begin{proof}
+    Докажем наличие нижней стрелки, то есть покажем, что
+    \[
+        \exists \underset{\mathfrak{B}_T}{\lim} = A.
+    \]
+
+    Пусть $ \epsilon > 0 $ задано. Выберем элемент $ B_t \in \mathfrak{B}_T \ \forall t_1,t_2 \in B_t $ и $ \forall x \in X $
+    \[
+        \rho\big(f_{t_1}(x),f_{t_2}(x)\big) < \frac{\epsilon}{2},
+    \]
+    это можно сделать, так как $ \exists $ равномерная сходимость $ f_t $ к $ f $ по $ \mathfrak{B}_T $ на $ X $.
+
+    Зафиксируем $ t_1 $ и $ t_2 $ и перейдем к пределу по базе $ \mathfrak{B}_X $ в неравенстве
+    \[
+        \rho(A_{t_1},A_{t_2}) < \frac{\epsilon}{2} < \epsilon.
+    \]
+
+    Таким образом для функции $ A_t: T \rightarrow Y $ выполняются условия критерия Коши $ \exists $-ия предела функции по базе $ \mathfrak{B}_T \implies \exists \underset{\mathfrak{B}_T}{\lim}A_t = A $.
+
+    Покажем, что $ \underset{\mathfrak{B}_X}{\lim}f(x) = A $. Рассмотрим
+    \[
+        \rho\big(f(x),A\big) \leqslant \rho\big(f(x),f_t(x)\big) + \rho\big(f_{t_2}(x),A_t\big) + \rho_t(A_t,A).
+    \]
+
+    Пусть $ \epsilon > 0 $ задано. Выберем $ B_t' \in \mathfrak{B}_T: \ \forall t \in B_t' $ и $ \forall x \in X $
+    \[
+        \rho\big(f(x),f_t(x)\big) < \frac{\epsilon}{3}.
+    \]
+
+    Затем выберем $ B_t'' \in \mathfrak{B}_T: \ \forall t \in B_t'' $
+    \[
+        \rho(A_t,A) < \frac{\epsilon}{3}.
+    \]
+
+    Зафиксируем $ t \in B_t' \cap B_t''$.
+
+    Выберем $ B_x \in \mathfrak{B}_X: \ \forall x \in B_x $
+    \[
+        \rho\big(f_t(x),A_t\big) < \frac{\epsilon}{3} \quad (f_t \rightarrow A_t).
+    \]
+
+    Тогда $ \forall x \in B_x $
+    \[
+        \rho\big(f(x),A\big) < \frac{\epsilon}{3} + \frac{\epsilon}{3} + \frac{\epsilon}{3} = \epsilon.
+    \]
+\end{proof}
+
+\begin{theorem}[Непрерывность предельной функции]
+    Пусть $ X,Y $ -- метрические пространства, $ \mathfrak{B} $ -- база на $ T, \ f_t: X \rightarrow Y, \ f: X \rightarrow Y $:
+    \begin{itemize}
+        \item $ \forall t \in T $ функция $ f_t $ непрерывна в точке $ x_0 \in X $,
+        \item семейство $ f_t \xrightrightarrows[\mathfrak{B}]{} f $ на $ X $,
+    \end{itemize}
+    тогда функция $ f $ непрерывна в точке $ x_0 $.
+\end{theorem}
+
+\begin{proof}
+    Имеем
+    \[
+        \begin{matrix}
+            f_t(x)                                            & \xrightrightarrows[\mathfrak{B}]{} & f(x)                  &          \\
+            \begin{array}{c}
+                {\scriptstyle\forall t \text{ при }} \\
+                {\scriptstyle x \rightarrow x_0}
+            \end{array}\xdownarrow[22pt] &                                    & \xdashdownarrow[20pt] &                               \\
+            f_t(x_0)                                          & \xdashrightarrow[\mathfrak{B}]{}   & A                     & = f(x_0)
+        \end{matrix}
+    \]
+\end{proof}
+
+\begin{corollary}
+    Если $ \forall n \ f_n(x) $ непрерывна в точке $ x_0 $ и ряд $ \sum_{n=1}^{\infty}f_n(x) $ равномерно сходится в точке $ x_0 $, тогда сумма функционального ряда непрерывна в точке $ x_0 $.
+\end{corollary}
+
+\begin{proof}
+    Очевидно.
+\end{proof}
+
+\begin{theorem}[Интегрируемость предельной функции]
+    Пусть $ f_t: [a;b] \rightarrow \R, \ f: [a;b] \rightarrow \R $:
+    \begin{itemize}
+        \item $ \forall t \in T \ f_t $ интегрируема по Риману на $ [a;b] $,
+        \item $ f_t \xrightrightarrows[\mathfrak{B}]{} f $ на $ [a;b] $ ($ \mathfrak{B} $ -- база на $ T $),
+    \end{itemize}
+    тогда:
+    \begin{enumerate}
+        \item $ f $ интегрируема по Риману на $ [a;b] $.
+        \item \[
+                  \int_{a}^{b}f(x)dx = \underset{\mathfrak{B}}{\lim}\int_{a}^{b}f_t(x)dx \iff \underset{\mathfrak{B}}{\lim}\int_{a}^{b}f_t(x)dx = \int_{a}^{b}\underset{\mathfrak{B}}{\lim}f_t(x)dx.
+              \]
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    \begin{multline*}
+        \int_{a}^{b}f(x)dx = \underset{\lambda(P)\rightarrow0}{\lim}\sum_{i=1}^{n}f(\xi_i)\Delta x_i = \\
+        = \underset{\lambda(P)\rightarrow0}{\lim} \sigma \big(f(P,\xi)\big) = \underset{\lambda(P)\rightarrow0}{\lim} \underset{\mathfrak{B}}{\lim}\sigma\big(f_t,(P,\xi)) = \underset{\mathfrak{B}}{\lim}\underset{\lambda(P)\rightarrow0}{\lim}\sigma \big(f_t,(P,\xi)\big) = \\
+        = \underset{\mathfrak{B}}{\lim}\int_{a}^{b}f_t(x)dx.
+    \end{multline*}
+
+    \begin{equation}\label{eq:for_proof3}
+        \begin{matrix}
+            \sigma_t = & \sigma\big(f_t,(P,\xi)\big)           & \overset{\xdashrightarrow[]{}}{\xdashrightarrow[\mathfrak{B}]{}} & \sigma\big(f,(P,\xi)\big)                          \\
+                       & \begin{array}{r}
+                             {\scriptstyle \forall t} \\
+                             {\scriptstyle \lambda(P)\rightarrow0}
+                         \end{array}\xdownarrow[22pt] &                                                                  & \xdashdownarrow[20pt] {\scriptstyle \lambda(P)\rightarrow0} \\
+                       & \int_{a}^{b}f_t(x)dx                  & \xdashrightarrow[\mathfrak{B}]{}                                 & \int_{a}^{b}f(x)dx
+        \end{matrix}
+    \end{equation}
+    \begin{center}
+        (я не научился делать утверждение для равномерной сходимости)
+    \end{center}
+
+    Пусть $ \mathcal{P} $ -- множество разбиений с отмеченными точками отрезка $ [a;b] $. Тогда функции $ \sigma\big(f_t,(P,\xi)\big) $ и $ \sigma\big(f,(P,\xi)\big) $ функции на $ \mathcal{P} $.
+
+    Покажем, что семейство $ \sigma_t = \sigma\big(f_t,(P,\xi)\big) $ сходится равномерно к функции $ \sigma\big(f,(P,\xi)\big) $:
+    \begin{multline*}
+        \Big|\sigma\big(f_t,(P,\xi)\big) - \sigma\big(f,(P,\xi)\big)\Big| = \\
+        = \left|\sum_{i=1}^{n}f_t(\xi_i)\Delta x_i - \sum_{i=1}^{n}f(\xi_i)\Delta x_i\right| \leqslant \sum_{i=1}^{n}\big|f_t(\xi_i) - f(\xi_i)\big|\Delta x_i.
+    \end{multline*}
+
+    Пусть $ \epsilon > 0 $ задано. Выберем элемент $ B \in \mathfrak{B}: \ \forall t \in B, \ \forall x \in [a;b] $
+    \[
+        \big|f_t(x) - f(x)\big| < \frac{\epsilon}{b - a}.
+    \]
+
+    Тогда
+    \[
+        \sum_{i=1}^{n}\big|f_t(\xi_i) - f(\xi_i)\big|\Delta x_i < \frac{\epsilon}{b - a}\sum_{i=1}^{n}\Delta x_i = \frac{\epsilon}{b-a}\cdot(b-a) = \epsilon.
+    \]
+
+    Таким образом $ | \sigma_t - \sigma | < \epsilon \implies \sigma_t \xrightrightarrows[\mathfrak{B}]{} \sigma \implies $ по теореме \ref{theorem:6.3} все стрелки в диаграмме \ref{eq:for_proof3} доказаны $ \implies $ все переходы в равенстве законны.
+\end{proof}
+
+\begin{theorem}[Дини]
+    Пусть $ X $ -- компактное метрическое пространство. Последовательность $ f_n: X \rightarrow\R $ монотонна на $ X $ и $ \forall x \ f_n $ непрерывна на $ X $.
+
+    Если $ f: X \rightarrow \R $ непрерывна на $ X $, то эта сходимость равномерная.
+\end{theorem}
+
+\begin{proof}
+    Для $ \forall x \in X $ выберем номер $ N_x: \ \forall n > N_x $
+    \[
+        \big|f_n(x) - f(x)\big| < \epsilon, \quad \text{где }\epsilon>0 \text{ задано}.
+    \]
+
+    Так как $ f_{N_x} $ и $ f $ непрерывны, то $ \exists U_x \subset X \ \forall y \in U_x $
+    \[
+        \big|f_{N_x}(y) - f(y)\big| < \epsilon, \quad \text{(используя непрерывность)}.
+    \]
+
+    Таким образом для каждого $ x \in X $ построим такую окружность $ U_x $.
+
+    Семейство таких окрестностей является открытым покрытием пространства $ X $.
+
+    Пусть $ \{U_{X_1},U_{X_2},\ldots,U_{X_k}\} $ -- конечное подпокрытие $ X $.
+
+    Положим $ N = \max\{N_{X_1},N_{X_2},\ldots,N_{X_1=k}\} $. Тогда $ \forall n > N, \ \forall x \in X $
+    \[
+        \big|f_n(x) - f(x)\big| < \epsilon.
+    \]
+
+    Это и есть равномерная сходимость.
+\end{proof}

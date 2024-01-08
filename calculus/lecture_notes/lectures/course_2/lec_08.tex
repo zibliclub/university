@@ -2,11 +2,11 @@
 
 
 \begin{theorem}[Признак Раббе]
-    Пусть ряд $A$ -- положительный. Если $ \underset{n\rightarrow\infty}{\lim}n \cdot \left(\frac{a_n}{a_{n+1}} - 1\right) = r, $ то:
+    Пусть ряд $(A)$ -- положительный. Если $ \underset{n\rightarrow\infty}{\lim}n \cdot \left(\frac{a_n}{a_{n+1}} - 1\right) = r, $ то:
     \begin{enumerate}
-        \item При $r>1$ ряд $A$ сходится.
-        \item При $r<1$ ряд $A$ расходится.
-        \item При $r=1$ ряд $A$ может как сходиться, так и расходиться.
+        \item При $r>1$ ряд $(A)$ сходится.
+        \item При $r<1$ ряд $(A)$ расходится.
+        \item При $r=1$ ряд $(A)$ может как сходиться, так и расходиться.
     \end{enumerate}
 \end{theorem}
 
@@ -41,7 +41,7 @@
                   \frac{a_n}{a_{n+1}} > \frac{\frac{1}{n^p}}{\frac{1}{(n+1)^p}} \implies a_n \cdot \frac{1}{(n+1)^p} > \frac{1}{n^p} \cdot a_{n+1} \implies \frac{a_{n+1}}{a_n} < \frac{\frac{1}{(n+1)^p}}{\frac{1}{n^p}}.
               \]
 
-              По 3-му признаку сравнения, ряд $A$ сходится при $p > 1 \implies$ при $r > 1$.
+              По 3-му признаку сравнения, ряд $(A)$ сходится при $p > 1 \implies$ при $r > 1$.
 
         \item Пусть $r < 1$. Тогда $\exists N: \ \forall n > N$:
               \begin{multline*}
@@ -50,21 +50,21 @@
                   \implies \frac{a_{n+1}}{a_n} > \frac{\frac{1}{n+1}}{\frac{1}{n}}.
               \end{multline*}
 
-              Ряд $\sum_{n=1}^{\infty}\frac{1}{n}$ -- гармонический, расходящийся $\implies$ по 3-му признаку сравнения ряд $A$ расходится.
+              Ряд $\sum_{n=1}^{\infty}\frac{1}{n}$ -- гармонический, расходящийся $\implies$ по 3-му признаку сравнения ряд $(A)$ расходится.
 
         \item \underline{Упражнение:} привести 2 примера рядов (сходящийся, расходящийся), но $r=1$ в обоих случаях.
     \end{enumerate}
 \end{proof}
 
 \begin{theorem}[Признак Кумера]
-    Пусть дан ряд $A$ -- положительный. Пусть числа $c_1,c_2,\ldots,c_n,\ldots: \ \forall n > N \ c_n > 0$ и ряд $\sum_{n=1}^{\infty}c_n$ -- расходится. Если
+    Пусть дан ряд $(A)$ -- положительный. Пусть числа $c_1,c_2,\ldots,c_n,\ldots: \ \forall n > N \ c_n > 0$ и ряд $\sum_{n=1}^{\infty}c_n$ -- расходится. Если
     \[
         \underset{n\rightarrow\infty}{\lim}\left(c_n \cdot \frac{a_n}{a_{n+1}} - c_{n+1}\right) = k,
     \]
     то
     \begin{enumerate}
-        \item При $k > 0$ ряд $A$ сходится.
-        \item При $k < 0$ ряд $A$ расходится.
+        \item При $k > 0$ ряд $(A)$ сходится.
+        \item При $k < 0$ ряд $(A)$ расходится.
         \item При $k = 0$ может как сходиться, так и расходиться.
     \end{enumerate}
 \end{theorem}
@@ -90,7 +90,7 @@
                   \underset{n\rightarrow\infty}{\lim}\sum_{m=1}^{n}(c_m \cdot a_m - c_{m+1} \cdot a_{n+1}) = \\
                   = \underset{n\rightarrow\infty}{\lim}(c_1 \cdot a_1 - c_{n+1} \cdot a_{n+1}) = c_1 \cdot a_1 - c \implies
               \end{multline*}
-              $\implies$ сходится ряд $\sum_{n=1}^{\infty}(c_n \cdot a_n - c_{n+1} \cdot a_{n+1}) \implies$ из того, что $c_n \cdot a_n - c_{n+1} \cdot a_{n+1} > p \cdot a_{n+1} > 0$ и 1-го признака сравнения $\implies$ ряд $\sum_{n=1}^{\infty}p\cdot a_{n+1}$ сходится $\implies$ ряд $A$ сходится.
+              $\implies$ сходится ряд $\sum_{n=1}^{\infty}(c_n \cdot a_n - c_{n+1} \cdot a_{n+1}) \implies$ из того, что $c_n \cdot a_n - c_{n+1} \cdot a_{n+1} > p \cdot a_{n+1} > 0$ и 1-го признака сравнения $\implies$ ряд $\sum_{n=1}^{\infty}p\cdot a_{n+1}$ сходится $\implies$ ряд $(A)$ сходится.
 
         \item Пусть $k < 0 \implies \exists N: \ \forall n > N$
               \begin{multline*}
@@ -98,7 +98,7 @@
                   \implies \frac{a_n}{a_{n+1}} < \frac{c_{n+1}}{c_n} = \frac{\frac{1}{c_n}}{\frac{1}{c+{n+1}}} \implies \frac{a_{n+1}}{a_{n}} > \frac{\frac{1}{c_{n+1}}}{\frac{1}{c_n}}.
               \end{multline*}
 
-              $\sum_{n=1}^{\infty}\frac{1}{c_n}$ расходится $\implies$ по 3-му признаку сравнения ряд $A$ расходится.
+              $\sum_{n=1}^{\infty}\frac{1}{c_n}$ расходится $\implies$ по 3-му признаку сравнения ряд $(A)$ расходится.
 
         \item Придумать 2 примера когда $k=0$ и ряды сходятся/расходятся.
     \end{enumerate}
@@ -107,15 +107,15 @@
 \newpage
 
 \begin{theorem}[Признак Бертрана]
-    Пусть ряд $A$ -- положительный. Если
+    Пусть ряд $(A)$ -- положительный. Если
     \[
         \underset{n\rightarrow\infty}{\lim} \ln n \cdot \left[n \cdot (\frac{a_n}{a_{n+1}} - 1)\right] = B,
     \]
     то
     \begin{enumerate}
-        \item При $B > 1$ ряд $A$ сходится.
-        \item При $B < 1$ ряд $A$ расходится.
-        \item При $B = 1$ ряд $A$ может как сходиться, так и расходиться.
+        \item При $B > 1$ ряд $(A)$ сходится.
+        \item При $B < 1$ ряд $(A)$ расходится.
+        \item При $B = 1$ ряд $(A)$ может как сходиться, так и расходиться.
     \end{enumerate}
 \end{theorem}
 
@@ -134,21 +134,21 @@
         = \underset{n\rightarrow\infty}{\lim}\left[\underbrace{\ln n \cdot \left(n\left(\frac{a_n}{a_{n+1}} - 1\right) - 1\right)}_{B} - \ln\underbrace{\left(1 + \frac{1}{n}^n\right)}_{e} - \ln\left(1 + \frac{1}{n}\right)\right] = \\
         = B - 1,
     \end{multline*}
-    по признаку Кумера, при $B-1 > 0$ ряд $A$ сходится, при $B-1 < 0$ ряд $A$ расходится, при $B=1$ ряд $A$ может как сходиться, так и расходиться.
+    по признаку Кумера, при $B-1 > 0$ ряд $(A)$ сходится, при $B-1 < 0$ ряд $(A)$ расходится, при $B=1$ ряд $(A)$ может как сходиться, так и расходиться.
 \end{proof}
 
 \begin{theorem}[Признак Гаусса]
-    Ряд $A, \ a_n > 0, \ \forall n \in \N, \ \lambda, \mu \in \R$. Если
+    Ряд $(A), \ a_n > 0, \ \forall n \in \N, \ \lambda, \mu \in \R$. Если
     \[
         \frac{a_n}{a_{n+1}} = \left(\lambda + \frac{\mu}{n}\right) + O\left(\frac{1}{n^2}\right),
     \]
     то
     \begin{enumerate}
-        \item При $\lambda > 1$, ряд $A$ сходится.
-        \item При $\lambda < 1$, ряд $A$ расходится.
+        \item При $\lambda > 1$, ряд $(A)$ сходится.
+        \item При $\lambda < 1$, ряд $(A)$ расходится.
         \item При $\lambda = 1$ и \begin{enumerate}
-                  \item $\mu > 1 \implies$ ряд $A$ сходится.
-                  \item $\mu \leqslant 1 \implies$ ряд $A$ расходится.
+                  \item $\mu > 1 \implies$ ряд $(A)$ сходится.
+                  \item $\mu \leqslant 1 \implies$ ряд $(A)$ расходится.
               \end{enumerate}
     \end{enumerate}
 \end{theorem}
@@ -160,7 +160,7 @@
                   \underset{n\rightarrow\infty}{\lim} \frac{a_{n+1}}{a_n} = \left[\underset{n\rightarrow\infty}{\lim}\left(\lambda + \frac{\mu}{n} + O\left(\frac{1}{n^2}\right)\right)\right]^{-1} = \\
                   = \left[\underset{n\rightarrow\infty}{\lim}\left(\lambda + \underbrace{\frac{\mu}{n}}_{\rightarrow 0} + \underbrace{\frac{1}{n^2}}_{\rightarrow 0} \cdot \Omega\left(\frac{1}{n^2}\right)\right)\right]^{-1} = \frac{1}{\lambda},
               \end{multline*}
-              по признаку Даламбера, если $\frac{1}{\lambda} < 1$, то есть $\lambda > 1$, ряд $A$ сходится.
+              по признаку Даламбера, если $\frac{1}{\lambda} < 1$, то есть $\lambda > 1$, ряд $(A)$ сходится.
 
         \item $ \implies $ из 1.
 
@@ -175,8 +175,8 @@
                   \underset{n\rightarrow\infty}{\lim}\left(n\cdot \frac{a_n}{a_{n+1}} - 1\right) = \underset{n\rightarrow\infty}{\lim}\left(\mu + \underbrace{n \cdot \frac{1}{n^2} \cdot \Omega (\frac{1}{n^2})}_{\rightarrow 0}\right) = \mu \implies
               \]
               $\implies$ по признаку Раббе $\implies \left[\begin{array}{l}
-                      \mu > 1 \implies A \text{ сходится.} \\
-                      \mu < 1 \implies A \text{ расходится.}
+                      \mu > 1 \implies (A) \text{ сходится.} \\
+                      \mu < 1 \implies (A) \text{ расходится.}
                   \end{array} \right.$
 
               Пусть $\mu = 1$, тогда
@@ -192,29 +192,29 @@
               \[
                   \underset{n\rightarrow\infty}{\lim}\frac{\ln n}{n} = \underset{n\rightarrow\infty}{\lim} \frac{1}{n} \cdot \ln n = \underset{n\rightarrow\infty}{\lim}\ln n^{\frac{1}{n}} = \underset{n\rightarrow\infty}{\lim} \ln \sqrt[n]{n} = 0 \implies
               \]
-              $\implies$ по прихнаку Бертрана ряд $A$ расходится.
+              $\implies$ по прихнаку Бертрана ряд $(A)$ расходится.
     \end{enumerate}
 \end{proof}
 
 \section{Сходимость знакопеременных рядов}
 
 \begin{note}
-    Пусть дан ряд $A$. Если $\exists N: \ \forall n > N \ a_n$ не меняет знак, то исследование сходимости такого ряда сводится к исследованию сходимости положительных рядов. Будем считать, что "$+$" и "$-$" бесконечно много. Такие ряды будем называть \emph{знакопеременными}.
+    Пусть дан ряд $(A)$. Если $\exists N: \ \forall n > N \ a_n$ не меняет знак, то исследование сходимости такого ряда сводится к исследованию сходимости положительных рядов. Будем считать, что "$+$" и "$-$" бесконечно много. Такие ряды будем называть \emph{знакопеременными}.
 \end{note}
 
 \begin{definition}[Абсолютно сходящийся ряд]
-    Ряд $A$ называется \emph{абсолютно сходящимся}, если сходится ряд
+    Ряд $(A)$ называется \emph{абсолютно сходящимся}, если сходится ряд
     \[
-        A^* \ \sum_{n=1}^{\infty}|a_n|.
+        (A^*) \ \sum_{n=1}^{\infty}|a_n|.
     \]
 \end{definition}
 
 \begin{statement}
-    Если ряд $A$ абсолютно сходящийся, то он сходящийся.
+    Если ряд $(A)$ абсолютно сходящийся, то он сходящийся.
 \end{statement}
 
 \begin{proof}
-    Пусть ряд $A$ абсолютно сходящийся, то есть сходится ряд $A^* \ \sum_{n=1}^{\infty}|a_n| \implies$ по критерию Коши $\forall \epsilon > 0 \ \exists N: \ \forall n > N \ \forall p > 0$
+    Пусть ряд $(A)$ абсолютно сходящийся, то есть сходится ряд $(A^*) \implies$ по критерию Коши $\forall \epsilon > 0 \ \exists N: \ \forall n > N \ \forall p > 0$
     \[
         |a_{n+1}| + |a_{n+1}| + \ldots + |a_{n+1}| < \epsilon.
     \]
@@ -223,28 +223,28 @@
     \[
         |A_{n+p} - A_n| = |a_{n+1} + \ldots + a_{n+p}| \leqslant |a_{n+1}| + \ldots + |a_{n+p}| < \epsilon \implies
     \]
-    $\implies$ ряд $A$ сходится.
+    $\implies$ ряд $(A)$ сходится.
 \end{proof}
 
 \begin{definition}[Условно сходящийся ряд]
-    Если ряд $A$ сходится, а ряд $A^*$ расходится, то ряд $A$ называется \emph{условно сходящимся}.
+    Если ряд $(A)$ сходится, а ряд $(A^*)$ расходится, то ряд $(A)$ называется \emph{условно сходящимся}.
 \end{definition}
 
 \begin{definition}[Знакочередующийся ряд]
-    Ряд $A$ называется \emph{знакочередующимся}, если $\forall n \in \mathbb{N} \quad a_n \cdot a_{n+1} < 0$. Обозначим знакочередующийся ряд:
+    Ряд $(A)$ называется \emph{знакочередующимся}, если $\forall n \in \N \quad a_n \cdot a_{n+1} < 0$. Обозначим знакочередующийся ряд:
     \[
-        \overline{A} \ \sum_{n=1}^{\infty}(-1)^{n-1}\cdot a_n, \quad a_n > 0 \ \forall n \in\N.
+        (\overline{A}) \ \sum_{n=1}^{\infty}(-1)^{n-1}\cdot a_n, \quad a_n > 0 \ \forall n \in\N.
     \]
 \end{definition}
 
 \begin{theorem}[признак Лейбница]
-    Пусть ряд $\overline{A}, \ a_n > 0 \ \forall n$ удовлетворяет условиям:
+    Пусть ряд $(\overline{A}), \ a_n > 0 \ \forall n$ удовлетворяет условиям:
     \begin{enumerate}
         \item $a_1 \geqslant a_2 \geqslant a_3 \geqslant \ldots \geqslant a_n \geqslant \ldots$.
         \item $\underset{n\rightarrow\infty}{\lim} a_n = 0$.
     \end{enumerate}
 
-    Тогда ряд $\overline{A}$ сходится и его сумма $S: \ 0 < S \leqslant a_1$.
+    Тогда ряд $(\overline{A})$ сходится и его сумма $S: \ 0 < S \leqslant a_1$.
 \end{theorem}
 
 \begin{proof}
@@ -274,27 +274,27 @@
 \end{proof}
 
 \begin{corollary}
-    Если знакочередующийся ряд $\overline{A}$ сходящийся, то сумма его $n$-го остатка имеет знак $(n+1)$-го члена ряда и не больше его по модулю.
+    Если знакочередующийся ряд $(\overline{A})$ сходящийся, то сумма его $n$-го остатка имеет знак $(n+1)$-го члена ряда и не больше его по модулю.
 \end{corollary}
 
 \begin{example}
     Рассмотрим ряд
-    \[
-        \overline{H} \ \sum_{n=1}^{\infty}(-1)^{n-1}\frac{1}{n} = 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \ldots + (-1)^{n-1}\frac{1}{n} + \ldots,
-    \]
+    \begin{equation}\label{eq:H}
+        \sum_{n=1}^{\infty}(-1)^{n-1}\frac{1}{n} = 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \ldots + (-1)^{n-1}\frac{1}{n} + \ldots,
+    \end{equation}
     по признаку Лейбница:
     \begin{enumerate}
         \item $1 > \frac{1}{2} > \frac{1}{3} > \ldots > \frac{1}{n}$;
         \item $\underset{n\rightarrow\infty}{\lim}\frac{1}{n} = 0$
     \end{enumerate}
-    $\implies \overline{H}$ сходится, $0 < S \leqslant 1$;
+    $\implies $ \ref{eq:H} сходится, $0 < S \leqslant 1$;
 \end{example}
 
 \begin{example}
     Рассмотрим
     \[
         \sum_{n=1}^{\infty}\left|(-1)^{n-1}\frac{1}{n}\right| = \sum_{n=1}^{\infty}\frac{1}{n} \text{ -- расходящийся} \implies
-    \] $\implies$ ряд $\overline{H}$ -- условно сходящийся.
+    \] $\implies$ ряд \ref{eq:H} -- условно сходящийся.
 \end{example}
 
 \begin{lemma}
@@ -338,7 +338,7 @@
 
         \item \textbf{Дирихле.} Если \begin{itemize}
                   \item последовательность $\{a_n\}$ монотонна и $\underset{n\rightarrow\infty}{\lim}a_n = 0$,
-                  \item частичные суммы ряд $B$ ограничены, то есть $\exists k > 0: $ \\ $ \forall n \ \left|\sum_{m=1}^{n} b_m\right|< k$,
+                  \item частичные суммы ряда $(B)$ ограничены, то есть $\exists k > 0: $ \\ $ \forall n \ \left|\sum_{m=1}^{n} b_m\right|< k$,
               \end{itemize}
               то $\sum_{n=1}^{\infty}a_n \cdot b_n$ сходится.
     \end{enumerate}
@@ -348,12 +348,12 @@
     \begin{enumerate}
         \item Пусть выполнены условия признака Абеля. Тогда $\exists M > 0: \ |a_n| \leqslant M$. Пусть $\epsilon > 0$ задано. Возьмем номер $N: \ \forall n > N, \ \forall p > 0$
               \[
-                \bigg|\sum_{k=n+1}^{n+p}b_k\bigg| < \epsilon^* = \frac{\epsilon}{3\cdot M}.
+                  \bigg|\sum_{k=n+1}^{n+p}b_k\bigg| < \epsilon^* = \frac{\epsilon}{3\cdot M}.
               \]
 
               Частичные суммы ряда $\sum_{n=1}^{\infty}a_n\cdot b_n$ имеют вид $S_n = a_1\cdot b_1 + \ldots + a_n \cdot b_n$. По критерию Коши найдем $N_1: \ \forall n > N_1, \forall p > 0$
               \[
-                |S_{n+p} - S_n| < \epsilon,
+                  |S_{n+p} - S_n| < \epsilon,
               \]
               \begin{multline*}
                   |a_{n+1} \cdot b_{n+1} + a_{n+2} \cdot b_{n+2} + \ldots + a_{n+p} \cdot b_{n+p}| \leqslant \\
@@ -363,7 +363,7 @@
 
         \item Пусть выполнены условия признака Дирихле. Так как $\underset{n\rightarrow\infty}{\lim}a_n = 0$, то $\exists N: \ \forall n > N \quad (\epsilon > 0$ задано):
               \[
-                |a_n| < \frac{\epsilon}{3 \cdot k}, \quad \bigg|\sum_{k=1}^{n}b_k\bigg| \leqslant k.
+                  |a_n| < \frac{\epsilon}{3 \cdot k}, \quad \bigg|\sum_{k=1}^{n}b_k\bigg| \leqslant k.
               \]
 
               По критерию Коши:
@@ -395,3 +395,5 @@
 
     По признаку Дирихле ряд $\sum_{n=1}^{\infty}\frac{\sin (n\cdot x)}{n}$ сходится.
 \end{example}
+
+\newpage

@@ -19,12 +19,14 @@
 \usepackage{emptypage}
 \usepackage{subcaption}
 \usepackage{multicol}
+\usepackage{faktor}
 \usepackage[usenames,dvipsnames]{xcolor}
 
 % \usepackage{cmbright}
 
-
-\usepackage{amsmath, amsfonts, mathtools, amsthm, amssymb}
+\newcommand\hmmax{0}
+\newcommand\bmmax{0}
+\usepackage{amsmath, amsfonts, mathtools, amsthm, amssymb, MnSymbol}
 \usepackage{mathrsfs}
 \usepackage{cancel}
 \usepackage{bm}
@@ -99,47 +101,47 @@
 \declaretheoremstyle[
     headfont=\bfseries\sffamily\color{ForestGreen!70!black}, bodyfont=\normalfont,
     mdframed={
-        linewidth=2pt,
-        rightline=false, topline=false, bottomline=false,
-        linecolor=ForestGreen, backgroundcolor=ForestGreen!5,
-    }
+            linewidth=2pt,
+            rightline=false, topline=false, bottomline=false,
+            linecolor=ForestGreen, backgroundcolor=ForestGreen!5,
+        }
 ]{thmgreenbox}
 
 \declaretheoremstyle[
     headfont=\bfseries\sffamily\color{NavyBlue!70!black}, bodyfont=\normalfont,
     mdframed={
-        linewidth=2pt,
-        rightline=false, topline=false, bottomline=false,
-        linecolor=NavyBlue, backgroundcolor=NavyBlue!5,
-    }
+            linewidth=2pt,
+            rightline=false, topline=false, bottomline=false,
+            linecolor=NavyBlue, backgroundcolor=NavyBlue!5,
+        }
 ]{thmbluebox}
 
 \declaretheoremstyle[
     headfont=\bfseries\sffamily\color{NavyBlue!70!black}, bodyfont=\normalfont,
     mdframed={
-        linewidth=2pt,
-        rightline=false, topline=false, bottomline=false,
-        linecolor=NavyBlue
-    }
+            linewidth=2pt,
+            rightline=false, topline=false, bottomline=false,
+            linecolor=NavyBlue
+        }
 ]{thmblueline}
 
 \declaretheoremstyle[
     headfont=\bfseries\sffamily\color{RawSienna!70!black}, bodyfont=\normalfont,
     mdframed={
-        linewidth=2pt,
-        rightline=false, topline=false, bottomline=false,
-        linecolor=RawSienna, backgroundcolor=RawSienna!5,
-    }
+            linewidth=2pt,
+            rightline=false, topline=false, bottomline=false,
+            linecolor=RawSienna, backgroundcolor=RawSienna!5,
+        }
 ]{thmredbox}
 
 \declaretheoremstyle[
     headfont=\bfseries\sffamily\color{RawSienna!70!black}, bodyfont=\normalfont,
     numbered=no,
     mdframed={
-        linewidth=2pt,
-        rightline=false, topline=false, bottomline=false,
-        linecolor=RawSienna, backgroundcolor=RawSienna!1,
-    },
+            linewidth=2pt,
+            rightline=false, topline=false, bottomline=false,
+            linecolor=RawSienna, backgroundcolor=RawSienna!1,
+        },
     qed=\qedsymbol
 ]{thmproofbox}
 
@@ -147,10 +149,10 @@
     headfont=\bfseries\sffamily\color{NavyBlue!70!black}, bodyfont=\normalfont,
     numbered=no,
     mdframed={
-        linewidth=2pt,
-        rightline=false, topline=false, bottomline=false,
-        linecolor=NavyBlue, backgroundcolor=NavyBlue!1,
-    },
+            linewidth=2pt,
+            rightline=false, topline=false, bottomline=false,
+            linecolor=NavyBlue, backgroundcolor=NavyBlue!1,
+        },
 ]{thmexplanationbox}
 
 
@@ -255,22 +257,22 @@
 
 \tcbuselibrary{breakable}
 \newenvironment{verbetering}{\begin{tcolorbox}[
-    arc=0mm,
-    colback=white,
-    colframe=green!60!black,
-    title=Opmerking,
-    fonttitle=\sffamily,
-    breakable
-]}{\end{tcolorbox}}
+            arc=0mm,
+            colback=white,
+            colframe=green!60!black,
+            title=Opmerking,
+            fonttitle=\sffamily,
+            breakable
+        ]}{\end{tcolorbox}}
 
 \newenvironment{noot}[1]{\begin{tcolorbox}[
-    arc=0mm,
-    colback=white,
-    colframe=white!60!black,
-    title=#1,
-    fonttitle=\sffamily,
-    breakable
-]}{\end{tcolorbox}}
+            arc=0mm,
+            colback=white,
+            colframe=white!60!black,
+            title=#1,
+            fonttitle=\sffamily,
+            breakable
+        ]}{\end{tcolorbox}}
 
 
 
@@ -289,10 +291,126 @@
 % %http://tex.stackexchange.com/questions/76273/multiple-pdfs-with-page-group-included-in-a-single-page-warning
 \pdfsuppresswarningpagegroup=1
 
+\makeatletter
+\DeclareRobustCommand*{\mfaktor}[3][]
+{
+    { \mathpalette{\mfaktor@impl@}{{#1}{#2}{#3}} }
+}
+\newcommand*{\mfaktor@impl@}[2]{\mfaktor@impl#1#2}
+\newcommand*{\mfaktor@impl}[4]{
+    \settoheight{\faktor@zaehlerhoehe}{\ensuremath{#1#2{#3}}}%
+    \settoheight{\faktor@nennerhoehe}{\ensuremath{#1#2{#4}}}%
+    \raisebox{-0.5\faktor@zaehlerhoehe}{\ensuremath{#1#2{#3}}}%
+    \mkern-4mu\diagdown\mkern-5mu%
+    \raisebox{0.5\faktor@nennerhoehe}{\ensuremath{#1#2{#4}}}%
+}
+\makeatother
+
+\DeclareMathOperator{\Ker}{ker}
+\DeclareMathOperator{\im}{Im}
+
 \newcommand{\verteq}[0]{\rotatebox{90}{$=$}}
 \newcommand{\vertneq}[0]{\rotatebox{90}{$\ne$}}
 \newcommand{\equalto}[2]{\underset{\scriptstyle\overset{\mkern4mu\verteq}{#2}}{#1}}
 \newcommand{\nequalto}[2]{\underset{\scriptstyle\overset{\mkern4mu\vertneq}{#2}}{#1}}
 
+% for \xrightrightarrows
+% из-за другого шрифта (наверное), стрелки съезжают, надо поправить
+\makeatletter
+\newcommand*{\relrelbarsep}{.340ex}
+\newcommand*{\relrelbar}{%
+    \mathrel{%
+        \mathpalette\@relrelbar\relrelbarsep
+    }%
+}
+\newcommand*{\@relrelbar}[2]{%
+    \raise#2\hbox to 0pt{$\m@th#1\relbar$\hss}%
+    \lower#2\hbox{$\m@th#1\relbar$}%
+}
+\providecommand*{\rightrightarrowsfill@}{%
+    \arrowfill@\relrelbar\relrelbar\rightrightarrows
+}
+\providecommand*{\leftleftarrowsfill@}{%
+    \arrowfill@\leftleftarrows\relrelbar\relrelbar
+}
+\providecommand*{\nrightrightarrowsfill@}{%
+    \arrowfill@\relrelbar\relrelbar\nrightrightarrows
+}
+\providecommand*{\nleftleftarrowsfill@}{%
+    \arrowfill@\nleftleftarrows\relrelbar\relrelbar
+}
+\providecommand*{\xrightrightarrows}[2][]{%
+    \ext@arrow 0359\rightrightarrowsfill@{#1}{#2}%
+}
+\providecommand*{\xleftleftarrows}[2][]{%
+    \ext@arrow 3095\leftleftarrowsfill@{#1}{#2}%
+}
+\providecommand*{\xnrightrightarrows}[2][]{%
+    \ext@arrow 0359\nrightrightarrowsfill@{#1}{#2}%
+}
+\providecommand*{\xnleftleftarrows}[2][]{%
+    \ext@arrow 3095\nleftleftarrowsfill@{#1}{#2}%
+}
+\makeatother
+
+\makeatletter
+\newcommand*{\da@rightarrow}{\mathchar"0\hexnumber@\symAMSa 4B }
+\newcommand*{\da@leftarrow}{\mathchar"0\hexnumber@\symAMSa 4C }
+\newcommand*{\xdashrightarrow}[2][]{%
+    \mathrel{%
+        \mathpalette{\da@xarrow{#1}{#2}{}\da@rightarrow{\,}{}}{}%
+    }%
+}
+\newcommand{\xdashleftarrow}[2][]{%
+    \mathrel{%
+        \mathpalette{\da@xarrow{#1}{#2}\da@leftarrow{}{}{\,}}{}%
+    }%
+}
+\newcommand*{\da@xarrow}[7]{%
+    % #1: below
+    % #2: above
+    % #3: arrow left
+    % #4: arrow right
+    % #5: space left 
+    % #6: space right
+    % #7: math style 
+    \sbox0{$\ifx#7\scriptstyle\scriptscriptstyle\else\scriptstyle\fi#5#1#6\m@th$}%
+    \sbox2{$\ifx#7\scriptstyle\scriptscriptstyle\else\scriptstyle\fi#5#2#6\m@th$}%
+    \sbox4{$#7\dabar@\m@th$}%
+    \dimen@=\wd0 %
+    \ifdim\wd2 >\dimen@
+        \dimen@=\wd2 %   
+    \fi
+    \count@=2 %
+    \def\da@bars{\dabar@\dabar@}%
+    \@whiledim\count@\wd4<\dimen@\do{%
+        \advance\count@\@ne
+        \expandafter\def\expandafter\da@bars\expandafter{%
+            \da@bars
+            \dabar@
+        }%
+    }%  
+    \mathrel{#3}%
+    \mathrel{%   
+        \mathop{\da@bars}\limits
+        \ifx\\#1\\%
+        \else
+            _{\copy0}%
+        \fi
+        \ifx\\#2\\%
+        \else
+            ^{\copy2}%
+        \fi
+    }%   
+    \mathrel{#4}%
+}
+\makeatother
+
+\newcommand\xdownarrow[1][2ex]{%
+   \mathrel{\rotatebox[origin=c]{-90}{$\xrightarrow{\rule{#1}{0pt}}$}}
+}
+\newcommand\xdashdownarrow[1][2ex]{%
+   \mathrel{\rotatebox[origin=c]{-90}{$\xdashrightarrow{\rule{#1}{0pt}}$}}
+}
 
 \author{Данил Заблоцкий}

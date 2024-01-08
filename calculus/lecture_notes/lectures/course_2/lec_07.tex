@@ -89,27 +89,27 @@
 \begin{definition}[Сумма рядов]
     Пусть даны ряды
     \[
-        A \ \sum_{n=1}^{\infty}a_n, \quad B \ \sum_{n=1}^{\infty}b_n.
+        (A) \ \sum_{n=1}^{\infty}a_n, \quad (B) \ \sum_{n=1}^{\infty}b_n.
     \]
 
     \emph{Суммой рядов} $ A, B $ называется ряд:
     \[
-        A+B \ \sum_{n=1}^{\infty}(a_n + b_n).
+        (A+B) \ \sum_{n=1}^{\infty}(a_n + b_n).
     \]
 \end{definition}
 
 \begin{theorem}
-    Если ряды $ A,B $ сходятся, то:
+    Если ряды $ (A),(B) $ сходятся, то:
     \begin{enumerate}
         \item $ \forall a \in \R $ ряд $ \sum_{n=1}^{\infty}\alpha a_n $ -- сходится и его сумма равна $ \alpha \cdot A $, где $ A = \sum_{n=1}^{\infty}a_n $.
 
-        \item Ряд $ A+B $ сходится и его сумма равна $ A^* + B^* $, где $ A* = \sum_{n=1}^{\infty}a_n,$ $ B* = \sum_{n=1}^{\infty}b_n $.
+        \item Ряд $ (A+B) $ сходится и его сумма равна $ A^* + B^* $, где $ A^* = \sum_{n=1}^{\infty}a_n,$ $ B^* = \sum_{n=1}^{\infty}b_n $.
     \end{enumerate}
 \end{theorem}
 
 \begin{proof}
     \begin{enumerate}
-        \item Пусть ряд $ A $ сходится.
+        \item Пусть ряд $ (A) $ сходится.
 
               Рассмотрим ряд $ \sum_{n=1}^{\infty}\alpha \cdot a_n $:
               \[
@@ -126,11 +126,11 @@
 \section{Сходимость положительных рядов}
 
 \begin{definition}[Положительный ряд]
-    Ряд $ A $ называется \emph{положительным}, если $ \forall n \ a_n>0 $.
+    Ряд $ (A) $ называется \emph{положительным}, если $ \forall n \ a_n>0 $.
 \end{definition}
 
 \begin{theorem}\label{theorem:2.1}
-    Положительный ряд $ A $ сходится $ \iff $ его частичные суммы ограничены, то есть $ \exists M > 0: \ \forall n \ A_n < M $.
+    Положительный ряд $ (A) $ сходится $ \iff $ его частичные суммы ограничены, то есть $ \exists M > 0: \ \forall n \ A_n < M $.
 \end{theorem}
 
 \begin{proof}
@@ -140,30 +140,30 @@
 \end{proof}
 
 \begin{theorem}[1-ый признак сравнения]\label{theorem:6.2}
-    Пусть даны ряды $ A,B $, причем $a_n > 0, \ b_n > 0 \ \forall n$.
+    Пусть даны ряды $ (A),(B) $, причем $a_n > 0, \ b_n > 0 \ \forall n$.
 
     Если $\exists N \in \mathbb{N}: \ \forall n > N \ a_n \leqslant b_n$, то:
     \begin{enumerate}
-        \item Из сходимости ряда $B \implies$ сходимость ряда $A$.
-        \item Из расходимости ряда $A \implies$ расходимость ряда $B$.
+        \item Из сходимости ряда $(B) \implies$ сходимость ряда $(A)$.
+        \item Из расходимости ряда $(A) \implies$ расходимость ряда $(B)$.
     \end{enumerate}
 \end{theorem}
 
 \begin{proof}\leavevmode
     \begin{enumerate}
-        \item Пусть ряд $B$ -- сходится $\implies$ по теореме \ref{theorem:2.1} его частичные суммы ограничены $\implies$ по неравенству $a_n\leqslant b_n$ частичные суммы ряда $A$ также ограничены $\implies$ по \ref{theorem:2.1} ряд $A$ сходится.
+        \item Пусть ряд $(B)$ -- сходится $\implies$ по теореме \ref{theorem:2.1} его частичные суммы ограничены $\implies$ по неравенству $a_n\leqslant b_n$ частичные суммы ряда $(A)$ также ограничены $\implies$ по \ref{theorem:2.1} ряд $(A)$ сходится.
         \item Аналогично.
     \end{enumerate}
 \end{proof}
 
 \begin{theorem}[2-ой признак сравнения]
-    Пусть даны ряды $ A,B $, причем $a_n > 0, \ b_n > 0 \ \forall n$.
+    Пусть даны ряды $ (A),(B) $, причем $a_n > 0, \ b_n > 0 \ \forall n$.
 
     Если $\underset{n\rightarrow\infty}{\lim}\frac{a_n}{b_n}=k, \ k\in [0;\infty]$, то:
     \begin{enumerate}
-        \item При $k=\infty$ из сходимости $A \implies$ сходимость ряда $B$.
-        \item При $k=0$ из сходимости ряда $B \implies$ сходимость ряда $A$.
-        \item При $0<\equalto{k}{const \ne 0}<\infty$ ряды $A$ и $B$ ведут себя одинаково.
+        \item При $k=\infty$ из сходимости $(A) \implies$ сходимость ряда $(B)$.
+        \item При $k=0$ из сходимости ряда $(B) \implies$ сходимость ряда $(A)$.
+        \item При $0<\equalto{k}{const \ne 0}<\infty$ ряды $(A)$ и $(B)$ ведут себя одинаково.
     \end{enumerate}
 \end{theorem}
 
@@ -172,12 +172,12 @@
 \end{proof}
 
 \begin{theorem}[3-й признак сравнения]
-    Пусть даны ряды $ A,B $, причем $a_n > 0, \ b_n > 0 \ \forall n$.
+    Пусть даны ряды $ (A),(B) $, причем $a_n > 0, \ b_n > 0 \ \forall n$.
 
-    Если $\exists N \in \mathbb{N} \cup \{0\}: \ \forall n > N \ \frac{a_{n+1}}{a_n}\leqslant\frac{b_{n+1}}{b_n} $, то:
+    Если $\exists N \in \N \cup \{0\}: \ \forall n > N \ \frac{a_{n+1}}{a_n}\leqslant\frac{b_{n+1}}{b_n} $, то:
     \begin{enumerate}
-        \item Из сходимости ряда $B \implies$ сходимость ряда $A$.
-        \item Из расходимости ряда $A \implies$ расходимость ряда $B$.
+        \item Из сходимости ряда $(B) \implies$ сходимость ряда $(A)$.
+        \item Из расходимости ряда $(A) \implies$ расходимость ряда $(B)$.
     \end{enumerate}
 \end{theorem}
 
@@ -195,13 +195,13 @@
         \frac{a_{n+1}}{a_1} \leqslant \frac{b_{n+1}}{b_n} \implies a_{n+1} \leqslant \frac{a_1}{b_1}\cdot b_{n+1}\text{ (по теореме \ref{theorem:6.2})}.
     \]
     \begin{enumerate}
-        \item Если ряд $B$ сходится $\implies$ сходится ряд $\sum_{n=1}^{\infty}\frac{a_1}{b_1}\cdot b_{n+1} \implies$ сходится ряд $\sum_{n=1}^{\infty}a_{n+1} \implies $ сходится $ A $.
+        \item Если ряд $(B)$ сходится $\implies$ сходится ряд $\sum_{n=1}^{\infty}\frac{a_1}{b_1}\cdot b_{n+1} \implies$ сходится ряд $\sum_{n=1}^{\infty}a_{n+1} \implies $ сходится $ (A) $.
         \item Аналогично.
     \end{enumerate}
 \end{proof}
 
 \begin{theorem}[Интегральный признак Коши-Маклорена]
-    Пусть дан положительный ряд $ A $.
+    Пусть дан положительный ряд $ (A) $.
 
     Пусть функция $f(x)$ удовлетворяет следующим условиям:
     \begin{enumerate}
@@ -211,7 +211,7 @@
         \item $f(x) = a_n, \ \forall n \in \N$.
     \end{enumerate}
 
-    Тогда ряд $A$ и интеграл $\int_{1}^{\infty}f(x)dx$ ведут себя одинаково.
+    Тогда ряд $(A)$ и интеграл $\int_{1}^{\infty}f(x)dx$ ведут себя одинаково.
 \end{theorem}
 
 \begin{proof}
@@ -227,20 +227,20 @@
         \int_{1}^{N}\psi(x)dx \leqslant \int_{1}^{N}f(x)dx \leqslant\int_{1}^{N}\phi(x)dx \implies \\
         \implies \underbrace{\sum_{n=1}^{N}a_{n+1}}_{\begin{array}{c}
             \text{частичная сумма} \\
-            \text{ряда }A
+            \text{ряда }(A)
         \end{array}} \leqslant \int_{1}^{N}f(x)dx \leqslant \underbrace{\sum_{n=1}^{N}a_n}_{\begin{array}{c}
                 \text{частичная сумма} \\
-                \text{ряда }A
+                \text{ряда }(A)
             \end{array}}
     \end{multline*}
     \begin{itemize}
-        \item Если интеграл сходится, то частичная сумма $\sum_{n=1}^{N}a_{n+1}$ ограничена $\implies$ ряд $A$ сходится.
+        \item Если интеграл сходится, то частичная сумма $\sum_{n=1}^{N}a_{n+1}$ ограничена $\implies$ ряд $(A)$ сходится.
 
-        \item Если интеграл расходится, то частичная сумма $\sum_{n=1}^{N}a_n$ непрерывна $\implies$ ряд $A$ -- расходится.
+        \item Если интеграл расходится, то частичная сумма $\sum_{n=1}^{N}a_n$ непрерывна $\implies$ ряд $(A)$ -- расходится.
 
-        \item Если ряд $A$ сходится, то $\sum_{n=1}^{N}a_n$ -- ограничена $\implies$ $\int_{1}^{N}f(x)dx$ -- ограничен $\implies \int_{1}^{\infty}f(x)dx$ -- сходится.
+        \item Если ряд $(A)$ сходится, то $\sum_{n=1}^{N}a_n$ -- ограничена $\implies$ $\int_{1}^{N}f(x)dx$ -- ограничен $\implies \int_{1}^{\infty}f(x)dx$ -- сходится.
 
-        \item Если ряд $A$ расходится $\implies$ частичная сумма $\sum_{n=1}^{N}a_{n+1}$ неограничена $\implies$ интеграл расходится.
+        \item Если ряд $(A)$ расходится $\implies$ частичная сумма $\sum_{n=1}^{N}a_{n+1}$ неограничена $\implies$ интеграл расходится.
     \end{itemize}
 \end{proof}
 
@@ -267,10 +267,10 @@
 \end{example}
 
 \begin{theorem}[Радикальный признак Коши]
-    Пусть ряд $A$ положительный и $\underset{n\rightarrow\infty}{\overline{\lim}}\sqrt[n]{a_n} = q$. Тогда:
+    Пусть ряд $(A)$ положительный и $\underset{n\rightarrow\infty}{\overline{\lim}}\sqrt[n]{a_n} = q$. Тогда:
     \begin{enumerate}
-        \item При $q < 1$ ряд $A$ сходится.
-        \item При $q > 1$ ряд $A$ расходится.
+        \item При $q < 1$ ряд $(A)$ сходится.
+        \item При $q > 1$ ряд $(A)$ расходится.
         \item При $q = 1$ может как сходиться, так и расходиться.
     \end{enumerate}
 \end{theorem}
@@ -282,9 +282,9 @@
                   \sqrt[n]{a_n} < r \implies a_n < r^n.
               \]
 
-              $0 < r < 1 \implies \sum_{n=1}^{\infty}r^n$ -- сходится $\implies$ по 1-му признаку сравнения сходится ряд $A$.
+              $0 < r < 1 \implies \sum_{n=1}^{\infty}r^n$ -- сходится $\implies$ по 1-му признаку сравнения сходится ряд $(A)$.
 
-        \item Пусть $q > 1$, тогда существует подпоследовательность $\sqrt[n_i]{a_{n_i}} \rightarrow q$ при $i\rightarrow\infty \implies a_{n_i}\rightarrow q^{n_i} > 1 \implies a_n \nrightarrow  0 \implies $ необходимое условие сходимости не выполняется $ \implies $ ряд $A$ расходится.
+        \item Пусть $q > 1$, тогда существует подпоследовательность $\sqrt[n_i]{a_{n_i}} \rightarrow q$ при $i\rightarrow\infty \implies a_{n_i}\rightarrow q^{n_i} > 1 \implies a_n \nrightarrow  0 \implies $ необходимое условие сходимости не выполняется $ \implies $ ряд $(A)$ расходится.
 
         \item Рассмотрим ряды $\underset{\text{расходится}}{\sum_{n=1}^{\infty}\frac{1}{n}}$ и $\underset{\text{сходится}}{\sum_{n=1}^{\infty}\frac{1}{n^2}}$:
               \[
@@ -294,10 +294,10 @@
 \end{proof}
 
 \begin{theorem}[Признак Даламбера]
-    Пусть ряд $A$ положительный и  \\ $ \underset{n\rightarrow\infty}{\lim}\frac{a_{n+1}}{a_n} = d $. Тогда:
+    Пусть ряд $(A)$ положительный и  \\ $ \underset{n\rightarrow\infty}{\lim}\frac{a_{n+1}}{a_n} = d $. Тогда:
     \begin{enumerate}
-        \item При $d < 1$ ряд $A$ сходится.
-        \item При $d > 1$ ряд $A$ расходится.
+        \item При $d < 1$ ряд $(A)$ сходится.
+        \item При $d > 1$ ряд $(A)$ расходится.
         \item При $d = 1$ может как сходиться, так и расходиться.
     \end{enumerate}
 \end{theorem}
@@ -319,7 +319,7 @@
                   \end{array}.
               \]
 
-              Так как $0 < r < 1$, то $\sum_{n=1}^{\infty} r^n \cdot a_1$ сходится $\implies$ сходится ряд $A$ по 1 признаку сравнения.
+              Так как $0 < r < 1$, то $\sum_{n=1}^{\infty} r^n \cdot a_1$ сходится $\implies$ сходится ряд $(A)$ по 1 признаку сравнения.
         \item Самостоятельно.
         \item $\sum_{n=1}^{\infty}\frac{1}{n}, \quad \sum_{n=1}^{\infty}\frac{1}{n^2}$.
               \[

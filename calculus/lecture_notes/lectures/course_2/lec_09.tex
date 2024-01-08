@@ -1,0 +1,332 @@
+\lesson{9}{от 9 окт 2023 10:25}{Продолжение}
+
+
+\section{Свойства сходящихся рядов}
+
+\begin{note}
+    Рассмотрим ряд:
+    \[
+        1-1+1-1+1-1+\ldots.
+    \]
+
+    Если
+    \[
+        (1-1) + (1-1) + \ldots + (1-1) + \ldots,
+    \]
+    то
+    \[
+        1 + (-1 + 1) + (-1 + 1) + \ldots.
+    \]
+
+    Пусть дан ряд $ (A) $. Составим из ряда $(A)$ ряд $(\widetilde{A})$:
+    \begin{multline*}
+        \underbrace{(a_1 + a_2 + \ldots + a_{n_1})}_{\widetilde{a}_1} + \underbrace{(a_{n_1 + 1} + a_{n_1 + 2} + \ldots + a_{n_2})}_{\widetilde{a}_2} + \ldots \\
+        \ldots + \underbrace{(a_{n_k + 1} + \ldots + a_{n_k + 1})}_{\widetilde{a}_{k+1}} + \ldots = \sum_{k=1}^{\infty}\sum_{l=n_{k-1}+1}^{n_k} a_l = \widetilde{A}, \quad a_{n_0} = a_1.
+    \end{multline*}
+\end{note}
+
+\begin{theorem}[Сочетательное свойство сходящихся рядов]\leavevmode
+    \begin{enumerate}
+        \item Если ряд $(A)$ сходится, то для любой возрастающей последовательности $n_k$ ряд $(\widetilde{A})$ сходится и их суммы совпадают ($A = \widetilde{A}$).
+        \item Если ряд $(\widetilde{A})$ сходится и внутри каждой  скобки знак не меняется, то ряд $(A)$ сходится и их суммы совпадают, то есть $\widetilde{A} = A$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}\leavevmode
+    \begin{enumerate}
+        \item Пусть ряд $(A)$ сходится, $\widetilde{A}_k$ -- частичные суммы ряда $(\widetilde{A})$:
+              \[
+                  \begin{array}{l}
+                      \widetilde{A}_1 = \widetilde{a}_1 = \sum_{k=1}^{n_1}a_k = A_{n_1}                         \\
+                      \widetilde{A}_2 = \widetilde{a}_1 + \widetilde{a}_2 = \sum_{k=n_1 + 1}^{n_2}a_k = A_{n_1} \\
+                      \vdots                                                                                    \\
+                      \widetilde{A}_k = A_{n_k}
+                  \end{array}.
+              \]
+
+              Так как ряд $(A)$ сходится, то $ \exists \underset{k\rightarrow\infty}{\lim}A_{n_k} = A $, следовательно:
+              \begin{eqnarray*}
+                  A &=& \underset{k\rightarrow\infty}{\lim}A_{n_k} = \\
+                  = \underset{n\rightarrow\infty}{\lim}\widetilde{A}_k &=& \widetilde{A}
+              \end{eqnarray*}
+
+              \newpage
+
+        \item Пусть ряд $(\widetilde{A})$ сходится. Имеем:
+
+              \[
+                  \text{при: }\begin{array}{l}
+                      a_1 > 0: \quad A_1 < A_2 < \ldots < A_{n_1} \\
+                      a_1 < 0: \quad A_1 > A_2 > \ldots > A_{n_1}
+                  \end{array}.
+              \]
+
+              \begin{itemize}
+                  \item Далее, если $a_{n_1 + 1} > 0$, тогда:
+
+                        при $ a_1 > 0: \ A_{n_1 + 1} < A_{n_1 + 2} < \ldots < A_{n_2}$
+                        \[
+                            A_{n_1} = \widetilde{A}_1 < A_{n_2} = \widetilde{A}_2,
+                        \]
+                        при $a_1 < 0: \ A_{n_1} < 0$ и $A_{n_1} < A_{n_2} $
+                        \[
+                            \widetilde{A}_1 < \widetilde{A}_2.
+                        \]
+
+                  \item Если же $a_{n_1 + 1} < 0$, тогда:
+                        \[
+                            \text{при: }\begin{array}{l}
+                                a_1 < 0: \quad A_{n_1} = \widetilde{A}_1 > A_{n_2} = \widetilde{A}_2 \\
+                                a_1 > 0: \quad A_{n_1} = \widetilde{A}_1 > \widetilde{A}_2
+                            \end{array}.
+                        \]
+              \end{itemize}
+
+              Аналогично, пока $n$ меняется от $n_k$ до $n_{k+1}$, то будем иметь либо $A_{n_k} < A_n < A_{n_{k+1}}$, либо $A_{n_k} > A_n > A_{n_{k+1}}$.
+
+              Ряд $(\widetilde{A})$ -- сходится $\implies \exists \underset{k\rightarrow\infty}{\lim}\widetilde{A}_k = \underset{k\rightarrow\infty}{\lim}\widetilde{A}_{k+1} = \widetilde{A} \implies$ по теореме о 2-х миллиционерах:
+              \[
+                  \underset{k\rightarrow\infty}{\lim}A_n = \widetilde{A}.
+              \]
+    \end{enumerate}
+\end{proof}
+
+\begin{lemma}
+    Если ряд $(A)$ абсолютно сходящийся, то ряды $(P)$ и $(Q)$ сходятся и $A = P - Q$.
+\end{lemma}
+
+\begin{proof}
+    Пусть $(A^*)$ -- сходится $\implies \sum_{n=1}^{\infty}|a_n| = A^*$.
+
+    $A_n^*$ -- частичные суммы ряда $(A^*)$.
+
+    Имеем $P_{n_k} = a_{n_1} + a_{n_2} + \ldots + a_{n_k}$, где $n_1 < n_2 < \ldots < n_k \leqslant n $,
+    \begin{example}
+        \[
+            (A) \ \sum_{n=1}^{\infty} a_n = a_1 + a_2 + a_3 + a_4 + a_5 + a_6,
+        \]
+        \[
+            (P) \ \sum_{n=1}^{\infty} p_n = \underbrace{a_1 + a_3 + a_4 + a_6}_{P_3},
+        \]
+        \[
+            (A^*) \ \underbrace{|a_1| + |a_2| + |a_3| + |a_4| + |a_5|}_{A_5^*} + \ldots.
+        \]
+    \end{example}
+    \[
+        \begin{array}{l}
+            P_{n_k} \leqslant A_n^* \\
+            Q_{n_m} \leqslant A_n^*
+        \end{array} \overset{\begin{array}{c}
+                \text{т.к. }(A^*) \\
+                \text{сходится}
+            \end{array}}{\Longrightarrow} \begin{array}{l}
+            A_n^* \leqslant A^*  \\
+            P_{n_k}\leqslant A^* \\
+            Q_{n_m} \leqslant A^*
+        \end{array}
+    \]
+
+    Далее,
+    \[
+        A_n = P_{n_k} - Q_{n_m}\text{, где }\begin{array}{l}
+            n_k \leqslant n \\
+            n_m \leqslant n
+        \end{array}
+    \]
+    \[
+        \left(\text{при } n\rightarrow\infty \implies \begin{array}{l}
+            k \rightarrow\infty \\
+            m \rightarrow\infty
+        \end{array}\right)
+    \]
+
+    Далее, так как $(A)$ сходится абсолютно $\implies (A)$ сходится $\implies$
+    \begin{multline*}
+        \implies \exists A = \underset{n\rightarrow\infty}{\lim}A_n = \underset{k,m\rightarrow\infty}{\lim}(P_{n_k} - Q_{n_m}) = \\
+        = \underset{k\rightarrow\infty}{\lim}P_{n_k} - \underset{m\rightarrow\infty}{\lim}Q_{n_m} = P - Q.
+    \end{multline*}
+\end{proof}
+
+\begin{theorem}[Переместительное свойство сходящихся рядов]
+    Если ряд $(A)$ абсолютно сходится, то его сумма не зависит от перестановки членов ряда.
+\end{theorem}
+
+\begin{proof}[Доказательство теоремы]
+    Пусть ряд $ (A) $ сходится абсолютно $\implies$ ряд $ (A^*) $ сходится. Пусть ряд
+    \[
+        (A') \ \sum_{n=1}^{\infty}a_n'
+    \]
+    получен из ряда $(A)$ путем перестановки его членов. Покажем, что ряд $(A')$ сходится и $A = A'$ (их суммы совпадают).
+
+    \begin{enumerate}
+        \item Пусть $(A)$ -- знакоположительный, то есть $\forall n \in \N \quad a_n > 0$. Рассмотрим частичные суммы ряда $(A')$:
+              \[
+                  A_k' = a_1' + a_2' + \ldots + a_k' = a_{n_1} + a_{n_2} + \ldots + a_{n_k}.
+              \]
+
+              Пусть $n' = \max\{n_1,n_2,\ldots,n_k\}$. Тогда:
+              \[
+                  A_k' \leqslant a_1 + a_2 + \ldots + a_{n_j} + \ldots + a_{n'} = A_{n'},
+              \]
+              где $A_{n'}$ -- $n'$-я частичная сумма ряда $(A)$. Так как $(A)$ сходится и знакоположительный $\implies A_{n'} \leqslant A$.
+
+              Таким образом получаем, что $\forall k \ A_k' \leqslant A \implies$ последовательность $A_k' \nearrow$ и ограничена, тогда:
+              \[
+                  \exists\underset{k\rightarrow\infty}{\lim}A_k' = A' \leqslant A.
+              \]
+
+              С другой стороны, ряд $(A')$ получен перестановкой членов ряда $(A) \implies A' \geqslant A \implies A' \leqslant A \leqslant A' \implies A = A'$.
+
+        \item Пусть ряд $(A)$ сходится абсолютно, то есть $(A^*)$ сходится. С рядом $(A)$ свяжем два ряда:
+              \[
+                  (P) \ \sum_{n=1}^{\infty}p_n, \quad (Q) \ \sum_{n=1}^{\infty}q_n,
+              \]
+              где $p_n$ -- положительные члены ряда $(A)$, $q_n$ -- отрицательные члены ряда $(A)$, взятые по модулю, причем все члены рядов $(P)$ и $(Q)$ взяты в том же порядке, как они стояли в ряде $(A)$.
+    \end{enumerate}
+
+    Если ряд $(A)$ сходится абсолютно, то сходится ряд $(A^*)$, $(A^*)$ -- положительный ряд $\implies (A^{*'})$ сходится (получен путем перестановки членов ряда $(A^*)$) $\implies$ по лемме сходятся ряды $(P')$ и $(Q')$ и $A' = P' - Q'$.
+
+    \[
+        \begin{array}{ccc}
+                &          & (P) \\
+                & \nearrow &     \\
+            (A) &          &     \\
+                & \searrow &     \\
+                &          & (Q)
+        \end{array} \quad \Longrightarrow \quad \begin{array}{ccccc}
+            (A^*) & \rightarrow & \underbrace{(A^{*'})}_{\text{сх.}} &          &      \\
+                  &             & \downarrow                         &          &      \\
+                  &             & (A')                               &          &      \\
+                  & \swarrow    &                                    & \searrow &      \\
+            (P')  &             &                                    &          & (Q')
+        \end{array}
+    \]
+
+    \begin{itemize}
+        \item $(P')$ -- положительный ряд $\implies$ по пункту 1, $(P)$ -- сходится,
+        \item $(Q')$ -- положительный ряд $\implies$ по пункту 1, $(Q)$ -- сходится
+    \end{itemize}
+    и $P' = P, \ Q' = Q \implies A' = P - Q = A$.
+\end{proof}
+
+\begin{lemma}
+    Если ряд $(A)$ сходится условно, то ряды $(P)$ и $(Q)$ расходятся.
+\end{lemma}
+
+\begin{proof}
+    Рассмотрим
+    \[
+        A_n = P_k - Q_m,
+    \] где $k \leqslant n, \ m \leqslant n \ (k + m = n)$.
+    \[
+        A_n^* = P_k^* + Q_m^*,
+    \]
+    \[
+        \underset{n\rightarrow\infty}{\lim} A_n = A; \quad \underset{n\rightarrow\infty}{\lim}A_n^* = \infty.
+    \]
+
+    Допустим, что ряд $(P)$ сходится $\implies (P^*)$ сходится, а так же $\exists \underset{k\rightarrow\infty}{\lim}P_k = P \implies \exists\underset{m\rightarrow\infty}{\lim}Q_m = A - P \implies Q^*$ -- сходится $\implies (A^*)$ имеет предел. Противоречие $\implies (P)$ расходится.
+
+    Для $(Q)$ -- аналогично.
+\end{proof}
+
+\newpage
+
+\begin{theorem}[Римана о перестановке членов условно сходящегося ряда]
+    Если ряд $(A)$ условно сходится, то $\forall B \in \R$ (в том числе $B = \pm\infty$) $\exists$ перестановка ряда $(A)$ такая, что полученный ряд сходится и имеет сумму $B$. Более того, $\exists$ перестановка ряда $(A)$ такая, что частичные суммы полученного ряда не стремятся ни к конечному, ни к бесконечному пределу.
+\end{theorem}
+
+\begin{proof}[Доказательство теоремы]
+    Пусть $B \in \R$. Возьмем номера:
+    \[
+        \begin{array}{l}
+            n_1: \ p_1 + p_2 + \ldots + p_{n_1} \geqslant B, \\
+            n_2: \ p_1 + p_2 + \ldots + p_{n_1} - q_1 - q_2 - \ldots - q_{n_2} \leqslant B.
+        \end{array}
+    \]
+
+    Более того, элементы $p$ и $q$ будем брать столько, сколько это необходимо для выполнения этого условия.
+
+    Возьмем:
+    \[
+        n_3: \ p_1 + p_2 + \ldots + p_{n_1} - q_1 - q_2 - \ldots - q_{n_2} + p_{n_1 + 1} + p_{n_1 + 2} + \ldots + p_{n_3} \geqslant B
+    \] и так далее.
+
+    Таким образом получим ряд
+    \begin{multline*}
+        (p_1 + \ldots + p_{n_1}) + (-q_1 - \ldots - q_{n_2}) + \\
+        + (p_{n_1 + 1} + \ldots + p_{n_3}) + (-q_{n_2 + 1} - \ldots - q_{n_4}) + \ldots
+    \end{multline*} -- этот ряд сходится к $B$.
+
+    Действительно, так как ряд $(A)$ сходится, то $\underset{n\rightarrow\infty}{\lim} a_n = 0$.
+
+    Так как количество членов $p_i$ и $q_i$ бралось лишь столько, сколько необходимо, то соответствующие частичные суммы отличаются от $B$ разве что на последнее слогаемое в этой частичной сумме, которое стремится к нулю $\implies \underset{n\rightarrow\infty}{\lim}A_n' = B$.
+\end{proof}
+
+\section{Умножение рядов}
+
+\begin{note}
+    Пусть даны ряды $ (A),(B) $. Составим таблицу:
+    \begin{center}
+        \begin{tabular}{c | c | c | c | c | c}
+                     & $a_1$     & $a_2$      & $\cdots$ & $a_n$     & $\cdots$ \\
+            \hline
+            $b_1$    & $a_1 b_1$ & $a_2 b_1 $ & $\cdots$ & $a_n b_1$ & $\cdots$ \\
+            \hline
+            $b_2$    & $a_1 b_2$ & $a_2 b_2$  & $\cdots$ & $a_n b_2$ & $\cdots$ \\
+            \hline
+            $\vdots$ & $\vdots$  & $\vdots$   & $\ddots$ & $\vdots$  & $\ddots$ \\
+            \hline
+            $b_n$    & $a_1 b_n$ & $a_2 b_n$  & $\cdots$ & $a_n b_n$ & $\cdots$ \\
+            \hline
+            $\vdots$ & $\vdots$  & $\vdots$   & $\ddots$ & $\vdots$  & $\ddots$ \\
+        \end{tabular}
+    \end{center}
+\end{note}
+
+\begin{definition}[Произведение рядов, форма Коши]
+    \emph{Произведением рядов} $(A)$ и $(B)$ назовем ряд, членами которого ялвяются элементы на строке таблицы $a_ib_j$, взятые в произвольном порядке.
+
+    Если числа выбираются по диагоналям, то произведение называется \emph{формой Коши}:
+    \[
+        a_1 b_1 + (a_1 b_2 + a_2 b_1) + \ldots
+    \]
+\end{definition}
+
+\begin{theorem}[Коши о произведении рядов]
+    Если ряды $ (A),(B) $ абсолютно сходятся, $A$ и $B$ -- их суммы, то $\forall$ их произведение абсолютно сходится и равно $A \cdot B$.
+\end{theorem}
+
+\begin{proof}
+    Рассмотрим $r$-тую частичную сумму ряда
+    \[
+        (A\cdot B)^* \quad \sum_{r=1}^{\infty}|a_{n_r}\cdot b_{k_r}|,
+    \]
+    \begin{multline*}
+        S_r = |a_{n_1} \cdot b_{k_1}| + |a_{n_2} \cdot b_{k_2}| + \ldots + |a_{n_r} \cdot b_{k_r}| \leqslant \\
+        \leqslant (|a_{n_1}| + |a_{n_2}| + \ldots + |a_{n_r}|) \cdot (|b_{k_1}| + |b_{k_2}| + \ldots + |b_{k_r}|) \leqslant \\
+        \leqslant (|a_1| + |a_2| + \ldots + |a_m|) \cdot (|b_1| + |b_2| + \ldots + |b_m|),
+    \end{multline*}
+    где $m = \max\{n_1,n_2,\ldots,n_r,k_1,k_2,\ldots,k_r\}$.
+
+    Так как ряды $(A)$ и $(B)$ сходятся абсолютно, то есть сходятся ряды $(A^*)$ и $(B^*)$, то $S_r \leqslant A^* \cdot B^* \implies$ последовательность $S_r \nearrow$ и ограничена $\implies \exists \underset{r\rightarrow\infty}{\lim} S_r \implies$ ряд $(A\cdot B)^*$ сходится $\implies$ ряд $ (A\cdot B) $ -- сходится, причем его сумма не зависит от порядка суммирования.
+
+    Будем суммировать ряд $A\cdot B$ по квадратам:
+    \[
+        \underbrace{a_1b_1}_{c_1} + \underbrace{(a_1b_2 + a_2 b_2 + a_2 b_1)}_{c_2} + \underbrace{(a_1b_3 + a_2b_3 + a_3b_3 + a_3b_2 + b_3b_1)}_{c_3} + \ldots
+    \]
+    \[
+        \begin{array}{l}
+            S_1 = a_1b_1 = A_1\cdot B_1                                                                        \\
+            S_2 = c_1 + c_2 = a_1b_1 + (a_1b_2 + a_2b_2 + a_2b_1) = (a_1 + a_2)\cdot(b_1 + b_2) = A_2\cdot B_2 \\
+            S_3 = c_1 + c_2 + c_3 = (a_1 + a_2 + a_3)\cdot(b_1 + b_2 + b_3) = A_3\cdot b_3                     \\
+            \vdots                                                                                             \\
+            S_n = A_n \cdot B_n
+        \end{array}
+    \]
+    \[
+        \underset{n\rightarrow\infty}{\lim}S_n = \underset{n\rightarrow\infty}{\lim}(A_n \cdot B_n) = \underset{n\rightarrow\infty}{\lim}A_n \cdot \underset{n\rightarrow\infty}{\lim}B_n = A\cdot B
+    \]
+\end{proof}
+
+\newpage
