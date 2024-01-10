@@ -407,10 +407,17 @@
 \makeatother
 
 \newcommand\xdownarrow[1][2ex]{%
-   \mathrel{\rotatebox[origin=c]{-90}{$\xrightarrow{\rule{#1}{0pt}}$}}
+    \mathrel{\rotatebox[origin=c]{-90}{$\xrightarrow{\rule{#1}{0pt}}$}}
 }
 \newcommand\xdashdownarrow[1][2ex]{%
-   \mathrel{\rotatebox[origin=c]{-90}{$\xdashrightarrow{\rule{#1}{0pt}}$}}
+    \mathrel{\rotatebox[origin=c]{-90}{$\xdashrightarrow{\rule{#1}{0pt}}$}}
 }
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+        \node[shape=circle,draw,inner sep=1pt] (char) {#1};}
+}
+
+\newcommand{\RomanNumeralCaps}[1]
+    {\MakeUppercase{\romannumeral #1}}
 
 \author{Данил Заблоцкий}
