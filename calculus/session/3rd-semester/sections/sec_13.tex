@@ -1,0 +1,216 @@
+\section{Определение и свойства кратного интеграла Римана}
+
+\setcounter{subsection}{137}
+
+\subsection{Разбиение множества}
+
+\begin{definition}[Разбиение совокупности измеримых по Жордану множеств]
+    Пусть множество $ G \subset \R^n $ измеримо по Жордану.
+
+    Совокупность измеримых по Жордану множеств $ G_i \subset \R^n, \ i = \overline{1,N} $, попарно пересекающихся $ G = \overset{n}{\underset{i=1}{\bigcup}}G_i $ называются \emph{разбиением} множества $ G $.
+    \[
+        \text{Обозначение:}\quad T = \{G_i\}
+    \]
+\end{definition}
+
+\subsection{Мелкость разбиения}
+
+\begin{definition}[Мелкость разбиения]
+    Число $ l(T) = \max d(G_i) $ называется \emph{мелкостью разбиения} $ T $.
+\end{definition}
+
+\subsection{Продолжение разбиения}
+
+Не нашел.
+
+\subsection{Интегральная сумма Римана}
+
+\begin{definition}[Интегральная сумма Римана от функции на множестве]
+    Пусть функция $ f(x) = f(x_1,\ldots,x_n): \ G \rightarrow \R $ определена на измеримом по Жордану множестве $ G \subset \R^n $, $T = \{G_{ij}\}$ -- разбиение множества $ G $.
+
+    Возьмем $ \xi_i \in G_i, \ i = \overline{1,N} $.
+
+    Выражение
+    \[
+        \sigma_T = \sigma_T(f,\xi,G) = \sum_{i=1}^{N}f(\xi_i)m(G_i)
+    \]
+    называется \emph{интегральной суммой Римана} от функции \\ $ f(x) = f(x_1,\ldots,x_n) $ на множестве, соответствующей разбиению $ T $ и выборке $ \xi = (\xi_1,\ldots,\xi_N) $.
+\end{definition}
+
+\subsection{Суммы Дарбу}
+
+Не нашел.
+
+\subsection{Кратный интеграл Римана}
+
+\begin{note}
+    Число $ I $ будем называть \emph{кратным интегралом Римана} от функции $ f(x) $ по множеству $ G $, а функцию $ f(x) $ -- \emph{интегрируемой} на множестве $ G $.
+    \[
+        \begin{array}{ccccc}
+                                      &          & \begin{array}{cc}
+                                                       \text{Обозн.} \\
+                                                       \text{инт. Римана}
+                                                   \end{array} &          &                                                                                                    \\
+                                      & \swarrow &                    & \searrow &                                                                                             \\
+            \text{кратное}            &          &                    &          & \text{развернутое}                                                                          \\
+            \underset{G}{\int} f(x)dx &          &                    &          & \underbrace{\underset{G}{\int\ldots\int}}_{n \text{ раз}}f(x_1,\ldots,x_n)dx_1,\ldots,d x_n
+        \end{array}
+    \]
+
+    При $ n=2 $ кратный интеграл Римана называется \emph{двойным} и обозначается
+    \[
+        \iint\limits_G f(x,y)dxdy.
+    \]
+
+    При $ n=3 $ -- \emph{тройным} и обозначается
+    \[
+        \iiint\limits_G f(x,y,z)dxdydz.
+    \]
+\end{note}
+
+\subsection{Критерий интегрируемости (без доказательства)}
+
+\begin{theorem}[Критерий интегрируемости]
+    Ограниченная формула $ f(x) $ интегрируема на измеримом по Нордану множестве $ G \subset \R^n \iff \forall \epsilon > 0 \ \exists\delta > 0: \ \forall T \ l(T)<\delta$
+    \[
+        \overline{S_T} - S_T < \epsilon
+    \]
+    \begin{center}
+        (то есть $ \overline{S_T} - S_T \rightarrow 0 $ при $ l(T) \rightarrow 0 $)
+    \end{center}
+\end{theorem}
+
+\subsection{Критерий интегрируемости более сильный (без доказательства)}
+
+\begin{theorem}[Критерий интегрируемости, более сильная]
+    Ограниченная функция $ f(x) $ интегрируема на измеримом по Жордану множестве $ G \subset \R^n \iff \forall \epsilon > 0 \ \exists T $ множества $ G $:
+    \[
+        \overline{S_T} - S_T < \epsilon.
+    \]
+\end{theorem}
+
+\subsection{Классы интегрируемых функций (2 теоремы, без доказательств)}
+
+\begin{theorem}
+    Непрерывная на измеримом по Жордану компактном множестве $ G $, функция $ f(x) $ интегрируема на этом множестве.
+\end{theorem}
+
+\begin{theorem}
+    Пусть функция $ f(x) $ ограничена на измеримом компакте $ G \subset \R^n $ и множество разрыва $ f(x) $ имеет Жорданову меру нуль.
+
+    Тогда $ f(x) $ интегрируема на $ G $.
+\end{theorem}
+
+\subsection{Свойства кратного интеграла (1-8, без доказательств)}
+
+\begin{itemize}
+    \item Свойство $ \circled{1} $
+          \begin{statement}
+              Справедливо равенство
+              \[
+                  \underset{G}{\int}1 dx = m(G).
+              \]
+          \end{statement}
+
+    \item Свойство $ \circled{2} $
+          \begin{statement}
+              Если $ f(x) > 0 $ и $ f(x) $ -- интегрируемая на измеримом по Жордану множестве $ G $ функция, то
+              \[
+                  \underset{G}{\int}f(x)dx \geqslant 0.
+              \]
+          \end{statement}
+
+    \item Свойство $ \circled{3} $
+          \begin{statement}
+              Если $ f_1(x) $ и $ f_2(x) = f_2(x_1,\ldots,x_n) $ -- интегрируемые на измеримом по Жордану множестве $ G $ функции, $ \alpha,\beta \in \R $, то и функция $ \alpha \cdot f_1(x) + \beta \cdot f_2(x) $ интегрируема на $ G $ и
+              \[
+                  \underset{G}{\int}\big(\alpha\cdot f_1(x) + \beta \cdot f_2(x)\big)dx = \alpha \underset{G}{\int}f_1(x)dx + \beta \underset{G}{\int}f_2(x)dx.
+              \]
+          \end{statement}
+
+    \item Свойство $ \circled{4} $
+          \begin{statement}
+              Если $ f_1(x) $ и $ f_2(x) $ -- интегралы на измеримом по Жордану множестве $ G $ и $ \forall x \in G \ f_1(x) \leqslant f_2(x) $, то
+              \[
+                  \underset{G}{\int} f_1(x)dx \leqslant \underset{G}{\int}f_2(x)dx.
+              \]
+          \end{statement}
+
+    \item Свойство $ \circled{5} $
+          \begin{statement}
+              Если функция $ f(x) $ непрерывна на измеримом связном компакте $ G $, то $ \exists \xi \in G $:
+              \[
+                  \underset{G}{\int}f(x)dx = f(\xi)m(G).
+              \]
+          \end{statement}
+
+    \item Свойство $ \circled{6} $
+          \begin{statement}
+              Если $ G_k, \ k = \overline{1,m} $ если разбиение множества $ G $, то функция $ f(x) $ интегрируема на $ G \iff f(x) $ интегрируема на $ G_k, \ k = \overline{1,m} $, при этом
+              \[
+                  \underset{G}{\int}f(x)dx = \sum_{k=1}^{m}\underset{G_k}{\int}f(x)dx.
+              \]
+          \end{statement}
+
+    \item Свойство $ \circled{7} $
+          \begin{statement}
+              Произведение интегрируемых на измеримом множестве $ G $ функцией является интегрируемой на $ G $ функцией.
+          \end{statement}
+
+    \item Свойство $ \circled{8} $
+          \begin{statement}
+              Если $ f(x) $ интегрируема на множестве $ G $ функция, то функция $ \big| f(x) \big| $ также интегрируема
+              \[
+                  \left|\underset{G}{\int}f(x)dx\right| \leqslant \underset{G}{\int}\big|f(x)\big|dx.
+              \]
+          \end{statement}
+\end{itemize}
+
+\subsection{Теорема о сведении двойного интеграла по прямоугольнику к повторному интегралу}
+
+\begin{theorem}[Формула сведения двойного интеграла по прямоугольнику к повторному]
+    Пусть
+    \begin{enumerate}
+        \item Функция $ f(x,y) $ интегрируема на прямоугольнике
+              \[
+                  \Pi = \big\{(x,y): \ a \leqslant x \leqslant b, \ c \leqslant y \leqslant d\big\}.
+              \]
+
+        \item $ \int_{c}^{d}f(x,y)dy \ \exists \ \forall x \in [a;b] $.
+    \end{enumerate}
+
+    Тогда функция $ F(x) = \int_{c}^{d}f(x,y)dy $ интегрируема на отрезке $ [a;b] $ и справедлива формула:
+    \[
+        \boxed{\iint\limits_\Pi f(x,y)dxdy = \int_{a}^{b}dx \int_{c}^{d}f(x)dy}
+    \]
+\end{theorem}
+
+\subsection{Теорема о сведении двойного интеграла по элементарной области к повторному интегралу}
+
+\begin{theorem}[Сведение двойного интеграла по элементарной области к повторному]
+    Пусть $ \Omega $ -- элементарная относительно оси $ Oy $ область, функция $ f(x,y) $ интегрируема на $ \overline{\Omega} = \Omega \cup G\Omega $ и $ \forall x \in [a;b] \ \exists \ \int f(x,y)dx $.
+
+    Тогда справедлива следующая формула:
+    \begin{equation}\label{eq:for_proof9}
+        \iint\limits_\Omega f(x,y)dxdy = \int_{a}^{b}dx \int_{\phi(x)}^{\psi(x)}f(x,y)dy.
+    \end{equation}
+\end{theorem}
+
+\subsection{Теорема Фубини (без доказательства)}
+
+КТО ЭТО
+
+\subsection{Формула замены переменной в кратном интеграле (без доказательства)}
+
+\begin{theorem}[Формула замены переменных в кратном интеграле]
+    Пусть отображение $ F: \Omega \rightarrow \R^n $ ($ \Omega \subset \R^n $ -- открытое множество) является взаимнооднозначным и удовлетворяет условиям 1.-3.
+
+    Пусть $ G $ -- измеримый компат: $ G \subset \Omega $. Тогда, если функция $ f(x) = f(x_1,\ldots,x_n) $ непрерывна на множестве $ G'=F(G) $, то справедлива следующая формула замены переменных в кратном интеграле:
+    \begin{multline*}
+        \int\limits_{G'}f(x)dx = \underset{G'}{\int\ldots\int}f(x_1,\ldots,x_n)dx_1dx_2\ldots dx_n = \\
+        = \int\limits_G f\big(\phi_1(u),\ldots,\phi_n(u)\big)\big|\mathfrak{I}(u)\big|du,
+    \end{multline*}
+    \[
+        u = (u_1,\ldots,u_n), \quad du = du_1du_2\ldots du_n.
+    \]
+\end{theorem}

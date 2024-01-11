@@ -1,0 +1,59 @@
+\section{Функции многих переменных}
+
+\subsection{Производная функции по вектору}
+
+\begin{note}
+    Пусть $ x = (x_1,x_2,x_3) = x(t), \ f\big(x(t)\big) = f(x_1,x_2,x_3)$, тогда:
+
+    \begin{multline*}
+        \frac{df\big(x(t)\big)}{dt} = \frac{\delta f}{\delta x_1} \cdot \frac{dx_1}{dt} + \frac{\delta f}{\delta x_2} \cdot \frac{dx_2}{dt} + \frac{\delta f}{\delta x_3} \cdot \frac{dx_3}{dt} = \\
+        = \frac{\delta f}{\delta x_1} \cdot v_1 + \frac{\delta f}{\delta x_2} \cdot v_2 + \frac{\delta f}{\delta x_3} \cdot v_3,
+    \end{multline*}
+    где $\vec{v} = \{v_1,v_2,v_3\}$ -- скорость частицы, перемещающейся по $\gamma$-ну $x(t)$.
+\end{note}
+
+\begin{definition}[Производная функции по вектору]
+    Пусть $ D $ в $ \R^n $ -- область, $ f:D\rightarrow \R, \ x_0 \in D $, вектор $ v\in T\R_{x_0}^n $ -- касательное пространство к $ R^n $ в точке $ x_0 $ (совокупность всех векторов, исходящих из точки $ x_0 $).
+
+    \emph{Производной функции $ f $ по вектору $ v $} называется величина
+    \[
+        \frac{\delta f}{\delta \vec{v}} = D \vec{v} f(x_0) \coloneqq \underset{t \rightarrow 0}{\lim}\frac{f(x_0 + tv) - f(x_0)}{t}\text{, если }\lim \exists.
+    \]
+\end{definition}
+
+\subsection{Теорема о существовании производной функции по вектору}
+
+\begin{statement}
+    Пусть $ f:D\rightarrow\R $ -- дифференцируемо в точке $ x_0\in D $. Тогда $ \forall \vec{v}\in T\R_{x_0}^n \exists \frac{\delta f}{\delta \vec{v}}(x_0):$
+    \[
+        \frac{\delta f}{\delta \vec{v}}(x_0) = \frac{\delta f}{\delta x_1}(x_0) \cdot v_1 + \frac{\delta f}{\delta x_2}(x_0) \cdot v_2 + \ldots +\frac{\delta f}{\delta x_n}(x_0) \cdot v_n = df(x_0)\cdot \vec{v},
+    \] где $df(x_0)\cdot \vec{v}$ -- скалярное произведение,
+    \begin{align*}
+         & df(x_0) = \left\{\frac{\delta f}{\delta x_1}(x_0), \frac{\delta f}{\delta x_2}(x_0), \ldots, \frac{\delta f}{\delta x_n}(x_0)\right\}, \\
+         & \vec{v} = \{v_1,v_2,\ldots,v_n\}
+    \end{align*}
+\end{statement}
+
+\subsection{Градиент функции}
+
+\begin{definition}[Градиент функции в точке]
+    Пусть $f:D\rightarrow \R, \ D$ -- область в $\R^n, \ f$ -- дифференцируема в точке $x \in D$. Вектор $\vec{a} \in \R^n$:
+    \[
+        df(x)\cdot h = \vec{a} \cdot h, \quad h \in \mathbb{R}
+    \]
+    называется \emph{градиентом функции $f$ в точке} $x \in \mathbb{R}^n$ и обозначается
+    \[
+        gradf(x)
+    \]
+
+    Если в $\R^n$ зафиксировать ортонормированный базис, то
+    \[
+        gradf(x) = \left\{\frac{\delta f}{\delta x_1}(x),\frac{\delta f}{\delta x_2}(x),\ldots,\frac{\delta f}{\delta x_n}(x)\right\}
+    \]
+\end{definition}
+
+\subsection{Производная по направлению вектора}
+
+\begin{definition}[Производная по направлению вектора]
+    Если $ \vec{v}\in T\R_{x_0}^n, $ $ |\vec{v}| = 1 $, то $ \frac{\delta f}{\delta \vec{v}}(x) $ называется \emph{производной по направлению вектора} $ \vec{v} $.
+\end{definition}
