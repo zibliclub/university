@@ -107,7 +107,7 @@
     Множество $ A $ -- основное множество системы.
 
     \[
-        \mathfrak{N} = <A,\sigma,\underbrace{I}_{\begin{matrix}
+        \mathfrak{A} = <A,\sigma,\underbrace{I}_{\begin{matrix}
                 \text{\scriptsize часто не} \\
                 \text{\scriptsize пишут}
             \end{matrix}}>.
@@ -128,7 +128,7 @@
         \end{array}
     \]
     \[
-        \mathfrak{N} = <A,\sigma>.
+        \mathfrak{A} = <A,\sigma>.
     \]
 \end{example}
 
@@ -204,62 +204,62 @@
 \subsection{Истинность формул на алгебраической системе.}
 
 \begin{definition}[Истинность формулы на алгебраической системе]
-    Пусть $ \phi(x_1,\ldots,x_n) $ -- формула, $ \mathfrak{N} = <A,\sigma> $ -- алгебраическая система,\\$ a_1,\ldots,a_n \in A $.
+    Пусть $ \phi(x_1,\ldots,x_n) $ -- формула, $ \mathfrak{A} = <A,\sigma> $ -- алгебраическая система,\\$ a_1,\ldots,a_n \in A $.
 
-        \emph{Истинность формулы} $ \phi $ \emph{на алгебраической системе} $ \mathfrak{N} $ на элементах $ a_1,\ldots,a_n \ \big(\mathfrak{N} \vDash \phi(a_1,\ldots,a_n)\big) $ определяется по следующим правилам:
+        \emph{Истинность формулы} $ \phi $ \emph{на алгебраической системе} $ \mathfrak{A} $ на элементах $ a_1,\ldots,a_n \ \big(\mathfrak{A} \vDash \phi(a_1,\ldots,a_n)\big) $ определяется по следующим правилам:
     \begin{enumerate}
         \item Пусть $ \phi $ имеет вид $ t_1(x_1,\ldots,x_n) = t_2(x_1,\ldots,x_n) $, где $ t_1,t_2 $ -- термы. Тогда:
               \[
-                  \mathfrak{N} \vDash \phi(a_1,\ldots,a_n)\iff t_{1_\mathfrak{N}}(a_1,\ldots,a_n) = t_{2_\mathfrak{N}} (a_1,\ldots,a_n).
+                  \mathfrak{A} \vDash \phi(a_1,\ldots,a_n)\iff t_{1_\mathfrak{A}}(a_1,\ldots,a_n) = t_{2_\mathfrak{A}} (a_1,\ldots,a_n).
               \]
 
         \item Пусть $ \phi $ имеет вид $ P(t_1,\ldots,t_k) $, где $ P^{(k)}\in \sigma $ -- предикатный символ, $ t_1(x_1,\ldots,x_n),\ldots,t_k(x_1,\ldots,x_n) $ -- термы. Тогда:
               \[
-                  \mathfrak{N}\vDash \phi(a_1,\ldots,a_n) \iff P_\mathfrak{N}\big(\underbrace{t_{1_\mathfrak{N}}(a_1,\ldots,a_n)}_{b_1},\ldots,\underbrace{t_{k_\mathfrak{N}}(a_1,\ldots,a_n)}_{b_k}\big) = 1.
+                  \mathfrak{A}\vDash \phi(a_1,\ldots,a_n) \iff P_\mathfrak{A}\big(\underbrace{t_{1_\mathfrak{A}}(a_1,\ldots,a_n)}_{b_1},\ldots,\underbrace{t_{k_\mathfrak{A}}(a_1,\ldots,a_n)}_{b_k}\big) = 1.
               \]
 
         \item Пусть $ \phi = (\phi_1 \land \phi_2) \ \big((\phi_1 \lor \phi_2),(\phi_1 \rightarrow \phi_2),(\phi_1 \leftrightarrow \phi_2),\lnot\phi_2\big) $. Истинность формулы $ \phi $ определяется из значений формул $ \phi_1(a_1,\ldots,a_n) $ и $ \phi_2(a_1,\ldots,a_n) $ по таблицам истинности для логических связок.
 
         \item Пусть $ \phi(x_1,\ldots,x_n) $ имеет вид $ \exists x \ \psi (x,x_1,\ldots,x_n) $.
 
-              Тогда $ \mathfrak{N} \vDash \phi (a_1,\ldots,a_n) \iff $ для некоторого $ b \in A \ \mathfrak{N} \vDash \psi(b,a_1,\ldots,a_n) $.
+              Тогда $ \mathfrak{A} \vDash \phi (a_1,\ldots,a_n) \iff $ для некоторого $ b \in A \ \mathfrak{A} \vDash \psi(b,a_1,\ldots,a_n) $.
 
         \item Пусть $ \phi $ имеет вид $ \forall x \ \psi(x,x_1,\ldots,x_n) $.
 
-              Тогда $ \mathfrak{N} \vDash \phi(a_1,\ldots,a_n) \iff $ для всех $ b\in A \ \mathfrak{N}\vDash\psi(b,a_1,\ldots,a_n) $.
+              Тогда $ \mathfrak{A} \vDash \phi(a_1,\ldots,a_n) \iff $ для всех $ b\in A \ \mathfrak{A}\vDash\psi(b,a_1,\ldots,a_n) $.
     \end{enumerate}
 \end{definition}
 
 \subsection{Выразимость свойств в логике предикатов. Умение записать формулой различные свойства систем и элементов систем.}
 
 \begin{note}
-    Пусть $ \phi(x_1,\ldots,x_n) $ -- формула сигнатуры $ \sigma, \ \mathfrak{N} = <A,\sigma> $ -- алгебраическая система.
+    Пусть $ \phi(x_1,\ldots,x_n) $ -- формула сигнатуры $ \sigma, \ \mathfrak{A} = <A,\sigma> $ -- алгебраическая система.
 
-    Множество истинности формулы $ \phi $ в алгебраической системе $ \mathfrak{N} $ -- это:
+    Множество истинности формулы $ \phi $ в алгебраической системе $ \mathfrak{A} $ -- это:
     \[
-        A_\phi = \big\{(a_1,\ldots,a_n) \ \big| \ a_i \in A, \ \mathfrak{N} \vDash \phi(a_1,\ldots,a_n)\big\}.
+        A_\phi = \big\{(a_1,\ldots,a_n) \ \big| \ a_i \in A, \ \mathfrak{A} \vDash \phi(a_1,\ldots,a_n)\big\}.
     \]
 \end{note}
 
 \begin{definition}[Выразимое множество в алгебраической системе]
-    Множество $ B \subseteq A^n $ \emph{выразимо в алгебраической системе} $ \mathfrak{N} $, если существует формула $ \phi(x_1,\ldots,x_n) $ сигнатуры $ \sigma $, для которой $ B = A_\phi $ ($ B $ выразимо в $ \mathfrak{N} \iff \exists \phi(x_1,\ldots,x_n): \ \forall a_1,\ldots,a_n \ (a_1,\ldots,a_n) \in B \iff \mathfrak{N}\vDash \phi(a_1,\ldots,a_n) $)
+    Множество $ B \subseteq A^n $ \emph{выразимо в алгебраической системе} $ \mathfrak{A} $, если существует формула $ \phi(x_1,\ldots,x_n) $ сигнатуры $ \sigma $, для которой $ B = A_\phi $ ($ B $ выразимо в $ \mathfrak{A} \iff \exists \phi(x_1,\ldots,x_n): \ \forall a_1,\ldots,a_n \ (a_1,\ldots,a_n) \in B \iff \mathfrak{A}\vDash \phi(a_1,\ldots,a_n) $)
 \end{definition}
 
 \begin{definition}[Выразимая функция в алгебраической системе]
-    Функция $ f: A^n \rightarrow A $ \emph{выразима} в $ \mathfrak{N} $, если существует формула $ \phi(x_1,\ldots,x_n,y) $ такая, что $ \forall a_1,\ldots,a_n,b \in A \ b = f(a_1,\ldots,a_n) \iff \mathfrak{N}\vDash (a_1,\ldots,a_n,b) $.
+    Функция $ f: A^n \rightarrow A $ \emph{выразима} в $ \mathfrak{A} $, если существует формула $ \phi(x_1,\ldots,x_n,y) $ такая, что $ \forall a_1,\ldots,a_n,b \in A \ b = f(a_1,\ldots,a_n) \iff \mathfrak{A}\vDash (a_1,\ldots,a_n,b) $.
 \end{definition}
 
 \subsection{Тождественно истинные (ложные) и выполнимые формулы.}
 
 \begin{definition}[Тождественно истинная (ложная), выполнимая формула в системе]
-    Формула $ \phi(x_1,\ldots,x_n) $ \emph{тождественно истинна (ложна) в системе} $ \mathfrak{N} $, если $ \forall a_1,\ldots,a_n \in \mathfrak{N} $
+    Формула $ \phi(x_1,\ldots,x_n) $ \emph{тождественно истинна (ложна) в системе} $ \mathfrak{A} $, если $ \forall a_1,\ldots,a_n \in A $
     \[
-        \mathfrak{N} \vDash \phi(a_1,\ldots,a_n) \quad \big(\mathfrak{N}\nvDash \phi(a_1,\ldots,a_n)\big).
+        \mathfrak{A} \vDash \phi(a_1,\ldots,a_n) \quad \big(\mathfrak{A}\nvDash \phi(a_1,\ldots,a_n)\big).
     \]
 
-    Формула $ \phi $ \emph{выполнима в системе} $ \mathfrak{N} $, если $ \exists a_1,\ldots,a_n $
+    Формула $ \phi $ \emph{выполнима в системе} $ \mathfrak{A} $, если $ \exists a_1,\ldots,a_n $
     \[
-        \mathfrak{N} \vDash \phi(a_1,\ldots,a_n).
+        \mathfrak{A} \vDash \phi(a_1,\ldots,a_n).
     \]
 \end{definition}
 
@@ -274,12 +274,12 @@
 \subsection{Эквивалентность формул логики предикатов.}
 
 \begin{definition}[Эквивалентные формулы в алгебраической системе]
-    Формулы $ \phi(x_1,\ldots,x_n) $ и $ \psi(x_1,\ldots,x_n) $ сигнатуры $ \sigma $ \emph{эквивалентны} \\ \emph{в алгебраической системе} $ \mathfrak{N} = <A,\sigma> $, если $ \forall a_1,\ldots,a_n \in A $
+    Формулы $ \phi(x_1,\ldots,x_n) $ и $ \psi(x_1,\ldots,x_n) $ сигнатуры $ \sigma $ \emph{эквивалентны} \\ \emph{в алгебраической системе} $ \mathfrak{A} = <A,\sigma> $, если $ \forall a_1,\ldots,a_n \in A $
     \[
-        \mathfrak{N} \vDash \phi(a_1,\ldots,a_n) \iff \mathfrak{N} \vDash \psi(a_1,\ldots,a_n).
+        \mathfrak{A} \vDash \phi(a_1,\ldots,a_n) \iff \mathfrak{A} \vDash \psi(a_1,\ldots,a_n).
     \]
     \[
-        \text{Обозначение:} \quad \phi \sim_\mathfrak{N} \psi.
+        \text{Обозначение:} \quad \phi \sim_\mathfrak{A} \psi.
     \]
 \end{definition}
 
@@ -365,14 +365,6 @@
     \end{enumerate}
 \end{note}
 
-\begin{example}
-    \begin{multline*}
-        \Big[\forall x \ \big(\exists y \ Q(x,y)\big) \land \big(\forall y \ P(y)\big)\Big] \rightarrow \Big[\big(\forall x \exists y \exists z \ P(x,y,z)\big) \lor \bigl(\exists x \forall y \ Q(x,y)\bigr)\Big] \sim \\
-        \sim \lnot\Big[\forall x \Big(\big(\exists y \ Q(x,y)\big) \land \forall y \ P(y)\Big)\Big] \lor \Big[\bigl(\forall x \exists y \exists z P(x,y,z)\bigr) \lor\bigl(\exists x \forall y \ Q(x,y)\bigr)\Big] \sim \\
-        \sim \Big[\forall x \Bigl(\bigl(\exists y \ Q(x,y)\bigr)\land \forall t \ P(t)\Bigr)\Big] \lor \Big[\bigl(\forall u \exists v \exists z \ r(u,v,z)\bigr) \lor\bigl(\exists\omega \forall k \ Q(\omega,k)\bigr)\Big].
-    \end{multline*}
-\end{example}
-
 \subsection{Классы формул $\Sigma_n$, $\Pi_n$, $\Delta_n$. Теорема о связях между этими классами.}
 
 \begin{definition}[Классы формул $\Sigma_n$, $\Pi_n$, $\Delta_n$]
@@ -380,15 +372,18 @@
     \begin{itemize}
         \item класс $ \Sigma_n $ состоит из всех формул в пренексном виде, у которых кванторный префикс начинается с квантора $ \exists $ и содержит $ n-1 $ перемену кванторов,
         \item класс $ \Pi_n $ состоит из всех формул в пренексном виде, у которых кванторный префикс начинается с квантора $ \forall $ и содержит $ n-1 $ перемену кванторов,
-        \item класс $ \Delta_n $ состоит из всех формул, которые можно привести и к виду $ \Sigma_n $, и к виду $ \Pi_n $,
-        \item при $ n=0 $:
-              \[
-                  \Sigma_0 = \Pi_0 = \Delta_0 \text{ -- все бескванторные формулы}.
-              \]
+        \item класс $ \Delta_n $ состоит из всех формул, которые можно привести и к виду $ \Sigma_n $, и к виду $ \Pi_n $.
     \end{itemize}
 
-    Стрелка $ K_1 \rightarrow K_2 $ означает, что все формулы класса $ K_1 $ могут быть приведены к виду $ K_2 $.
+    Для $ n=0 $:
+    \[
+        \Sigma_0 = \Pi_0 = \Delta_0 \text{ -- все бескванторные формулы}.
+    \]
 \end{definition}
+
+\begin{note}
+    Стрелка $ K_1 \rightarrow K_2 $ означает, что все формулы класса $ K_1 $ могут быть приведены к виду $ K_2 $.
+\end{note}
 
 \begin{theorem}[О вложениях классов $ \Sigma, \Pi, \Delta $ друг в друга]
     Между классами $ \Sigma_n, \ \Pi_n $ и $ \Delta_n $ есть следующие соотношения:
@@ -430,37 +425,37 @@
     $ \sigma = \{f^{(1)},c\} $
     \[
         \begin{array}{ll}
-            \mathfrak{N} = <\N,\sigma>                                  & C_\mathfrak{N} = 1, \ f_\mathfrak{N}(x) = x+1         \\
+            \mathfrak{A} = <\N,\sigma>                                  & C_\mathfrak{A} = 1, \ f_\mathfrak{A}(x) = x+1         \\
             \mathfrak{B} = <\underbrace{\{b_1,b_2,\ldots\}}_{B},\sigma> & C_\mathfrak{B} = b_1, \ f_\mathfrak{B}(b_k) = b_{k+1}
         \end{array}
     \]
     \[
-        \mathfrak{N}\ne\mathfrak{B}
+        \mathfrak{A}\ne\mathfrak{B}
     \]
 \end{example}
 
 \begin{definition}[Изоморфизм системы на систему]
-    Пусть $ \mathfrak{N} = <A,\sigma>, \ \mathfrak{B} = <B,\sigma> $ -- алгебраические системы сигнатуры $ \sigma $. \emph{Изоморфизм системы $ \mathfrak{N} $ на систему $ \mathfrak{B} $} -- это биекция $ \alpha: A \rightarrow B $ со свойствами:
+    Пусть $ \mathfrak{A} = <A,\sigma>, \ \mathfrak{B} = <B,\sigma> $ -- алгебраические системы сигнатуры $ \sigma $. \emph{Изоморфизм системы $ \mathfrak{A} $ на систему $ \mathfrak{B} $} -- это биекция $ \alpha: A \rightarrow B $ со свойствами:
     \begin{itemize}
-        \item для любого константного символа $ c \in \sigma \ \alpha(c_\mathfrak{N}) = c_\mathfrak{B} $,
+        \item для любого константного символа $ c \in \sigma \ \alpha(c_\mathfrak{A}) = c_\mathfrak{B} $,
         \item для любого предикатного символа $ P^{(n)}\in\sigma \ \forall a_1,\ldots,a_n \in A $
               \[
-                  P_\mathfrak{N}(a_1,\ldots,a_n) = 1 \iff P_\mathfrak{B}\big(\alpha(a_1),\ldots,\alpha(a_n)\big) = 1,
+                  P_\mathfrak{A}(a_1,\ldots,a_n) = 1 \iff P_\mathfrak{B}\big(\alpha(a_1),\ldots,\alpha(a_n)\big) = 1,
               \]
         \item для любого функционального символа $ f^{(n)} \in \sigma \ \forall a_1,\ldots,a_n,b \in A $
               \[
-                  b = f_\mathfrak{N}(a_1,\ldots,a_n) \iff \alpha(b) = f_\mathfrak{B}\big(\alpha(a_1),\ldots,\alpha(a_n)\big).
+                  b = f_\mathfrak{A}(a_1,\ldots,a_n) \iff \alpha(b) = f_\mathfrak{B}\big(\alpha(a_1),\ldots,\alpha(a_n)\big).
               \]
     \end{itemize}
+
+    Системы $ \mathfrak{A} $ и $ \mathfrak{B} $ изоморфны ($ \mathfrak{A} \cong \mathfrak{B} $), если существует изоморфизм $ \mathfrak{A} $ на $ \mathfrak{B} $.
 \end{definition}
 
 \begin{remark}
     Пункт 3. определения можно изложить так: $ \forall a_1,\ldots,a_n \in A $
     \[
-        \alpha\big(f_\mathfrak{N}(a_1,\ldots,a_n)\big) = f_\mathfrak{B}\big(\alpha(a_1),\ldots,\alpha(a_n)\big).
+        \alpha\big(f_\mathfrak{A}(a_1,\ldots,a_n)\big) = f_\mathfrak{B}\big(\alpha(a_1),\ldots,\alpha(a_n)\big).
     \]
-
-    Системы $ \mathfrak{N} $ и $ \mathfrak{B} $ изоморфны ($ \mathfrak{N} \cong \mathfrak{B} $), если существует изоморфизм $ \mathfrak{N} $ на $ \mathfrak{B} $.
 \end{remark}
 
 \subsection{Элементарная теория алгебраической системы. Элементарная эквивалентность систем. Связь понятий изоморфизма и элементарной эквивалентности.}
@@ -480,47 +475,47 @@
     Формула $ \phi $ \emph{замкнутая}, если все ее переменные связанные.
     \[
         \begin{array}{ll}
-            \phi(x) \text{ -- утверждение про }x,           & \phi_1(x) \text{ студент }x \text{ -- отличник}, \\
-            \phi(x) \text{ -- утверждение про всю систему}, & \phi_2 \text{ всех студентов отчислят}.
+            \phi(x) \text{ -- утверждение про }x,        & \phi_1(x) \text{ студент }x \text{ -- отличник}, \\
+            \phi \text{ -- утверждение про всю систему}, & \phi_2 \text{ всех студентов отчислят}.
         \end{array}
     \]
 \end{definition}
 
 \begin{definition}[Элементарно эквивалентные системы]
-    Системы $ \mathfrak{N} $ и $ \mathfrak{B} $ сигнатуры $ \sigma $ \emph{элементарно эквивалентны} ($ \mathfrak{N} \cong \mathfrak{B} $), если для любой замкнутой формулы $ \phi $ сигнатуры $ \sigma $
+    Системы $ \mathfrak{A} $ и $ \mathfrak{B} $ сигнатуры $ \sigma $ \emph{элементарно эквивалентны} ($ \mathfrak{A} \equiv \mathfrak{B} $), если для любой замкнутой формулы $ \phi $ сигнатуры $ \sigma $
     \[
-        \mathfrak{N} \vDash \phi \iff \mathfrak{B} \vDash \phi.
+        \mathfrak{A} \vDash \phi \iff \mathfrak{B} \vDash \phi.
     \]
 \end{definition}
 
 \begin{theorem}[О связи изоморфизма и элементарной эквивалентности]
-    Пусть $ \mathfrak{N} $ и $ \mathfrak{B} $ -- алгебраичесские системы сигнатуры $ \sigma $. Тогда:
+    Пусть $ \mathfrak{A} $ и $ \mathfrak{B} $ -- алгебраичесские системы сигнатуры $ \sigma $. Тогда:
     \[
-        \mathfrak{N} \cong \mathfrak{B} \implies \mathfrak{N} \equiv \mathfrak{B},
+        \mathfrak{A} \cong \mathfrak{B} \implies \mathfrak{A} \equiv \mathfrak{B},
     \]
     \[
-        \mathfrak{N} \nequiv \mathfrak{B} \implies \mathfrak{N} \ncong \mathfrak{B}.
+        \mathfrak{A} \nequiv \mathfrak{B} \implies \mathfrak{A} \ncong \mathfrak{B}.
     \]
 \end{theorem}
 
 \subsection{Логическое следование в логике предикатов.}
 
 \begin{definition}[Логическое следование в логике предикатов]
-    Пусть $ \Gamma $ -- множество формул логики предикатов, $ \phi $ -- формула. Формула $ \phi $ \emph{логически следует} из $ \Gamma $ ($ \Gamma \vDash \phi $), если в любой алгебраической системе $ \mathfrak{N} $ и $ \forall a_1,\ldots,a_n \in \mathfrak{N} \ \big( \forall \psi \in \Gamma \ \mathfrak{N} \vDash \psi(a_1,\ldots,a_n) \big) \implies \mathfrak{N} \vDash \phi(a_1,\ldots,a_n) $.
+    Пусть $ \Gamma $ -- множество формул логики предикатов, $ \phi $ -- формула. Формула $ \phi $ \emph{логически следует} из $ \Gamma $ ($ \Gamma \vDash \phi $), если в любой алгебраической системе $ \mathfrak{A} $ и $ \forall a_1,\ldots,a_n \in \mathfrak{A} \ \big( \forall \psi \in \Gamma \ \mathfrak{A} \vDash \psi(a_1,\ldots,a_n) \big) \implies \mathfrak{A} \vDash \phi(a_1,\ldots,a_n) $.
 \end{definition}
 
 \subsection{Теория. Модель теории.}
 
 \begin{definition}[Элементарная теория алгебраической системы]
-    \emph{Элементарная теория алгебраической системы $ \mathfrak{N} $} -- это множество теорий
+    \emph{Элементарная теория алгебраической системы $ \mathfrak{A} $} -- это множество теорий
     \[
-        \mathfrak{N} = \big\{\phi \ \big| \ \phi \text{ -- замкнутая}, \ \mathfrak{N}\vDash \phi\big\}.
+        \mathfrak{A} = \big\{\phi \ \big| \ \phi \text{ -- замкнутая}, \ \mathfrak{A}\vDash \phi\big\}.
     \]
 \end{definition}
 
 \begin{remark}
     \[
-        \mathfrak{N} \equiv \mathfrak{B} \iff Th \mathfrak{N} = Th \mathfrak{B}.
+        \mathfrak{A} \equiv \mathfrak{B} \iff Th \mathfrak{A} = Th \mathfrak{B}.
     \]
 \end{remark}
 
@@ -529,11 +524,11 @@
 \end{definition}
 
 \begin{definition}[Модель теории]
-    \emph{Модель теории $ T $} -- это алгебраическая система $ \mathfrak{N} $, в которой истинны все формулы из $ T $ ($ \mathfrak{N} \vDash T $).
+    \emph{Модель теории $ T $} -- это алгебраическая система $ \mathfrak{A} $, в которой истинны все формулы из $ T $ ($ \mathfrak{A} \vDash T $).
 \end{definition}
 
 \begin{note}
-    $ \mathfrak{N} \vDash Th \mathfrak{B} $, то $ \mathfrak{N} \equiv \mathfrak{B} $.
+    $ \mathfrak{A} \vDash Th \mathfrak{B} $, то $ \mathfrak{A} \equiv \mathfrak{B} $.
 \end{note}
 
 \subsection{Исчисление предикатов (ИП) Гильберта. Свойства выводов.}
@@ -643,7 +638,7 @@
 \begin{theorem}[А. Робинсон]
     Существует алгебраическая система $ \R^* $ с бесконечно малыми элементами, элементарно эквивалентная системе
     \[
-        R = <\R,+,\cdot,-,/,0,1,<> \text{ -- гипервещественные числа}.
+        R = <\R,+,\cdot,-,\lnot x, x,0,1,<> \text{ -- гипервещественные числа}.
     \]
 \end{theorem}
 
