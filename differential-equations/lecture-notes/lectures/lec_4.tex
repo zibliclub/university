@@ -1,0 +1,357 @@
+\lesson{4}{от 19 нояб 2023 8:44}{Продолжение}
+
+
+\begin{lemma}[Гронуолла]
+    Пусть $u(x) \geqslant 0$ и $u(x) \in C\big([x_0;x_0+h]\big)$,
+    \[
+        (\star) \quad u(x)\leqslant a + b\int_{x_0}^{x}u(t)dt, \quad a\geqslant 0, \ b\geqslant 0
+    \]
+
+    Тогда $u(x)\leqslant a\cdot e^{b(x-x_0)}$ на $[x_0;x_0+h]$.
+\end{lemma}
+
+\begin{proof}
+    $u(x) = e^{b(x-x_0)}v(x)$
+
+    На $[x_0;x_0+h]: \ v(x)$ -- непрерывна и в точке $x_1: \ v(x_1) =\underset{[x_0;x_0+h]}{\max}v(x)$.
+    \begin{multline*}
+        e^{b(x-x_)}v(x_1) = u(x_1) \leqslant \\
+        \leqslant a+b \int_{x_0}^{x_1}u(t)dt = a+b\int_{x_0}^{x_1}e^{b(t-x_0)}v(t)dt \leqslant \\
+        \leqslant a+b \cdot v(x_1)\cdot \frac{e^{v(t-x_0)}}{b}\Big|_{x_0}^{x_1} = a+ v(x_1)\cdot e^{b(x_1-x_0)} - v(x_1) \implies \\
+        \implies 0 \leqslant a-v(x_1) \implies v(x_1) \leqslant a \implies \\
+        \implies u(x) = e^{b(x-x_0)}v(x) \leqslant e^{b(x-x_0)}v(x_1) \leqslant a\cdot e^{b(x-x_0)}
+    \end{multline*}
+\end{proof}
+
+\begin{corollary}
+    Если $a=0$, то $u(x) \equiv 0$.
+\end{corollary}
+
+\section{Уравнения, не разрешенные относительно производной}
+
+\begin{definition}[Уравнение, не разрешенное относительно производной]
+    \emph{Уравнением, не разрешенным относительно производной} называется уравнение вида:
+    \begin{equation}\label{eq23}
+        f(x,y,y') = 0
+    \end{equation}
+\end{definition}
+
+\begin{note}[Задача Коши]
+    Найти прешение \ref{eq23} при условиях:
+    \begin{equation}\label{eq24}
+        \left\{\begin{array}{rl}
+            y(x_0)  & = y_0  \\
+            y'(x_0) & = y_0'
+        \end{array}\right.
+    \end{equation}
+\end{note}
+
+\begin{theorem}[$\exists$ и $!$ задачи Коши]
+    Пусть $f\in C^1(D)$ и в точке $(x_0,y_0,y_0') \in D$,
+    \[
+        f(x_0,y_0,y_0') = 0\text{ и }f_{y'}'(x_0,y_0,y_0')\ne0
+    \]
+
+    Тогда на достаточно малом отрезке $[x_0 - h;x_0 + h]$ решение задачи Коши \ref{eq23}, \ref{eq24} существует и единственно.
+\end{theorem}
+
+\begin{example}
+    $(y')^2 = x^2$
+    \[
+        \left[\begin{array}{l}
+            y' = x \\
+            y' = -x
+        \end{array}\right. \implies \left[\begin{array}{l}
+            y = \frac{x^2}{2} + C \\
+            y = - \frac{x^2}{2} + C
+        \end{array}\right.
+    \]
+\end{example}
+
+\begin{definition}[Особое решение, дискриминантная кривая]
+    Решение $y = \phi(x)$ уравнения \ref{eq23} называется \emph{особым}, если через $\forall$ точку $y = \phi(x)$, помимо того, проходит другое решение, имеющее ту же касательную, не совпадающее с исходным решением в сколь угодно малой окрестности этой точки.
+
+    Особые решения будем искать из системы:
+    \begin{equation}\label{eq25}
+        \left\{\begin{array}{l}
+            f(x,y,y') = 0 \\
+            f_{y'}'(x,y,y') = 0
+        \end{array}\right.
+    \end{equation}
+    путем исключения $y'$.
+
+    Кривая, определенная уравнением \ref{eq25} $\psi(x,y) = 0$, называется \emph{дискриминантной}.
+\end{definition}
+
+\section{Интегрирование уравнений, не разрешенных относительно производной}
+
+\begin{note}\leavevmode
+    \begin{enumerate}
+        \item Выразить, если это возможно, явно $y': \ (y')_{1,2} = \ldots$
+        \item Метод параметра: $y'=p$
+    \end{enumerate}
+    \begin{equation}\label{eq26}
+        x = \Phi (y,y')
+    \end{equation}
+    \begin{equation}
+        y = \Psi (x,y')\label{eq27}
+    \end{equation}
+
+    Из \ref{eq26}: $y' = p \implies dy = pdx, \quad x = \Phi(y,p)$
+    \begin{eqnarray*}
+        dx = \frac{\delta \Phi}{\delta y}dy + \frac{\delta \Phi}{\delta p}dp \\
+        \frac{dy}{p} = \frac{\delta \Phi}{\delta y}dy + \frac{\delta \Phi}{\delta p}dp
+    \end{eqnarray*}
+    \[
+        \left[\begin{array}{l}
+            p = 0   \\
+            p \ne 0 \\
+            \frac{dy}{p} = \frac{\delta \Phi}{\delta y}dy + \frac{\delta \Phi}{\delta p}dp \implies \left\{
+            \begin{array}{l}
+                y = y(p,c) \\
+                x = \Phi \big(y(p,c),p\big)
+            \end{array}\right.
+        \end{array}\right.
+    \]
+
+    Из \ref{eq27}: $y = \Psi(x,p)$
+    \begin{eqnarray*}
+        & dy & = \frac{\delta \Psi}{\delta x}dx + \frac{\delta \Psi}{\delta p}dp \\
+        & pdx & = \frac{\delta \Psi}{\delta x}dx + \frac{\delta \Psi}{\delta p}dp \implies \left\{\begin{array}{l}
+            x = x(p,c) \\
+            y = \Psi\big(x(p,c),p\big)
+        \end{array}\right.
+    \end{eqnarray*}
+\end{note}
+
+\begin{note}[Уравнение Лагранжа]
+    \begin{eqnarray*}
+        &y = x \cdot F(y') + G(y') \\
+        &y' = p \implies y = x\cdot F(p) + G(p) \\
+        &\equalto{dy}{pdx} = F(p)dx + x\cdot F'(p)dp + g'(p)dp \\
+        &(p - F(p))dx - F'(p)dp \cdot x = G'(p)dp: \ dp \ne 0, \ p - F(p)\ne 0 \\
+        &\frac{dx}{dp} - \frac{F'(p)}{p - f(p)}\cdot x = \frac{G'(p)}{p - F(p)}\text{ -- линейное уравнение относительно }x
+    \end{eqnarray*}
+
+    \[
+        \left[\begin{array}{l}
+            p - F(p) = 0 \implies p = p_0 \implies y = x\cdot\equalto{F(p_0)}{C_1} + \equalto{G(p_0)}{C_2} \implies y = x\cdot C_1 + C_2   \\
+            \left\{\begin{array}{l}
+                       p - F(p) \ne 0 \\
+                       \frac{dx}{dp} - \frac{F'(p)}{p - F(p)}\cdot x = \frac{G'(p)}{p - F(p)} \implies \left\{\begin{array}{l}
+                                                                                                           x = \phi(p,C) \\
+                                                                                                           y = \phi(p, C)\cdot F(p) + G(p)
+                                                                                                       \end{array}\right.
+                   \end{array}\right. \\
+            dp = 0 \implies p = C \implies y = x\cdot F(C) + G(C)
+        \end{array}\right.
+    \]
+\end{note}
+
+\begin{note}[Уравнение Клеро]
+    \begin{align*}
+        y = xy' + G(y');                         \\
+        y = xp + G(p);                           \\
+        \equalto{dy}{pdx} = xdp + pdx + G'(p)dp; \\
+        \big(x + G'(p)\big)dp = 0;               \\
+        \left\{\begin{array}{l}
+                   x = - G'(p) \implies y = -G(p)\cdot p + G(p) \\
+                   dp = 0 \implies p = C \implies y = xF(C) + G(C)
+               \end{array}\right.
+    \end{align*}
+\end{note}
+
+\section{Уравнения высших порядков}
+
+\begin{definition}[Уравнение $n$-го порядка]
+    \emph{Уравнением порядка $n$} называется уравнение вида:
+    \begin{equation}\label{eq28}
+        F(x,y,y',y'',\ldots,y^{(n)}) = 0,
+    \end{equation}
+    где $x$ -- неизвестная, $n$ -- наивысший порядок производной:
+    \begin{equation}\label{eq29}
+        y^{(n)} = f(x,y,y',\ldots,y^{(n-1)})
+    \end{equation}
+\end{definition}
+
+\begin{definition}[Решение уравнений \ref{eq28} и \ref{eq29}]
+    \emph{Решением уравнений \ref{eq28} и \ref{eq29}} называется $n$ раз дифференцируемая функция, которая при подстановке в уравнение, обращает его в тождество.
+\end{definition}
+
+\begin{definition}[Задача Коши]
+    \emph{Задача Коши}: найти уравнения \ref{eq29} удовлетворяющему начальным условиям:
+    \begin{equation}\label{eq30}
+        \left\{\begin{array}{l}
+            y(x_0) = y_0   \\
+            y'(x_0) = y_0' \\
+            \vdots         \\
+            y^{(n-1)}(x_0) = y_0^{n-1}
+        \end{array}\right. \quad \left(\begin{matrix}
+                y_0^\circ \\ y_1^\circ \\ \vdots \\ y_{n-1}^\circ
+            \end{matrix}\right)
+    \end{equation}
+\end{definition}
+
+\begin{theorem}[$\exists$ и $!$ задачи Коши \ref{eq29}, \ref{eq30}]
+    Пусть $f(x,y_0,y_1,\ldots,y_{n-1})$ -- непрерывна по совокупности переменных в параллелепипеде:
+    \[
+        \Pi = \big\{(x,y_0,y_1,\ldots,y_{n-1}): \ |x-x_0|\leqslant a, \ |y_k - y_k^0| \leqslant b, \ k = \overline{0,n-1}\big\}
+    \]
+    и удовлетворяет условию Липшица по переменным $y_0,y_1,\ldots,y_{n-1}$
+    \[
+        \left(\frac{\delta f}{\delta y_k}\text{ -- непр., }k = \overline{0,n-1}\right)
+    \]
+
+    Тогда в окрестности точки $x_0 \ (x_0 - h;x_0 + h)$ решение задачи Коши существует и единственно,  где:
+    \[
+        h = \min\left\{a,\frac{b}{\max\{M_0,M_1,\ldots,M_{n-1}\}}\right\}, \quad M_k = \max\left|\frac{\delta f}{\delta y_k}\right|
+    \]
+\end{theorem}
+
+\section{Линейные уравнения высших порядков}
+
+\begin{definition}[Линейное неоднородное уравнение порядка $n$, однородное уравнение]
+    Уравнение вида:
+    \begin{equation}\label{eq31}
+        a_0(x) \cdot y^{(n)} + a_1(x) \cdot y^{(n-1)} + \ldots + a_{n-1}(x)\cdot y' + a_n(x) \cdot y = f(x), \quad a_0(x) \ne 0
+    \end{equation}
+    называется \emph{линейным неоднородным порядка $n$},
+    \[
+        a_j(x) \in C(\alpha;\beta), \quad j = \overline{0,n}, \quad f(x) \in C(\alpha, \beta), \quad -\infty \leqslant \alpha < \beta \leqslant + \infty
+    \]
+
+    Если $f(x) = 0$, то уравнение называется \emph{однородным}.
+
+    Пусть $L[y] = Ly \equiv a_0 (x) \cdot y^{(n)} + \ldots + a_n(x) \cdot y$,
+    \begin{equation}\label{eq32}
+        Ly = f
+    \end{equation}
+    \begin{equation}\label{eq33}
+        Ly = 0
+    \end{equation}
+    \begin{equation}\label{eq34}
+        y^{(n)} = - \frac{a_1(x)}{a_0(x)} \cdot y^{(n-1)} - \ldots - \frac{a_{n-1}(x)}{a_0(x)} \cdot y' - \frac{a_n(x)}{a_0(x)} \cdot y + \frac{f(x)}{a_0(x)}
+    \end{equation}
+\end{definition}
+
+\begin{theorem}[О существовании и единственности]
+    Пусть для уравнения \ref{eq34} выполняются условия: $a_0(x) \ne 0, \ a_j(x) \in C(\alpha;\beta), \ f(x) \in C(\alpha, \beta)$. Тогда решение задачи Коши для уравнения \ref{eq34} существует и единственно на $(\alpha, \beta)$.
+\end{theorem}
+
+\begin{note}[Свойства оператора $Ly$]\leavevmode
+    \begin{enumerate}
+        \item $L(\alpha y) = \alpha Ly, \ \forall \alpha \in \mathbb{R}$ (свойство однородности);
+        \item $L(y_1 + y_2) = Ly_1 = Ly_2$ (свойство аддитивности).
+    \end{enumerate}
+\end{note}
+
+\begin{note}[Свойства решений однородного линейного уравнения \ref{eq33} или $Ly = 0$]\leavevmode
+    \begin{enumerate}
+        \item $y \equiv 0$ является решением \ref{eq33};
+        \item Если $y_1(x)$ -- решение \ref{eq33}, то $y(x) - \alpha y_1(x), \ \alpha \in \mathbb{R}$ также ялвяется решением:
+              \[
+                  Ly = L(\alpha y_1) = \alpha \equalto{Ly_1}{0} = 0
+              \]
+        \item Если $y_1(x)$ и $y_2(x)$ -- решения \ref{eq33}, то $y(x) = y_1(x) + y_2(x)$ также является решением:
+              \[
+                  Ly = L(y_1 + y_2) = Ly_1 + Ly_2 = 0 + 0 = 0
+              \]
+        \item Если $y_1(x), \ldots, y_n(x)$ -- решения \ref{eq33}, то $\forall c_i \in \mathbb{R}, \ i =\overline{1,n} \ y(x) = c_1 y_1(x) + \ldots + c_n y_n(x)$ так же является решением.
+
+              $y_1(x), \ldots, y_n(x)$ -- линейно независимая система функций $\implies \forall y(x) = \sum_{i = 1}^{n} c_i \cdot y_i(x)$ -- решение \ref{eq33}.
+    \end{enumerate}
+\end{note}
+
+\begin{definition}[Линейно зависимая система функций]
+    Система функций $y_1(x), \ldots, y_n(x)$ называется \emph{линейно зависимой}, если $\exists$ такой набор $\alpha_1,\ldots,\alpha_n \in \mathbb{R}: \ \alpha_1^2 + \alpha_2^2 + \ldots + \alpha_n^2 \ne 0$, что линейная комбинация
+    \[
+        \alpha_1y_1(x) + \alpha_2y_2(x) + \ldots + \alpha_ny_n(x) = 0
+    \]
+\end{definition}
+
+\begin{definition}[Линейно независимая система функций]
+    Система функций $y_1(x),\ldots,y_n(x)$ называется \emph{линейно независимой}, если линейная комбинация этих функций равна $0$ в случае, когда
+    \[
+        \alpha_1 = \alpha_2 = \ldots = \alpha_n = 0,
+    \]
+    \[
+        \alpha_1y_1(x) + \ldots + \alpha_ny_n(x) = 0 \iff \alpha_1 = \ldots = \alpha_n = 0.
+    \]
+\end{definition}
+
+\begin{definition}[Определитель Вронского]
+    \emph{Определителем Вронского (вронскианом)} системы функций $y_1(x),\ldots,y_n(x)$, имеющих производные до порядка $(n-1)$ включительно, называется определитель:
+    \[
+        W(x) = \left|\begin{matrix}
+            y_1(x)         & \cdots & y_n(x)         \\
+            y_1'(x)        & \cdots & y_n'(x)        \\
+            \vdots         & \ddots & \vdots         \\
+            y_1^{(n-1)}(x) & \cdots & y_n^{(n-1)}(x) \\
+        \end{matrix}\right|
+    \]
+\end{definition}
+
+\begin{theorem}
+    Если система функций $y_1(x), \ldots, y_n(x)$ линейно зависима, то определитель Вронского равен $0$, то есть $W(x) = 0$.
+\end{theorem}
+
+\begin{proof}
+    Из линейной зависимости $y_1(x),\ldots,y_n(x) \implies \exists \alpha_1,\ldots,\alpha_n \in \mathbb{R}$:
+    \[
+        \alpha_1y_1(x) + \ldots + \alpha_ny_n(x) = 0.
+    \]
+
+    Пусть $\alpha_n \ne 0$, тогда:
+    \[
+        \begin{array}{l}
+            y_n(x) = -\frac{\alpha_1}{\alpha_n}y_1(x) - \frac{\alpha_2}{\alpha_n}y_2(x) - \ldots - \frac{\alpha_{n-1}}{\alpha_n}y_{n-1}(x)     \\
+            y_n'(x) = -\frac{\alpha_1}{\alpha_n}y_1'(x) - \frac{\alpha_2}{\alpha_n}y_2'(x) - \ldots - \frac{\alpha_{n-1}}{\alpha_n}y_{n-1}'(x) \\
+            \vdots                                                                                                                             \\
+            y_n^{(n-1)}(x) = -\frac{\alpha_1}{\alpha_n}y_1^{(n-1)}(x) - \frac{\alpha_2}{\alpha_n}y_2^{(n-1)}(x) - \ldots - \frac{\alpha_{n-1}}{\alpha_n}y_{n-1}^{(n-1)}(x)
+        \end{array}
+    \]
+    \[
+        W(x) = \left|\begin{array}{ccc}
+            y_1(x)         & \cdots & y_{n-1}(x) - \sum_{k=1}^{n-1}\frac{\alpha_k}{\alpha_n}y_k(x)                 \\
+            y_1'(x)        & \cdots & y_{n-1}'(x) - \sum_{k=1}^{n-1}\frac{\alpha_k}{\alpha_n}y_k'(x)               \\
+            \vdots         & \ddots & \vdots                                                                       \\
+            y_1^{(n-1)}(x) & \cdots & y_{n-1}^{(n-1)}(x) - \sum_{k=1}^{n-1}\frac{\alpha_k}{\alpha_n}y_k^{(n-1)}(x)
+        \end{array}\right| = 0
+    \]
+\end{proof}
+
+\begin{remark}
+    $W(x) = 0 \nRightarrow y_1(x),\ldots,y_n(x)$ -- линейно зависима.
+
+    \[
+        y_1(x) = \left\{\begin{array}{ll}
+            x^2, & x \geqslant 0 \\
+            0,   & x < 0
+        \end{array}\right., \quad y_2(x) = \left\{\begin{array}{ll}
+            0,   & x \geqslant 0 \\
+            x^2, & x < 0
+        \end{array}\right.
+    \]
+    \[
+        W(x) = \left\{\begin{array}{ll}
+            \left|\begin{array}{cc}
+                      x^2 & 0 \\
+                      2x  & 0
+                  \end{array}\right| = 0, & x \geqslant 0 \\
+            \empty                                        \\
+            \left|\begin{array}{cc}
+                      0 & x^2 \\
+                      0 & 2x
+                  \end{array}\right| = 0, & x < 0
+        \end{array}\right. \equiv 0
+    \]
+    \[
+        \frac{y_1(x)}{y_2(x)} = \left\{\begin{array}{ll}
+            \infty, & x \geqslant 0 \\
+            0,      & x < 0
+        \end{array}\right., \quad \frac{y_1(x)}{y_2(x)} = const\text{ ЛЗ}
+    \]
+    \[
+        \alpha_1\cdot y_1 + \alpha_2 \cdot y_2 = 0, \quad y_1 = - \frac{\alpha_2}{\alpha_1} \cdot y_2
+    \]
+\end{remark}

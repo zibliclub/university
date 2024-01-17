@@ -1,0 +1,281 @@
+\lesson{6}{от 21 дек 2023 8:48}{Конец}
+
+
+\section{Линейные уравнения с постоянными коэффициентами}
+
+\begin{note}
+    Рассмотрим:
+    \begin{equation}\label{eq39}
+        a_0y^{(n)} + a_1y^{(n-1)} + \ldots + a_{n-1}y' + a_ny = 0,
+    \end{equation}
+    где $a_0 \ne 0, \ a_i \in \mathbb{R}$. Теперь $y = e^{\lambda x}, \ y' = \lambda e^{\lambda x}, \ldots, y^{(n)} = \lambda^n e^{\lambda x}$:
+    \begin{equation}\label{eq40}
+        \nequalto{e^{\lambda x}}{0}(a_0\lambda^n + a_1\lambda^{n-1} + \ldots + a_{n-1}\lambda + a_n) = 0
+    \end{equation}
+
+    $y = e^{\lambda x}$ -- решение уравнения \ref{eq39} $\iff \lambda$ -- корень характеристического уравнения $T_n(\lambda) = 0, \ T_n(\lambda) = a_0\lambda^n + \ldots + a_{n-1}\lambda + a_n$.
+
+    Если $a_i \in \mathbb{R} \implies$ характеристическое уравнение \ref{eq40} имеет ровно $n$ корней, учитывая их кратность. Корни могут быть комплексными.
+
+    \begin{enumerate}
+        \item $\lambda_i \in \mathbb{R}, \ \lambda_i \ne \lambda_m, \ i \ne m, \ i = \overline{1,n}$. Найти $y_1,y_2,\ldots,y_n$ -- ФСР ?
+              \[
+                  y_1= e^{\lambda_1 x}, \ y_2=e^{\lambda_2x},\ \ldots, \ y_n=e^{\lambda_nx}
+              \]
+              $\lambda_1,\lambda_2,\ldots,\lambda_n$ -- корни характеристического многочлена \ref{eq40}.
+              \[
+                  W(x) = 0 \iff y_1,y_2,\ldots,y_n\text{, так как решения }Ly = 0\text{, ЛЗ}
+              \]
+              \[
+                  W(x)\ne 0 \implies y_1,\ldots,y_n\text{ ЛНЗ}
+              \]
+              \begin{multline*}
+                  W(x) = \left|\begin{matrix}
+                      e^{\lambda_1x}                & e^{\lambda_2x}                & \cdots & e^{\lambda_nx}                \\
+                      \lambda_1e^{\lambda_1x}       & \lambda_2e^{\lambda_2x}       & \cdots & \lambda_ne^{\lambda_nx}       \\
+                      \vdots                        & \vdots                        & \ddots & \vdots                        \\
+                      \lambda_1^{n-1}e^{\lambda_1x} & \lambda_2^{n-1}e^{\lambda_2x} & \cdots & \lambda_n^{n-1}e^{\lambda_nx} \\
+                  \end{matrix}\right| = \\
+                  = e^{\lambda_1x}e^{\lambda_2x}\ldots e^{\lambda_nx}\cdot \left|\begin{matrix}
+                      1               & 1               & \cdots & 1               \\
+                      \lambda_1       & \lambda_2       & \cdots & \lambda_n       \\
+                      \vdots          & \vdots          & \ddots & \vdots          \\
+                      \lambda_1^{n-1} & \lambda_2^{n-1} & \cdots & \lambda_n^{n-1} \\
+                  \end{matrix}\right| \ne 0\text{ при }\lambda_i \ne \lambda m
+              \end{multline*}
+              \begin{multline*}
+                  \implies y_1,y_2,\ldots,y_n\text{ ЛНЗ }\implies \\
+                  \implies y_{\text{ОО}} = C_1e^{\lambda_1x} + C_2 e^{\lambda_2x} + \ldots + C_n e^{\lambda_nx}
+              \end{multline*}
+
+        \item $\underbrace{\lambda_1 = \lambda_2 = \ldots = \lambda_m}_{\text{кратный}} = \lambda, \quad \nequalto{\underbrace{\lambda_{m+1},\ldots,\lambda_n}}{\lambda} \in \mathbb{R}$
+              \[
+                  \underbrace{e^{\lambda x},e^{\lambda x},\ldots,e^{\lambda x}}_{m} \qquad e^{\lambda_{m+1}x},\ldots,e^{\lambda_n x}
+              \]
+              \[
+                  \equalto{e^{\lambda x}}{y_1}, \equalto{xe^{\lambda x}}{y_2}, \ldots, \equalto{x^{m-1} e^{\lambda x}}{y_m}
+              \]
+
+              $y_1,y_2,\ldots,y_m$ -- ФСР:
+              \begin{enumerate}
+                  \item ЛНЗ:
+                        \[
+                            \alpha_1e^{\lambda x} + \alpha_2 xe^{\lambda x} + \ldots + \alpha x^{m-1}e^{\lambda x} = 0
+                        \]
+                        \[
+                            e^{\lambda x}(\alpha_1 + \alpha_2 x + \ldots + \alpha_m x^{m-1}) = 0 \iff \alpha_1 = \alpha_2 = \ldots = \alpha_m = 0
+                        \]
+
+                  \item Является решением \ref{eq39}:
+                        \[
+                            L(x^k e^{\lambda x})\overset{?}{=}0, \quad k=\overline{0,m-1}
+                        \]
+                        \begin{equation}\label{eq41}
+                            L(e^{\lambda x}) = e^{\lambda x} \cdot T_n(\lambda)
+                        \end{equation}
+                        \[
+                            \frac{\delta^k}{\delta x^k}\big(L(e^{\lambda x})\big) = \frac{\delta^k}{\delta \lambda^k}\big(e^{\lambda x}T_n(\lambda)\big), \quad (u\cdot v)^{(k)} = \sum_{i = 0}^{k}C_k^i u^{(i)}v^{(k-i)}
+                        \]
+                        \[
+                            L\left(\frac{\delta^k}{\delta \lambda^k}e^{\lambda x}\right) = \sum_{i = 0}^{k}C^i_k T_n^{(i)}(\lambda)\cdot (e^{\lambda x})^{(k-i)}
+                        \]
+                        \[
+                            L(x^k e^{\lambda x}) = \sum_{i=0}^{k}C_k^i T_n^{(i)}(\lambda)x^{k-i}e^{\lambda x}
+                        \]
+
+                        Если $\lambda$ -- корень $T_n(\lambda)$ кратности $m$, то:
+                        \[
+                            T_n(\lambda) = T_n'(\lambda) = \ldots = T_n^{(m-1)}(\lambda) = 0, \quad T_n^{(m)}(\lambda) \ne 0
+                        \]
+
+                        Правая часть $= 0$, если $k = \overline{0,m-1} \implies L(x^ke^{\lambda x}) = 0, \ k=\overline{0,m-1}$,
+                        \[
+                            y_{\text{ОО}} = C_1e^{\lambda x} + C_2 x e^{\lambda x} + \ldots + C_m x^{m-1} e^{\lambda x} + C_{m+1} e^{\lambda_m x} +\ldots + C_n e^{\lambda_n x}
+                        \]
+              \end{enumerate}
+        \item $\lambda_{1,2} = a\pm b_i, \quad \nequalto{\lambda_3,\ldots,\lambda_n}{\lambda_{1,2}}$
+              \[
+                  y_1 = e^{(a + b_i)x} = e^{ax}\cdot e^{ibx} = e^{ax}(\cos bx + i \sin b_x)
+              \]
+              \[
+                  y(x) = u(x) + i v(x), \quad y'(x) = u'(x) + iv'(x)
+              \]
+
+              \begin{statement}
+                  $y(x)$ -- решение $Ly = 0 \iff u(x)$ и $v(x)$ -- решения \ref{eq39}.
+              \end{statement}
+              \[
+                  Ly(x) = Lu(x) + iLv(x)
+              \]
+              \begin{align*}
+                  y_2 = e^{(a-bi)x} = e^{ax}\cdot e^{-ibx} = e^{ax}(\cos bx - i\sin bx); \\
+                  \widetilde{y_1} = \frac{y_1 + y_2}{2} = e^{ax} \cdot \cos bx;          \\
+                  \widetilde{y_2} = \frac{y_1 - y_2}{2} = e^{ax}\cdot \sin bx
+              \end{align*}
+              \begin{enumerate}
+                  \item $\widetilde{y_1},\widetilde{y_2}$ -- решения \ref{eq39};
+                  \item $\widetilde{y_1},\widetilde{y_2}$ -- ЛНЗ?
+              \end{enumerate}
+              $\implies \widetilde{y_1}, \widetilde{y_2}, y_3, \ldots, y_n$ -- ФСР:
+              \[
+                  y_{\text{ОО}} = C_1e^{ax}\cos bx + C_2 e^{ax}\sin bx + C_3 e^{\lambda_3x} + \ldots + C_n e^{\lambda_n x}
+              \]
+
+        \item $\lambda_{1,2} = \lambda_{3,4} = \ldots = \lambda_{2m-1,2m} = a\pm bi, \quad \nequalto{\lambda_{2m+1},\ldots,\lambda_n}{\lambda_{1,2}}$
+              \[
+                  y_1 = e^{ax}\cos bx, \ y_2 = xe^{ax}\cos bx,\ \ldots, \ y_m = x^{m-1}e^{ax}\cos bx,
+              \]
+              \[
+                  y_{m+1} = e^{ax}\sin bx, \ y_{m+2} = xe^{ax}\sin bx, \ \ldots, \ y_{2m} = x^{m-1}e^{ax}\sin bx
+              \]
+              \begin{multline*}
+                  y_{\text{ОО}} = e^{ax}(C_1\cos bx + C_2 x \cos bx + \ldots + C_m x^{m-1}\cos bx) + \\
+                  + e^{ax}\sin bx(C_{m+1} + C_{m+2}x + \ldots + C_{2m}x^{m-1}) + \\
+                  + C_{2m+1}e^{\lambda_{2m}x} + \ldots + C_ne^{\lambda_n x}
+              \end{multline*}
+              $f(x)$ -- спецального вида
+              \[
+                  b_0 + b_1x + \ldots + b_m x^m, e^{ax}, \cos bx, \ sin bx
+              \]
+    \end{enumerate}
+\end{note}
+
+\section{Линейные неоднородные уравнения с правой частью спец. вида}
+
+\begin{note}
+    \begin{equation}\label{eq42}
+        a_0y^{(n)} + a_1y^{(n-1)} + \ldots + a_{n-1}y' + a_ny = f(x),
+    \end{equation}
+    где $a_0 \ne 0, \ a_i \in \mathbb{R}, \ i = \overline{0,n}$
+
+    \begin{equation}\label{eq43}
+        a_0\lambda^n + a_1\lambda^{n-1} + \ldots + a_{n-1}\lambda + a_n = 0
+    \end{equation}
+
+    \begin{enumerate}
+        \item Пусть:
+              \begin{equation}\label{eq44}
+                  f(x) = e^{\alpha x}\big(P_m(x)\cos \beta x + Q_n(x)\sin \beta x \big)
+              \end{equation}
+
+              Тогда частное решение уравнения \ref{eq42} будем искать $\lambda$ вида:
+              \[
+                  y_{\text{ЧН}} = e^{\alpha x}\big(M_k(x)\cos\beta x + N_k(x)\sin \beta x\big)\cdot x^\tau,
+              \]
+              где $k = \max(m,n), \ M_k(x),N_k(x)$ -- многочлены степени $k$ общего вида с неоднородными коэффициентами, $\tau$ -- кратность числа $\alpha\pm\beta_i$ как корня характеристического уравнения \ref{eq43}, если $\alpha \pm\beta i$ не является корнем \ref{eq43}, то $\tau = 0$.
+
+        \item $f(x) = (b_0 + b_1 x + \ldots + b_m x^m)e^{2x}$. Тогда:
+              \[
+                  y_{\text{ЧН}} = (d_0 + d_1 x + \ldots + d_m x^m)e^{\alpha x}\cdot x^\tau,
+              \]
+              где $\tau$ -- кратность числа $\alpha$ как корня характеристического уравнения \ref{eq43}, если $\lambda$ не является корнем характеристического уравнения \ref{eq43}, то $\tau = 0$.
+
+        \item Если $f(x) = f_1(x) + f_2(x) + \ldots + f_p(x)$, где $f_i(x)$ -- многочлен вида \ref{eq44}, то $y_{\text{ОН}} = y_{\text{ОО}} + y_{\text{ЧН}}^{(1)} + y_{\text{ЧН}}^{(2)} + \ldots + y_{\text{ЧН}}^{(p)}$.
+
+        \item Если $f(x)$ -- произвольного вида (отличного от вида \ref{eq44}), то $y_{\text{ОН}}$ находим с помощью метода вариаций произольных простоянных.
+    \end{enumerate}
+\end{note}
+
+\begin{note}[Уравнение Эйлера]
+    \[
+        a_0 x^n y^{(n)} + a_1 x^{n-1}y^{(n-1)} + \ldots + a_{n-1}x y' + a_n y = f(x),
+    \]
+    $x^ky^{(k)}$ сводится к уравнению с постоянными коэффициентами с помощью замены $x = e^t$ при $x > 0 \ (x = e^t \text{ при }x < 0)$.
+\end{note}
+
+\begin{example}
+    $x^3y''' - x^2 y'' + 2xy' - 2y = x^3, \quad x = e^t$
+    \[
+        \begin{array}{l}
+            y' = \frac{dy}{dx} = \frac{\frac{dy}{dt}}{\frac{dx}{dt}} = \frac{y'_t}{e^t} = e^{-t}y_t'                             \\
+            y'' = \frac{dy'}{dx} = \frac{\frac{dy'}{dt}}{\frac{dx}{dt}} = \frac{e^{-t}(y_t''-y_t')}{e^t} = e^{-2t}(y''_t - y'_t) \\
+            y''' = \frac{dy''}{dx} = \frac{\frac{dy''}{dt}}{\frac{dx}{dt}} = \frac{e^{-2t}(y_t'''-y_t'' - 2y_t'' + 2y'_t)}{e^t} = e^{-3t}(y'''_t - 3y''_t + 2y'_t)
+        \end{array}
+    \]
+    \[
+        e^{3t}\cdot e^{-3t}(y'''_t - 3y''_t + 2y_t') - e^{2t}\cdot e^{-2t}\cdot (y''_t - y'_t) + 2e^t \cdot e^{-t}y_t' - 2y = e^{3t}
+    \]
+    \[
+        y'''_t - 4y''_t + 5y_t' - dy = e^{3t}, \quad \lambda^3 - 4\lambda^2 + 5\lambda -2 = 0
+    \]
+    \begin{enumerate}
+        \item Характеристическое уравнение: $x^ky^{(k)}\rightarrow \lambda(\lambda-1)\ldots(\lambda-k+1)$,
+              \[
+                  \lambda(\lambda - 1)(\lambda -2) - \lambda(\lambda-1)+ 2\lambda - 2 = 0
+              \]
+              \[
+                  (\lambda-1)(\lambda^2 - 2\lambda - \lambda) + 2(\lambda -1) = 0
+              \]
+              \begin{multline*}
+                  (\lambda - 1)(\lambda^2 - 3\lambda + 2) = 0 \iff (\lambda - 1)^2(\lambda - 2) = 0 \implies \\
+                  \implies \left[\begin{array}{l}
+                      \lambda_1 = \lambda_2 = 1 \\
+                      \lambda_3 = 2
+                  \end{array}\right. \implies y_{\text{ОО}} = (C_1 + C_2t)e^t + C_3 e^{2t}
+              \end{multline*}
+
+        \item $\lambda(\lambda^2 - 3\lambda + 2) - \lambda^2 + \lambda + 2\lambda -2 = 0$
+              \begin{align*}
+                  \lambda^3 - 3\lambda^2 + 2\lambda - \lambda^2 + 3\lambda - 2 = 0                                                         \\
+                  \lambda^3 - 4\lambda^2 + 5\lambda - 2 = 0 \implies                                                                       \\
+                  \implies y''' - 4y'' + 5y' - 2y = e^{3t}                                                                                 \\
+                  f(t) = e^{3t} \implies \alpha \pm \beta i = 3 \ne \lambda_1,\lambda_2 \implies \tau = 0 \implies y_{\text{ЧН}} = Ae^{3t} \\
+                  27Ae^{3t} - 36Ae^{3t} + 15Ae^{3t} - 2Ae^{3t} = e^{3t}                                                                    \\
+                  4A = 1 \implies A = \frac{1}{4} \implies y_{\text{ЧН}} = \frac{1}{4}e^{3t}
+              \end{align*}
+              \begin{multline*}
+                  y_{\text{ОН}} = y_{\text{ОО}} + y_{\text{ЧН}} = \\
+                  = (C_1 + C_2t)e^t + C_3e^{2t} + \frac{1}{4}e^{3t} = (C_1 + C_2\ln x)x + C_3x^2 + \frac{1}{4}x^3
+              \end{multline*}
+              $x > 0, \ x = e^t, \ \ln x = t$
+    \end{enumerate}
+\end{example}
+
+\begin{example}
+    $y'' - 3y' + 2y = 9e^{3x}$
+    \begin{enumerate}
+        \item $\lambda^2 - 3\lambda + 2 = 0 \implies \lambda_1 = 1, \ \lambda_2 = 2$.
+        \item $f(x) = 9e^{3x} \implies \alpha \pm \beta i = 3 \ne \lambda_1, \lambda_2 \implies \tau = 0 \implies y_{\text{ЧН}} = Ae^{3x}\cdot x^\circ = Ae^{3x}$.
+    \end{enumerate}
+\end{example}
+
+\begin{example}
+    $y'' + 16y = x\cdot \sin 4x$
+    \begin{enumerate}
+        \item $\lambda^2 + 16 = 0 \implies \lambda_{1,2} = \pm 4i$.
+        \item $f(x) = x\sin x \implies \alpha \pm \beta i = 0 \pm 4i = \lambda_1 \implies \tau = 1$
+    \end{enumerate}
+    \[
+        y_{\text{ЧН}} = x(Ax + B)\sin x + x(Cx + D)\cos x
+    \]
+    \begin{enumerate}
+        \item Характеристическое уравнение:
+              \[
+                  \lambda(\lambda - 1)(\lambda-2)-\lambda(\lambda-1)+2\lambda - 2 =0
+              \]
+              \[
+                  (\lambda-1)(\lambda^2-2\lambda-\lambda)+2(\lambda-1) = 0
+              \]
+              \begin{multline*}
+                  (\lambda - 1)(\lambda^2 - 3\lambda + 2)= 0\iff \\
+                  \iff (\lambda-1)^2(\lambda-2) = 0 \iff \left[\begin{array}{l}
+                      \lambda_1 = \lambda_2 = 1 \\
+                      \lambda_3 = 2
+                  \end{array}\right. \implies
+              \end{multline*}
+              \[
+                  y_{\text{ОО}} = (C_1 + C_2t)e^t + C_3e^{2t}
+              \]
+    \end{enumerate}
+\end{example}
+
+\begin{example}
+    $y'' - 8y' + 16y = e^{4x}(1-x)$
+    \begin{enumerate}
+        \item $\lambda^2 - 8\lambda + 16 = 0 \implies (\lambda-4)^2 = 0 \implies \lambda_1 = \lambda_2 = 4$, кратность -- 2.
+        \item $f(x)= e^{4x}(1-x)\implies \alpha \pm \beta i = 4 = \lambda_1 \implies \tau = 2$.
+    \end{enumerate}
+    \[
+        y_{\text{ЧН}} = e^{4x}(Ax + B)x^2 = e^{4x}(Ax^3 + Bx^2)
+    \]
+\end{example}
