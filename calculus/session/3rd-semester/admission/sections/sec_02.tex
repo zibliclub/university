@@ -7,14 +7,14 @@
 \begin{theorem}[О среднем]
     Пусть $ D $ -- область в $ \R^n, \ x \in D, \ x + h \in D, \ [x, x+h]\subset D, \ f: D \rightarrow\R $ -- дифференцируемо на $ (x,x+h) $ и непрерывно на $ [x,x+h] $. Тогда $ \exists \xi \in (x,x+h): $
     \[
-        f(x+h)-f(x) = f'(\xi)\cdot h = \frac{\delta f}{\delta x_1}(\xi)\cdot h^1 + \frac{\delta f}{\delta x_2}(\xi)\cdot h^2 + \ldots + \frac{\delta f}{\delta x_n}(\xi)\cdot h^n,
+        f(x+h)-f(x) = f'(\xi)\cdot h = \frac{\partial f}{\partial x_1}(\xi)\cdot h^1 + \frac{\partial f}{\partial x_2}(\xi)\cdot h^2 + \ldots + \frac{\partial f}{\partial x_n}(\xi)\cdot h^n,
     \] где $ \{1,2,\ldots,n\} $ над $ h $ -- индексы.
 \end{theorem}
 
 \subsection{Следствие теоремы о среднем}
 
 \begin{corollary}
-    Пусть $ D $ -- область в $ \R^n, \ f:D \rightarrow \R $ -- дифференцируема на $ D $ и $ \forall x \in D \ d(fx) = 0 $ (то есть $ \forall i \ \frac{\delta f}{\delta x_i} = 0 $). Тогда $ f(x) = const $.
+    Пусть $ D $ -- область в $ \R^n, \ f:D \rightarrow \R $ -- дифференцируема на $ D $ и $ \forall x \in D \ d(fx) = 0 $ (то есть $ \forall i \ \frac{\partial f}{\partial x_i} = 0 $). Тогда $ f(x) = const $.
 \end{corollary}
 
 \subsection{Достаточное условие дифференцируемости функции}
@@ -28,7 +28,7 @@
 \begin{definition}[Вторая производная функции по переменным]
     Пусть $ f:D \rightarrow\R, \ D $ -- область в $ \R^n $. Производная по переменной $ x^j $ от производной по переменной $ x^i $ называется \emph{второй производной функции $ f $ по переменным} $ x^i,x^j $ и обозначается
     \[
-        \frac{\delta^2f}{\delta x^i\delta x^j}(x)\text{ или }f_{x^i,x^j}''(x).
+        \frac{\partial^2f}{\partial x^i\partial x^j}(x)\text{ или }f_{x^i,x^j}''(x).
     \]
 \end{definition}
 
@@ -43,11 +43,11 @@
 \begin{theorem}[Формула Тейлора]
     Пусть $D$ -- область в $\R^n, \ f:D\rightarrow\R, \ f\in C^{(k)}(D,\R), \ x \in D, \ x + h \in D, \ [x;x+h] \subset D$. Тогда:
     \[
-        f(x + h) = f(x) + \sum_{i=1}^{k-1}\frac{1}{i!}\left(\frac{\delta}{\delta x^1}\cdot h^1 + \ldots + \frac{\delta}{\delta x^n}\cdot h^n\right)^i \cdot f(x) + R^k,
+        f(x + h) = f(x) + \sum_{i=1}^{k-1}\frac{1}{i!}\left(\frac{\partial}{\partial x^1}\cdot h^1 + \ldots + \frac{\partial}{\partial x^n}\cdot h^n\right)^i \cdot f(x) + R^k,
     \]
     где $R^k$ -- остаточный член,
     \[
-        R^k = \frac{1}{k!}\left(\frac{\delta}{\delta x^1}\cdot h^1 + \ldots + \frac{\delta}{\delta x^n}\cdot h^n\right)^k \cdot f(x + \xi \cdot h),
+        R^k = \frac{1}{k!}\left(\frac{\partial}{\partial x^1}\cdot h^1 + \ldots + \frac{\partial}{\partial x^n}\cdot h^n\right)^k \cdot f(x + \xi \cdot h),
     \]
     \[
         x = (x^1,\ldots,x^n), \quad h = (h^1,\ldots,h^n).
@@ -68,7 +68,7 @@
 \begin{theorem}[Необходимое условие локального экстремума]
     Пусть $D$ -- область в $ \R^n, \ f:D \rightarrow\R, \ x_0 \in D $ -- точка локального экстремума, тогда в точке $ x_0 \ \forall i = \overline{1,n}$
     \[
-        \frac{\delta(x_0)}{\delta x^i} = 0.
+        \frac{\partial(x_0)}{\partial x^i} = 0.
     \]
 \end{theorem}
 
@@ -114,7 +114,7 @@
     \begin{enumerate}
         \item $ F(x_0,y_0) = 0 $.
         \item $ F(x,y) \in C^P(U,\R), \ p \geqslant 1 $.
-        \item $ \frac{\delta F}{\delta y}(x_0,y_0)\ne 0 $.
+        \item $ \frac{\partial F}{\partial y}(x_0,y_0)\ne 0 $.
     \end{enumerate}
 
     Тогда $ \exists $ открезки $ I_x,I_y: \ f:I_x \rightarrow I_y $:

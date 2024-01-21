@@ -60,9 +60,9 @@
               Пусть
               \begin{equation*}
                   \left|\begin{matrix}
-                      \frac{\delta F^1}{\delta x^{k+1}}     & \cdots & \frac{\delta F^1}{\delta x^n}     \\
+                      \frac{\partial F^1}{\partial x^{k+1}}     & \cdots & \frac{\partial F^1}{\partial x^n}     \\
                       \vdots                                & \ddots & \vdots                            \\
-                      \frac{\delta F^{n-k}}{\delta x^{k+1}} & \cdots & \frac{\delta F^{n-k}}{\delta x^n}
+                      \frac{\partial F^{n-k}}{\partial x^{k+1}} & \cdots & \frac{\partial F^{n-k}}{\partial x^n}
                   \end{matrix}\right| (x_0) \ne 0.
               \end{equation*}
 
@@ -83,9 +83,9 @@
               Тогда по утверждению касательное пространство задается уравнениями:
               \begin{equation}\label{eq:14}
                   \left\{\begin{array}{l}
-                      x^{k+1} = x_0^{k + 1} + \frac{\delta f^1}{\delta x^1}(x_0)\cdot(x^1-x_0^1) + \ldots + \frac{\delta f^1}{\delta x^k}(x_0)\cdot(x^k - x_0^k) \\
+                      x^{k+1} = x_0^{k + 1} + \frac{\partial f^1}{\partial x^1}(x_0)\cdot(x^1-x_0^1) + \ldots + \frac{\partial f^1}{\partial x^k}(x_0)\cdot(x^k - x_0^k) \\
                       \vdots                                                                                                                                     \\
-                      x^n = x_0^n + \frac{\delta f^{n-k}}{\delta x^1}(x_0)\cdot(x^1 - x_0^1) + \ldots + \frac{\delta f^{n-k}}{\delta x^k}(x_0)\cdot(x^k - x_0^k)
+                      x^n = x_0^n + \frac{\partial f^{n-k}}{\partial x^1}(x_0)\cdot(x^1 - x_0^1) + \ldots + \frac{\partial f^{n-k}}{\partial x^k}(x_0)\cdot(x^k - x_0^k)
                   \end{array}\right.
               \end{equation}
 
@@ -111,9 +111,9 @@
               Тогда система \ref{eq:14} примет вид:
               \begin{equation}\label{eq:15}
                   \left\{\begin{array}{l}
-                      \eta^{k+1} = \frac{\delta f^1}{\delta x^1}(x_0) \cdot \eta^1 + \ldots + \frac{\delta f^1}{\delta x^k}(x_0)\cdot \eta^k \\
+                      \eta^{k+1} = \frac{\partial f^1}{\partial x^1}(x_0) \cdot \eta^1 + \ldots + \frac{\partial f^1}{\partial x^k}(x_0)\cdot \eta^k \\
                       \vdots                                                                                                                 \\
-                      \eta^{n} = \frac{\delta f^{n-k}}{\delta x^1}(x_0) \cdot \eta^1 + \ldots + \frac{\delta f^{n-k}}{\delta x^k}(x_0)\cdot \eta^k
+                      \eta^{n} = \frac{\partial f^{n-k}}{\partial x^1}(x_0) \cdot \eta^1 + \ldots + \frac{\partial f^{n-k}}{\partial x^k}(x_0)\cdot \eta^k
                   \end{array}\right.
               \end{equation}
 
@@ -152,9 +152,9 @@
                           \xi^1                                                                                                  \\
                           \vdots                                                                                                 \\
                           \xi^k                                                                                                  \\
-                          \frac{\delta f^1}{\delta x^1}(x_0)\cdot \xi^1 + \ldots + \frac{\delta f^1}{\delta x^k}(x_0)\cdot \xi^k \\
+                          \frac{\partial f^1}{\partial x^1}(x_0)\cdot \xi^1 + \ldots + \frac{\partial f^1}{\partial x^k}(x_0)\cdot \xi^k \\
                           \vdots                                                                                                 \\
-                          \frac{\delta f^{n-k}}{\delta x^1}(x_0)\cdot \xi^1 + \ldots + \frac{\delta f^{n-k}}{\delta x^k}(x_0)\cdot \xi^k
+                          \frac{\partial f^{n-k}}{\partial x^1}(x_0)\cdot \xi^1 + \ldots + \frac{\partial f^{n-k}}{\partial x^k}(x_0)\cdot \xi^k
                       \end{matrix}\right) = \left(\begin{matrix}
                           \xi^1 \\ \vdots \\ \xi^k \\ \xi^{k+1} \\ \vdots \\ \xi^n
                       \end{matrix}\right).
@@ -243,14 +243,14 @@
     Касательное пространство $TS_{x_0}$ задается системой уравнений:
     \begin{equation}\label{eq:21}
         \left\{\begin{array}{l}
-            \frac{\delta F^1}{\delta x^1}(x_0)\cdot \xi^1 + \ldots + \frac{\delta F^1}{\delta x^n}(x_0) \cdot \xi^n = 0 \\
+            \frac{\partial F^1}{\partial x^1}(x_0)\cdot \xi^1 + \ldots + \frac{\partial F^1}{\partial x^n}(x_0) \cdot \xi^n = 0 \\
             \vdots                                                                                                      \\
-            \frac{\delta F^{n-k}}{\delta x^1}(x_0)\cdot \xi^1 + \ldots + \frac{\delta F^{n-k}}{\delta x^n}(x_0) \cdot \xi^n = 0
+            \frac{\partial F^{n-k}}{\partial x^1}(x_0)\cdot \xi^1 + \ldots + \frac{\partial F^{n-k}}{\partial x^n}(x_0) \cdot \xi^n = 0
         \end{array}\right.,
     \end{equation}
     но $\forall i = \overline{1,n-k}:$
     \[
-        \left\{\frac{\delta F^i}{\delta x^1}\cdot (x_0),\ldots,\frac{\delta F^i}{\delta x^n}\cdot (x_0)\right\} = grad F^i(x_0).
+        \left\{\frac{\partial F^i}{\partial x^1}\cdot (x_0),\ldots,\frac{\partial F^i}{\partial x^n}\cdot (x_0)\right\} = grad F^i(x_0).
     \]
 
     Перепишем \ref{eq:21} в виде:
@@ -264,7 +264,7 @@
 
     Касательное пространство $TN_{x_0}$ к $N_{x_0} = \big\{x \in D \ \big| \ f(x) = f(x_0)\big\}$ задается уравнением: $f'(x_0)\cdot\xi = 0$. Заметим, что:
     \[
-        f'(x_0) = grad f(x_0) = \\ \left\{\frac{\delta f(x_0)}{\delta x^1},\ldots,\frac{\delta f(x_0)}{\delta x^n}\right\} \implies
+        f'(x_0) = grad f(x_0) = \\ \left\{\frac{\partial f(x_0)}{\partial x^1},\ldots,\frac{\partial f(x_0)}{\partial x^n}\right\} \implies
     \]
     \begin{equation}\label{eq:23}
         \implies f'(x_0)\cdot \xi = 0 \iff \big(grad f(x_0),\xi\big) = 0
@@ -306,17 +306,17 @@
     \begin{equation}\label{eq:24}
       \left\{\begin{array}{l}
         \left.\begin{array}{l}
-            \frac{\delta L}{\delta x^1} = \frac{\delta f}{\delta x^1} + \sum_{i = 1}^{k}\lambda^i\cdot\frac{\delta F^i}{\delta x^1} = 0 \\
+            \frac{\partial L}{\partial x^1} = \frac{\partial f}{\partial x^1} + \sum_{i = 1}^{k}\lambda^i\cdot\frac{\partial F^i}{\partial x^1} = 0 \\
             \vdots                                                                                                                      \\
-            \frac{\delta L}{\delta x^n} = \frac{\delta f}{\delta x^n} + \sum_{i = 1}^{k}\lambda^i\cdot\frac{\delta F^i}{\delta x^n} = 0 \\
+            \frac{\partial L}{\partial x^n} = \frac{\partial f}{\partial x^n} + \sum_{i = 1}^{k}\lambda^i\cdot\frac{\partial F^i}{\partial x^n} = 0 \\
         \end{array}\right\}\begin{array}{l}
             \text{необходимое условие условного}\\
             \text{экстремума функции }f
         \end{array} \\
         \left.\begin{array}{l}
-            \frac{\delta L}{\delta \lambda^1} = F^1(x^1,\ldots,x^n) = 0                                                                 \\
+            \frac{\partial L}{\partial \lambda^1} = F^1(x^1,\ldots,x^n) = 0                                                                 \\
             \vdots                                                                                                                      \\
-            \frac{\delta L}{\delta \lambda^k} = F^k(x^1,\ldots,x^n) = 0
+            \frac{\partial L}{\partial \lambda^k} = F^k(x^1,\ldots,x^n) = 0
         \end{array}\right\}\text{ поверхность }S
       \end{array}\right.
     \end{equation}

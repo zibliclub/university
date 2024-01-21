@@ -10,7 +10,7 @@
     \begin{enumerate}
         \item $ F(x_0,y_0) = 0 $.
         \item $ F(x,y) \in C^P(U,\R), \ p \geqslant 1 $.
-        \item $ \frac{\delta F}{\delta y}(x_0,y_0)\ne 0 $.
+        \item $ \frac{\partial F}{\partial y}(x_0,y_0)\ne 0 $.
     \end{enumerate}
 
     Тогда $ \exists $ открезки $ I_x,I_y: \ f:I_x \rightarrow I_y $:
@@ -112,7 +112,7 @@
               \begin{enumerate}
                   \item $f \in C^{(p)}(I_x^m, I_y^1)$.
                   \item $\forall (x,y) \in I = I_x^m \times I_y^1 \quad y = f(x^1,\ldots,x^m) \iff F(x^1,\ldots,x^m,y) = 0$.
-                  \item $f'(x) = -\frac{F_x'(x,y)}{F_y'(x,y)}$, то есть $\frac{\delta f}{\delta x^i} = -\frac{F_{x^i}'(x,y)}{F_y'(x,y)}$.
+                  \item $f'(x) = -\frac{F_x'(x,y)}{F_y'(x,y)}$, то есть $\frac{\partial f}{\partial x^i} = -\frac{F_{x^i}'(x,y)}{F_y'(x,y)}$.
               \end{enumerate}
     \end{enumerate}
 \end{theorem}
@@ -164,19 +164,19 @@
     Далее положим, что
     \begin{align*}
          & f'(x) = \left(\begin{matrix}
-                             \frac{\delta f^1}{\delta x^1} & \cdots & \frac{\delta f^1}{\delta x^m} \\
+                             \frac{\partial f^1}{\partial x^1} & \cdots & \frac{\partial f^1}{\partial x^m} \\
                              \vdots                        & \ddots & \vdots                        \\
-                             \frac{\delta f^n}{\delta x^1} & \cdots & \frac{\delta f^n}{\delta x^m}
+                             \frac{\partial f^n}{\partial x^1} & \cdots & \frac{\partial f^n}{\partial x^m}
                          \end{matrix}\right) (x)     \\
          & F_x'(x,y) = \left(\begin{matrix}
-                                 \frac{\delta F^1}{\delta x^1} & \cdots & \frac{\delta F^1}{\delta x^m} \\
+                                 \frac{\partial F^1}{\partial x^1} & \cdots & \frac{\partial F^1}{\partial x^m} \\
                                  \vdots                        & \ddots & \vdots                        \\
-                                 \frac{\delta F^n}{\delta x^1} & \cdots & \frac{\delta F^n}{\delta x^m}
+                                 \frac{\partial F^n}{\partial x^1} & \cdots & \frac{\partial F^n}{\partial x^m}
                              \end{matrix}\right) (x,y) \\
          & F_y'(x,y) = \left(\begin{matrix}
-                                 \frac{\delta F^1}{\delta y^1} & \cdots & \frac{\delta F^1}{\delta y^m} \\
+                                 \frac{\partial F^1}{\partial y^1} & \cdots & \frac{\partial F^1}{\partial y^m} \\
                                  \vdots                        & \ddots & \vdots                        \\
-                                 \frac{\delta F^n}{\delta y^1} & \cdots & \frac{\delta F^n}{\delta y^m}
+                                 \frac{\partial F^n}{\partial y^1} & \cdots & \frac{\partial F^n}{\partial y^m}
                              \end{matrix}\right) (x,y)
     \end{align*}
 
@@ -286,21 +286,21 @@
                                                             F^n(x,y)
                                                         \end{matrix}\right)                                                           \\
         F_x'(x,y) & = \left(\begin{matrix}
-                                \frac{\delta F^1}{\delta x^1} & \cdots & \frac{\delta F^1}{\delta x^n} \\
-                                \frac{\delta F^2}{\delta x^1} & \cdots & \frac{\delta F^2}{\delta x^n} \\
+                                \frac{\partial F^1}{\partial x^1} & \cdots & \frac{\partial F^1}{\partial x^n} \\
+                                \frac{\partial F^2}{\partial x^1} & \cdots & \frac{\partial F^2}{\partial x^n} \\
                                 \vdots                        & \ddots & \vdots                        \\
-                                \frac{\delta F^n}{\delta x^1} & \cdots & \frac{\delta F^n}{\delta x^n}
+                                \frac{\partial F^n}{\partial x^1} & \cdots & \frac{\partial F^n}{\partial x^n}
                             \end{matrix}\right)(x,y) = \left(\begin{matrix}
-                                                                 -\frac{\delta f^1}{\delta x^1} & \cdots & -\frac{\delta f^1}{\delta x^n} \\
-                                                                 -\frac{\delta f^2}{\delta x^1} & \cdots & -\frac{\delta f^2}{\delta x^n} \\
+                                                                 -\frac{\partial f^1}{\partial x^1} & \cdots & -\frac{\partial f^1}{\partial x^n} \\
+                                                                 -\frac{\partial f^2}{\partial x^1} & \cdots & -\frac{\partial f^2}{\partial x^n} \\
                                                                  \vdots                         & \ddots & \vdots                         \\
-                                                                 -\frac{\delta f^n}{\delta x^1} & \cdots & -\frac{\delta f^n}{\delta x^n}
+                                                                 -\frac{\partial f^n}{\partial x^1} & \cdots & -\frac{\partial f^n}{\partial x^n}
                                                              \end{matrix}\right)(x) \\
         F_y'(x,y) & = \left(\begin{matrix}
-                                \frac{\delta F^1}{\delta y^1} & \cdots & \frac{\delta F^1}{\delta y^n} \\
-                                \frac{\delta F^2}{\delta y^1} & \cdots & \frac{\delta F^2}{\delta y^n} \\
+                                \frac{\partial F^1}{\partial y^1} & \cdots & \frac{\partial F^1}{\partial y^n} \\
+                                \frac{\partial F^2}{\partial y^1} & \cdots & \frac{\partial F^2}{\partial y^n} \\
                                 \vdots                        & \ddots & \vdots                        \\
-                                \frac{\delta F^n}{\delta y^1} & \cdots & \frac{\delta F^n}{\delta y^n}
+                                \frac{\partial F^n}{\partial y^1} & \cdots & \frac{\partial F^n}{\partial y^n}
                             \end{matrix}\right)(x,y) = \left(\begin{matrix}
                                                                  1      & 0      & \cdots & 0      \\
                                                                  0      & 1      & \cdots & 0      \\

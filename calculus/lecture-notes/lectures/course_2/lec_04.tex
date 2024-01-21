@@ -20,10 +20,10 @@
     \]
     \begin{multline*}
         \mathfrak{I} = \left(\begin{matrix}
-                \frac{\delta t^1}{\delta x^1} & \frac{\delta t^1}{\delta x^2} & \ldots & \frac{\delta t^1}{\delta x^n} \\
-                \frac{\delta t^2}{\delta x^1} & \frac{\delta t^2}{\delta x^2} & \ldots & \frac{\delta t^2}{\delta x^n} \\
+                \frac{\partial t^1}{\partial x^1} & \frac{\partial t^1}{\partial x^2} & \ldots & \frac{\partial t^1}{\partial x^n} \\
+                \frac{\partial t^2}{\partial x^1} & \frac{\partial t^2}{\partial x^2} & \ldots & \frac{\partial t^2}{\partial x^n} \\
                 \vdots                        & \vdots                        & \ddots & \vdots                        \\
-                \frac{\delta t^n}{\delta x^1} & \frac{\delta t^n}{\delta x^2} & \ldots & \frac{\delta t^n}{\delta x^n} \\
+                \frac{\partial t^n}{\partial x^1} & \frac{\partial t^n}{\partial x^2} & \ldots & \frac{\partial t^n}{\partial x^n} \\
             \end{matrix}\right) = \\
         = \left(\begin{matrix}
                 \frac{2}{\pi} \cdot \frac{1}{1 + (x^1)^2} & 0                                         & \ldots & 0                                         \\
@@ -47,9 +47,9 @@
     Кроме того,
     \[
         \left|\begin{matrix}
-            \frac{\delta F^1}{\delta x^1}     & \ldots & \frac{\delta F^1}{\delta x^n}     \\
+            \frac{\partial F^1}{\partial x^1}     & \ldots & \frac{\partial F^1}{\partial x^n}     \\
             \vdots                            & \ddots & \vdots                            \\
-            \frac{\delta F^{n-k}}{\delta x^1} & \ldots & \frac{\delta F^{n-k}}{\delta x^n}
+            \frac{\partial F^{n-k}}{\partial x^1} & \ldots & \frac{\partial F^{n-k}}{\partial x^n}
         \end{matrix}\right|(x) \ne 0, \quad \forall x \in \R^n
     \]
 
@@ -107,9 +107,9 @@
                              x^n(t^1,\ldots,t^k)
                          \end{array}\right.                                                   \\
         x'(t) & = \left(\begin{matrix}
-                                \frac{\delta x^1}{\delta t^1} & \ldots & \frac{\delta x^1}{\delta t^k} \\
+                                \frac{\partial x^1}{\partial t^1} & \ldots & \frac{\partial x^1}{\partial t^k} \\
                                 \vdots                        & \ddots & \vdots                        \\
-                                \frac{\delta x^n}{\delta t^1} & \ldots & \frac{\delta x^n}{\delta t^k} \\
+                                \frac{\partial x^n}{\partial t^1} & \ldots & \frac{\partial x^n}{\partial t^k} \\
                             \end{matrix}\right)(t), \quad t = \left(\begin{matrix}
                                                                         t^1 \\ t^2 \\ \vdots \\ t^k
                                                                     \end{matrix}\right)
@@ -118,10 +118,10 @@
     Таким образом касательное пространство задается системой из \ref{eq:8}:
     \[
         \left\{\begin{array}{l}
-            x^1 = x^1_0 + \frac{\delta x^1}{\delta t^1} (0)\cdot t^1 + \ldots + \frac{\delta x^1}{\delta t^k}(0)\cdot t^k \\
-            x^2 = x^2_0 + \frac{\delta x^2}{\delta t^1} (0)\cdot t^1 + \ldots + \frac{\delta x^2}{\delta t^k}(0)\cdot t^k \\
+            x^1 = x^1_0 + \frac{\partial x^1}{\partial t^1} (0)\cdot t^1 + \ldots + \frac{\partial x^1}{\partial t^k}(0)\cdot t^k \\
+            x^2 = x^2_0 + \frac{\partial x^2}{\partial t^1} (0)\cdot t^1 + \ldots + \frac{\partial x^2}{\partial t^k}(0)\cdot t^k \\
             \vdots                                                                                                        \\
-            x^n = x^n_0 + \frac{\delta x^n}{\delta t^1} (0)\cdot t^1 + \ldots + \frac{\delta x^n}{\delta t^k}(0)\cdot t^k
+            x^n = x^n_0 + \frac{\partial x^n}{\partial t^1} (0)\cdot t^1 + \ldots + \frac{\partial x^n}{\partial t^k}(0)\cdot t^k
         \end{array}\right..
     \]
 \end{definition}
@@ -175,9 +175,9 @@
                 y_0 \\
                 z_0
             \end{matrix}\right) + \left(\begin{matrix}
-                \frac{\delta x}{\delta u} & \frac{\delta x}{\delta v} \\
-                \frac{\delta y}{\delta u} & \frac{\delta y}{\delta v} \\
-                \frac{\delta z}{\delta u} & \frac{\delta z}{\delta v} \\
+                \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\
+                \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} \\
+                \frac{\partial z}{\partial u} & \frac{\partial z}{\partial v} \\
             \end{matrix}\right) (u_0,v_0) \cdot \left(\begin{matrix}
                 u \\
                 v
@@ -185,9 +185,9 @@
     \]
     \[
         \implies \left\{\begin{array}{l}
-            x = x_0 + \frac{\delta x}{\delta u}(u_0,v_0) \cdot u + \frac{\delta x}{\delta v}(u_0,v_0)\cdot v \\
-            y = y_0 + \frac{\delta y}{\delta u}(u_0,v_0) \cdot u + \frac{\delta y}{\delta v}(u_0,v_0)\cdot v \\
-            z = z_0 + \frac{\delta z}{\delta u}(u_0,v_0) \cdot u + \frac{\delta z}{\delta v}(u_0,v_0)\cdot v \\
+            x = x_0 + \frac{\partial x}{\partial u}(u_0,v_0) \cdot u + \frac{\partial x}{\partial v}(u_0,v_0)\cdot v \\
+            y = y_0 + \frac{\partial y}{\partial u}(u_0,v_0) \cdot u + \frac{\partial y}{\partial v}(u_0,v_0)\cdot v \\
+            z = z_0 + \frac{\partial z}{\partial u}(u_0,v_0) \cdot u + \frac{\partial z}{\partial v}(u_0,v_0)\cdot v \\
         \end{array}\right. \implies
     \]
     \[
@@ -209,18 +209,18 @@
             \vdots                  \\
             F^{n-k}(x^1,\ldots,x^n) = 0,
         \end{array}\right.\text{, причем }\left|\begin{array}{ccc}
-            \frac{\delta F^1}{\delta x^{k+1}}     & \ldots & \frac{\delta F^1}{\delta x^n}     \\
+            \frac{\partial F^1}{\partial x^{k+1}}     & \ldots & \frac{\partial F^1}{\partial x^n}     \\
             \vdots                                & \ddots & \vdots                            \\
-            \frac{\delta F^{n-1}}{\delta x^{k+1}} & \ldots & \frac{\delta F^{n-1}}{\delta x^n} \\
+            \frac{\partial F^{n-1}}{\partial x^{k+1}} & \ldots & \frac{\partial F^{n-1}}{\partial x^n} \\
         \end{array}\right|(x_0) \ne 0
     \end{equation}
 
     Тогда касательная плоскость к $S$ в точке $x_0$ задается системой уравнений:
     \[
         \left\{\begin{array}{l}
-            \frac{\delta F^1}{\delta x^1}(x_0)\cdot (x^1-x^1_0) + \ldots + \frac{\delta F^1}{\delta x^n}(x_0)(x^n - x_0^n) = 0 \\
+            \frac{\partial F^1}{\partial x^1}(x_0)\cdot (x^1-x^1_0) + \ldots + \frac{\partial F^1}{\partial x^n}(x_0)(x^n - x_0^n) = 0 \\
             \vdots                                                                                                             \\
-            \frac{\delta F^{n-k}}{\delta x^1}(x_0)\cdot (x^1-x^1_0) + \ldots + \frac{\delta F^{n-k}}{\delta x^n}(x_0)(x^n - x_0^n) = 0
+            \frac{\partial F^{n-k}}{\partial x^1}(x_0)\cdot (x^1-x^1_0) + \ldots + \frac{\partial F^{n-k}}{\partial x^n}(x_0)(x^n - x_0^n) = 0
         \end{array}\right.,
     \]
     или кратко:
@@ -282,12 +282,12 @@
 
     \[
         x'(t_0) = \left(\begin{matrix}
-                \frac{\delta x^1}{\delta t^1}     & \ldots & \frac{\delta x^1}{\delta t^k}     \\
+                \frac{\partial x^1}{\partial t^1}     & \ldots & \frac{\partial x^1}{\partial t^k}     \\
                 \vdots                            & \ddots & \vdots                            \\
-                \frac{\delta x^k}{\delta t^1}     & \ldots & \frac{\delta x^k}{\delta t^k}     \\
-                \frac{\delta f^1}{\delta t^1}     & \ldots & \frac{\delta f^1}{\delta t^k}     \\
+                \frac{\partial x^k}{\partial t^1}     & \ldots & \frac{\partial x^k}{\partial t^k}     \\
+                \frac{\partial f^1}{\partial t^1}     & \ldots & \frac{\partial f^1}{\partial t^k}     \\
                 \vdots                            & \ddots & \vdots                            \\
-                \frac{\delta f^{n-k}}{\delta t^1} & \ldots & \frac{\delta f^{n-k}}{\delta t^k}
+                \frac{\partial f^{n-k}}{\partial t^1} & \ldots & \frac{\partial f^{n-k}}{\partial t^k}
             \end{matrix}\right)(t_0),
     \]
     \[
@@ -298,9 +298,9 @@
             x^1 = x_0^1 + 1 \cdot t^1                                                                                                 \\
             \vdots                                                                                                                    \\
             x^k = x_0^k + 1 \cdot t^k                                                                                                 \\
-            x^{k+1} = x_0^{k+1} + \frac{\delta f^1}{\delta t^1}(t_0) \cdot t^1 + \ldots + \frac{\delta f^1}{\delta t^k}(x_0)\cdot t^k \\
+            x^{k+1} = x_0^{k+1} + \frac{\partial f^1}{\partial t^1}(t_0) \cdot t^1 + \ldots + \frac{\partial f^1}{\partial t^k}(x_0)\cdot t^k \\
             \vdots                                                                                                                    \\
-            x^n = x_0^n + \frac{\delta f^{n-k}}{\delta t^1}(t_0)\cdot t^1 + \ldots + \frac{\delta f^{n-k}}{\delta t^k}(t_0)\cdot t^k
+            x^n = x_0^n + \frac{\partial f^{n-k}}{\partial t^1}(t_0)\cdot t^1 + \ldots + \frac{\partial f^{n-k}}{\partial t^k}(t_0)\cdot t^k
         \end{array}\right.
     \end{equation}
 
@@ -325,9 +325,9 @@
                       \vdots            \\
                       x^k - x_0^k = t^k
                   \end{array}\right\} \ u - u_0 = u - u_0                                                                                                \\
-            x^{k+1} - x_0^{k+1} = \frac{\delta f^1}{\delta t^1}(t_0)\cdot (x^1 - x_0^1) + \ldots + \frac{\delta f^1}{\delta t^k}(t_0)\cdot (x^k - x_0^k) \\
+            x^{k+1} - x_0^{k+1} = \frac{\partial f^1}{\partial t^1}(t_0)\cdot (x^1 - x_0^1) + \ldots + \frac{\partial f^1}{\partial t^k}(t_0)\cdot (x^k - x_0^k) \\
             \vdots                                                                                                                                       \\
-            x^n - x_0^n = \frac{\delta f^{n-k}}{\delta t^1}(t_0)\cdot (x^1 - x_0^1) + \ldots + \frac{\delta f^{n-k}}{\delta t^k}(t_0)\cdot (x^k - x_0^k)
+            x^n - x_0^n = \frac{\partial f^{n-k}}{\partial t^1}(t_0)\cdot (x^1 - x_0^1) + \ldots + \frac{\partial f^{n-k}}{\partial t^k}(t_0)\cdot (x^k - x_0^k)
         \end{array}\right.
     \]
     \[

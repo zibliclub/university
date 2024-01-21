@@ -44,11 +44,11 @@
     Если:
     \begin{itemize}
         \item $f(x,y)$ непрерывна на $P$,
-        \item $\frac{\delta f}{\delta y}(x,y)$ непрерывна на $P$,
+        \item $\frac{\partial f}{\partial y}(x,y)$ непрерывна на $P$,
     \end{itemize}
     то $F(y) = \int_{a}^{b}f(x,y)dx$ дифференцируема на $[c;d]$ и
     \[
-        F'(y) = \int_{a}^{b}\frac{\delta f}{\delta y}(x,y)dx.
+        F'(y) = \int_{a}^{b}\frac{\partial f}{\partial y}(x,y)dx.
     \]
 \end{lemma}
 
@@ -58,11 +58,11 @@
         \item $\alpha(y), \beta(y)$ -- дифференцируемые на $[c;d]$,
         \item $\forall y \in [c;d] \ a\leqslant \alpha(y) \leqslant b$ и $a \leqslant \beta(y) \leqslant b$,
         \item $f(x,y)$ -- непрерывна на $P = [a;b] \times [c;d]$,
-        \item $\frac{\delta f}{\delta y}$ -- непрерывна на $P$,
+        \item $\frac{\partial f}{\partial y}$ -- непрерывна на $P$,
     \end{itemize}
     тогда $F(y) = \int_{\alpha(y)}^{\beta(y)}f(x,y)dx$ дифференцируема на $[c;d]$ и
     \[
-        F'(y) = \int_{\alpha(y)}^{\beta(y)}\frac{\delta f}{\delta y}(x,y)dx + f\big(\beta(y),y\big) \cdot \beta'(y) - f\big(\alpha(y),y\big)\cdot \alpha'(y)
+        F'(y) = \int_{\alpha(y)}^{\beta(y)}\frac{\partial f}{\partial y}(x,y)dx + f\big(\beta(y),y\big) \cdot \beta'(y) - f\big(\alpha(y),y\big)\cdot \alpha'(y)
     \]
     \begin{center}
         (формула Лейбница)
@@ -77,7 +77,7 @@
     \begin{eqnarray*}
         \Phi_y' & = & \Phi_y' \cdot y_y' + \Phi_\alpha'\cdot\alpha_y' + \Phi_\beta' \cdot \beta_y'                                       \\
         \verteq &   &                                                                                                                    \\
-        F_y'    & = & \int_{\alpha(y)}^{\beta(y)}\frac{\delta f}{\delta y}(x,y)dx + f(\beta,y)\cdot \beta_y' - f(\alpha,y)\cdot\alpha_y'
+        F_y'    & = & \int_{\alpha(y)}^{\beta(y)}\frac{\partial f}{\partial y}(x,y)dx + f(\beta,y)\cdot \beta_y' - f(\alpha,y)\cdot\alpha_y'
     \end{eqnarray*}
 \end{proof}
 

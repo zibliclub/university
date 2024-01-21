@@ -27,11 +27,11 @@
         \item $\alpha(y), \beta(y)$ -- дифференцируемые на $[c;d]$,
         \item $\forall y \in [c;d] \ a\leqslant \alpha(y) \leqslant b$ и $a \leqslant \beta(y) \leqslant b$,
         \item $f(x,y)$ -- непрерывна на $P = [a;b] \times [c;d]$,
-        \item $\frac{\delta f}{\delta y}$ -- непрерывна на $P$,
+        \item $\frac{\partial f}{\partial y}$ -- непрерывна на $P$,
     \end{itemize}
     тогда $F(y) = \int_{\alpha(y)}^{\beta(y)}f(x,y)dx$ дифференцируема на $[c;d]$ и
     \[
-        F'(y) = \int_{\alpha(y)}^{\beta(y)}\frac{\delta f}{\delta y}(x,y)dx + f\big(\beta(y),y\big) \cdot \beta'(y) - f\big(\alpha(y),y\big)\cdot \alpha'(y)
+        F'(y) = \int_{\alpha(y)}^{\beta(y)}\frac{\partial f}{\partial y}(x,y)dx + f\big(\beta(y),y\big) \cdot \beta'(y) - f\big(\alpha(y),y\big)\cdot \alpha'(y)
     \]
     \begin{center}
         (формула Лейбница)

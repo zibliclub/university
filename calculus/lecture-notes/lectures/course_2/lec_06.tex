@@ -21,9 +21,9 @@
     Здесь $\lambda_1,\ldots,\lambda_k$ выбираются таким образом, чтобы было выполнено необходимое условие условного экстремума в точке $x_0$ (\ref{eq:24}).
     \[
         \left\{\begin{array}{l}
-            \frac{\delta L}{\delta x^i} = 0 \\
+            \frac{\partial L}{\partial x^i} = 0 \\
             \vdots                          \\
-            \frac{\delta L}{\delta \lambda_j} = 0
+            \frac{\partial L}{\partial \lambda_j} = 0
         \end{array}\right. \implies x_0,\quad \lambda_1,\ldots,\lambda_k.
     \]
 \end{note}
@@ -31,7 +31,7 @@
 \begin{theorem}[Достаточное условие условного экстремума]
     Если при введенных выше условиях квадратичная форма
     \[
-        Q(\xi) = \sum_{i,j=1}^{n}\frac{\delta^2 L}{\delta x^i \delta x^j}(x_0)\cdot\xi^i\xi^j,\ \big(\xi=(\xi^1,\ldots,\xi^n)\big)
+        Q(\xi) = \sum_{i,j=1}^{n}\frac{\partial^2 L}{\partial x^i \partial x^j}(x_0)\cdot\xi^i\xi^j,\ \big(\xi=(\xi^1,\ldots,\xi^n)\big)
     \]
     \begin{enumerate}
         \item Знакоопределена на $TS_{x_0}$:
@@ -54,15 +54,15 @@
     Имеем, что
     \[
         \left\{\begin{array}{l}
-            \frac{\delta L}{\delta x^1}(x_0) = 0 \\
+            \frac{\partial L}{\partial x^1}(x_0) = 0 \\
             \vdots                               \\
-            \frac{\delta L}{\delta x^n}(x_0) = 0
+            \frac{\partial L}{\partial x^n}(x_0) = 0
         \end{array}\right..
     \]
 
     По формуле Тейлора:
     \begin{equation}\label{eq:25}
-        L\big|_S(x) - L(x_0) = \sum_{i,j=1}^{n}\frac{\delta^2 L(x_0)}{\delta x^i \delta x^j}\cdot(x^i - x_0^i)(x^j - x_0^j) + o\big(\|x-x_0\|^2\big)
+        L\big|_S(x) - L(x_0) = \sum_{i,j=1}^{n}\frac{\partial^2 L(x_0)}{\partial x^i \partial x^j}\cdot(x^i - x_0^i)(x^j - x_0^j) + o\big(\|x-x_0\|^2\big)
     \end{equation}
 
     Так как $S$ -- $m=(n-k)$-мерная поверхность, то существует гладкое отображение $x(t):\R^m\rightarrow\R^n: \ x = x(t) \subset S \ \forall t \in \R^m, \ x(0) = x_0$. Отображение $x(t)$ биективно отображает $\R^m$ на $U_S(x_0) = U(x_0)\cap S$.
@@ -76,9 +76,9 @@
     \end{center}
     \[
         \left\{\begin{array}{l}
-            x^1 - x^1_0 = \frac{\delta x^1}{\delta t^1}(0)\cdot t^1 + \ldots + \frac{\delta x^1}{\delta t^m}(0)\cdot t^m + o\big(\|t\|\big) \\
+            x^1 - x^1_0 = \frac{\partial x^1}{\partial t^1}(0)\cdot t^1 + \ldots + \frac{\partial x^1}{\partial t^m}(0)\cdot t^m + o\big(\|t\|\big) \\
             \vdots                                                                                                                          \\
-            x^n - x^n_0 = \frac{\delta x^n}{\delta t^1}(0)\cdot t^1 + \ldots + \frac{\delta x^n}{\delta t^m}(0)\cdot t^m + o\big(\|t\|\big) \\
+            x^n - x^n_0 = \frac{\partial x^n}{\partial t^1}(0)\cdot t^1 + \ldots + \frac{\partial x^n}{\partial t^m}(0)\cdot t^m + o\big(\|t\|\big) \\
         \end{array}\right.
     \]
     \begin{center}
@@ -86,21 +86,21 @@
     \end{center}
     \begin{equation}\label{eq:26}
         \left\{\begin{array}{l}
-            x^1 - x^1_0 = \sum_{i=1}^{m}\frac{\delta x^1}{\delta t^i}(0)\cdot t^i + o\big(\|t\|\big) \\
+            x^1 - x^1_0 = \sum_{i=1}^{m}\frac{\partial x^1}{\partial t^i}(0)\cdot t^i + o\big(\|t\|\big) \\
             \vdots                                                                                   \\
-            x^n - x^n_0 = \sum_{i=1}^{m}\frac{\delta x^n}{\delta t^i}(0)\cdot t^i + o\big(\|t\|\big) \\
+            x^n - x^n_0 = \sum_{i=1}^{m}\frac{\partial x^n}{\partial t^i}(0)\cdot t^i + o\big(\|t\|\big) \\
         \end{array}\right.
     \end{equation}
 
     Подставим \ref{eq:26} в \ref{eq:25}:
     \begin{multline*}
-        L\big|_S(x) - L(x_0) = \frac{1}{2}\cdot\sum_{i,j=1}^{n}\frac{\delta^2L(x_0)}{\delta x^i \delta x^j} \cdot \underbrace{\left(\sum_{\alpha=1}^{m}\frac{\delta x^i}{\delta t^\alpha}(0)\cdot t^\alpha + o\big(\|t\|\big)\right)}_{x^i - x_0^i}\cdot \\
-        \cdot \underbrace{\left(\sum_{\beta=1}^{m}\frac{\delta x^j}{\delta t^\beta}(0)\cdot t^\beta + o\big(\|t\|\big)\right)}_{x^j - x_0^j} + o\big(\|x-x_0\|^2\big) = \\
-        = \frac{1}{2}\sum_{i,j=1}^{n}\frac{\delta^2 L(x_0)}{\delta x^i \delta x^j}\cdot\Bigg[\left(\sum_{\alpha=1}^{m}\frac{\delta x^i}{\delta t^\alpha}(0)\cdot t^\alpha\right)\cdot\left(\sum_{\beta=1}^{m}\frac{\delta x^i}{\delta t^\beta}(0)\cdot t^\beta\right) + \\
-            + \left(\sum_{\alpha=1}^{m}\frac{\delta x^i}{\delta t^\alpha}(0)\cdot t^\alpha\right)\cdot o\big(\|t\|\big) + \left(\sum_{\beta=1}^{m}\frac{\delta x^i}{\delta t^\beta}(0)\cdot t^\beta\right)\cdot \\
-            \cdot o\big(\|t\|\big) + o\big(\|t\|\big)\Bigg] + o\big(\|x-x_0\|^2\big) \overset{(\heartsuit)}{=} \frac{1}{2}\sum_{i,j=1}^{n}\frac{\delta^2 L(x_0)}{\delta x^i \delta x^j} \cdot \\
-        \cdot \sum_{\alpha,\beta = 1}^{m}\frac{\delta x^i}{\delta t^\alpha} \cdot \frac{x^i}{\delta t^\beta} \cdot t^\alpha \cdot t^\beta + o\big(\|t\|^2\big) = \frac{\|t\|^2}{2} \cdot \sum_{i,j=1}^{n}\frac{\delta^2 L(x_0)}{\delta x^i\delta x^j} \cdot \\
-        \cdot \underbrace{\sum_{\alpha,\beta=1}^{m}\frac{\delta x^i}{\delta t^\alpha}\cdot \frac{\delta x^j}{\delta t^\beta} \cdot \frac{t^\alpha}{\|t\|} \cdot \frac{t^\beta}{\|t\|}}_{\xi^i,\xi^j\text{ -- координаты вектора }\xi\in TS_{x_0}} + o\big(\|t\|^2\big) = \frac{\|t\|^2}{2}Q(\xi) + o\big(\|t\|^2\big).
+        L\big|_S(x) - L(x_0) = \frac{1}{2}\cdot\sum_{i,j=1}^{n}\frac{\partial^2L(x_0)}{\partial x^i \partial x^j} \cdot \underbrace{\left(\sum_{\alpha=1}^{m}\frac{\partial x^i}{\partial t^\alpha}(0)\cdot t^\alpha + o\big(\|t\|\big)\right)}_{x^i - x_0^i}\cdot \\
+        \cdot \underbrace{\left(\sum_{\beta=1}^{m}\frac{\partial x^j}{\partial t^\beta}(0)\cdot t^\beta + o\big(\|t\|\big)\right)}_{x^j - x_0^j} + o\big(\|x-x_0\|^2\big) = \\
+        = \frac{1}{2}\sum_{i,j=1}^{n}\frac{\partial^2 L(x_0)}{\partial x^i \partial x^j}\cdot\Bigg[\left(\sum_{\alpha=1}^{m}\frac{\partial x^i}{\partial t^\alpha}(0)\cdot t^\alpha\right)\cdot\left(\sum_{\beta=1}^{m}\frac{\partial x^i}{\partial t^\beta}(0)\cdot t^\beta\right) + \\
+            + \left(\sum_{\alpha=1}^{m}\frac{\partial x^i}{\partial t^\alpha}(0)\cdot t^\alpha\right)\cdot o\big(\|t\|\big) + \left(\sum_{\beta=1}^{m}\frac{\partial x^i}{\partial t^\beta}(0)\cdot t^\beta\right)\cdot \\
+            \cdot o\big(\|t\|\big) + o\big(\|t\|\big)\Bigg] + o\big(\|x-x_0\|^2\big) \overset{(\heartsuit)}{=} \frac{1}{2}\sum_{i,j=1}^{n}\frac{\partial^2 L(x_0)}{\partial x^i \partial x^j} \cdot \\
+        \cdot \sum_{\alpha,\beta = 1}^{m}\frac{\partial x^i}{\partial t^\alpha} \cdot \frac{x^i}{\partial t^\beta} \cdot t^\alpha \cdot t^\beta + o\big(\|t\|^2\big) = \frac{\|t\|^2}{2} \cdot \sum_{i,j=1}^{n}\frac{\partial^2 L(x_0)}{\partial x^i\partial x^j} \cdot \\
+        \cdot \underbrace{\sum_{\alpha,\beta=1}^{m}\frac{\partial x^i}{\partial t^\alpha}\cdot \frac{\partial x^j}{\partial t^\beta} \cdot \frac{t^\alpha}{\|t\|} \cdot \frac{t^\beta}{\|t\|}}_{\xi^i,\xi^j\text{ -- координаты вектора }\xi\in TS_{x_0}} + o\big(\|t\|^2\big) = \frac{\|t\|^2}{2}Q(\xi) + o\big(\|t\|^2\big).
     \end{multline*}
 
     Таким образом получаем, что
@@ -125,7 +125,7 @@
 
     Докажем $(\heartsuit)$, то есть покажем, что
     \[
-        o\big(\|t\|\big) \cdot \sum_{\alpha = 1}^{m} \frac{\delta x^i}{\delta t^\alpha}\cdot t^\alpha = o\big(\|t\|^2\big)
+        o\big(\|t\|\big) \cdot \sum_{\alpha = 1}^{m} \frac{\partial x^i}{\partial t^\alpha}\cdot t^\alpha = o\big(\|t\|^2\big)
     \]
     \begin{center}
         и
@@ -136,12 +136,12 @@
 
     В самом деле,
     \[
-        \left| \sum_{\alpha=1}^{m}\frac{\delta x^i}{\delta t^\alpha}(0)\cdot t^\alpha\right| \leqslant \sum_{\alpha=1}^{m}\left|\frac{\delta x^i}{\delta t^\alpha}(0)\right| \cdot \big|t^\alpha \big| \leqslant \|t\| \cdot \equalto{\underbrace{\sum_{\alpha = 1}^{m} \left|\frac{\delta x^i}{\delta t^\alpha}(0)\right|}}{const>0} = \equalto{\underbrace{\overset{>0}{A}\cdot \|t\|}}{O\big(\|t\|\big)}.
+        \left| \sum_{\alpha=1}^{m}\frac{\partial x^i}{\partial t^\alpha}(0)\cdot t^\alpha\right| \leqslant \sum_{\alpha=1}^{m}\left|\frac{\partial x^i}{\partial t^\alpha}(0)\right| \cdot \big|t^\alpha \big| \leqslant \|t\| \cdot \equalto{\underbrace{\sum_{\alpha = 1}^{m} \left|\frac{\partial x^i}{\partial t^\alpha}(0)\right|}}{const>0} = \equalto{\underbrace{\overset{>0}{A}\cdot \|t\|}}{O\big(\|t\|\big)}.
     \]
 
     Таким образом,
     \begin{multline*}
-        o\big(\|t\|\big) \cdot \bigg|\sum_{\alpha = 1}^{m}\frac{\delta x^i(0)}{\delta t^\alpha}\cdot t^\alpha \bigg| \leqslant o\big(\|t\|\big)\cdot O\big(\|t\|\big) = \\
+        o\big(\|t\|\big) \cdot \bigg|\sum_{\alpha = 1}^{m}\frac{\partial x^i(0)}{\partial t^\alpha}\cdot t^\alpha \bigg| \leqslant o\big(\|t\|\big)\cdot O\big(\|t\|\big) = \\
         = \omega(t)\cdot \|t\| \cdot \gamma(t) \cdot \|t\| = \left|\begin{array}{c}
             \text{где }\omega(t)\rightarrow0 \text{ при } t\rightarrow 0, \\
             \gamma(t)\text{ -- ограниченная функция}
@@ -159,15 +159,15 @@
                 \vdots      \\
                 x^n - x^n_0
             \end{matrix}\right)\right\|^2 \overset{\text{\ref{eq:26}}}{=} \left\|\left(\begin{matrix}
-                \sum_{\alpha=1}^{m}\frac{\delta x^1}{\delta t^\alpha}\cdot t^\alpha + o\big(\|t\|\big) \\
+                \sum_{\alpha=1}^{m}\frac{\partial x^1}{\partial t^\alpha}\cdot t^\alpha + o\big(\|t\|\big) \\
                 \vdots                                                                                 \\
-                \sum_{\alpha=1}^{m}\frac{\delta x^n}{\delta t^\alpha}\cdot t^\alpha + o\big(\|t\|\big)
+                \sum_{\alpha=1}^{m}\frac{\partial x^n}{\partial t^\alpha}\cdot t^\alpha + o\big(\|t\|\big)
             \end{matrix}\right)\right\|^2 = \\
-        = \left(\sum_{\alpha = 1}^{m}\frac{\delta x^1}{\delta t^\alpha}\cdot t^\alpha + o\big(\|t\|\big)\right)^2 + \ldots + \left(\sum_{\alpha=1}^{m}\frac{\delta x^n}{\delta t^\alpha} + o\big(\|t\|\big)\right)^2 =\\
-        = \left(\sum_{\alpha = 1}^{m}\frac{\delta x^1}{\delta t^\alpha}\cdot t^\alpha \right)^2 + \ldots + \left(\sum_{\alpha=1}^{m}\frac{\delta x^n}{\delta t^\alpha} \right)^2 + o\big(\|t\|^2\big) \leqslant \\
-        \leqslant \left( \underset{\alpha}{\max}\frac{\delta x^1}{\delta t^\alpha}\right)^2 \cdot \left(\sum_{\alpha=1}^{m} t^\alpha\right)^2 + \ldots + \left(\underset{\alpha}{\max}\frac{\delta x^n}{\delta t^\alpha}\right)^2\cdot\left(\sum_{\alpha=1}^{m}t^\alpha\right)^2 \leqslant \\
-        \leqslant \|t\|^2 \cdot \left(\left(\underset{\alpha}{\max}\frac{\delta x^1}{\delta t^\alpha}\right)^2 + \left(\max \frac{\delta x^n}{\delta t^\alpha}\right)^2\right) \leqslant \\
-        \leqslant \|t\|^2 \cdot \equalto{\underbrace{\left(\underset{i}{\max}\left(\underset{\alpha}{\max}\frac{\delta x^i}{\delta t^\alpha}(0)\right)\right)^2 \cdot n}}{const>0} = B\|t\|^2 = o\big(\|t\|^2\big).
+        = \left(\sum_{\alpha = 1}^{m}\frac{\partial x^1}{\partial t^\alpha}\cdot t^\alpha + o\big(\|t\|\big)\right)^2 + \ldots + \left(\sum_{\alpha=1}^{m}\frac{\partial x^n}{\partial t^\alpha} + o\big(\|t\|\big)\right)^2 =\\
+        = \left(\sum_{\alpha = 1}^{m}\frac{\partial x^1}{\partial t^\alpha}\cdot t^\alpha \right)^2 + \ldots + \left(\sum_{\alpha=1}^{m}\frac{\partial x^n}{\partial t^\alpha} \right)^2 + o\big(\|t\|^2\big) \leqslant \\
+        \leqslant \left( \underset{\alpha}{\max}\frac{\partial x^1}{\partial t^\alpha}\right)^2 \cdot \left(\sum_{\alpha=1}^{m} t^\alpha\right)^2 + \ldots + \left(\underset{\alpha}{\max}\frac{\partial x^n}{\partial t^\alpha}\right)^2\cdot\left(\sum_{\alpha=1}^{m}t^\alpha\right)^2 \leqslant \\
+        \leqslant \|t\|^2 \cdot \left(\left(\underset{\alpha}{\max}\frac{\partial x^1}{\partial t^\alpha}\right)^2 + \left(\max \frac{\partial x^n}{\partial t^\alpha}\right)^2\right) \leqslant \\
+        \leqslant \|t\|^2 \cdot \equalto{\underbrace{\left(\underset{i}{\max}\left(\underset{\alpha}{\max}\frac{\partial x^i}{\partial t^\alpha}(0)\right)\right)^2 \cdot n}}{const>0} = B\|t\|^2 = o\big(\|t\|^2\big).
     \end{multline*}
 
     Поэтому

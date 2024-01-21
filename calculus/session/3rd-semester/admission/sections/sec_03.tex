@@ -77,9 +77,9 @@
                              x^n(t^1,\ldots,t^k)
                          \end{array}\right.                                                   \\
         x'(t) & = \left(\begin{matrix}
-                                \frac{\delta x^1}{\delta t^1} & \ldots & \frac{\delta x^1}{\delta t^k} \\
+                                \frac{\partial x^1}{\partial t^1} & \ldots & \frac{\partial x^1}{\partial t^k} \\
                                 \vdots                        & \ddots & \vdots                        \\
-                                \frac{\delta x^n}{\delta t^1} & \ldots & \frac{\delta x^n}{\delta t^k} \\
+                                \frac{\partial x^n}{\partial t^1} & \ldots & \frac{\partial x^n}{\partial t^k} \\
                             \end{matrix}\right)(t), \quad t = \left(\begin{matrix}
                                                                         t^1 \\ t^2 \\ \vdots \\ t^k
                                                                     \end{matrix}\right)
@@ -88,10 +88,10 @@
     Таким образом касательное пространство задается системой из \ref{eq:8}:
     \[
         \left\{\begin{array}{l}
-            x^1 = x^1_0 + \frac{\delta x^1}{\delta t^1} (0)\cdot t^1 + \ldots + \frac{\delta x^1}{\delta t^k}(0)\cdot t^k \\
-            x^2 = x^2_0 + \frac{\delta x^2}{\delta t^1} (0)\cdot t^1 + \ldots + \frac{\delta x^2}{\delta t^k}(0)\cdot t^k \\
+            x^1 = x^1_0 + \frac{\partial x^1}{\partial t^1} (0)\cdot t^1 + \ldots + \frac{\partial x^1}{\partial t^k}(0)\cdot t^k \\
+            x^2 = x^2_0 + \frac{\partial x^2}{\partial t^1} (0)\cdot t^1 + \ldots + \frac{\partial x^2}{\partial t^k}(0)\cdot t^k \\
             \vdots                                                                                                        \\
-            x^n = x^n_0 + \frac{\delta x^n}{\delta t^1} (0)\cdot t^1 + \ldots + \frac{\delta x^n}{\delta t^k}(0)\cdot t^k
+            x^n = x^n_0 + \frac{\partial x^n}{\partial t^1} (0)\cdot t^1 + \ldots + \frac{\partial x^n}{\partial t^k}(0)\cdot t^k
         \end{array}\right..
     \]
 \end{definition}
@@ -126,17 +126,17 @@
     \begin{equation}\label{eq:24}
         \left\{\begin{array}{l}
             \left.\begin{array}{l}
-                      \frac{\delta L}{\delta x^1} = \frac{\delta f}{\delta x^1} + \sum_{i = 1}^{k}\lambda^i\cdot\frac{\delta F^i}{\delta x^1} = 0 \\
+                      \frac{\partial L}{\partial x^1} = \frac{\partial f}{\partial x^1} + \sum_{i = 1}^{k}\lambda^i\cdot\frac{\partial F^i}{\partial x^1} = 0 \\
                       \vdots                                                                                                                      \\
-                      \frac{\delta L}{\delta x^n} = \frac{\delta f}{\delta x^n} + \sum_{i = 1}^{k}\lambda^i\cdot\frac{\delta F^i}{\delta x^n} = 0 \\
+                      \frac{\partial L}{\partial x^n} = \frac{\partial f}{\partial x^n} + \sum_{i = 1}^{k}\lambda^i\cdot\frac{\partial F^i}{\partial x^n} = 0 \\
                   \end{array}\right\}\begin{array}{l}
                                          \text{необходимое условие условного} \\
                                          \text{экстремума функции }f
                                      \end{array} \\
             \left.\begin{array}{l}
-                      \frac{\delta L}{\delta \lambda^1} = F^1(x^1,\ldots,x^n) = 0 \\
+                      \frac{\partial L}{\partial \lambda^1} = F^1(x^1,\ldots,x^n) = 0 \\
                       \vdots                                                      \\
-                      \frac{\delta L}{\delta \lambda^k} = F^k(x^1,\ldots,x^n) = 0
+                      \frac{\partial L}{\partial \lambda^k} = F^k(x^1,\ldots,x^n) = 0
                   \end{array}\right\}\text{ поверхность }S
         \end{array}\right.
     \end{equation}
@@ -192,9 +192,9 @@
     Здесь $\lambda_1,\ldots,\lambda_k$ выбираются таким образом, чтобы было выполнено необходимое условие условного экстремума в точке $x_0$ (\ref{eq:24}).
     \[
         \left\{\begin{array}{l}
-            \frac{\delta L}{\delta x^i} = 0 \\
+            \frac{\partial L}{\partial x^i} = 0 \\
             \vdots                          \\
-            \frac{\delta L}{\delta \lambda_j} = 0
+            \frac{\partial L}{\partial \lambda_j} = 0
         \end{array}\right. \implies x_0,\quad \lambda_1,\ldots,\lambda_k.
     \]
 \end{note}
@@ -208,7 +208,7 @@
 \begin{theorem}[Достаточное условие условного экстремума]
     Если при введенных выше условиях квадратичная форма
     \[
-        Q(\xi) = \sum_{i,j=1}^{n}\frac{\delta^2 L}{\delta x^i \delta x^j}(x_0)\cdot\xi^i\xi^j,\ \big(\xi=(\xi^1,\ldots,\xi^n)\big)
+        Q(\xi) = \sum_{i,j=1}^{n}\frac{\partial^2 L}{\partial x^i \partial x^j}(x_0)\cdot\xi^i\xi^j,\ \big(\xi=(\xi^1,\ldots,\xi^n)\big)
     \]
     \begin{enumerate}
         \item Знакоопределена на $TS_{x_0}$:

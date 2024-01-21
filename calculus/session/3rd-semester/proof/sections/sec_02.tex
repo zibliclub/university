@@ -7,7 +7,7 @@
 \begin{theorem}[О среднем]
     Пусть $ D $ -- область в $ \R^n, \ x \in D, \ x + h \in D, \ [x, x+h]\subset D, \ f: D \rightarrow\R $ -- дифференцируемо на $ (x,x+h) $ и непрерывно на $ [x,x+h] $. Тогда $ \exists \xi \in (x,x+h): $
     \[
-        f(x+h)-f(x) = f'(\xi)\cdot h = \frac{\delta f}{\delta x_1}(\xi)\cdot h^1 + \frac{\delta f}{\delta x_2}(\xi)\cdot h^2 + \ldots + \frac{\delta f}{\delta x_n}(\xi)\cdot h^n,
+        f(x+h)-f(x) = f'(\xi)\cdot h = \frac{\partial f}{\partial x_1}(\xi)\cdot h^1 + \frac{\partial f}{\partial x_2}(\xi)\cdot h^2 + \ldots + \frac{\partial f}{\partial x_n}(\xi)\cdot h^n,
     \] где $ \{1,2,\ldots,n\} $ над $ h $ -- индексы.
 \end{theorem}
 
@@ -48,13 +48,13 @@
         \end{array},
     \]
     \[
-        \Big(f\big(\gamma(\tau)\big)\Big)' \cdot 1 = f'\big(\gamma(\tau)\big) \cdot \gamma'(\tau) = \equalto{\frac{\delta f}{\delta x_1} \cdot h'}{x_1'(t)} + \frac{\delta f}{\delta x_2}\cdot h_2 + \ldots + \frac{\delta f}{\delta x_n} \cdot h^n.
+        \Big(f\big(\gamma(\tau)\big)\Big)' \cdot 1 = f'\big(\gamma(\tau)\big) \cdot \gamma'(\tau) = \equalto{\frac{\partial f}{\partial x_1} \cdot h'}{x_1'(t)} + \frac{\partial f}{\partial x_2}\cdot h_2 + \ldots + \frac{\partial f}{\partial x_n} \cdot h^n.
     \]
 
     Пусть $ \gamma(\tau) = \xi \in D $, тогда:
     \[
         f(x+h) - f(x) = \left(\begin{matrix}
-                \frac{\delta f}{\delta x_1}(\xi) & \cdots & \frac{\delta f}{\delta x_n}(\xi)
+                \frac{\partial f}{\partial x_1}(\xi) & \cdots & \frac{\partial f}{\partial x_n}(\xi)
             \end{matrix}\right) \cdot \left(\begin{matrix}
                 h^1 \\ \vdots \\ h^n
             \end{matrix}\right) = f'(\xi)\cdot h.
@@ -64,13 +64,13 @@
 \subsection{Следствие теоремы о среднем}
 
 \begin{corollary}
-    Пусть $ D $ -- область в $ \R^n, \ f:D \rightarrow \R $ -- дифференцируема на $ D $ и $ \forall x \in D \ d(fx) = 0 $ (то есть $ \forall i \ \frac{\delta f}{\delta x_i} = 0 $). Тогда $ f(x) = const $.
+    Пусть $ D $ -- область в $ \R^n, \ f:D \rightarrow \R $ -- дифференцируема на $ D $ и $ \forall x \in D \ d(fx) = 0 $ (то есть $ \forall i \ \frac{\partial f}{\partial x_i} = 0 $). Тогда $ f(x) = const $.
 \end{corollary}
 
 \begin{proof}
     Пусть $ x_0 \in D $ и $ B(x_0,\rho)\subset D $ -- шар $ \exists $, так как $ D $ -- область. Тогда $ \forall x \in B(x_0,\rho) \quad [x_0;x]\subset B(x_0,\rho)\subset D $. Следовательно:
     \[
-        f(x) - f(x_0) = \equalto{f'(\xi)}{\left\{\frac{\delta f}{\delta x_1}(\xi),\ldots,\frac{\delta f}{\delta x_n}(\xi)\right\}}\cdot (x-x_0) = 0.
+        f(x) - f(x_0) = \equalto{f'(\xi)}{\left\{\frac{\partial f}{\partial x_1}(\xi),\ldots,\frac{\partial f}{\partial x_n}(\xi)\right\}}\cdot (x-x_0) = 0.
     \]
 
     Таким образом, $ \forall x \in B(x_0,\rho) \ f(x) = f(x_0) $.
@@ -135,16 +135,16 @@
             \text{Теорема Лагранжа для} \\
             \text{функции одной переменной}
         \end{array}\right| = \\
-        = \frac{\delta f}{\delta x_1}(x^1 + \theta^1 h^1,  x^2 + h^2,  \ldots,  x^n + h^n) \cdot h^1 + \\
-        + \frac{\delta f}{\delta x^2}(x^1,  x^2 + \theta^2 h^2,  \ldots,  x^n + h^n) \cdot h^2 + \ldots \\
-        \ldots + \frac{\delta f}{\delta x^n}(x^1,  x^2,  \ldots,  x^n + \theta^n h^n) \cdot h^n.
+        = \frac{\partial f}{\partial x_1}(x^1 + \theta^1 h^1,  x^2 + h^2,  \ldots,  x^n + h^n) \cdot h^1 + \\
+        + \frac{\partial f}{\partial x^2}(x^1,  x^2 + \theta^2 h^2,  \ldots,  x^n + h^n) \cdot h^2 + \ldots \\
+        \ldots + \frac{\partial f}{\partial x^n}(x^1,  x^2,  \ldots,  x^n + \theta^n h^n) \cdot h^n.
     \end{multline*}
 
     Используя непрерывность частных производных, запишем:
     \begin{multline*}
         f(x_0 + h) - f(x_0) = \\
-        = \frac{\delta f}{\delta x^1}(x^1, x^2, \ldots, x^n) \cdot h^1 + \alpha^1(h^1) + \ldots \\
-        \ldots + \frac{\delta f}{\delta x^n}(x^1, x^2, \ldots, x^n) \cdot h^n + \alpha^n(h^n),
+        = \frac{\partial f}{\partial x^1}(x^1, x^2, \ldots, x^n) \cdot h^1 + \alpha^1(h^1) + \ldots \\
+        \ldots + \frac{\partial f}{\partial x^n}(x^1, x^2, \ldots, x^n) \cdot h^n + \alpha^n(h^n),
     \end{multline*}
     где $\alpha^1,\alpha^2,\ldots,\alpha^n$ стремятся к нулю при $\vec{h}\rightarrow0$.
 
@@ -152,7 +152,7 @@
     \[
         \begin{array}{c}
             f(x_0 + h) - f(x_0) = L(x_0)\cdot h + \underset{h\rightarrow0}{o}(h) \\
-            \left(\text{где} \ L(x_0) = \frac{\delta f}{\delta x^1}(x_0)\cdot h^1 + \ldots + \frac{\delta f}{\delta x^n}(x_0) \cdot h^n = df(x_0)\right)
+            \left(\text{где} \ L(x_0) = \frac{\partial f}{\partial x^1}(x_0)\cdot h^1 + \ldots + \frac{\partial f}{\partial x^n}(x_0) \cdot h^n = df(x_0)\right)
         \end{array} \implies
     \]$\implies$ по определению $f(x)$ дифференцируема в точке $x_0$.
 \end{proof}
@@ -166,13 +166,13 @@
 \end{theorem}
 
 \begin{proof}
-    Пусть $ \frac{\delta^2f}{\delta x^i\delta x^j} $ и $ \frac{\delta^2f}{\delta x^j\delta x^i} $ -- непрерывны в точке $ x\in D $.
+    Пусть $ \frac{\partial^2f}{\partial x^i\partial x^j} $ и $ \frac{\partial^2f}{\partial x^j\partial x^i} $ -- непрерывны в точке $ x\in D $.
 
     Так как остальные переменные фиксированы, то можно считать, что $ f $ зависит только от двух переменных.
 
-    Тогда $ D\subset\R^2,\ f:D \rightarrow\R $ и $ \frac{\delta^2f}{\delta x\delta y} $ и $ \frac{\delta^2f}{\delta y\delta x} $ -- непрерывны в точке $ x_0 = (x,y) \in D $.
+    Тогда $ D\subset\R^2,\ f:D \rightarrow\R $ и $ \frac{\partial^2f}{\partial x\partial y} $ и $ \frac{\partial^2f}{\partial y\partial x} $ -- непрерывны в точке $ x_0 = (x,y) \in D $.
 
-    Покажем, что $ \frac{\delta^2f}{\delta x\delta y} = \frac{\delta^2f}{\delta y\delta x} $.
+    Покажем, что $ \frac{\partial^2f}{\partial x\partial y} = \frac{\partial^2f}{\partial y\partial x} $.
 
     Рассмотрим функции:
     \[
@@ -198,14 +198,14 @@
     \end{equation}
     \begin{multline*}
         \phi(1) - \phi(0) = \phi'(\xi) \cdot (1-0) = \\
-        = \frac{\delta f}{\delta x}(x + \xi \cdot \Delta x, y + \Delta y)\cdot \Delta x + \frac{\delta f}{\delta y}(x + \xi \cdot \Delta x,y + \Delta y) - \\
-        - \frac{\delta f}{\delta x}(x + \xi \cdot \Delta x,y) \cdot \Delta x - \frac{\delta f}{\delta y}(x + \xi \cdot \Delta x, y) \cdot 0 = \\
-        = \left(\frac{\delta f}{\delta x}(x + \xi \cdot \Delta x, y + \Delta y) - \frac{\delta f}{\delta x}(x + \xi \cdot \Delta x, y) \right) = \\
+        = \frac{\partial f}{\partial x}(x + \xi \cdot \Delta x, y + \Delta y)\cdot \Delta x + \frac{\partial f}{\partial y}(x + \xi \cdot \Delta x,y + \Delta y) - \\
+        - \frac{\partial f}{\partial x}(x + \xi \cdot \Delta x,y) \cdot \Delta x - \frac{\partial f}{\partial y}(x + \xi \cdot \Delta x, y) \cdot 0 = \\
+        = \left(\frac{\partial f}{\partial x}(x + \xi \cdot \Delta x, y + \Delta y) - \frac{\partial f}{\partial x}(x + \xi \cdot \Delta x, y) \right) = \\
         = \left|\begin{array}{c}
             \text{по теореме Лагранжа для} \\
             \text{функции 1-ой переменной}
         \end{array}\right| = \\
-        = \frac{\delta^2 f}{\delta x \delta y}(x + \xi \cdot \Delta x, y + \eta \cdot \Delta y)\Delta x\Delta y.
+        = \frac{\partial^2 f}{\partial x \partial y}(x + \xi \cdot \Delta x, y + \eta \cdot \Delta y)\Delta x\Delta y.
     \end{multline*}
 
     Положим $ (x + \xi \Delta x, y + \eta\cdot \Delta y) = P \in \Pi $.
@@ -213,14 +213,14 @@
     Аналогично:
     \begin{multline*}
         \psi(1) - \psi(0) = \psi'(\xi) \cdot (1-0) = \\
-        = \frac{\delta f}{\delta x}(x + \Delta x, y + \xi \cdot \Delta y) \cdot 0 + \frac{\delta f}{\delta y}(x + \Delta x, y + \xi \cdot \Delta y) \cdot \Delta y - \\
-        - \frac{\delta f}{\delta x}(x, y + \xi \cdot \Delta y) \cdot 0 - \frac{\delta f}{\delta y}(x, y + \xi \cdot \Delta y) \cdot \Delta y = \\
-        = \left(\frac{\delta f}{\delta y}(x + \Delta x,y + \xi \cdot \Delta y) - \frac{\delta f}{\delta y}(x, y + \xi \cdot \Delta y)\right) \Delta y = \\
+        = \frac{\partial f}{\partial x}(x + \Delta x, y + \xi \cdot \Delta y) \cdot 0 + \frac{\partial f}{\partial y}(x + \Delta x, y + \xi \cdot \Delta y) \cdot \Delta y - \\
+        - \frac{\partial f}{\partial x}(x, y + \xi \cdot \Delta y) \cdot 0 - \frac{\partial f}{\partial y}(x, y + \xi \cdot \Delta y) \cdot \Delta y = \\
+        = \left(\frac{\partial f}{\partial y}(x + \Delta x,y + \xi \cdot \Delta y) - \frac{\partial f}{\partial y}(x, y + \xi \cdot \Delta y)\right) \Delta y = \\
         = \left|\begin{array}{c}
             \text{по теореме Лагранжа для} \\
             \text{функции 1-ой переменной}
         \end{array}\right| = \\
-        = \frac{\delta^2f}{\delta y\delta x}(x + \tau \cdot \Delta x, y + \xi \cdot \Delta y)\Delta y \Delta x
+        = \frac{\partial^2f}{\partial y\partial x}(x + \tau \cdot \Delta x, y + \xi \cdot \Delta y)\Delta y \Delta x
     \end{multline*}
 
     Положим, что $ (x + \tau\cdot \Delta x, y + \xi \cdot \Delta y) = Q $.
@@ -228,9 +228,9 @@
     Тогда из \ref{eq:1} следует, что:
     \[
         \begin{array}{ccc}
-            \frac{\delta^2f}{\delta x\delta y}(P)\Delta x\Delta y                             & = & \frac{\delta^2f}{\delta y\delta x}(Q)\Delta x\Delta y                           \\
+            \frac{\partial^2f}{\partial x\partial y}(P)\Delta x\Delta y                             & = & \frac{\partial^2f}{\partial y\partial x}(Q)\Delta x\Delta y                           \\
             \verteq                                                                           &   & \verteq                                                                         \\
-            \frac{\delta^2f}{\delta x\delta y}(x + \xi \cdot \Delta x, y + \eta\cdot\Delta y) & = & \frac{\delta^2f}{\delta y\delta x}(x + \tau \cdot \Delta x, y+\xi\cdot\Delta y)
+            \frac{\partial^2f}{\partial x\partial y}(x + \xi \cdot \Delta x, y + \eta\cdot\Delta y) & = & \frac{\partial^2f}{\partial y\partial x}(x + \tau \cdot \Delta x, y+\xi\cdot\Delta y)
         \end{array}.
     \]
 
@@ -241,7 +241,7 @@
 
     Таким образом,
     \[
-        \frac{\delta^2f}{\delta x\delta y} = \frac{\delta^2f}{\delta y\delta x}.
+        \frac{\partial^2f}{\partial x\partial y} = \frac{\partial^2f}{\partial y\partial x}.
     \]
 \end{proof}
 
@@ -250,11 +250,11 @@
 \begin{theorem}[Формула Тейлора]
     Пусть $D$ -- область в $\R^n, \ f:D\rightarrow\R, \ f\in C^{(k)}(D,\R), \ x \in D, \ x + h \in D, \ [x;x+h] \subset D$. Тогда:
     \[
-        f(x + h) = f(x) + \sum_{i=1}^{k-1}\frac{1}{i!}\left(\frac{\delta}{\delta x^1}\cdot h^1 + \ldots + \frac{\delta}{\delta x^n}\cdot h^n\right)^i \cdot f(x) + R^k,
+        f(x + h) = f(x) + \sum_{i=1}^{k-1}\frac{1}{i!}\left(\frac{\partial}{\partial x^1}\cdot h^1 + \ldots + \frac{\partial}{\partial x^n}\cdot h^n\right)^i \cdot f(x) + R^k,
     \]
     где $R^k$ -- остаточный член,
     \[
-        R^k = \frac{1}{k!}\left(\frac{\delta}{\delta x^1}\cdot h^1 + \ldots + \frac{\delta}{\delta x^n}\cdot h^n\right)^k \cdot f(x + \xi \cdot h),
+        R^k = \frac{1}{k!}\left(\frac{\partial}{\partial x^1}\cdot h^1 + \ldots + \frac{\partial}{\partial x^n}\cdot h^n\right)^k \cdot f(x + \xi \cdot h),
     \]
     \[
         x = (x^1,\ldots,x^n), \quad h = (h^1,\ldots,h^n).
@@ -280,18 +280,18 @@
     \begin{multline*}
         \phi'(0) = f'(x + th) \cdot (x + t\cdot h)_k'\Big|_{t = 0} = \\
         = \left(\begin{matrix}
-                \frac{\delta f(x + t\cdot h)}{\delta x^1} & \frac{\delta f(x + t\cdot h)}{\delta x^2} & \cdots & \frac{\delta f(x + t\cdot h)}{\delta x^n}
+                \frac{\partial f(x + t\cdot h)}{\partial x^1} & \frac{\partial f(x + t\cdot h)}{\partial x^2} & \cdots & \frac{\partial f(x + t\cdot h)}{\partial x^n}
             \end{matrix}\right) \cdot \left(\begin{matrix}
                 h^1 \\ h^2 \\ \vdots \\ h^n
             \end{matrix}\right)\Bigg|_{t=0} = \\
-        = \left(\frac{\delta f(x + t\cdot h)}{\delta x^1} \cdot h^1 + \frac{\delta f(x+t\cdot h)}{\delta x^2} \cdot h^2 + \ldots + \frac{\delta f(x + t\cdot h)}{\delta x^n}\cdot h^n\right) \Bigg|_{t=0} = \\
-        = \frac{\delta f}{\delta x^1}(x)\cdot h^1 + \frac{\delta f}{\delta x^2}(x)\cdot h^2 + \ldots + \frac{\delta f}{\delta x^n}(x) \cdot h^n = \\
-        = \left(\frac{\delta}{\delta x^1} \cdot h^1 + \ldots + \frac{\delta}{\delta x^n}\cdot h^n\right)\cdot f(x)
+        = \left(\frac{\partial f(x + t\cdot h)}{\partial x^1} \cdot h^1 + \frac{\partial f(x+t\cdot h)}{\partial x^2} \cdot h^2 + \ldots + \frac{\partial f(x + t\cdot h)}{\partial x^n}\cdot h^n\right) \Bigg|_{t=0} = \\
+        = \frac{\partial f}{\partial x^1}(x)\cdot h^1 + \frac{\partial f}{\partial x^2}(x)\cdot h^2 + \ldots + \frac{\partial f}{\partial x^n}(x) \cdot h^n = \\
+        = \left(\frac{\partial}{\partial x^1} \cdot h^1 + \ldots + \frac{\partial}{\partial x^n}\cdot h^n\right)\cdot f(x)
     \end{multline*}
     \begin{multline*}
-        \phi''(0) = \left(\sum_{i = 1}^{n} \frac{\delta f(x + t\cdot h)}{\delta x^i}\cdot h^i\right)_t' \Bigg|_{t = 0} = \\
-        = \left(\sum_{i = 1}^{n} \sum_{j = 1}^{n} \frac{\delta^2 f(x + t\cdot h)}{\delta x^i \delta x^j}\cdot h^i h^j\right) \Bigg|_{t = 0} = \sum_{i = 1}^{n}\sum_{j = 1}^{n}\frac{\delta^2 f(x)}{\delta x^i \delta x^j}\cdot h^i h^j = \\
-        = \left(\frac{\delta}{\delta x^1}\cdot h^1 + \ldots + \frac{\delta}{\delta x^n}\cdot h^n\right)^2 \cdot f(x)
+        \phi''(0) = \left(\sum_{i = 1}^{n} \frac{\partial f(x + t\cdot h)}{\partial x^i}\cdot h^i\right)_t' \Bigg|_{t = 0} = \\
+        = \left(\sum_{i = 1}^{n} \sum_{j = 1}^{n} \frac{\partial^2 f(x + t\cdot h)}{\partial x^i \partial x^j}\cdot h^i h^j\right) \Bigg|_{t = 0} = \sum_{i = 1}^{n}\sum_{j = 1}^{n}\frac{\partial^2 f(x)}{\partial x^i \partial x^j}\cdot h^i h^j = \\
+        = \left(\frac{\partial}{\partial x^1}\cdot h^1 + \ldots + \frac{\partial}{\partial x^n}\cdot h^n\right)^2 \cdot f(x)
     \end{multline*}
 
     И так далее. Подставим получившиеся выражения в \ref{eq:2} и получим искомое.
@@ -304,12 +304,12 @@
 \begin{theorem}[Необходимое условие локального экстремума]
     Пусть $D$ -- область в $ \R^n, \ f:D \rightarrow\R, \ x_0 \in D $ -- точка локального экстремума, тогда в точке $ x_0 \ \forall i = \overline{1,n}$
     \[
-        \frac{\delta(x_0)}{\delta x^i} = 0.
+        \frac{\partial(x_0)}{\partial x^i} = 0.
     \]
 \end{theorem}
 
 \begin{proof}
-    Фиксируем все переменные за исключением $ x^i $, тогда можно рассматривать функцию $ f(x^1,\ldots,x^i,\ldots,x^n) $ как функцию одной переменной, для которой $ x_0 $ -- точка локального экстремума, следовательно $ \frac{\delta f}{\delta x^i}(x_0) = 0 $,
+    Фиксируем все переменные за исключением $ x^i $, тогда можно рассматривать функцию $ f(x^1,\ldots,x^i,\ldots,x^n) $ как функцию одной переменной, для которой $ x_0 $ -- точка локального экстремума, следовательно $ \frac{\partial f}{\partial x^i}(x_0) = 0 $,
     \[
         i \text{ -- произвольная }\implies \forall i \text{ выполняется}.
     \]
@@ -331,8 +331,8 @@
 \begin{proof}
     По формуле Тейлора:
     \begin{multline*}
-        f(x+h) - f(x) = \frac{1}{2}\cdot \sum_{i,j=1}^{n}\frac{\delta^2f(x)}{\delta x^i \delta x^j}\cdot h^ih^j + o\big(\|h\|^2\big) = \\
-        = \frac{\|h\|^2}{2}\cdot\left(\sum_{i,j=1}^{n}\frac{\delta^2f(x)}{\delta x^i\delta x^j}\cdot \frac{h^i}{\|h\|}\frac{h^j}{\|h\|} + \alpha(h)\right) = \left|\begin{array}{c}
+        f(x+h) - f(x) = \frac{1}{2}\cdot \sum_{i,j=1}^{n}\frac{\partial^2f(x)}{\partial x^i \partial x^j}\cdot h^ih^j + o\big(\|h\|^2\big) = \\
+        = \frac{\|h\|^2}{2}\cdot\left(\sum_{i,j=1}^{n}\frac{\partial^2f(x)}{\partial x^i\partial x^j}\cdot \frac{h^i}{\|h\|}\frac{h^j}{\|h\|} + \alpha(h)\right) = \left|\begin{array}{c}
             \text{где }\alpha(h)\rightarrow 0\text{ при} \\
             h \rightarrow 0
         \end{array}\right| = \\
@@ -345,7 +345,7 @@
     \]
 
     \begin{enumerate}
-        \item Если $Q(h)$ -- знакоположительна $\implies m > 0$. Следовательно, $ \exists \delta > 0: \forall h \ \|h\| < \delta, \ |\alpha(h)| < m $
+        \item Если $Q(h)$ -- знакоположительна $\implies m > 0$. Следовательно, $ \exists \partial > 0: \forall h \ \|h\| < \partial, \ |\alpha(h)| < m $
               \[
                   Q\left(\frac{h}{\|h\|}\right) + \alpha(h) > 0,
               \] следовательно, $ \forall h: \ \|h\| < \delta $
@@ -377,7 +377,7 @@
     \begin{enumerate}
         \item $ F(x_0,y_0) = 0 $.
         \item $ F(x,y) \in C^P(U,\R), \ p \geqslant 1 $.
-        \item $ \frac{\delta F}{\delta y}(x_0,y_0)\ne 0 $.
+        \item $ \frac{\partial F}{\partial y}(x_0,y_0)\ne 0 $.
     \end{enumerate}
 
     Тогда $ \exists $ открезки $ I_x,I_y: \ f:I_x \rightarrow I_y $:

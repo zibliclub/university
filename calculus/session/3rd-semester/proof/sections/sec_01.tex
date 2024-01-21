@@ -5,12 +5,12 @@
 \subsection{Теорема о существовании производной функции по вектору}
 
 \begin{statement}
-    Пусть $ f:D\rightarrow\R $ -- дифференцируемо в точке $ x_0\in D $. Тогда $ \forall \vec{v}\in T\R_{x_0}^n \exists \frac{\delta f}{\delta \vec{v}}(x_0):$
+    Пусть $ f:D\rightarrow\R $ -- дифференцируемо в точке $ x_0\in D $. Тогда $ \forall \vec{v}\in T\R_{x_0}^n \exists \frac{\partial f}{\partial \vec{v}}(x_0):$
     \[
-        \frac{\delta f}{\delta \vec{v}}(x_0) = \frac{\delta f}{\delta x_1}(x_0) \cdot v_1 + \frac{\delta f}{\delta x_2}(x_0) \cdot v_2 + \ldots +\frac{\delta f}{\delta x_n}(x_0) \cdot v_n = df(x_0)\cdot \vec{v},
+        \frac{\partial f}{\partial \vec{v}}(x_0) = \frac{\partial f}{\partial x_1}(x_0) \cdot v_1 + \frac{\partial f}{\partial x_2}(x_0) \cdot v_2 + \ldots +\frac{\partial f}{\partial x_n}(x_0) \cdot v_n = df(x_0)\cdot \vec{v},
     \] где $df(x_0)\cdot \vec{v}$ -- скалярное произведение,
     \begin{align*}
-         & df(x_0) = \left\{\frac{\delta f}{\delta x_1}(x_0), \frac{\delta f}{\delta x_2}(x_0), \ldots, \frac{\delta f}{\delta x_n}(x_0)\right\}, \\
+         & df(x_0) = \left\{\frac{\partial f}{\partial x_1}(x_0), \frac{\partial f}{\partial x_2}(x_0), \ldots, \frac{\partial f}{\partial x_n}(x_0)\right\}, \\
          & \vec{v} = \{v_1,v_2,\ldots,v_n\}
     \end{align*}
 \end{statement}
@@ -32,12 +32,12 @@
         f\circ\gamma = f\big(\gamma(t)\big) \implies
     \]
     \begin{multline*}
-        \implies \frac{df\big(\gamma(t)\big)}{dt}\bigg|_{t=0} = \left(\frac{\delta f}{\delta x_1} \cdot \frac{d x_1}{dt} + \frac{\delta f}{\delta x_2}\cdot\frac{dx_2}{dt} + \ldots + \frac{\delta f}{\delta x_n}\cdot\frac{dx_n}{dt}\right)\bigg|_{t=0} = \\
-        = \left(\frac{\delta f}{\delta x_1} \cdot v_1 + \frac{\delta f}{\delta x_2} \cdot v_2 + \ldots + \frac{\delta f}{\delta x_n} \cdot v_n\right)\bigg|_{t=0} = df\big(\gamma(0)\big)\cdot \vec{v}
+        \implies \frac{df\big(\gamma(t)\big)}{dt}\bigg|_{t=0} = \left(\frac{\partial f}{\partial x_1} \cdot \frac{d x_1}{dt} + \frac{\partial f}{\partial x_2}\cdot\frac{dx_2}{dt} + \ldots + \frac{\partial f}{\partial x_n}\cdot\frac{dx_n}{dt}\right)\bigg|_{t=0} = \\
+        = \left(\frac{\partial f}{\partial x_1} \cdot v_1 + \frac{\partial f}{\partial x_2} \cdot v_2 + \ldots + \frac{\partial f}{\partial x_n} \cdot v_n\right)\bigg|_{t=0} = df\big(\gamma(0)\big)\cdot \vec{v}
     \end{multline*}
 
     Если $f$ дифференцируемо в точке $x_0 \implies \forall \vec{\gamma}(t) = \vec{x_0} + \vec{v}\cdot t$:
     \[
-        \frac{df\big(\gamma(t)\big)}{dt} \coloneqq \underset{t\rightarrow0}{\lim}\frac{f(x_0 + v\cdot t) - f(x_0)}{t} = \frac{\delta f}{\delta \vec{v}}(x_0)
+        \frac{df\big(\gamma(t)\big)}{dt} \coloneqq \underset{t\rightarrow0}{\lim}\frac{f(x_0 + v\cdot t) - f(x_0)}{t} = \frac{\partial f}{\partial \vec{v}}(x_0)
     \]
 \end{proof}
