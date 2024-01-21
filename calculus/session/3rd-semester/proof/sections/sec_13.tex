@@ -1,0 +1,118 @@
+\section{Определение и свойства кратного интеграла Римана}
+
+\setcounter{subsection}{147}
+
+\subsection{Теорема о сведении двойного интеграла по прямоугольнику к повторному интегралу}
+
+\begin{theorem}[Формула сведения двойного интеграла по прямоугольнику к повторному]
+    Пусть
+    \begin{enumerate}
+        \item Функция $ f(x,y) $ интегрируема на прямоугольнике
+              \[
+                  \Pi = \big\{(x,y): \ a \leqslant x \leqslant b, \ c \leqslant y \leqslant d\big\}.
+              \]
+
+        \item $ \int_{c}^{d}f(x,y)dy \ \exists \ \forall x \in [a;b] $.
+    \end{enumerate}
+
+    Тогда функция $ F(x) = \int_{c}^{d}f(x,y)dy $ интегрируема на отрезке $ [a;b] $ и справедлива формула:
+    \[
+        \boxed{\iint\limits_\Pi f(x,y)dxdy = \int_{a}^{b}dx \int_{c}^{d}f(x)dy}
+    \]
+\end{theorem}
+
+\begin{proof}
+    Возьмем произвольное разбиение отрезков $ [a;b] $ и $ [c;d] $ точками
+    \[
+        \begin{array}{l}
+            a = x_0 < x_1 < \ldots < x_n = b \\
+            c = y_0 < y_1 < \ldots < y_m = d
+        \end{array}
+    \]
+    и обозначим $ \Pi_1,\ldots,\Pi_n $ и $ \Pi_1',\ldots,\Pi_m' $ соответсвующие промежутки разбиения.
+
+    Тогда
+    \[
+        \Pi = \bigcup\limits_{i=1}^{n}\bigcup\limits_{j=1}^{m}\Pi_{ij},
+    \]
+    где $ \Pi_{ij} = \big\{(x,y): \ x \in \Pi_i, \ y \in \Pi_j'\big\} $.
+
+    Положим
+    \[
+        M_{ij} = \underset{(x,y)\in\Pi_{ij}}{\sup}f(x,y), \quad m_{ij} = \underset{(x,y)\in\Pi_{ij}}{\inf}f(x,y).
+    \]
+
+    Так как $ \int_{c}^{d}f(x,y)dy \ \exists \ \forall x \in [a;b] $, то $ \forall x \in \Pi_i $ справедливо неравенство
+    \[
+        m_{ij}\cdot\Delta y_i \leqslant \int_{y_{i-1}}^{y_i}f(x,y)dy \leqslant M_{ij}\cdot\Delta y_i,
+    \]
+    где $ \Delta y_i = y_i - y_{j-1} $.
+
+    Суммируем эти неравенства по индексу $ j $:
+    \begin{equation}\label{eq:for_proof7}
+        \sum_{j=1}^{m}m_{ij}\Delta y_i \leqslant \int_{c}^{d}f(x,y)dy \leqslant \sum_{j=1}^{m}M_{ij}\Delta y_j
+    \end{equation}
+
+    Введем обозначения:
+    \[
+        F(x) = \int_{c}^{d}f(x,y)dy, \quad M_i = \underset{x\in\Pi_i}{\sup}F(x), \quad m_i = \underset{x\in\Pi_i}{\inf}F(x).
+    \]
+
+    Тогда из \ref{eq:for_proof7} $ \implies $
+    \[
+        \sum_{j=1}^{m}m_{ij}\Delta y_j \leqslant m_i \leqslant M_i \leqslant \sum_{j=1}^{m}M_{ij}\Delta y_j \implies
+    \]
+    \begin{equation}\label{eq:for_proof8}
+        \implies 0 \leqslant M_i - m_i \leqslant \sum_{j=1}^{m}(M_{ij} - m_{ij})\Delta y_j
+    \end{equation}
+
+    Домножим на $ \Delta x_i $ неравенство \ref{eq:for_proof8} и просуммируем по $ i $:
+    \begin{multline*}
+        0 \leqslant \sum_{i=1}^{n}(M_i - m_i)\Delta x_i \leqslant \sum_{i=1}^{n}\sum_{j=1}^{m}(M_{ij} - m_{ij})m(\Pi_{ij}) = \\
+        = \overline{S}(f,\Pi) - \underline{S}(f,\Pi) \rightarrow 0 \text{ при }l(T)\rightarrow 0,
+    \end{multline*}
+    так как $ f(x,y) $ интегрируема на прямоугольнике $ \implies \sum_{i=1}^{n}(M_i - m_i)\Delta x_i \rightarrow 0 $ при $ \max|\Delta x_i| \rightarrow 0 \implies F(x) $ интегрируема на $ [a;b] \implies \exists $
+    \[
+        \int_{a}^{b}F(x)dx = \int_{a}^{b}dx \int_{c}^{d}f(x,y)dy.
+    \]
+
+    Покажем, что он равен двойному.
+
+    Интегрируем неравенство \ref{eq:for_proof7}
+    \[
+        \sum_{j=1}^{m}m_{ij}\Delta y_j\Delta x_i \leqslant \int_{x_{i-1}}^{x_i}dx \int_{c}^{d}f(x,y)dy \leqslant \sum_{j=1}^{m}M_{ij}\Delta y_j \Delta x_i.
+    \]
+
+    Суммируем по $ i $:
+    \[
+        \sum_{i=1}^{n}\sum_{j=1}^{m}m_{ij} m(\Pi_{ij}) \leqslant \int_{a}^{b}dx \int_{c}^{d} f(x,y)dy \leqslant \sum_{i=1}^{n}\sum_{j=1}^{m}M_{ij}m(\Pi_{ij}).
+    \]
+    \[
+        \underline{S}(f,\Pi) \leqslant \int_{a}^{b}dx \int_{c}^{d}f(x,y)dy \leqslant \overline{S}(f,\Pi).
+    \]
+
+    С другой стороны, из условий следует, что
+    \[
+        \underline{S} \leqslant \iint\limits_\Pi f(x,y)dxdy \leqslant \overline{S}.
+    \]
+
+    Разность $ \overline{S} - \underline{S} $ может быть сколь угодно малой $ \implies $
+    \[
+        \implies \iint\limits_\Pi f(x,y)dxdy = \int_{a}^{b}dx \int_{c}^{d}f(x,y)dy.
+    \]
+\end{proof}
+
+\subsection{Теорема о сведении двойного интеграла по элементарной области к повторному интегралу}
+
+\begin{theorem}[Сведение двойного интеграла по элементарной области к повторному]
+    Пусть $ \Omega $ -- элементарная относительно оси $ Oy $ область, функция $ f(x,y) $ интегрируема на $ \overline{\Omega} = \Omega \cup G\Omega $ и $ \forall x \in [a;b] \ \exists \ \int f(x,y)dx $.
+
+    Тогда справедлива следующая формула:
+    \begin{equation}\label{eq:for_proof9}
+        \iint\limits_\Omega f(x,y)dxdy = \int_{a}^{b}dx \int_{\phi(x)}^{\psi(x)}f(x,y)dy.
+    \end{equation}
+\end{theorem}
+
+\begin{proof}
+    Есть на фотографиях (надо дописать).
+\end{proof}

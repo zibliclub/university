@@ -1,0 +1,244 @@
+\section{Эйлеровы интегралы}
+
+\setcounter{subsection}{122}
+
+\subsection{Свойства бетта-функции}
+
+\begin{enumerate}
+    \item \textbf{ООФ}
+
+          \begin{statement}
+              $ B(\alpha,\beta) $ определенная при всех $ \alpha > 0, \ \beta > 0 $.
+          \end{statement}
+
+          \begin{proof}
+            \[
+                \int_{0}^{1}x^{\alpha-1}(1-x)^{\beta-1}dx = \int_{0}^{\frac{1}{2}}x^{\alpha-1}(1-x)^{\beta-1}dx + \int_{\frac{1}{2}}^{1}x^{\alpha-1}(1-x)^{\beta-1}dx.
+            \]
+
+            Рассмотрим
+            \[
+                x^{\alpha-1}(1-x)^{\beta-1} = \frac{(1-x)^{\beta-1}}{x^{1-\alpha}} \underset{x \rightarrow 0}{\sim} \frac{1}{x^{1-\alpha}},
+            \]
+            \[
+                \underset{x \rightarrow 0}{\lim}\frac{(1-x)^{\beta-1}}{x^{1-\alpha}}: \quad \frac{1}{x^{1-\alpha}} = \underset{x \rightarrow 0}{\lim}(1-x)^{\beta -1} = 1.
+            \]
+
+            $ \int_{0}^{\frac{1}{2}}\frac{dx}{x^{1-\alpha}} $ сходится при $ 1 - \alpha < 1 \implies \alpha > 0 $.
+
+            Аналогично можно показать, что $ \int_{\frac{1}{2}}^{1}x^{\alpha-1}(1-x)^{\beta-1}dx $ сходится при $ \beta > 0 $.
+        \end{proof}
+
+    \item \textbf{Симметричность}
+
+          \begin{statement}
+              \[
+                  B(\alpha,\beta) = B(\beta,\alpha).
+              \]
+          \end{statement}
+
+          \begin{proof}
+            Замена $ t = 1 - x \implies x = 1 - t, \ dx = -dt $,
+            \begin{multline*}
+                \int_{0}^{1}x^{\alpha-1}(1-x)^{\beta-1}dx = \\
+                = \int_{1}^{0}(1-t)^{\alpha-1} \cdot t^{\beta-1}(-dt) = \int_{0}^{1}t^{\beta-1}(1-t)^{\alpha-1}dt = \\
+                = B(\beta,\alpha).
+            \end{multline*}
+        \end{proof}
+
+    \item \textbf{Формула понижения}
+
+          \begin{note}[Формула понижения для $ \beta $-функции]
+              \begin{multline*}
+                  B(\alpha,\beta) = \int_{0}^{1}\underbrace{x^{\alpha-1}}_{u}\underbrace{(x-1)^{\beta-1}dx}_{v} = \\
+                  = \left|\begin{array}{ll}
+                      u = x^{\alpha-1}                & du = (\alpha-1)x^{\alpha-2}dx \\
+                      v = -\frac{1}{\beta}(1-x)^\beta & dv = (x-1)^{\beta-1}dx
+                  \end{array}\right| = \\
+                  = -x^{\alpha-1}(1-x)^\beta \cdot \frac{1}{\beta}\Bigg|_0^1 + \int_{0}^{1}\frac{1}{\beta}(1-x)^\beta(\alpha - 1)x^{\alpha-2}dx = \\
+                  = \frac{\alpha -1}{\beta}\int_{0}^{1}x^{\alpha-2}(1-x)^\beta dx = \frac{\alpha - 1}{\beta}\int_{0}^{1}\frac{1-x}{1-x}x^{\alpha-2}(1-x)^\beta dx = \\
+                  = \frac{\alpha -1}{\beta}\int_{0}^{1}(1-x)x^{\alpha-2}(1-x)^{\beta-1}dx = \\
+                  = \frac{\alpha - 1}{\beta}\int_{0}^{1}\bigl(x^{\alpha-2}(1-x)^{\beta-1} - x^{\alpha-1}(1-x)^{\beta-1}\bigr)dx = \\
+                  = \frac{\alpha-1}{\beta}\left(\int_{0}^{1}(1-x)^{\beta-1}dx - \int_{0}^{1}x^{\alpha-1}(1-x)^{\beta-1}dx\right) = \\
+                  = \frac{\alpha-1}{\beta}\bigl(B(\alpha-1,\beta) - B(\alpha,\beta)\bigr).
+              \end{multline*}
+              \begin{multline*}
+                  B(\alpha,\beta) = \frac{\alpha-1}{\beta}\bigl(B(\alpha-1,\beta) - B(\alpha,\beta)\bigr) \implies \\
+                  \implies B(\alpha,\beta)\left(1 + \frac{\alpha - 1}{\beta}\right) = \frac{\alpha-1}{\beta}B(\alpha-1,\beta).
+              \end{multline*}
+              \[
+                  \boxed{B(\alpha,\beta) = \frac{\alpha -1}{\beta + \alpha -1} - B(\alpha-1,\beta)}, \quad \alpha > 1, \ \beta > 0.
+              \]
+
+              Пусть $ \beta = 1 $:
+              \[
+                  B(\alpha,1) = \int_{0}^{1}x^{\alpha-1}dx = \left.\frac{x^\alpha}{\alpha}\right|_0^1 = \frac{1}{\alpha}.
+              \]
+
+              Далее, если $ \beta = n \in \N $, то
+              \begin{multline*}
+                  B(\alpha,n) = B(n,\alpha) = \\
+                  = \frac{n-1}{\alpha + n-1} \cdot B(n-1,\alpha) = \frac{n-1}{\alpha + n -1} \cdot \frac{n-2}{\alpha + n - 2} \cdot B(n-2,\alpha) = \\
+                  = \frac{(n-1)!}{(\alpha+n-1)(\alpha + n -2)\ldots(\alpha +1)} \cdot B(\alpha,1) = \\
+                  = \frac{(n-1)!}{(\alpha + n-1)\ldots(\alpha + 1)\alpha}.
+              \end{multline*}
+
+              Отсюда:
+              \[
+                  \boxed{B(m,n) = \frac{(n-1)!}{(m+n-1)\ldots(m+1)m} = \frac{(n-1)!\cdot(m-1)!}{(m+n-1)!}}
+              \]
+          \end{note}
+\end{enumerate}
+
+\subsection{Свойства гамма-функции}
+
+\begin{enumerate}
+    \item \textbf{ООФ}
+
+          \begin{statement}
+              $ \Gamma(\alpha) $ определенная при $ \alpha > 0 $.
+          \end{statement}
+
+          \begin{proof}
+            \[
+                \Gamma(\alpha) = \int_{0}^{+\infty}x^{\alpha-1} \cdot e^{-x} dx = \int_{0}^{1}x^{\alpha-1}e^{-x}dx + \int_{1}^{+\infty}x^{\alpha-1}e^{-x}dx.
+            \]
+
+            Заметим, что
+            \[
+                \underset{x \rightarrow 0}{\lim}\frac{(x^{\alpha-1}e^{-x})}{x^{\alpha-1}} = 1 \implies x^{\alpha-1}e^{-x}\sim \frac{1}{x^{1-\alpha}} = x^{\alpha - 1}.
+            \]
+
+            $ \int_{0}^{1}\frac{1}{x^{1-\alpha}}dx $ сходится при $ 1-\alpha < 1 \implies \alpha > 0 $.
+
+            Далее, $ e^{-x} \rightarrow 0 $ при $ x \rightarrow +\infty \implies \forall \beta \in \R \ e^{-x} = o(x^\beta) $ при $ x \rightarrow + \infty $.
+
+            $ e^{-x} = \alpha(x) \cdot x^\beta $, где $ \alpha(x)\rightarrow0 $ при $ x \rightarrow + \infty $.
+
+            $ x^\beta \rightarrow 0 $ при $ x \rightarrow + \infty $, если $ \beta < 0 $.
+
+            $ x^\beta \rightarrow + \infty $ при $ x \rightarrow +\infty $, если $ \beta > 0 $.
+
+            Но $ \infty = \frac{1}{0} \implies \underset{x \rightarrow+\infty}{\lim}\frac{e^{-x}}{x^\beta} = 0 $.
+
+            Таким образом, сходимость интеграла $ \int_{1}^{+\infty}x^{\alpha-1}e^{-x}dx $ та же, что и сходимость интеграла $ \int_{1}^{-\infty}x^{\alpha-1}x^\beta dx $.
+
+            Можно подобрать такую $ \beta $, что $ \forall \alpha \in \R $
+            \begin{multline*}
+                \int_{1}^{+\infty}x^{\alpha-1}x^\beta dx \text{ -- сходится} \implies \\
+                \implies \int_{1}^{+\infty}x^{\alpha-1}e^{-x}dx \text{ сходится при }\forall\alpha \in \R \implies
+            \end{multline*}
+            $ \implies \Gamma(\alpha) $ определена при $ \alpha > 0 $.
+        \end{proof}
+
+    \item \textbf{Правило дифференцирования $ \Gamma(\alpha) $}
+
+          \begin{statement}
+              $ \forall \alpha > 0 \ \Gamma(\alpha) $ дифференцируема в точке $ \alpha $ и
+              \[
+                  \Gamma'(\alpha) = \int_{0}^{+\infty}x^{\alpha-1}e^{-x}\ln x dx.
+              \]
+
+              Более того, $ \Gamma(\alpha) $ бесконечно дифференцируема в точке $ \alpha $ и $ n $-ная производная
+              \[
+                  \Gamma^{(n)}(\alpha) = \int_{0}^{+\infty}x^{\alpha-1}e^{-x}\ln^n x dx.
+              \]
+          \end{statement}
+
+          \begin{proof}
+            Теорема \ref{theorem:7.3.2}.
+            \begin{multline*}
+                \Gamma'(\alpha) = \left(\int_{0}^{+\infty}x^{\alpha-1}e^{-x}dx\right)_\alpha' \overset{\circled{?}}{=} \\
+                \overset{\circled{?}}{=} \int_{0}^{+\infty}(x^{\alpha-1}e^{-x})_\alpha'dx = \int_{0}^{+\infty}x^{\alpha-1}e^{-x}\ln x dx.
+            \end{multline*}
+            \[
+                \boxed{(a^x)_x' = a^x \cdot \ln a}
+            \]
+
+            Покажем, что условия теоремы \ref{theorem:7.3.2} выполняются:
+            \begin{enumerate}
+                \item $ f(x,\alpha)=x^{\alpha-1}e^{-x} $ дифференцируема по $ \alpha $ на $ [\alpha - \epsilon;\alpha + \epsilon] $.
+                \item $ \int_{0}^{+\infty}x^{\alpha-1}e^{-x}\ln x dx $ равномерно сходится на $ [\alpha-\epsilon;\alpha+\epsilon] $.
+                \item $ \int_{0}^{+\infty}x^{\alpha-1}e^{-x}dx $ сходится хотя бы в одной точке отрезка $ [\alpha-\epsilon;\alpha+\epsilon] $.
+            \end{enumerate}
+
+            Докажем пункт 2.
+            \[
+                \int_{0}^{+\infty}x^{\alpha-1}e^{-x}\ln x dx = \int_{0}^{1}x^{\alpha-1}e^{-x}\ln x dx + \int_{1}^{+\infty}x^{\alpha-1}e^{-x}\ln x dx.
+            \]
+
+            Пусть $ \alpha_0 > 0 $.
+
+            Выберем $ \epsilon < \frac{\alpha_0}{2} $. Рассмотрим $ \alpha \in [\alpha_0 - \epsilon;\alpha_0 + \epsilon] $.
+
+            Если $ \alpha_0 > 1 $
+
+            Можно выбрать $ \epsilon : \ \alpha_0 - \epsilon > 1 $. Тогда
+            \begin{multline*}
+                \underset{x \rightarrow 0}{\lim}x^{\alpha-1}\ln x = \\
+                = \bigg|0 \cdot \infty = \frac{1}{\infty}\cdot \infty = \frac{\infty}{\infty}\bigg| = \underset{x \rightarrow 0}{\lim}\frac{\ln x}{x^{1-\alpha}} = \underset{x \rightarrow 0}{\lim} \frac{\frac{1}{x}}{(1-\alpha)x^{-\alpha}} = \underset{x \rightarrow 0}{\lim}\frac{1}{(1-\alpha)x^{-\alpha}} = \\
+                = \underset{x \rightarrow 0}{\lim}\frac{1}{1-\alpha}\cdot x^{\alpha-1} = 0.
+            \end{multline*}
+
+            Таким образом при $ \alpha_0 > 1 $ точка $ 0 $ не является особенной.
+
+            Если $ \alpha_0 < 1 \ \forall \alpha \in[\alpha_0 - \epsilon;\alpha_0 + \epsilon] $
+            \[
+                | x^{\alpha-1}\ln x | \leqslant x^{\alpha_0 - \epsilon -1}| \ln x |.
+            \]
+
+            Покажем, что
+            \begin{multline*}
+                x^{\alpha_0 - \epsilon - 1}| \ln x | = 0 \ \left(x^{\alpha_0 - \epsilon - 1}\cdot x^{\frac{\alpha_0 - \epsilon - 1}{2}}\right) \iff \\
+                \iff x^{\alpha_0 - \epsilon - 1}| \ln x |  = \alpha(x)\cdot x^{\alpha_0 - \epsilon - 1} \cdot x^{\frac{\alpha_0 - \epsilon - 1}{2}} \iff \\
+                \iff | \ln x | = \alpha(x) \cdot x^{\frac{\alpha_0 - \epsilon - 1}{2}} \iff \\
+                \iff \underset{x \rightarrow 0}{\lim}\frac{\frac{1}{x}}{\frac{\alpha_0 - \epsilon - 1}{2}\cdot x^{\frac{\alpha_0 - \epsilon - 1}{2}}} = \underset{x \rightarrow 0}{\lim}\frac{1}{x}\cdot x^{-\left(\frac{\alpha_0 - \epsilon - 1}{2} - 1\right)} = \underset{x \rightarrow 0}{\lim} x^{-\left(\frac{\alpha_0 - \epsilon -1}{2}\right)} = 0.
+            \end{multline*}
+
+            Таким образом, по признаку Вейерштрасса, $ \int_{0}^{1}x^{\alpha-1}e^{-x}\ln x dx $ будет сходиться при сходимости интеграла
+            \[
+                \int_{0}^{1}x^{\alpha_0 - \epsilon - 1}\cdot x^{\frac{\alpha_0 - \epsilon - 1}{2}}dx = \int_{0}^{1}x^{\frac{3}{2}(\alpha_0 - \epsilon - 1)}dx = \int_{0}^{1}\frac{dx}{x^{-\frac{3}{2}(\alpha_0 - \epsilon - 1)}}
+            \]
+            сходится при $ -\frac{3}{2}\overbrace{(\alpha_0 - \epsilon - 1)}^{<0} < 1 $.
+
+            Так как $ \int_{0}^{+\infty}x^{\alpha_0 - \epsilon -1}\cdot x^{\frac{\alpha_0 - \epsilon - 1}{x}}dx $ сходится по признаку Вейерштрасса, то $ \int_{0}^{+\infty}x^{\alpha-1}e^{-x}\ln x dx $ сходится равномерно на $ [\alpha_0 - \epsilon;\alpha_0+\epsilon] $.
+
+            Далее, $ \forall\alpha \in [\alpha_0 - \epsilon;\alpha_0 + \epsilon] $
+            \[
+                e^{-x}x^{\alpha-1}\ln x \leqslant e^{-x}x^{\alpha_0+\epsilon-1}\ln x.
+            \]
+
+            Так как $ \int_{0}^{+\infty}e^{-x}x^{\alpha_0+\epsilon-1}\ln x dx $ сходится, то и сходится равномерно на $ [\alpha_0-\epsilon;\alpha_0+\epsilon] $ и $ \int_{0}^{+\infty}e^{-x}x^{\alpha-1}\ln x dx $.
+
+            Аналогичное доказательство имеет место быть и для $ \Gamma^{(n)}(\alpha) $.
+        \end{proof}
+
+    \item \textbf{Формула понижения}
+
+          \begin{note}[Формула понижения для $ \gamma $-функции]
+              \begin{multline*}
+                  \Gamma(\alpha+1) = \int_{0}^{+\infty}x^\alpha e^{-x}dx = \\
+                  = \left|\begin{array}{ll}
+                      u = x^\alpha & du = \alpha x^{\alpha-1}dx \\
+                      v = -e^{-x}  & dv = e^{-x}dx
+                  \end{array}\right| = x^\alpha(-e^{-x})\Big|_0^{+\infty} + \int_{0}^{+\infty}\alpha x^{\alpha-1}e^{-x}dx = \\
+                  = \alpha \int_{0}^{+\infty}x^{\alpha-1}e^{-x}dx = \alpha \Gamma(\alpha).
+              \end{multline*}
+              \[
+                  \boxed{\Gamma(\alpha+1) = \alpha\Gamma(\alpha)}
+              \]
+
+              Пусть $ \alpha=n \implies $
+              \begin{multline*}
+                  \implies \Gamma(n+1) = \\
+                  = n\Gamma(n) = n(n-1)\Gamma(n-1) = n(n-1)(n-2)\Gamma(n-2) = \\
+                  = n(n-1)\ldots\Gamma(1),
+              \end{multline*}
+              \[
+                  \Gamma(1) = \int_{0}^{+\infty}x^0 e^{-x}dx = -e^{-x}\Big|_0^{+\infty} = 1.
+              \]
+              \[
+                  \boxed{\Gamma(n+1) = n!}
+              \]
+          \end{note}
+\end{enumerate}
