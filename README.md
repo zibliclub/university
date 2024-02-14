@@ -25,7 +25,7 @@ Lessons are divided into folders, depending on the availability of notes or othe
 | Discrete mathematics and mathematical logic       | ✘             | ✘         | ✔︎            |
 | Graph Theory and Combinatorial Algorithms         | ✘             | ✘         | ✔︎            |
 | Optimization methods                              | ✔︎             | ✘         | ✘            |
-| Programming languages and methods                 | ✘             | Labs 1-4  | ✘            |
+| Programming languages and methods                 | ✘             | Labs 1-5  | ✘            |
 | Probability theory                                | ✔︎             | ✘         | ✘            |
 | Theory of algorithms and computational complexity | ✔︎             | ✘         | ✘            |
 | Theory of automata and formal languages           | ✔︎             | ✘         | ✘            |
