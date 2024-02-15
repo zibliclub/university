@@ -1,0 +1,96 @@
+\lesson{1}{от 15 фев 2024 12:45}{Начало}
+
+
+\section{Комплексная плоскость}
+
+\subsection{Комплексные числа}
+
+\begin{note}
+    $ \R^2 \coloneqq \R \times \R $
+
+    \[
+        \begin{array}{l}
+            (x_1,y_1) + (x_2,y_2) \coloneqq (x_1 + x_2, y_1 + y_2)          \\
+            (x_1,y_1)(x_2,y_2) \coloneqq (x_1x_2 - y_1y_2, x_1y_2 - x_2y_1) \\
+        \end{array}
+    \]
+
+    $ z = (x,y) = x+iy, \  x,y \in \R $
+
+    $ | z | = r = \sqrt{x^2 + y^2}, \ \phi = arg z $
+
+    \[
+        Argz \coloneqq argz + 2\pi k, \ k \in \Z
+    \]
+
+    $ z = | z | (\cos argz + i\cdot \sin argz) $
+
+    $ e^{i\phi} = i \cdot \sin\phi + \cos\phi, \ e^z = e^{x + iy} = e^xe^{iy} $
+
+    \[
+        z = | z | e^{i\cdot argz} \implies z^n = | z |^n e^{i\cdot n arg z} = | z |^n\bigl(\cos(nargz) + i\cdot\sin(nargz)\bigr)
+    \]
+\end{note}
+
+\begin{theorem}[Свойства комплексных чисел]\leavevmode
+    \begin{multicols}{2}
+        \begin{enumerate}
+            \item $ z \cdot \overline{z} = | z |^2  $.
+            \item $ \overline{(z_1 + z_2)} = \overline{z_1} + \overline{z_2} $.
+            \item $ \overline{z_1 \cdot z_2} = \overline{z_1} \cdot \overline{z_2} $.
+            \item $ \overline{\overline{z}} = z $.
+            \item $ \overline{z} = z \iff z \in \R $.
+            \item $ | z_1 \cdot z_2 | = | z_1 | \cdot | z_2 | $.
+            \item $ | z_1 + z_2 | \leqslant | z_1 | + | z_2 | $.
+            \item $ \big|| z_1 | - | z_2 |\big| \leqslant | z_1 - z_2 | $.
+            \item $ \underset{(mod \ 2\pi)}{arg(z_1 \cdot z_2) = argz_1 + argz_2} $.
+            \item $ \underset{(mod \ 2\pi)}{arg\left(\frac{z_1}{z_2}\right) = argz_1 - argz_2} $.
+        \end{enumerate}
+    \end{multicols}
+\end{theorem}
+
+\begin{note}
+    \[
+        \xi = \frac{x}{1 + | z |^2 }, \quad \eta = \frac{y}{1 + | z |^2 }, \quad \zeta = \frac{| z |^2 }{1 + | z |^2 },
+    \]
+    \[
+        \xi^2 + \eta^2 + \zeta ^2 - \zeta = 0.
+    \]
+    \begin{figure}[H]
+        \centering
+        \incfig{fig_01}
+        \caption{Сфера Римана $ S $}
+        \label{fig:fig_01}
+    \end{figure}
+
+    \[
+        A(x^2 + y^2) + Bx + Cy + D = 0, \quad A,B,C,D \in \R,
+    \]
+    \begin{center}
+        $ \gamma  $ -- окружность на $ \Comp, \ P(\Upsilon) $ -- окружность на $ S $.
+    \end{center}
+
+    \[
+        A\xi + B\xi + C\eta + D(1-\zeta) = 0,
+    \]
+    \[
+        \overline{\Comp} \coloneqq = \Comp \cup \{\infty\}, \quad P(\infty) \coloneqq N.
+    \]
+\end{note}
+
+\subsection{Топология комплексной плоскости}
+
+\begin{note}
+    $ M_1,M_2 \in \R^3 $,
+    \[
+        dist(M_1,M_2)\coloneqq \sqrt{(\zeta_1 - \zeta_2)^2 + (\eta_1 - \eta_2)^2 + (\xi_1 - \xi_2)^2},
+    \]
+    $ d(z_1,z_2) = | z_1-z_2 |, \ z_1,z_2 \in \Comp $ -- расстояние на комплексной плоскости,
+    \[
+        \rho(z_1,z_2) = dist\bigl(\rho(z_1),\rho(z_2)\bigr).
+    \]
+\end{note}
+
+\begin{definition}[Окрестность]
+    Множество называется \emph{окрестностью}, если оно содержит шар с центром в точке $ x_0 $.
+\end{definition}
