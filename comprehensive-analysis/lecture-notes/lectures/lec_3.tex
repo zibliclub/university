@@ -148,3 +148,57 @@
         f(z) = az
     \]
 \end{remark}
+
+\subsection{Степенные ряды}
+
+\begin{note}
+    $ \sum_{n=0}^{\infty}a_n(z-z_0)^n $, где $ \{a_n\}_{n\in\N} \subset \Comp, \ z,z_0 \in \Comp $.
+\end{note}
+
+\begin{theorem}[1-я теорема Абеля]
+    Если ряд $ \sum_{n=0}^{\infty}a_n(z-z_0)^n $ сходится в точке $ \nequalto{z_1}{z_0} \in \Comp $, то он абсолютно сходится при $ | z - z_0 | < | z_1 - z_0 | $. А если ряд $ \sum_{n=0}^{\infty}a_n(z - z_0)^n $ расходится в точке $ \nequalto{z_1}{z_0} \in \Comp $, то он расходится и при $ | z - z_0 | > | z_1 - z_0 | $.
+\end{theorem}
+
+\begin{proof}\leavevmode
+    \begin{enumerate}
+        \item $ \sum_{n=0}^{\infty}a_n(z_1 - z_0)^n $ сходится $ \implies \big|a_n(z_1 - z_0)^n\big| \xrightarrow[n \rightarrow\infty]{} 0 $.
+              \[
+                  c \coloneqq \underset{n\in\N}{\sup} \big|a_n(z_1 - z_0)^n\big| < +\infty, \quad | z - z_0 | < | z_1 - z_0 |.
+              \]
+
+              Рассмотрим
+              \[
+                  \sum_{n=0}^{\infty}\big|a_n(z-z_0)^n\big| = \sum_{n=0}^{\infty}\big|a_n(z_1 - z_0)^n\big|\cdot \left|\frac{z-z_0}{z_1-z_0}\right|^n \leqslant c \cdot \sum_{n=0}^{\infty}\left|\frac{z-z_0}{z_1-z_0}\right|^n < + \infty.
+              \]
+        \item \textbf{добавить}
+    \end{enumerate}
+\end{proof}
+
+\begin{definition}[Радиус сходимости]
+    Элемент $ R \in [0;+\infty] $ называется \emph{радиусом сходимости} ряда $ \sum_{n=0}^{\infty}a_n(z-z_0)^n $, если при $ | z - z_0 | < R $ исходный ряд абсолютно сходится, а при $ | z-z_0 | > R $ исходный ряд расходится.
+\end{definition}
+
+\begin{theorem}[Коши-Адамара]
+    Для степенного ряда $ \sum_{n=0}^{\infty}a_n(z-z_0)^n $ положим $ l \coloneqq \underset{n \rightarrow\infty}{\overline{\lim}} \sqrt[n]{| a_n |} $. Тогда:
+    \begin{enumerate}
+        \item Если $ l=0 $, то исходный ряд сходится $ \forall z \in \Comp $.
+        \item Если $ l=\infty $, то исходный ряд сходится только в точке $ z_0 $.
+        \item Если $ l\in(0;+\infty) $, то при $ | z-z_0 | < \frac{1}{l} $, а при $ | z-z_0 | > \frac{1}{l} $ исходный ряд расходится.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}\leavevmode
+    \begin{enumerate}
+        \item $ \underset{n \rightarrow\infty}{\overline{\lim}} \sqrt[n]{| a_n |} = \underset{n \rightarrow\infty}{\lim} \sqrt[n]{| a_n |} = 0 $,
+              \[
+                  z \in \Comp, \ \sum_{n=0}^{\infty}\big| a_n(z-z_0)^n \big|.
+              \]
+              $ \underset{n \rightarrow \infty}{\lim} \sqrt[n]{\big| a_n(z-z_0)^n \big|} = \underset{n \rightarrow \infty}{\lim} \sqrt[n]{\big| a_n \big|} \cdot | z - z_0 | = 0 \implies $ ряд сходится.
+        \item $ \underset{n \rightarrow\infty}{\overline{\lim}} \sqrt[n]{| a_n |} = \infty $,
+              \[
+                  \exists\{a_{n_k}\}_{k\in\N} \subset \{a_n\}_{n\in\N}, \quad \sqrt[n_k]{| a_{n_k} |} \rightarrow + \infty.
+              \]
+              $ \sqrt[n_k]{| a_{n_k} |} \cdot | z - z_0 | \rightarrow +\infty \implies | a_{n_k} | $.
+        \item $ | z - z_0 | < \frac{1}{l} \implies l | z - z_0 | < 1 $.
+    \end{enumerate}
+\end{proof}
