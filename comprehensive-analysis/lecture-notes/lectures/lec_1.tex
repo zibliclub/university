@@ -7,32 +7,64 @@
 
 \begin{note}
     $ \R^2 \coloneqq \R \times \R $
-
     \[
         \begin{array}{l}
             (x_1,y_1) + (x_2,y_2) \coloneqq (x_1 + x_2, y_1 + y_2)          \\
             (x_1,y_1)(x_2,y_2) \coloneqq (x_1x_2 - y_1y_2, x_1y_2 - x_2y_1) \\
         \end{array}
     \]
-
-    $ z = (x,y) = x+iy, \  x,y \in \R $
-
-    $ | z | = r = \sqrt{x^2 + y^2}, \ \phi = arg z $
-
+    \begin{figure}[H]
+        \centering
+        \incfig{fig_02}
+        \caption{$ x = r\cos\phi, \ y = r\sin\phi $}
+        \label{fig:fig_02}
+    \end{figure}
+    \[
+        \begin{array}{ll}
+            z = (x,y) = x+iy \\
+            \overline{z} = x - iy
+        \end{array}, \quad x,y \in \R
+    \]
+    \[
+        (1,0) \eqqcolon 1, \quad (0,1) \eqqcolon i, \quad (0,0) \eqqcolon 0
+    \]
+    \[
+        x \eqqcolon Re z, \quad y \eqqcolon Im z
+    \]
+    \[
+        r = \sqrt{x^2 + y^2} \eqqcolon | z |
+    \]
+    \[
+        \phi = arg z, \underbrace{0 \leqslant arg z < 2\pi}_{\text{главное значение аргумента}}
+    \]
     \[
         Argz \coloneqq argz + 2\pi k, \ k \in \Z
     \]
-
-    $ z = | z | (\cos argz + i\cdot \sin argz) $
-
-    $ e^{i\phi} = i \cdot \sin\phi + \cos\phi, \ e^z = e^{x + iy} = e^xe^{iy} $
-
     \[
-        z = | z | e^{i\cdot argz} \implies z^n = | z |^n e^{i\cdot n arg z} = | z |^n\bigl(\cos(nargz) + i\cdot\sin(nargz)\bigr)
+        \boxed{e^{i\phi} = \cos\phi + i \cdot \sin \phi, \ \forall \phi \in \R} \text{ -- формула Эйлера}
+    \]
+    \[
+        \boxed{z = | z | (\cos argz + i\cdot \sin argz)} \text{ -- тригонометрическая форма записи}
+    \]
+    \[
+        \boxed{z = | z | e^{i arg z}} \text{ -- показательная форма записи}
+    \]
+    \[
+        e^z = e^{x + iy} = e^x \cdot e^{iy}, \quad e^{z_1 + z_2} = e^{z_1}\cdot e^{z_2}
+    \]
+    \[
+        z^n = | z |^n e^{in arg z}, \quad z = re^{ir}
+    \]
+    \[
+        \boxed{z^n = r^n(\cos n\phi + i\sin n \phi)} \text{ -- формула Муавра}
+    \]
+    \[
+        z^n = z_0, \quad \sqrt[n]{z_0} = \sqrt[n]{| z_0 |}\cdot e^{i\frac{arg z_0 + 2\pi k}{n}}, \ 0 \leqslant k \leqslant n-1
     \]
 \end{note}
 
-\begin{theorem}[Свойства комплексных чисел]\leavevmode
+\begin{theorem}[Свойства комплексных чисел]
+    $ \forall z,z_1,z_2 \in \Comp $ справедливы равенства:
     \begin{multicols}{2}
         \begin{enumerate}
             \item $ z \cdot \overline{z} = | z |^2  $.
@@ -49,6 +81,8 @@
     \end{multicols}
 \end{theorem}
 
+\newpage
+
 \begin{note}
     \[
         \xi = \frac{x}{1 + | z |^2 }, \quad \eta = \frac{y}{1 + | z |^2 }, \quad \zeta = \frac{| z |^2 }{1 + | z |^2 },
@@ -62,35 +96,69 @@
         \caption{Сфера Римана $ S $}
         \label{fig:fig_01}
     \end{figure}
-
+    \[
+        P: \Comp \xrightarrow[]{\text{на}} S \setminus \{N\}, \quad P(z) = (\xi, \eta, \zeta)
+    \]
     \[
         A(x^2 + y^2) + Bx + Cy + D = 0, \quad A,B,C,D \in \R,
     \]
     \begin{center}
-        $ \gamma  $ -- окружность на $ \Comp, \ P(\Upsilon) $ -- окружность на $ S $.
+        $ \gamma  $ -- окружность на $ \Comp, \quad P(\Upsilon) $ -- окружность на $ S $.
     \end{center}
-
     \[
-        A\xi + B\xi + C\eta + D(1-\zeta) = 0,
+        | z |^2 = x^2 + y^2 = \frac{\zeta}{1 - \zeta}, \quad \left\{\begin{array}{l}
+            x = \frac{\xi}{1 - \zeta} \\
+            y = \frac{\eta}{1 - \zeta}
+        \end{array}\right.
     \]
     \[
-        \overline{\Comp} \coloneqq = \Comp \cup \{\infty\}, \quad P(\infty) \coloneqq N.
+        A\zeta + B\xi + C\eta + D(1-\zeta) = 0,
+    \]
+    \[
+        \overline{\Comp} \coloneqq \Comp \cup \{\infty\}, \quad P(\infty) \coloneqq N.
     \]
 \end{note}
+
+\newpage
 
 \subsection{Топология комплексной плоскости}
 
 \begin{note}
     $ M_1,M_2 \in \R^3 $,
     \[
-        dist(M_1,M_2)\coloneqq \sqrt{(\zeta_1 - \zeta_2)^2 + (\eta_1 - \eta_2)^2 + (\xi_1 - \xi_2)^2},
+        dist(M_1,M_2)\coloneqq \sqrt{(\xi_1 - \xi_2)^2 + (\eta_1 - \eta_2)^2 + (\zeta_1 - \zeta_2)^2},
     \]
-    $ d(z_1,z_2) = | z_1-z_2 |, \ z_1,z_2 \in \Comp $ -- расстояние на комплексной плоскости,
+    $ d(z_1,z_2) \coloneqq | z_1-z_2 |, \ z_1,z_2 \in \Comp $ -- расстояние на комплексной плоскости,
     \[
-        \rho(z_1,z_2) = dist\bigl(\rho(z_1),\rho(z_2)\bigr).
+        \rho(z_1,z_2) \coloneqq dist\bigl(P(z_1),P(z_2)\bigr).
+    \]
+    \begin{figure}[H]
+        \centering
+        \incfig{fig_03}
+        % \caption{Сфера Римана $ S $}
+        \label{fig:fig_03}
+    \end{figure}
+    \[
+       B_\epsilon(z_0)\coloneqq \{z \in \Comp : \ | z - z_0 | < \epsilon \}
     \]
 \end{note}
 
 \begin{definition}[Окрестность]
-    Множество называется \emph{окрестностью}, если оно содержит шар с центром в точке $ x_0 $.
+    Множество называется \emph{окрестностью} точки, если оно содержит шар с центром в этой точке.
+    \[
+       \text{Обозначение:} \quad O_z, \ z \in \overline{\Comp}.
+    \]
 \end{definition}
+
+\begin{note}
+    \[
+        \forall z \in \Comp \quad d(z,\infty) \coloneqq +\infty,
+    \]
+    \[
+        \begin{array}{c}
+            d: \ \Comp^2 \longrightarrow \R, \\
+            d: \ \Comp^2 \longrightarrow \overline{\R}, \\
+            \rho: \overline{\Comp^2} \longrightarrow \R, \quad \rho(z,\infty) \in \R.
+        \end{array}
+    \]
+\end{note}

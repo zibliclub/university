@@ -1,6 +1,6 @@
 %% Creator: Inkscape 1.3.1 (91b66b0, 2023-11-16), www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
-%% Accompanies image file 'fig_01.pdf' (pdf, eps, ps)
+%% Accompanies image file 'fig_02.pdf' (pdf, eps, ps)
 %%
 %% To include the image in your LaTeX document, write
 %%   \input{<filename>.pdf_tex}
@@ -50,18 +50,17 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.6)%
+  \begin{picture}(1,0.2998789)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
-    \put(0,0){\includegraphics[width=\unitlength,page=1]{fig_01.pdf}}%
-    \put(0.18605853,0.03079547){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$\xi$\end{tabular}}}}%
-    \put(0.51303065,0.04938357){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$z = (x,y)$\end{tabular}}}}%
-    \put(0.69435847,0.11488574){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$\eta$\end{tabular}}}}%
-    \put(0.40576396,0.52598773){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$\zeta$\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=2]{fig_01.pdf}}%
-    \put(0.4079497,0.31849246){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$\frac{1}{2}$\end{tabular}}}}%
-    \put(0.4079497,0.43490909){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$N$\end{tabular}}}}%
-    \put(0.18605853,0.03079547){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$\xi$\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=3]{fig_01.pdf}}%
+    \put(0.50679464,0.17187055){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$z = (x,y)$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{fig_02.pdf}}%
+    \put(0.44725263,0.01813642){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$1$\end{tabular}}}}%
+    \put(0.34789968,0.11582044){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$i$\end{tabular}}}}%
+    \put(0.35419042,0.01886839){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$0$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{fig_02.pdf}}%
+    \put(0.51075246,0.01813642){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$x$\end{tabular}}}}%
+    \put(0.34789968,0.15815397){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$y$\end{tabular}}}}%
+    \put(0.43283681,0.0637866){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$\phi$\end{tabular}}}}%
   \end{picture}%
 \endgroup%
