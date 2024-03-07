@@ -1,0 +1,472 @@
+\section{Теория рядов}
+
+\setcounter{subsection}{28}
+
+\subsection{Числовой ряд}
+
+\begin{definition}
+    \emph{Рядом} называется выражение:
+    \[
+        a_1 + a_2 + \ldots + a_n + \ldots, \quad a_i \in \R.
+    \]
+
+    \begin{equation}\label{eq:6.1}
+        \sum_{n=1}^{\infty}a_n
+    \end{equation}
+
+    Рассмотрим числа:
+    \begin{align*}
+         & A_1 = a_1,                      \\
+         & A_2 = a_1 + a_2,                \\
+         & \vdots                          \\
+         & A_n = a_1 + a_2 + \ldots + a_n.
+    \end{align*}
+
+    Числа $ A_1,A_2,\ldots,A_n $ называются \emph{частичными суммами ряда} \ref{eq:6.1}.
+\end{definition}
+
+\begin{remark}
+    Числа $ a_i $ называются \emph{членами ряда}, $ a_n $ -- \emph{$ n $-ым членом ряда}.
+\end{remark}
+
+\newpage
+
+\subsection{Сходимость числового ряда}
+
+\begin{definition}
+    Ряд \ref{eq:6.1} \emph{сходится}, если
+    \[
+        \exists \underset{n\rightarrow\infty}{\lim}A_n = A.
+    \]
+
+    Тогда сумма бесконечного ряда \ref{eq:6.1} полагается равной
+    \[
+        A = \sum_{n=1}^{\infty}a_n.
+    \]
+\end{definition}
+
+\subsection{Критерий Коши сходимости числовых рядов}
+
+\begin{theorem}
+    Ряд \ref{eq:6.1} сходится $\iff \forall \epsilon > 0 \ \exists N \in \mathbb{N}: \ \forall n > N, \ \forall p > 0$
+    \[
+        |a_{n+1} + \ldots + a_{n+p}| < \epsilon.
+    \]
+\end{theorem}
+
+\subsection{Необходимое условие сходимости числового ряда}
+
+\begin{theorem}
+    Ряд \ref{eq:6.1} сходится $ \implies $
+    \[
+        \underset{n\rightarrow\infty}{\lim}a_n = 0.
+    \]
+\end{theorem}
+
+\subsection{Теорема об остатке ряда}
+
+\begin{definition}
+    Пусть дан ряд \ref{eq:6.1}. Ряд вида
+    \begin{equation}\label{eq:6.3}
+        \sum_{n=m+1}^{\infty}a_n
+    \end{equation}
+    называется \emph{$ m $-ым остатным ряда} \ref{eq:6.1}.
+\end{definition}
+
+\begin{theorem}
+    Следующие условия эквивалентны:
+    \begin{enumerate}
+        \item Ряд \ref{eq:6.1} сходится.
+        \item Любой его остаток сходится.
+        \item Некоторый его остаток \ref{eq:6.3} сходится.
+    \end{enumerate}
+\end{theorem}
+
+\newpage
+
+\subsection{Теорема о сумме рядов и умножении ряда на число}
+
+\begin{theorem}
+    Ряды $ (A),(B) $ сходятся $ \implies $
+    \begin{enumerate}
+        \item $ \forall \alpha \in \R \ \sum_{n=1}^{\infty}\alpha a_n $ сходится и его сумма равна $ \alpha \cdot A, \ A = \sum_{n=1}^{\infty}a_n $.
+
+        \item Ряд $ (A+B) $ сходится и его сумма равна $ A^* + B^*, \ A^* = \sum_{n=1}^{\infty}a_n,$ $ B^* = \sum_{n=1}^{\infty}b_n $.
+    \end{enumerate}
+\end{theorem}
+
+\subsection{Положительный числовой ряд}
+
+\begin{definition}
+    Ряд $ (A) $ называется \emph{положительным}, если $ \forall n \ a_n>0 $.
+\end{definition}
+
+\subsection{Основная теорема о сходимости положительных рядов}
+
+\begin{theorem}\label{theorem:2.1}
+    Положительный ряд $ (A) $ сходится $ \iff \exists M > 0: \ \forall n \ A_n < M $.
+\end{theorem}
+
+\subsection{Первый признак сравнения}
+
+\begin{theorem}\label{theorem:6.2}
+    Даны $ (A),(B), \ \forall n \ a_n, b_n > 0, \ \exists N \in \mathbb{N}: \ \forall n > N \ a_n \leqslant b_n \implies $
+    \begin{enumerate}
+        \item Из сходимости $(B) \implies$ сходимость $(A)$.
+        \item Из расходимости $(A) \implies$ расходимость $(B)$.
+    \end{enumerate}
+\end{theorem}
+
+\subsection{Второй признак сравнения}
+
+\begin{theorem}
+    Даны $ (A),(B), \ \forall n \ a_n, b_n > 0, \ \underset{n\rightarrow\infty}{\lim}\frac{a_n}{b_n}=k \in [0;\infty] \implies $
+    \begin{enumerate}
+        \item При $k=\infty$ из сходимости $(A) \implies$ сходимость $(B)$.
+        \item При $k=0$ из сходимости $(B) \implies$ сходимость $(A)$.
+        \item Иначе $(A)$ и $(B)$ ведут себя одинаково.
+    \end{enumerate}
+\end{theorem}
+
+\newpage
+
+\subsection{Третий признак сравнения}
+
+\begin{theorem}
+    Даны $ (A),(B), \ \forall n \ a_n, b_n > 0, \ \exists N \in \N \cup \{0\}: \forall n > N \ \frac{a_{n+1}}{a_n}\leqslant\frac{b_{n+1}}{b_n} \implies$
+    \begin{enumerate}
+        \item Из сходимости $(B) \implies$ сходимость $(A)$.
+        \item Из расходимости $(A) \implies$ расходимость $(B)$.
+    \end{enumerate}
+\end{theorem}
+
+\subsection{Интегральный признак сходимости Коши-Маклорена}
+
+\begin{theorem}
+    Дан положительный ряд $ (A), \ f(x)$ удовлетворяет условиям:
+    \begin{enumerate}
+        \item $f(x): \ [1;+\infty) \rightarrow\R$.
+        \item $f(x)$ -- непрерывна.
+        \item $f(x)$ -- монотонна.
+        \item $f(x) = a_n, \ \forall n \in \N$.
+    \end{enumerate}
+
+    Тогда $(A)$ и $\int_{1}^{\infty}f(x)dx$ ведут себя одинаково.
+\end{theorem}
+
+\subsection{Радикальный признак Коши}
+
+\begin{theorem}
+    Дан положительный ряд $(A), \ \underset{n\rightarrow\infty}{\overline{\lim}}\sqrt[n]{a_n} = q\implies $
+    \begin{enumerate}
+        \item $q < 1: (A)$ сходится.
+        \item $q > 1: (A)$ расходится.
+        \item $q = 1: (A)$ может как сходиться, так и расходиться.
+    \end{enumerate}
+\end{theorem}
+
+\subsection{Признак Даламбера}
+
+\begin{theorem}
+    Дан положительный ряд $(A), \ \underset{n\rightarrow\infty}{\lim}\frac{a_{n+1}}{a_n} = d \implies $
+    \begin{enumerate}
+        \item $d < 1:(A)$ сходится.
+        \item $d > 1:(A)$ расходится.
+        \item $d = 1:(A)$ может как сходиться, так и расходиться.
+    \end{enumerate}
+\end{theorem}
+
+\newpage
+
+\subsection{Признак Раббе}
+
+\begin{theorem}
+    Дан положительный ряд $(A), \ \underset{n\rightarrow\infty}{\lim}n \cdot \left(\frac{a_n}{a_{n+1}} - 1\right) = r \implies $
+    \begin{enumerate}
+        \item $r>1: (A)$ сходится.
+        \item $r<1: (A)$ расходится.
+        \item $r=1: (A)$ может как сходиться, так и расходиться.
+    \end{enumerate}
+\end{theorem}
+
+\subsection{Признак Кумера}
+
+\begin{theorem}
+    Дан положительный ряд $(A), \ c_1,c_2,\ldots,c_n,\ldots: \ \forall n > N \ c_n > 0$ и ряд $\sum_{n=1}^{\infty}c_n$ расходится. Если
+    \[
+        \underset{n\rightarrow\infty}{\lim}\left(c_n \cdot \frac{a_n}{a_{n+1}} - c_{n+1}\right) = k,
+    \]
+    то
+    \begin{enumerate}
+        \item $k > 0: (A)$ сходится.
+        \item $k < 0: (A)$ расходится.
+        \item $k = 0: (A)$ может как сходиться, так и расходиться.
+    \end{enumerate}
+\end{theorem}
+
+\subsection{Признак Бертрана}
+
+\begin{theorem}
+    Дан положительный ряд $(A)$. Если
+    \[
+        \underset{n\rightarrow\infty}{\lim} \ln n \cdot \left[n \cdot \left(\frac{a_n}{a_{n+1}} - 1\right)\right] = B,
+    \]
+    то
+    \begin{enumerate}
+        \item $B > 1: (A)$ сходится.
+        \item $B < 1: (A)$ расходится.
+        \item $B = 1: (A)$ может как сходиться, так и расходиться.
+    \end{enumerate}
+\end{theorem}
+
+\newpage
+
+\subsection{Признак Гаусса}
+
+\begin{theorem}
+    Ряд $(A), \ a_n > 0, \ \forall n \in \N, \ \lambda, \mu \in \R$. Если
+    \[
+        \frac{a_n}{a_{n+1}} = \left(\lambda + \frac{\mu}{n}\right) + O\left(\frac{1}{n^2}\right),
+    \]
+    то
+    \begin{enumerate}
+        \item $\lambda > 1: (A)$ сходится.
+        \item $\lambda < 1: (A)$ расходится.
+        \item $\lambda = 1$ и \begin{enumerate}
+                  \item $\mu > 1 \implies (A)$ сходится.
+                  \item $\mu \leqslant 1 \implies (A)$ расходится.
+              \end{enumerate}
+    \end{enumerate}
+\end{theorem}
+
+\subsection{Знакопеременные ряды}
+
+\begin{note}
+    Дан ряд $(A)$. Если $\exists N: \ \forall n > N \ a_n$ не меняет знак, то исследование сходимости такого ряда сводится к исследованию сходимости положительных рядов. Будем считать, что «$+$» и «$-$» бесконечно много. Такие ряды будем называть \emph{знакопеременными}.
+\end{note}
+
+\subsection{Абсолютно сходящийся ряд}
+
+\begin{definition}
+    Ряд $(A)$ называется \emph{абсолютно сходящимся}, если сходится ряд
+    \[
+        (A^*) \ \sum_{n=1}^{\infty}|a_n|.
+    \]
+\end{definition}
+
+\subsection{Условно сходящийся ряд}
+
+\begin{definition}
+    Если ряд $(A)$ сходится, а ряд $(A^*)$ расходится, то ряд $(A)$ называется \emph{условно сходящимся}.
+\end{definition}
+
+\subsection{Следствие абсолютной сходимости ряда}
+
+\begin{statement}
+    Если ряд $(A)$ абсолютно сходящийся, то он сходящийся.
+\end{statement}
+
+\newpage
+
+\subsection{Знакочередующиеся ряды}
+
+\begin{definition}
+    Ряд $(A)$ называется \emph{знакочередующимся}, если $\forall n \in \N $ \\ $ a_n \cdot a_{n+1} < 0$. Обозначим знакочередующийся ряд:
+    \[
+        (\overline{A}) \ \sum_{n=1}^{\infty}(-1)^{n-1}\cdot a_n, \quad a_n > 0 \ \forall n \in\N.
+    \]
+\end{definition}
+
+\subsection{Признак Лейбница}
+
+\begin{theorem}
+    Пусть ряд $(\overline{A}), \forall n \ a_n > 0 $ удовлетворяет условиям:
+    \begin{enumerate}
+        \item $a_1 \geqslant a_2 \geqslant a_3 \geqslant \ldots \geqslant a_n \geqslant \ldots$.
+        \item $\underset{n\rightarrow\infty}{\lim} a_n = 0$.
+    \end{enumerate}
+
+    Тогда ряд $(\overline{A})$ сходится и его сумма $S: \ 0 < S \leqslant a_1$.
+\end{theorem}
+
+\subsection{Признак Абеля}
+
+\begin{theorem}
+    Если \begin{itemize}
+        \item последовательность $\{a_n\}$ монотонна и ограничена,
+        \item ряд $\sum_{n=1}^{\infty} b_n$ сходится,
+    \end{itemize}
+    то ряд $\sum_{n=1}^{\infty}a_n \cdot b_n$ сходится.
+\end{theorem}
+
+\subsection{Признак Дирихле}
+
+\begin{theorem}
+    Если \begin{itemize}
+        \item последовательность $\{a_n\}$ монотонна и $\underset{n\rightarrow\infty}{\lim}a_n = 0$,
+        \item частичные суммы ряда $(B)$ ограничены, то есть $\exists k > 0: $ \\ $ \forall n \ \left|\sum_{m=1}^{n} b_m\right|< k$,
+    \end{itemize}
+    то $\sum_{n=1}^{\infty}a_n \cdot b_n$ сходится.
+\end{theorem}
+
+\newpage
+
+\subsection{Сочетательное свойство сходящихся рядов}
+
+\begin{theorem}\leavevmode
+    \begin{enumerate}
+        \item Если ряд $(A)$ сходится, то для любой возрастающей последовательности $n_k$ ряд $(\widetilde{A})$ сходится и их суммы совпадают ($A = \widetilde{A}$).
+        \item Если ряд $(\widetilde{A})$ сходится и внутри каждой  скобки знак не меняется, то ряд $(A)$ сходится и их суммы совпадают, то есть $\widetilde{A} = A$.
+    \end{enumerate}
+\end{theorem}
+
+\subsection{Переместительное свойство сходящихся рядов}
+
+\begin{theorem}
+    Если ряд $(A)$ абсолютно сходится, то его сумма не зависит от перестановки членов ряда.
+\end{theorem}
+
+\subsection{Теорема Римана о перестановке членов условно сходящегося ряда}
+
+\begin{theorem}
+    Если ряд $(A)$ условно сходится, то $\forall B \in \R$ (в том числе $B = \pm\infty$) $\exists$ перестановка ряда $(A)$ такая, что полученный ряд сходится и имеет сумму $B$. Более того, $\exists$ перестановка ряда $(A)$ такая, что частичные суммы полученного ряда не стремятся ни к конечному, ни к бесконечному пределу.
+\end{theorem}
+
+\subsection{Произведение рядов}
+
+\begin{definition}
+    \emph{Произведением рядов} $(A)$ и $(B)$ назовем ряд, членами которого ялвяются элементы на строке таблицы $a_ib_j$, взятые в произвольном порядке.
+
+    Если числа выбираются по диагоналям, то произведение называется \emph{формой Коши}:
+    \[
+        a_1 b_1 + (a_1 b_2 + a_2 b_1) + \ldots
+    \]
+\end{definition}
+
+\subsection{Теорема Коши о произведении рядов}
+
+\begin{theorem}
+    Ряды $ (A),(B) $ абсолютно сходятся, $A, B$ -- их суммы $\implies \forall$ их произведение абсолютно сходится и равно $A \cdot B$.
+\end{theorem}
+
+\newpage
+
+\subsection{Повторный ряд}
+
+\begin{definition}
+    \emph{Повторным рядом} называются выражения
+    \begin{equation}\label{eq:6.6.1}
+        \sum_{n=1}^{\infty}\sum_{k=1}^{\infty}a_{nk},
+    \end{equation}
+    \begin{center}
+        и
+    \end{center}
+    \begin{equation}\label{eq:6.6.2}
+        \sum_{k=1}^{\infty}\sum_{n=1}^{\infty}a_{nk}.
+    \end{equation}
+
+    Ряд \ref{eq:6.6.1} сходится, если сходятся все ряды $(A_n)$ по строкам $(\sum_{k=1}^{\infty}a_{n_k} = A_n)$ и сходится ряд $ \sum_{n=1}^{\infty}A_n $.
+\end{definition}
+
+\subsection{Двойной ряд}
+
+\begin{definition}
+    \emph{Двойным рядом} называется выражение:
+    \begin{equation}\label{eq:6.6.3}
+        \sum_{n,k = 1}^{\infty} a_{nk}
+    \end{equation}
+
+    Ряд \ref{eq:6.6.3} сходится, если:
+    \[
+        \exists A = \underset{N\rightarrow\infty}{\underset{K\rightarrow\infty}{\lim}}A_{NK} = \underset{N\rightarrow\infty}{\underset{K\rightarrow\infty}{\lim}}\sum_{n=1}^{N}\sum_{k=1}^{K}a_{nk}.
+    \]
+
+    То есть $\forall \epsilon > 0 \ \exists N_0$ и $K_0: \ \forall N > N_0$ и $\forall k > K_0$
+    \[
+        \bigg|\underbrace{\sum_{n=1}^{N}\sum_{k=1}^{K}a_{nk}}_{A_{NK}} - A\bigg| < \epsilon.
+    \]
+\end{definition}
+
+\subsection{Простой ряд}
+
+\begin{definition}
+    Пусть ряд
+    \begin{equation}\label{eq:6.6.4}
+        \sum_{r=1}^{\infty}U_r
+    \end{equation}
+    построен из элементов таблицы, взятых в произвольном порядке. Такой ряд будем называть \emph{простым}, связанным с данной таблицей.
+\end{definition}
+
+\newpage
+
+\subsection{Теорема о связи сходимости простого и повторного рядов}
+
+\begin{theorem}\leavevmode
+    \begin{enumerate}
+        \item Ряд $ \sum_{r=1}^{\infty}U_r $ абсолютно сходится $\implies \sum_{n=1}^{\infty}\sum_{k=1}^{\infty}a_{nk} $ сходится и его сумма равна $U$.
+
+        \item Если после замены элементов таблицы $(\star)$ их модулями ряд \\ $ \sum_{n=1}^{\infty}\sum_{k=1}^{\infty}|a_{nk}| $ cходится, то ряд $ \sum_{r=1}^{\infty}U_r $ сходится абсолютно и суммы рядов $ \sum_{n=1}^{\infty}\sum_{k=1}^{\infty}a_{nk} $ и $ \sum_{r=1}^{\infty}U_r $ совпадают.
+    \end{enumerate}
+\end{theorem}
+
+\subsection{Свойства двойного ряда}
+
+\begin{theorem}\leavevmode
+    \begin{enumerate}
+        \item Если ряд $ \sum_{n,k = 1}^{\infty} a_{nk} $ сходится, то
+              \[
+                  \underset{k\rightarrow\infty}{\underset{n\rightarrow\infty}{\lim}}a_{nk} = 0.
+              \]
+
+        \item (Критерий Коши)
+              Ряд $ \sum_{n,k = 1}^{\infty} a_{nk} $ сходится $\iff \forall \epsilon > 0 \ \exists N_0,K_0: \ \forall n > N_0, \ \forall k > K_0, \ \forall p > 0, \ \forall q > 0$
+              \[
+                  \bigg|\sum_{n=1}^{p}\sum_{k=1}^{q}a_{(N_0 + n)(K_0 + k)}\bigg| < \epsilon.
+              \]
+
+        \item Если ряд $ \sum_{n,k = 1}^{\infty} a_{nk} $ сходится, то $\forall c \in \R$ ряд
+              \[
+                  \sum_{n,k=1}^{\infty}(c\cdot a_{nk})
+              \]
+              сходится, и его сумма равна $c\cdot A$ (где $A = \sum_{n,k=1}^{\infty}a_{nk}$).
+
+        \item Если ряд $ \sum_{n,k = 1}^{\infty} a_{nk} $ сходится и ряд
+              \[
+                  \sum_{n,k=1}^{\infty}b_{nk}
+              \]
+              сходится, то
+              \[
+                  \sum_{n,k=1}^{\infty}(a_{nk} + b_{nk}) = A + B,
+              \]
+              а к тому же -- сходится.
+
+        \item Если $\forall n, \ \forall k \ a_{nk} \geqslant 0$, то ряд $ \sum_{n,k = 1}^{\infty} a_{nk} $ сходится $ \iff $ его частичные суммы ограничены в совокупности.
+    \end{enumerate}
+\end{theorem}
+
+\subsection{Теорема о связи сходимости двойного и повторного рядов}
+
+\begin{theorem}
+    Если
+    \begin{itemize}
+        \item ряд $ \sum_{n,k = 1}^{\infty} a_{nk} $ сходится (двойной),
+        \item все ряды по строкам сходятся,
+    \end{itemize}
+    тогда повторный ряд $ \sum_{n=1}^{\infty}\sum_{k=1}^{\infty}a_{nk} $ сходится и
+    \[
+        A = \sum_{n=1}^{\infty}\sum_{k=1}^{\infty}a_{nk} = \sum_{n,k=1}^{\infty}a_{nk}.
+    \]
+\end{theorem}
+
+\subsection{Теорема о связи сходимости двойного и простого рядов}
+
+\begin{theorem}
+    Ряд $ \sum_{n,k = 1}^{\infty} |a_{nk}| $ сходится $ \implies $ сходится $ \sum_{r=1}^{\infty}U_r $.
+
+    И наоборот, если сходится $ \sum_{r=1}^{\infty}|U_r| \implies $ сходится $ \sum_{n,k = 1}^{\infty} a_{nk} $.
+
+    В обоих случаях суммы рядов равны:
+    \[
+        \sum_{n,k=1}^{\infty}a_{nk} = \sum_{r=1}^{\infty}U_r
+    \]
+\end{theorem}

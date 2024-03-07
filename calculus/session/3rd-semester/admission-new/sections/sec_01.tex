@@ -1,0 +1,63 @@
+\section{Функции многих переменных}
+
+\subsection{Производная функции по вектору}
+
+\begin{definition}
+    $ D \subset \R^n, \ f:D\rightarrow \R, \ x_0 \in D, \ \vec{v} \in T\R_{x_0}^n $. \emph{Производной функции $ f $ по вектору $ \vec{v} $} называется величина
+    \[
+        \frac{\partial f}{\partial \vec{v}}(x_0) = D_{\vec{v}} f(x_0) \coloneqq \underset{t \rightarrow 0}{\lim}\frac{f(x_0 + t\vec{v}) - f(x_0)}{t}\text{, если }\lim \exists.
+    \]
+\end{definition}
+
+\begin{note}
+    $ x = (x_1,x_2,x_3) = x(t), \ f\big(x(t)\big) = f(x_1,x_2,x_3) \implies $
+
+    \begin{multline*}
+        \frac{df\big(x(t)\big)}{dt} = \frac{\partial f}{\partial x_1} \cdot \frac{dx_1}{dt} + \frac{\partial f}{\partial x_2} \cdot \frac{dx_2}{dt} + \frac{\partial f}{\partial x_3} \cdot \frac{dx_3}{dt} = \\
+        = \frac{\partial f}{\partial x_1} \cdot v_1 + \frac{\partial f}{\partial x_2} \cdot v_2 + \frac{\partial f}{\partial x_3} \cdot v_3,
+    \end{multline*}
+    $ \vec{v} = \{v_1,v_2,v_3\}$ -- скорость частицы, перемещающейся по $\gamma$-ну $x(t)$.
+
+    $ T\R_{x_0}^n $ -- касательное пространство к $ \R^n $ в точке $ x_0 $, т.е. совокупность всех векторов, исходящих из точки $ x_0 $.
+\end{note}
+
+\subsection{Теорема о существовании производной функции по вектору}
+
+\begin{statement}
+    $ f:D\rightarrow\R $ диф-ма в $ x_0\in D \implies \forall \vec{v}\in T\R_{x_0}^n$
+    \[
+        \exists\frac{\partial f}{\partial \vec{v}}(x_0) = \frac{\partial f}{\partial x_1}(x_0) \cdot v_1 + \frac{\partial f}{\partial x_2}(x_0) \cdot v_2 + \ldots +\frac{\partial f}{\partial x_n}(x_0) \cdot v_n = df(x_0)\cdot \vec{v}.
+    \]
+\end{statement}
+
+\begin{note}
+    $ df(x_0)\cdot \vec{v} $ -- скалярное произведение,
+    \begin{align*}
+         & df(x_0) = \left\{\frac{\partial f}{\partial x_1}(x_0), \frac{\partial f}{\partial x_2}(x_0), \ldots, \frac{\partial f}{\partial x_n}(x_0)\right\}, \\
+         & \vec{v} = \{v_1,v_2,\ldots,v_n\}.
+    \end{align*}
+\end{note}
+
+\subsection{Градиент функции}
+
+\begin{definition}
+    $ D \subset \R^n, \ f:D\rightarrow \R $ диф-ма в $x_0 \in D, \ \vec{a} \in \R^n: \ df(x_0)\cdot h = \vec{a} \cdot h, \ h \in \mathbb{R}$ называется \emph{градиентом функции $f$ в} $x_0$ и обозначается
+    \[
+        gradf(x_0).
+    \]
+\end{definition}
+
+\begin{note}
+    Если в $\R^n$ зафиксировать ортонормированный базис, то
+    \[
+        gradf(x_0) = \left\{\frac{\partial f}{\partial x_1}(x_0),\frac{\partial f}{\partial x_2}(x_0),\ldots,\frac{\partial f}{\partial x_n}(x_0)\right\}.
+    \]
+\end{note}
+
+\newpage
+
+\subsection{Производная по направлению вектора}
+
+\begin{definition}
+    $ \vec{v}\in T\R_{x_0}^n, $ $ |\vec{v}| = 1 \implies \frac{\partial f}{\partial \vec{v}}(x) $ называется \emph{производной по направлению вектора} $ \vec{v} $.
+\end{definition}
