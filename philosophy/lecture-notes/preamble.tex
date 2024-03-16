@@ -1,0 +1,419 @@
+% basics
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[russian]{babel}
+\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    linkcolor={black},
+    citecolor={black},
+    urlcolor={blue!80!black}
+}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{enumitem}
+% \usepackage{parskip}
+\usepackage{emptypage}
+\usepackage{subcaption}
+\usepackage{multicol}
+\usepackage{faktor}
+\usepackage[usenames,dvipsnames]{xcolor}
+
+% \usepackage{cmbright}
+
+\newcommand\hmmax{0}
+\newcommand\bmmax{0}
+\usepackage{amsmath, amsfonts, mathtools, amsthm, amssymb, MnSymbol}
+\usepackage{mathrsfs}
+\usepackage{cancel}
+\usepackage{bm}
+\newcommand\N{\ensuremath{\mathbb{N}}}
+\newcommand\R{\ensuremath{\mathbb{R}}}
+\newcommand\Z{\ensuremath{\mathbb{Z}}}
+\renewcommand\O{\ensuremath{\emptyset}}
+\newcommand\Q{\ensuremath{\mathbb{Q}}}
+% \newcommand\C{\ensuremath{\mathbb{C}}}
+\DeclareMathOperator{\sgn}{sgn}
+\usepackage{systeme}
+\let\svlim\lim\def\lim{\svlim\limits}
+\let\implies\Rightarrow
+\let\impliedby\Leftarrow
+\let\iff\Leftrightarrow
+\let\epsilon\varepsilon
+\usepackage{stmaryrd} % for \lightning
+\newcommand\contra{\scalebox{1.1}{$\lightning$}}
+% \let\phi\varphi
+
+
+
+
+
+% correct
+\definecolor{correct}{HTML}{009900}
+\newcommand\correct[2]{\ensuremath{\:}{\color{red}{#1}}\ensuremath{\to }{\color{correct}{#2}}\ensuremath{\:}}
+\newcommand\green[1]{{\color{correct}{#1}}}
+
+
+
+% horizontal rule
+\newcommand\hr{
+    \noindent\rule[0.5ex]{\linewidth}{0.5pt}
+}
+
+
+% hide parts
+\newcommand\hide[1]{}
+
+
+
+% si unitx
+\usepackage{siunitx}
+\sisetup{locale = FR}
+% \renewcommand\vec[1]{\mathbf{#1}}
+\newcommand\mat[1]{\mathbf{#1}}
+
+
+% tikz
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{intersections, angles, quotes, calc, positioning}
+\usetikzlibrary{arrows.meta}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.13}
+
+
+\tikzset{
+    force/.style={thick, {Circle[length=2pt]}-stealth, shorten <=-1pt}
+}
+
+% theorems
+\makeatother
+\usepackage{thmtools}
+\usepackage[framemethod=TikZ]{mdframed}
+\mdfsetup{skipabove=1em,skipbelow=0em}
+
+
+\theoremstyle{definition}
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{ForestGreen!70!black}, bodyfont=\normalfont,
+    mdframed={
+            linewidth=2pt,
+            rightline=false, topline=false, bottomline=false,
+            linecolor=ForestGreen, backgroundcolor=ForestGreen!5,
+        }
+]{thmgreenbox}
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{NavyBlue!70!black}, bodyfont=\normalfont,
+    mdframed={
+            linewidth=2pt,
+            rightline=false, topline=false, bottomline=false,
+            linecolor=NavyBlue, backgroundcolor=NavyBlue!5,
+        }
+]{thmbluebox}
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{NavyBlue!70!black}, bodyfont=\normalfont,
+    mdframed={
+            linewidth=2pt,
+            rightline=false, topline=false, bottomline=false,
+            linecolor=NavyBlue
+        }
+]{thmblueline}
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{RawSienna!70!black}, bodyfont=\normalfont,
+    mdframed={
+            linewidth=2pt,
+            rightline=false, topline=false, bottomline=false,
+            linecolor=RawSienna, backgroundcolor=RawSienna!5,
+        }
+]{thmredbox}
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{RawSienna!70!black}, bodyfont=\normalfont,
+    numbered=no,
+    mdframed={
+            linewidth=2pt,
+            rightline=false, topline=false, bottomline=false,
+            linecolor=RawSienna, backgroundcolor=RawSienna!1,
+        },
+    qed=\qedsymbol
+]{thmproofbox}
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{NavyBlue!70!black}, bodyfont=\normalfont,
+    numbered=no,
+    mdframed={
+            linewidth=2pt,
+            rightline=false, topline=false, bottomline=false,
+            linecolor=NavyBlue, backgroundcolor=NavyBlue!1,
+        },
+]{thmexplanationbox}
+
+
+
+% \declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, mdframed={ nobreak } ]{thmgreenbox}
+% \declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, mdframed={ nobreak } ]{thmredbox}
+% \declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont]{thmbluebox}
+% \declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont]{thmblueline}
+% \declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, numbered=no, mdframed={ rightline=false, topline=false, bottomline=false, }, qed=\qedsymbol ]{thmproofbox}
+% \declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, numbered=no, mdframed={ nobreak, rightline=false, topline=false, bottomline=false } ]{thmexplanationbox}
+
+\declaretheorem[style=thmgreenbox, name=Определение]{definition}
+\declaretheorem[style=thmbluebox, numbered=no, name=Пример]{example}
+\declaretheorem[style=thmredbox, name=Предположение]{prop}
+\declaretheorem[style=thmredbox, name=Теорема]{theorem}
+\declaretheorem[style=thmredbox, name=Лемма]{lemma}
+\declaretheorem[style=thmredbox, numbered=no, name=Утверждение]{statement}
+\declaretheorem[style=thmredbox, numbered=no, name=Следствие]{corollary}
+
+\declaretheorem[style=thmproofbox, name=Доказательство]{replacementproof}
+\renewenvironment{proof}[1][\proofname]{\vspace{-10pt}\begin{replacementproof}}{\end{replacementproof}}
+
+
+\declaretheorem[style=thmexplanationbox, name=Доказательство]{tmpexplanation}
+\newenvironment{explanation}[1][]{\vspace{-10pt}\begin{tmpexplanation}}{\end{tmpexplanation}}
+
+\declaretheorem[style=thmblueline, numbered=no, name=Замечание]{remark}
+\declaretheorem[style=thmblueline, numbered=no, name=Примечание]{note}
+\declaretheorem[style=thmblueline, numbered=no, name=Задача]{task}
+
+
+
+\usepackage{etoolbox}
+\AtEndEnvironment{vb}{\null\hfill$\diamond$}%
+\AtEndEnvironment{intermezzo}{\null\hfill$\diamond$}%
+% \AtEndEnvironment{opmerking}{\null\hfill$\diamond$}%
+
+% http://tex.stackexchange.com/questions/22119/how-can-i-change-the-spacing-before-theorems-with-amsthm
+\makeatletter
+% \def\thm@space@setup{%
+%   \thm@preskip=\parskip \thm@postskip=0pt
+% }
+
+\newcommand{\oefening}[1]{%
+    \def\@oefening{#1}%
+    \subsection*{Oefening #1}
+}
+
+\newcommand{\suboefening}[1]{%
+    \subsubsection*{Oefening \@oefening.#1}
+}
+
+\newcommand{\exercise}[1]{%
+    \def\@exercise{#1}%
+    \subsection*{Exercise #1}
+}
+
+\newcommand{\subexercise}[1]{%
+    \subsubsection*{Exercise \@exercise.#1}
+}
+
+
+\usepackage{xifthen}
+
+\def\testdateparts#1{\dateparts#1\relax}
+\def\dateparts#1 #2 #3 #4 #5\relax{
+    \marginpar{\small\textsf{\mbox{#1 #2 #3 #5}}}
+}
+
+\def\@lesson{}%
+\newcommand{\lesson}[3]{
+    \ifthenelse{\isempty{#3}}{%
+        \def\@lesson{Лекция #1}%
+    }{%
+        \def\@lesson{Лекция #1: #3}%
+    }%
+    \subsection*{\@lesson}
+    \testdateparts{#2}
+}
+
+% \renewcommand\date[1]{\marginpar{#1}}
+
+
+% fancy headers
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% \fancyhead[LE,RO]{Gilles Castel}
+\fancyhead[RO,LE]{\@lesson}
+\fancyhead[RE,LO]{}
+\fancyfoot[LE,RO]{\thepage}
+\fancyfoot[C]{\leftmark}
+
+\makeatother
+
+
+
+
+% notes
+\usepackage{todonotes}
+\usepackage{tcolorbox}
+
+\tcbuselibrary{breakable}
+\newenvironment{verbetering}{\begin{tcolorbox}[
+            arc=0mm,
+            colback=white,
+            colframe=green!60!black,
+            title=Opmerking,
+            fonttitle=\sffamily,
+            breakable
+        ]}{\end{tcolorbox}}
+
+\newenvironment{noot}[1]{\begin{tcolorbox}[
+            arc=0mm,
+            colback=white,
+            colframe=white!60!black,
+            title=#1,
+            fonttitle=\sffamily,
+            breakable
+        ]}{\end{tcolorbox}}
+
+
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+% %http://tex.stackexchange.com/questions/76273/multiple-pdfs-with-page-group-included-in-a-single-page-warning
+\pdfsuppresswarningpagegroup=1
+
+\makeatletter
+\DeclareRobustCommand*{\mfaktor}[3][]
+{
+    { \mathpalette{\mfaktor@impl@}{{#1}{#2}{#3}} }
+}
+\newcommand*{\mfaktor@impl@}[2]{\mfaktor@impl#1#2}
+\newcommand*{\mfaktor@impl}[4]{
+    \settoheight{\faktor@zaehlerhoehe}{\ensuremath{#1#2{#3}}}%
+    \settoheight{\faktor@nennerhoehe}{\ensuremath{#1#2{#4}}}%
+    \raisebox{-0.5\faktor@zaehlerhoehe}{\ensuremath{#1#2{#3}}}%
+    \mkern-4mu\diagdown\mkern-5mu%
+    \raisebox{0.5\faktor@nennerhoehe}{\ensuremath{#1#2{#4}}}%
+}
+\makeatother
+
+\DeclareMathOperator{\Ker}{ker}
+\DeclareMathOperator{\im}{Im}
+
+\newcommand{\verteq}[0]{\rotatebox{90}{$=$}}
+\newcommand{\vertneq}[0]{\rotatebox{90}{$\ne$}}
+\newcommand{\equalto}[2]{\underset{\scriptstyle\overset{\mkern4mu\verteq}{#2}}{#1}}
+\newcommand{\nequalto}[2]{\underset{\scriptstyle\overset{\mkern4mu\vertneq}{#2}}{#1}}
+
+% for \xrightrightarrows
+% из-за другого шрифта (наверное), стрелки съезжают, надо поправить
+\makeatletter
+\newcommand*{\relrelbarsep}{.340ex}
+\newcommand*{\relrelbar}{%
+    \mathrel{%
+        \mathpalette\@relrelbar\relrelbarsep
+    }%
+}
+\newcommand*{\@relrelbar}[2]{%
+    \raise#2\hbox to 0pt{$\m@th#1\relbar$\hss}%
+    \lower#2\hbox{$\m@th#1\relbar$}%
+}
+\providecommand*{\rightrightarrowsfill@}{%
+    \arrowfill@\relrelbar\relrelbar\rightrightarrows
+}
+\providecommand*{\leftleftarrowsfill@}{%
+    \arrowfill@\leftleftarrows\relrelbar\relrelbar
+}
+\providecommand*{\nrightrightarrowsfill@}{%
+    \arrowfill@\relrelbar\relrelbar\nrightrightarrows
+}
+\providecommand*{\nleftleftarrowsfill@}{%
+    \arrowfill@\nleftleftarrows\relrelbar\relrelbar
+}
+\providecommand*{\xrightrightarrows}[2][]{%
+    \ext@arrow 0359\rightrightarrowsfill@{#1}{#2}%
+}
+\providecommand*{\xleftleftarrows}[2][]{%
+    \ext@arrow 3095\leftleftarrowsfill@{#1}{#2}%
+}
+\providecommand*{\xnrightrightarrows}[2][]{%
+    \ext@arrow 0359\nrightrightarrowsfill@{#1}{#2}%
+}
+\providecommand*{\xnleftleftarrows}[2][]{%
+    \ext@arrow 3095\nleftleftarrowsfill@{#1}{#2}%
+}
+\makeatother
+
+\makeatletter
+\newcommand*{\da@rightarrow}{\mathchar"0\hexnumber@\symAMSa 4B }
+\newcommand*{\da@leftarrow}{\mathchar"0\hexnumber@\symAMSa 4C }
+\newcommand*{\xdashrightarrow}[2][]{%
+    \mathrel{%
+        \mathpalette{\da@xarrow{#1}{#2}{}\da@rightarrow{\,}{}}{}%
+    }%
+}
+\newcommand{\xdashleftarrow}[2][]{%
+    \mathrel{%
+        \mathpalette{\da@xarrow{#1}{#2}\da@leftarrow{}{}{\,}}{}%
+    }%
+}
+\newcommand*{\da@xarrow}[7]{%
+    % #1: below
+    % #2: above
+    % #3: arrow left
+    % #4: arrow right
+    % #5: space left 
+    % #6: space right
+    % #7: math style 
+    \sbox0{$\ifx#7\scriptstyle\scriptscriptstyle\else\scriptstyle\fi#5#1#6\m@th$}%
+    \sbox2{$\ifx#7\scriptstyle\scriptscriptstyle\else\scriptstyle\fi#5#2#6\m@th$}%
+    \sbox4{$#7\dabar@\m@th$}%
+    \dimen@=\wd0 %
+    \ifdim\wd2 >\dimen@
+        \dimen@=\wd2 %   
+    \fi
+    \count@=2 %
+    \def\da@bars{\dabar@\dabar@}%
+    \@whiledim\count@\wd4<\dimen@\do{%
+        \advance\count@\@ne
+        \expandafter\def\expandafter\da@bars\expandafter{%
+            \da@bars
+            \dabar@
+        }%
+    }%  
+    \mathrel{#3}%
+    \mathrel{%   
+        \mathop{\da@bars}\limits
+        \ifx\\#1\\%
+        \else
+            _{\copy0}%
+        \fi
+        \ifx\\#2\\%
+        \else
+            ^{\copy2}%
+        \fi
+    }%   
+    \mathrel{#4}%
+}
+\makeatother
+
+\newcommand\xdownarrow[1][2ex]{%
+    \mathrel{\rotatebox[origin=c]{-90}{$\xrightarrow{\rule{#1}{0pt}}$}}
+}
+\newcommand\xdashdownarrow[1][2ex]{%
+    \mathrel{\rotatebox[origin=c]{-90}{$\xdashrightarrow{\rule{#1}{0pt}}$}}
+}
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+        \node[shape=circle,draw,inner sep=1pt] (char) {#1};}
+}
+
+\newcommand{\RomanNumeralCaps}[1]
+    {\MakeUppercase{\romannumeral #1}}
+
+\author{Данил Заблоцкий}
