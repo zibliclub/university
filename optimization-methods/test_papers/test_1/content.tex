@@ -1,0 +1,164 @@
+\section{Линейное программирование}
+
+\subsection{Основные понятия и постановки задач}
+
+\begin{definition}
+    \emph{Задачей линейного программирования (ЛП)} называется задача поиска $\min/\max$ линейной функции на множестве, описываемом линейными ограничениями. 
+        
+    \emph{Общая задача ЛП} имеет вид:
+        \begin{equation}\label{eq:1.1}
+            f(x)=c_{0}+\sum_{j=1}^{n}c_jx_j \rightarrow \max \ (\min)
+        \end{equation}
+        \begin{equation}\label{eq:1.2}
+            \sum_{j=1}^{n}a_{ij}x_{j} \leqslant b_{i}, \quad i = \overline{1,k},
+        \end{equation}
+        \begin{equation}\label{eq:1.3}
+            \sum_{j=1}^{n}a_{ij}x_{j} \geqslant b_{i}, \quad i = k + \overline{1,l},
+        \end{equation}
+        \begin{equation}\label{eq:1.4}
+            \sum_{j=1}^{n}a_{ij}x_{j} \geqslant b_{i}, \quad i = l + \overline{1,m},
+        \end{equation}
+        \begin{equation}\label{eq:1.5}
+            x_{j} \geqslant 0, \quad j \in J \subseteq \{1,\ldots,n\},
+        \end{equation}
+    где $x = (x_1,\ldots,x_n)\in R^n$ -- вектор переменных. Функция $f(x)$ называется \emph{целевой}, а условия (\ref{eq:1.2})-(\ref{eq:1.5}) -- \emph{ограничениями задачи}, причем в одной задаче ЛП не обязаны присутствовать ограничения всех трех типов.
+\end{definition}
+
+\begin{definition}
+    Вектор $x \in R^{n}$, удовлетворяющий ограничениям задачи, называется \emph{допустимым решением задачи ЛП}.
+
+    Множество всех допустимых решений будем обозначать через $\mathfrak{D}$.
+\end{definition}
+
+\begin{definition}
+    Вектор $x^{*} \in \mathfrak{D}$ называется \emph{оптимальным решением} задачи ЛП, если $\forall x \in \mathfrak{D} \ f(x^{*}) \geqslant f(x)$ в задаче максимизации или $f(x^{*}) \leqslant f(x)$ в задаче минимизации.
+\end{definition}
+
+\begin{definition}
+    Задача (\ref{eq:1.1})-(\ref{eq:1.5}) называется \emph{разрешимой}, если она имеет оптимальное решение, иначе -- \emph{неразрешимой}.
+\end{definition}
+
+\begin{definition}
+    Две задачи ЛП $P_1$ и $P_2$ называются \emph{эквивалентными}, если любому допустимому решению задачи $P_1$ соответствует некоторое допустимое решение задачи $P_2$ и наоборот; причем оптимальному решению одной задачи соответствует некоторое оптимальное решение другой задачи.
+\end{definition}
+
+\begin{theorem}
+    Для любой задачи ЛП существует эквивалентная ей \emph{каноническая} задача ЛП.
+\end{theorem}
+
+\begin{theorem}
+    Для любой задачи ЛП существует эквивалентная ей \emph{стандартная} задача ЛП.
+\end{theorem}
+
+\begin{theorem}
+    Если целевая функция задачи ЛП ограничена сверху (снизу) на непустом множестве допустимых решений, то задача максимизации (минимизации) имеет оптимальное решение.
+\end{theorem}
+
+\subsection{Графическое решение задач линейного программирования}
+
+\begin{theorem}
+  Если задача ЛП разрешима, и ее многонранное множество имеет хотя бы одну вершину, то существует вершина этого множества, в которой целевая функция достигает своего оптимального значения.
+\end{theorem}
+
+\newpage
+
+\section{Симплекс-метод решения задач линейного программирования}
+
+\subsection{Необходимые теоретические сведения}
+
+Рассмотрим каноническую задачу ЛП (КЗЛП):
+\begin{equation}\label{eq:2.1}
+  f(x)=c_0 + \sum^{n}_{j=1}c_jx_j\rightarrow \max
+\end{equation}
+\begin{equation}\label{eq:2.2}
+  \sum_{j=1}^{n}a_{ij}x_j=b_i,\quad i=\overline{1,m}, 
+\end{equation}
+\begin{equation}\label{eq:2.3}
+  x_j \geqslant 0,\quad j = \overline{1,n}.
+\end{equation}
+
+\begin{definition}
+  Система линейный уравнений (\ref{eq:2.2}) называется \emph{системой с базисом}, если в каждом уравнении имеется переменная, которая входит в него с коэффициентом $ +1 $ и отсутствует в остальных уравнениях. Такие переменные называются \emph{базисными}, а остальные -- \emph{небазисными}.
+\end{definition}
+
+\begin{definition}
+  Каноническая задача ЛП называется \emph{приведенной задачей ЛП (ПЗЛП)}, если:
+    \begin{enumerate}
+        \item Система уравнений (\ref{eq:2.2}) есть система с базисом.
+        \item Целевая функция $ f(x) $ выражена только через небазисные переменные.
+    \end{enumerate}
+\end{definition}
+
+Введем обозначения для вектор-столбцов, составленных из коэффициентов системы (\ref{eq:2.2}):
+\[
+    A_1 = \left(\begin{matrix}
+        a_{11} \\ \vdots \\ a_{m1}
+    \end{matrix}\right), \quad A_2 = \left(\begin{matrix}
+        a_{12} \\ \vdots \\ a_{m2}
+    \end{matrix}\right), \quad \ldots, \quad A_n = \left(\begin{matrix}
+        a_{1n} \\ \vdots \\ a_{mn}
+    \end{matrix}\right). 
+\]
+
+\begin{definition}
+  Решение $ x = (x_1,\ldots,x_n) $ системы линейных уравнений (\ref{eq:2.2}) называется \emph{базисным}, если система вектор-столбцов $ A_j $, соответствующих ненулевым компонентам $ x_j $, линейно независима.
+\end{definition}
+
+\begin{definition}
+  Неотрицательное базисное решение системы линейных уравнений (\ref{eq:2.2}) называется \emph{базисным} решением канонической задачи ЛП.
+\end{definition}
+
+\begin{definition}
+  Базисное решение канонической задачи ЛП называется \emph{невыроженным}, если значения всех базисных переменных отличны от нуля.
+
+    Если все базисные решения канонической задачи ЛП являются невырожденными, то задача также называется \emph{невыроженной}.
+\end{definition}
+
+\begin{theorem}
+  Если каноническая задача ЛП разрешима, то существует ее оптимальное базисное решение.
+\end{theorem}
+
+\subsection{Метод искусственного базиса}
+
+\begin{theorem}
+  Если множество допустимых решений канонической задачи ЛП непусто, то существует эквивалентная ей приведенная задача ЛП, обладающая начальным базисным решением.
+\end{theorem}
+
+\section{Двойственность в линейном программировании}
+
+\subsection{Двойственные задачи и теоремы двойственности}
+
+Рассмотрим пару задач ЛП следующего вида:
+\[
+    \begin{array}{lcl}
+        \qquad \qquad \qquad (\text{\RomanNumeralCaps{1}}) & & \qquad \qquad (\text{\RomanNumeralCaps{2}}) \\
+        f(x) = \sum_{j=1}^{n}c_jx_j \rightarrow \max & \longleftrightarrow & g(y) = \sum_{i=1}^{m}b_iy_i \rightarrow \min \\
+        \sum_{j=1}^{n}a_{ij}x_jjk \leqslant b_i, \quad i = \overline{1,k}, & \longleftrightarrow & y_i \geqslant 0, \quad i = \overline{1,k}, \\
+        \sum_{j=1}^{n}a_{ij}x_jjk = b_i, \quad i = k + \overline{1,m}, & \longleftrightarrow & y_i \in R, \quad i = k + \overline{1,m}, \\
+    x_j \geqslant 0, \quad j = \overline{1,l}, & \longleftrightarrow & \sum_{i=1}^{m}a_{ij}y_i \geqslant c_j, \quad j = \overline{1,l}, \\
+        x_j \in R, \quad j = l + \overline{1,n}. & \longleftrightarrow & \sum_{i=1}^{m}a_{ij}y_i = c_j, \quad j = l + \overline{1,n}.
+    \end{array}    
+\]
+
+\begin{definition}
+  Задачи (\RomanNumeralCaps{1}) и (\RomanNumeralCaps{2}) называются \emph{взаимно двойственными}, а ограничения задач, соответствующие друг другу, назваются \emph{сопряженными} (они отмечены стрелками).
+
+    Далее через $ \mathfrak{D}_\text{\RomanNumeralCaps{1}} $ и $ \mathfrak{D}_\text{\RomanNumeralCaps{2}} $ обозначим множества допустимых решений задач (\RomanNumeralCaps{1}) и (\RomanNumeralCaps{2}) соответственно.
+\end{definition}
+
+\begin{theorem}[Первая теорема двойственности]
+  Если одна из пары двойственных задач (\RomanNumeralCaps{1}),(\RomanNumeralCaps{2}) разрешима, то разрешима и другая задача, причем оптимальные значения целевых функций совпадают, то есть $ f(x^{*}) = g(y^*) $, где $ x^*,y^* $ -- оптимальные решения задач (\RomanNumeralCaps{1}) и (\RomanNumeralCaps{2}) соответственно.
+\end{theorem}
+
+\begin{definition}
+  Говорят, что решения $ x \in \mathfrak{D}_\text{\RomanNumeralCaps{1}}, \ y \in \mathfrak{D}_\text{\RomanNumeralCaps{2}} $ удовлетворяют \emph{условиям дополняющей нежесткости (УДН)}, если при подстановке этих векторов в любую пару сопряженных неравенств хотя бы одно из них обращается в равенство.
+
+    Это означает, что если вектора $ x,y $ удовлетворяют УДН, то следующие \emph{характеристические произведения} равны нулю:
+    \[
+        \left(\sum_{j=1}^{n}a_{ij}x_j - b_i\right)y_i = 0, \quad i = \overline{1,k}, \qquad x_j \left(\sum_{i=1}^{m}a_{ij}y_i - c_j\right) = 0, \quad j = \overline{1,l}.  
+    \]
+\end{definition}
+
+\begin{theorem}[Вторая теорема двойственности]
+  Решения $ x \in \mathfrak{D}_\text{\RomanNumeralCaps{1}}, \ y \in \mathfrak{D}_\text{\RomanNumeralCaps{2}} $ оптимальны в задачах (\RomanNumeralCaps{1}),(\RomanNumeralCaps{2}) $ \iff $ они удовлетворяют УДН.
+\end{theorem}
