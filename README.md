@@ -16,16 +16,3 @@ Lessons are divided into folders, depending on the availability of notes or othe
 
 > [!NOTE] 
 > For **hyperlinks** to work in .pdf files, you need to download the file.
- 
-| Lesson                                            | Lecture notes | Practices | Exam         |
-| ------------------------------------------------- | ------------- | --------- | ------------ |
-| Calculus                                          | 3rd semester  | ✘         | 3rd semester |
-| Comprehensive analysis                            | ✔︎             | ✘         | ✘            |
-| Differential equations                            | ✔︎             | ✘         | ✘            |
-| Discrete mathematics and mathematical logic       | ✘             | ✘         | ✔︎            |
-| Graph Theory and Combinatorial Algorithms         | ✘             | ✘         | ✔︎            |
-| Optimization methods                              | ✔︎             | ✘         | ✘            |
-| Programming languages and methods                 | ✘             | Labs 1-5  | ✘            |
-| Probability theory                                | ✔︎             | ✘         | ✘            |
-| Theory of algorithms and computational complexity | ✔︎             | ✘         | ✘            |
-| Theory of automata and formal languages           | ✔︎             | ✘         | ✘            |
