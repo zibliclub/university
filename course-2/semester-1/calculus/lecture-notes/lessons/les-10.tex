@@ -1,0 +1,284 @@
+\lesson{10}{от 13 окт 2023 8:46}{Продолжение}
+
+
+\section{Двойные и повторные ряды}
+
+\begin{note}
+    Рассмотрим таблицу:
+    \begin{center}
+        $(\star) \quad$ \begin{tabular}{c | c | c | c | c | c}
+            $a_{11}$ & $a_{12}$ & $a_{13}$ & $\cdots$ & $a_{1k}$ & $\cdots$ \\
+            \hline
+            $a_{21}$ & $a_{22}$ & $a_{23}$ & $\cdots$ & $a_{2k}$ & $\cdots$ \\
+            \hline
+            $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & $\vdots$ & $\ddots$ \\
+            \hline
+            $a_{n1}$ & $a_{n2}$ & $a_{n3}$ & $\cdots$ & $a_{nk}$ & $\cdots$ \\
+            \hline
+            $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & $\vdots$ & $\ddots$ \\
+        \end{tabular}
+    \end{center}
+\end{note}
+
+\begin{definition}[Повторный ряд]
+    \emph{Повторным рядом} называются выражения
+    \begin{equation}\label{eq:6.6.1}
+        \sum_{n=1}^{\infty}\sum_{k=1}^{\infty}a_{nk},
+    \end{equation}
+    \begin{center}
+        и
+    \end{center}
+    \begin{equation}\label{eq:6.6.2}
+        \sum_{k=1}^{\infty}\sum_{n=1}^{\infty}a_{nk}.
+    \end{equation}
+
+    Говорят, что ряд \ref{eq:6.6.1} сходится, если сходятся все ряды $(A_n)$ по строкам $(\sum_{k=1}^{\infty}a_{n_k} = A_n)$ и сходится ряд $ \sum_{n=1}^{\infty}A_n $.
+\end{definition}
+
+\begin{definition}[Двойной ряд]
+    \emph{Двойным рядом} называется выражение:
+    \begin{equation}\label{eq:6.6.3}
+        \sum_{n,k = 1}^{\infty} a_{nk}
+    \end{equation}
+
+    Говорят, что ряд \ref{eq:6.6.3} сходится, если:
+    \[
+        \exists A = \underset{N\rightarrow\infty}{\underset{K\rightarrow\infty}{\lim}}A_{NK} = \underset{N\rightarrow\infty}{\underset{K\rightarrow\infty}{\lim}}\sum_{n=1}^{N}\sum_{k=1}^{K}a_{nk}.
+    \]
+
+    То есть $\forall \epsilon > 0 \ \exists N_0$ и $K_0: \ \forall N > N_0$ и $\forall k > K_0$
+    \[
+        \bigg|\underbrace{\sum_{n=1}^{N}\sum_{k=1}^{K}a_{nk}}_{A_{NK}} - A\bigg| < \epsilon.
+    \]
+\end{definition}
+
+\begin{definition}[Простой ряд]
+    Пусть ряд
+    \begin{equation}\label{eq:6.6.4}
+        \sum_{r=1}^{\infty}U_r
+    \end{equation}
+    построен из элементов таблицы, взятых в произвольном порядке. Такой ряд будем называть \emph{простым}, связанным с данной таблицей.
+\end{definition}
+
+\begin{theorem}[О связи сходимости простого и повторного рядов]\leavevmode
+    \begin{enumerate}
+        \item Если ряд \ref{eq:6.6.4} абсолютно сходится, то ряд \ref{eq:6.6.1} сходится и его сумма равна $U$.
+
+        \item Если после замены элементов таблицы $(\star)$ их модулями ряд \ref{eq:6.6.1}$ ^* $ ходится, то ряд \ref{eq:6.6.4} сходится абсолютно и суммы рядов \ref{eq:6.6.1} (без модулей) и \ref{eq:6.6.4} совпадают.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}\leavevmode
+    \begin{enumerate}
+        \item Пусть \ref{eq:6.6.1}$ ^* $ сходится. Покажем, что все ряды по строкам сходятся:
+              \[
+                  (A_n) \ \sum_{k=1}^{\infty}a_{nk} \quad (\forall n \in \N)
+              \]
+              и сходится ряд $ \sum_{n=1}^{\infty}A_n $.
+
+              Рассмотрим
+              \[
+                  |a_{n1}| + |a_{n2}| + \ldots + |a_{nk}| \leqslant |u_1| + |u_2| + \ldots + |u_r|,
+              \]
+              где $r$ выбран таким образом, чтобы среди $|u_i|$ были все слагаемые $|a_{n1}, \ldots, a_{nk}|$.
+
+              Таким образом,
+              \[
+                  \underbrace{|a_{n1}| + \ldots + |a_{nk}|}_{A_{nk}^*} \leqslant U^* \implies \exists \underset{k\rightarrow\infty}{\lim}A_{nk}^* = A_n^* \implies
+              \]
+              $\implies$ ряд $\sum_{k=1}^{\infty}a_{nk} \ \forall n \in \mathbb{N}$ сходится абсолютно $\implies$ он сходится.
+
+              Далее, пусть $\epsilon > 0$ задано. Выберем номер $r_0: \ \forall r > r_0$
+              \[
+                  \sum_{i=1}^{\infty}|u_{r+i}| < \frac{\epsilon}{3}.
+              \]
+
+              Тогда
+              \[
+                  \bigg|\sum_{i=1}^{r} u_i - U\bigg| = \bigg| \sum_{i=1}^{\infty}u_{r + i}\bigg| \leqslant \sum_{i=1}^{\infty}|u_{r + i}| < \frac{\epsilon}{3}
+              \]
+
+              Так как ряды по строкам сходятся, то $\forall n$ выберем $m(n)$:
+              \[
+                  \bigg|\sum_{k=1}^{m(n)}a_{n_k} - A_n\bigg| < \frac{\epsilon}{3}.
+              \]
+
+              Наконец, выберем номер $N_0$ такой, что все числа $u_1, u_2,\ldots, u_{r_0}$ содержались бы в первых $N_0$ строках:
+              \begin{multline*}
+                  \bigg|\sum_{n=1}^{N_0}A_n - U\bigg| = \\
+                  = \bigg|\sum_{n=1}^{N_0}A_n - \sum_{n=1}^{N_0}\sum_{k=1}^{m(n)}a_{n_k} + \sum_{n=1}^{N_0}\sum_{k=1}^{m(n)}a_{n_k} - \sum_{i=1}^{r_0}u_i + \sum_{i=1}^{r_0}u_i - U\bigg| \leqslant \\
+                  \leqslant \sum_{n=1}^{N_0}\bigg|A_n - \sum_{k=1}^{m(n)}a_{n_k}\bigg| + \bigg|\sum_{n=1}^{N_0}\sum_{k=1}^{m(n)}a_{n_k} - \sum_{i=1}^{r_0}u_i\bigg| + \underbrace{\bigg|\sum_{i=1}^{r_0}u_i - U\bigg|}_{<\frac{\epsilon}{3}} < \\
+                  < \frac{\epsilon}{3} + \sum_{i=r_0 + 1}^{\infty}(u_i) + \frac{\epsilon}{3} < \frac{\epsilon}{3} \cdot 3 = \epsilon.
+              \end{multline*}
+
+        \item Пусть ряд $\sum_{n=1}^{\infty}\sum_{k=1}^{\infty}|a_{n_k}| = A^*$ сходится.
+
+              Тогда $\forall r \ \exists N,K$ такие, что числа $u_1,\ldots,u_r$ содержатся в $N$ первых строчках и $K$ первых столбцах таблицы:
+              \[
+                  \sum_{i=1}^{r}|u_i| \leqslant \sum_{n=1}^{N}\sum_{k=1}^{K}|a_{n_k}| \leqslant A^* \implies
+              \]
+              $\implies |u_r|\nearrow$ и ограничен $\implies$ ряд \ref{eq:6.6.4} сходится абсолютно $\implies$ по пункту 1. суммы рядов \ref{eq:6.6.4} и \ref{eq:6.6.1} равны.
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}[Свойства двойных рядов]\leavevmode
+    \begin{enumerate}
+        \item Если ряд \ref{eq:6.6.3} сходится, то
+              \[
+                  \underset{k\rightarrow\infty}{\underset{n\rightarrow\infty}{\lim}}a_{nk} = 0.
+              \]
+
+        \item (Критерий Коши)
+              Ряд \ref{eq:6.6.3} сходится $\iff \forall \epsilon > 0 \ \exists N_0,K_0: \ \forall n > N_0, \ \forall k > K_0, \ \forall p > 0, \ \forall q > 0$
+              \[
+                  \bigg|\sum_{n=1}^{p}\sum_{k=1}^{q}a_{(N_0 + n)(K_0 + k)}\bigg| < \epsilon.
+              \]
+
+        \item Если ряд \ref{eq:6.6.3} сходится, то $\forall c \in \R$ ряд
+              \[
+                  \sum_{n,k=1}^{\infty}(c\cdot a_{nk})
+              \]
+              сходится, и его сумма равна $c\cdot A$ (где $A = \sum_{n,k=1}^{\infty}a_{nk}$).
+
+        \item Если ряд \ref{eq:6.6.3} сходится и ряд
+              \[
+                  \sum_{n,k=1}^{\infty}b_{nk}
+              \]
+              сходится, то
+              \[
+                  \sum_{n,k=1}^{\infty}(a_{nk} + b_{nk}) = A + B,
+              \]
+              а к тому же -- сходится.
+
+        \item Если $\forall n, \ \forall k \ a_{nk} \geqslant 0$, то ряд \ref{eq:6.6.3} сходится $ \iff $ его частичные суммы ограничены в совокупности.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}\leavevmode
+    \begin{enumerate}
+        \item Пусть ряд \ref{eq:6.6.3} сходится. Заметим, что
+              \[
+                  A_{nk} = \sum_{i,j=1}^{n,k},
+              \]
+              \[
+                  a_{nk} = A_{nk} - A_{n(k-1)} - A_{(n-k)k} + A_{(n-1)(k-1)}
+              \]
+              $\implies a_{nk} \rightarrow 0 $.
+
+        \item (Критерий Коши)
+              На декартовом произведении $\N\times\N$ введем базу:
+              \[
+                  B_{nk} = \big\{(n,k): \ n > N_0, \ k > K_0\big\}.
+              \]
+
+              Тогда критерий Коши сходимости ряда -- это есть критерий Коши существования предела функции $A_{nk}$ по данной базе.
+
+        \item Самостоятельно.
+
+        \item Самостоятельно.
+
+        \item \begin{itemize}
+                  \item $ |\Rightarrow| $ Очевидно.
+
+                  \item $ |\Leftarrow| $ Пусть множество $\{A_{nk}\}$ -- ограничено.
+
+                        Пусть $A = \sup\{A_{nk}\}$. Покажем, что $A$ -- сумма ряда \ref{eq:6.6.3}.
+
+                        Пусть $\epsilon > 0$ задано. Выберем $N_0$ и $K_0$:
+                        \[
+                            \begin{array}{c}
+                                A - A_{N_0 K_0} < \epsilon \\
+                                (\text{по опр. }\sup)
+                            \end{array}
+                        \]
+
+                        Тогда $ \forall n > N_0$ и $ \forall k > K_0 \ A_{nk} \geqslant A_{N_0K_0} \implies 0 < A - A_{nk} \leqslant A - A_{N_0K_0} < \epsilon \implies |A - A_{nk}| < \epsilon $.
+              \end{itemize}
+
+              $ \implies  $ ряд \ref{eq:6.6.3} сходится.
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}[О связи сходимости двойного ряда и повторного]
+    Если
+    \begin{itemize}
+        \item ряд \ref{eq:6.6.3} сходится (двойной),
+        \item все ряды по строкам сходятся,
+    \end{itemize}
+    тогда повторный ряд $ \sum_{n=1}^{\infty}\sum_{k=1}^{\infty}a_{nk} $ сходится и
+    \[
+        A = \sum_{n=1}^{\infty}\sum_{k=1}^{\infty}a_{nk} = \sum_{n,k=1}^{\infty}a_{nk}.
+    \]
+\end{theorem}
+
+\begin{proof}
+    Пусть $ \epsilon>0 $ задано. Выберем $ N_0,K_0: \ \forall n > N_0 $ и $ k>K_0 $
+    \begin{equation}\label{eq:for_proof1}
+        \left|\sum_{i=1}^{n}\sum_{j=1}^{k}a_{ij} - A\right| < \frac{\epsilon}{2}.
+    \end{equation}
+    \[
+        \sum_{i,j=1}^{n,k}a_{ij} = A_{nk}\text{ двойного ряда}.
+    \]
+
+    В неравенстве \ref{eq:for_proof1} переходим к пределу при $ k \rightarrow\infty $.
+
+    Тогда $ \forall n > N_0 $
+    \[
+        \left|\sum_{i=1}^{n}\sum_{j=1}^{\infty}a_{ij} - A\right| = \left|\sum_{i=1}^{n}A_n - A\right| < \frac{\epsilon}{2} < \epsilon
+    \]
+    $ \implies $ повторный ряд $ \sum_{n=1}^{\infty}\sum_{k=1}^{\infty}a_{nk} = A $.
+\end{proof}
+
+\begin{theorem}[О связи сходимости двойного и простого рядов]
+    Если ряд \ref{eq:6.6.3}$ ^* $ сходится, то сходится ряд \ref{eq:6.6.4}.
+
+    И наоборот, если сходится ряд \ref{eq:6.6.4}$ ^* $, то сходится ряд \ref{eq:6.6.3}.
+
+    И в обоих случаях суммы рядов равны:
+    \[
+        \sum_{n,k=1}^{\infty}a_{nk} = \sum_{r=1}^{\infty}u_r
+    \]
+\end{theorem}
+
+\begin{proof}\leavevmode
+    \begin{itemize}
+        \item $ |\Rightarrow| $ Пусть двойной ряд сходится абсолютно, то есть сходится ряд $\sum_{n,k=1}^{\infty}|a_{nk}|$.
+
+              Тогда для любого номера $S \ \exists N,K$ такие, что все числа $u_1,\ldots,u_S$ содержатся в первых $N$ строках и первых $K$ столбцах, тогда:
+              \[
+                |u_1| + |u_2| + \ldots + |u_S| \leqslant \sum_{n=1}^{N}\sum_{k=1}^{K}|a_{nk}| \leqslant A^* = \sum_{n,k=1}^{\infty}|a_{nk}| \implies
+              \]
+              $\implies$ последовательность $U_i^* \nearrow$ и ограничена $\implies$ ряд $\sum_{r=1}^{\infty}u_r$ сходится абсолютно $\implies$ сходится.
+
+        \item $ |\Leftarrow| $ Пусть ряд $\sum_{r=1}^{\infty}|u_r|$ сходится $\implies \forall N,K \ \exists S:$ все числа $a_{11},a_{12},\ldots,a_{1K},a_{21},\ldots,a_{2K},\ldots,a_{N1},\ldots,a_{NK}$ содержатся среди чисел $u_1,\ldots,u_S$. Тогда
+              \[
+                A_{NK}^* = \sum_{n=1}^{N}\sum_{k=1}^{K}|a_{nk}| \leqslant\sum_{r=1}^{S}|u_r| \leqslant U^* = \sum_{r=1}^{\infty}|u_r| \implies
+              \]
+              $\implies$ ряд $\sum_{n,k=1}^{\infty}a_{nk}$ сходится.
+
+              Покажем, что $\sum_{n,k=1}^{\infty}a_{nk} = \sum_{r=1}^{\infty}u_r$.
+
+              Так как ряд $\sum_{r=1}^{\infty}u_r$ сходится абсолютно, то расположим элементы по квадратам:
+              \[
+                \begin{array}{l}
+                    a_{11} = u_{r_1}                                       \\
+                    a_{12} + a_{22} + a_{21} = u_{r_2} + u_{r_3} + u_{r_4} \\
+                    \vdots                                                 \\
+                    A_{nn} = a_{11} + \ldots + a_{nn} = U_n = u_{r_1} + \ldots + u_{r_n}
+                \end{array},
+              \]
+              \[
+                A = \underset{n\rightarrow\infty}{\lim}A_{nn} = \underset{n\rightarrow\infty}{\lim}U_n = U.
+              \]
+    \end{itemize}
+\end{proof}
+
+\begin{theorem}[«Главная»]
+    Пусть дана таблица $ (\star)(a_{ij}) $ и по ней построены ряды \ref{eq:6.6.1}, \ref{eq:6.6.2}, \ref{eq:6.6.3}, \ref{eq:6.6.4}.
+
+    Если после замены элементов таблицы их модулями хотя бы один из 4-х рядов становится сходящимся, то сходятся остальные и их суммы равны.
+\end{theorem}
+
+\begin{proof}
+    Из четырех предыдущих теорем $\implies$ «Главная» теорема.
+\end{proof}

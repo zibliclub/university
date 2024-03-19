@@ -1,0 +1,288 @@
+\lesson{13}{от 27 окт 2023 10:34}{Продолжение}
+
+
+\begin{theorem}[Дифференцируемость предельной функции]\label{theorem:6.9.5}
+    Пусть $ -\infty < a < b < +\infty $ ($ a,b $ -- конечны), $ f_t: (a;b)\rightarrow\R, \ f:(a;b) \rightarrow \R $:
+    \begin{itemize}
+        \item $ \forall t \in T \ f_t $ дифференцируема на $ (a;b) $,
+        \item $ \exists \phi: (a;b)\rightarrow\R: \ f_t' \xrightrightarrows[\mathfrak{B}]{} \phi $ на $ (a;b) $,
+        \item $ \exists x_0 \in (a;b): \ f_t(x_0) \rightarrow f(x_0) $,
+    \end{itemize}
+    тогда:
+    \begin{enumerate}
+        \item $ f_t \xrightrightarrows[\mathfrak{B}]{} f $ на $ (a;b) $.
+        \item $ f $ дифференцируема на $ (a;b) $.
+        \item $ \forall x \in (a;b) \ f'(x) = \phi(x) $.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Докажем, что семейство функций $f_t$ сходится к $f$ равномерно на $(a;b)$:
+    \begin{multline*}
+        \big|f_{t_1}(x) - f_{t_2}(x)\big| = \\
+        = \big|f_{t_1}(x) - f_{t_2}(x) + f_{t_1}(x_0) - f_{t_1}(x_0) + f_{t_2}(x_0) - f_{t_2}(x_0)\big| \leqslant \\
+        \leqslant \big|(f_{t_1}(x) - f_{t_1}(x_0)) - (f_{t_2}(x) - f_{t_2}(x_0))\big| + \big|f_{t_1}(x_0) - f_{t_2}(x_0)\big| = \\
+        = \big|f_{t_1}'(\xi) - f_{t_2}'(\xi)\big| \cdot \big|x - x_0\big| + \big|f_{t_1}(x_0) - f_{t_2}(x_0)\big|.
+    \end{multline*}
+
+    Пусть $\epsilon > 0$ задано. Выберем $B \in \mathfrak{B}$ ($\mathfrak{B}$ -- база на $T$) $\forall t_1,t_2 \in B$
+    \[
+        \big|f_{t_1}(x_0) - f_{t_2}(x_0)\big| < \frac{\epsilon}{2}
+    \]
+    и $\forall x \in (a;b)$ и $\forall t_1',t_2' \in B$:
+    \[
+        \big|f_{t_2'}'(x) - f_{t_2'}'(x)\big| < \frac{\epsilon}{2(b-a)}.
+    \]
+
+    Тогда $\forall t_1,t_2 \in B$ и $\forall x \in (a;b)$
+    \[
+        \big|f_{t_1}(x) - f_{t_2}(x)\big| < \frac{\epsilon}{2(b-a)}\cdot (b-a) + \frac{\epsilon}{2} = \epsilon.
+    \]
+
+    Итак, $f_t \xrightrightarrows[\mathfrak{B}]{} f$ на $(a;b)$. Покажем, что предельная функция $f$ дифференцируема на $(a;b)$ и $\forall x \in (a;b) $
+    \[
+        f'(x)=\phi(x):
+    \]
+    \begin{multline*}
+        f'(x) = \underset{h\rightarrow0}{\lim}\frac{f(x + h) - f(x)}{h} = \\
+        = \underset{h\rightarrow0}{\lim}\frac{\underset{\mathfrak{B}}{\lim}f_t(x + h) - \underset{\mathfrak{B}}{\lim}f(x)}{h} = \underset{h\rightarrow 0}{\lim}\underset{\mathfrak{B}}{\lim}\frac{f_t(x + h) - f_t(x)}{h} \overset{(\star)}{=} \\
+        \overset{(\star)}{=} \underset{\mathfrak{B}}{\lim}\underset{h\rightarrow0}{\lim}\frac{f_t(x + h) - f_t(x)}{h} = \underset{\mathfrak{B}}{\lim}f_t'(x) = \phi(x).
+    \end{multline*}
+
+    Покажем законность перехода $(\star)$. Пусть $x \in (a;b), \ x + h \in (a;b)$. Рассмотрим
+    \[
+        \begin{matrix}
+            F_t(h) = & \frac{f_t(x+h) - f_t(x)}{h} & \overset{\xdashrightarrow[]{}}{\xdashrightarrow[\mathfrak{B}]{}} & \frac{f(x + h) - f(x)}{h} & = F(h)                                                     \\
+                     & \xdownarrow[22pt]           &                                                                  & \xdashdownarrow[20pt]                                                                  \\
+                     & f_t'(x)                     & \xrightrightarrows[\mathfrak{B}]{}                               & \phi(x)                   & \overset{\xdashrightarrow[]{}}{\xdashrightarrow[]{}} f'(x)
+        \end{matrix}
+    \]
+
+    Докажем существование двойной верхней стрелки. Имеем:
+    \[
+        \left.\begin{array}{c}
+            f_t(x) \xrightarrow[\mathfrak{B}]{} f(x) \\
+            f_t(x + h) \xrightarrow[\mathfrak{B}]{} f(x+h)
+        \end{array}\right\} \implies F_t(h) \xrightarrow[\mathfrak{B}]{} F(h),
+    \]
+    \begin{multline*}
+        \big|F_{t_1}(h) - F_{t_2}(h)\big| = \\
+        = \bigg| \frac{\overbrace{f_{t_1}(x + h) - f_{t_1}(x)}^{= f_{t_1}'(\xi) \cdot |h|}}{h} - \frac{f_{t_2}(x+h) - f_{t_2}(x)}{h}\bigg| = \\
+        = \frac{1}{|h|}\big|f_{t_1}'(\xi) \cdot |h| - f_{t_2}'(\xi)\cdot |h| \big| = \\
+        = \big|f_{t_1}'(\xi) - f_{t_2}'(\xi)\big|, \ \xi \in (x;x+h).
+    \end{multline*}
+
+    Пусть $\epsilon > 0$ задано. Тогда $\exists B \in \mathfrak{B}: \ \forall t_1,t_2 \in B$
+    \[
+        \big|f_{t_1}'(\xi) - f_{t_2}'(\xi)\big| < \epsilon.
+    \]
+
+    Таким образом семейство $\big\{F_t(h)\big\}$ сходится равномерно на $(a;b)$.
+
+    Правая вертикальная стрелка следует из теоремы \ref{theorem:6.3}.
+\end{proof}
+
+\begin{corollary}
+    Если
+    \begin{itemize}
+        \item $\forall n \ f_n(x)$ непрерывна на $(a;b)$,
+        \item ряд $\sum_{n = 1}^{\infty} f_n(x)$ равномерно сходится на $(a;b)$,
+    \end{itemize}
+    то его сумма $f(x) = \sum_{n=1}^{\infty}f_n(x)$ непрерывна на $(a;b)$, то есть $\forall x_0 \in (a;b)$
+    \[
+        \underset{x\rightarrow x_0}{\lim}\sum_{n=1}^{\infty}f_n(x) = \sum_{n=1}^{\infty}\underset{x\rightarrow x_0}{\lim}f_n(x).
+    \]
+\end{corollary}
+
+\begin{corollary}
+    Если
+    \begin{itemize}
+        \item $\forall n \ f_n(x) \in R[a;b]$ (интегрируема на $[a;b]$),
+        \item ряд $\sum_{n=1}^{\infty}f_n(x)$ равномерно сходится на $[a;b]$,
+    \end{itemize}
+    то его сумма интегрируема на $[a;b]$ и
+    \[
+        \int_{a}^{b}\sum_{n=1}^{\infty}f_n(x)dx = \sum_{n=1}^{\infty}\int_{a}^{b}f_n(x)dx.
+    \]
+\end{corollary}
+
+\begin{corollary}
+    Если
+    \begin{itemize}
+        \item $\forall n \ f_n(x)$ дифференцируема на $(a;b)$,
+        \item $\exists x_0 \in [a;b]$: ряд $\sum_{n=1}^{\infty}f_n(x_0)$ сходится,
+        \item ряд $\sum_{n=1}^{\infty}f_n'(x)$ сходится равномерно на $(a;b)$,
+    \end{itemize}
+    то \begin{enumerate}
+        \item Ряд сходится на $(a;b)$ равномерно.
+        \item Его сумма дифференцируема на $(a;b)$.
+        \item $\forall x \in (a;b)$
+              \[
+                  \bigg(\sum_{n=1}^{\infty}f_n(x)\bigg)' = \sum_{n=1}^{\infty}f_n'(x).
+              \]
+    \end{enumerate}
+\end{corollary}
+
+\newpage
+
+\section{Степенные ряды}
+
+\begin{definition}[Степенной ряд]
+    \emph{Степенным рядом} называется выражение вида
+    \[
+        \sum_{n=0}^{\infty}\big(a_n\cdot (x-x_0)^n\big)
+    \]
+    или
+    \begin{equation}\label{eq:6.10.1}
+        \sum_{n=0}^{\infty}(a_n \cdot x^n).
+    \end{equation}
+\end{definition}
+
+\begin{theorem}[О сходимости степенного ряда]\label{theorem:6.10.1}\leavevmode
+    \begin{enumerate}
+        \item Областью сходимости степенного ряда \ref{eq:6.10.1} является промежуток $(-R;R)$, где $R \geqslant 0 \ (+ \infty)$.
+        \item $\forall [\alpha;\beta] \subset (-R;R)$ ряд \ref{eq:6.10.1} сходится равномерно на $[\alpha;\beta]$.
+        \item Число $R$, называемое \emph{радиусом сходимости степенного ряда} \ref{eq:6.10.1}, может быть вычислено:
+              \[
+                  R = \frac{1}{\underset{n\rightarrow\infty}{\overline{\lim}}\sqrt[n]{|a_n|}}.
+              \]
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Воспользуемся признаком Коши:
+    \[
+        \underset{n\rightarrow\infty}{\overline{\lim}}\sqrt[n]{|a_n|\cdot|x|^n} = |x| \cdot \underset{n\rightarrow\infty}{\overline{\lim}}\sqrt[n]{|a_n|} = k.
+    \]
+
+    При $k < 1$ ряд $\sum_{n=0}^{\infty}|a_n \cdot x^n |$ сходится $\implies$ ряд \ref{eq:6.10.1} сходится абсолютно.
+
+    Покажем, что при $k > 1$ ряд \ref{eq:6.10.1} расходится. Для этого покажем, что при $k > 1 \ a_n \cdot x^n \nrightarrow 0$.
+
+    В самом деле, $\exists$ подпоследовательность номеров $n_k$ и $\exists k: \ \forall k > K$
+    \[
+        |a_{n_k} \cdot x^{n_k}| > \left(\frac{1 + k}{2}\right)^{n_k} > 1 \implies a_n \cdot x^n \underset{n\rightarrow\infty}{\nrightarrow} 0.
+    \]
+
+    Таким образом, $|x|\cdot \underset{n\rightarrow\infty}{\overline{\lim}}\sqrt[n]{|a_n|} < 1$,
+    \[
+        |x| < \frac{1}{\underset{n\rightarrow\infty}{\overline{\lim}}\sqrt[n]{|a_n|}} = R \implies x \in (-R;R) \text{ -- область сходимости \ref{eq:6.10.1}}.
+    \]
+
+    При $k = 1$ ряд \ref{eq:6.10.1} может как сходиться, так и расходиться.
+
+    Таким образом, доказали пункты 1. и 3..
+
+    Докажем пункт 2.:
+
+    Пусть $[\alpha;\beta]\subset(-R;R)$. Возьмем $x_0$:
+    \[
+        -R < -x_0 < \alpha < \beta < x_0 < R.
+    \]
+
+    Тогда $\forall x \in [\alpha;\beta]$
+    \[
+        |a_n \cdot x^n| < |a_n \cdot x_0^n|.
+    \]
+
+    Заметим, что так как $x_0 \in (-R;R)$, то ряд $\sum_{n=0}^{\infty}|a_n\cdot x_0^n|$ сходится $\implies$ по признаку Вейерштрасса ряд \ref{eq:6.10.1} сходится равномерно на $[\alpha;\beta]$.
+\end{proof}
+
+\begin{theorem}[Абеля, о сумме степенного ряда]
+    Если $R$ -- радиус сходимости ряда \ref{eq:6.10.1} и ряд $\sum_{n=0}^{\infty}(a_n \cdot R^n)$ сходится, то
+    \[
+        \underset{x\rightarrow R}{\lim}\sum_{n=0}^{\infty}(a_n \cdot x^n) = \sum_{n=0}^{\infty} (a_n \cdot R^n).
+    \]
+\end{theorem}
+
+\begin{proof}
+    Заметим, что сумма ряда является непрерывной на интервале сходимости.
+
+    В самом деле, если $x_0 \in (-R;R)$, то $\exists x_0 \in [\alpha;\beta]$: по теореме \ref{theorem:6.10.1} на $[\alpha;\beta]$ ряд \ref{eq:6.10.1} сходится равномерно $\implies$ его сумма является непрерывной функцией на $[\alpha;\beta]$, то есть она непрерывна в точке $x_0$.
+
+    Так как $x_0 \in (-R;R)$ произвольная $\implies$ сумма ряда \ref{eq:6.10.1} непрерывна на $(-R;R)$.
+
+    Покажем, что ряд \ref{eq:6.10.1} равномерно сходится на промежутке $[\alpha;R]$, где $\alpha > - R$.
+
+    В самом деле, $\forall x \in [\alpha;R]$:
+    \[
+        \sum_{n=0}^{\infty}|a_n \cdot x^n| = \sum_{n=0}^{\infty}\bigg(a_n \cdot R^n \cdot \bigg|\bigg(\frac{x}{R}\bigg)^n\bigg|\bigg).
+    \]
+
+    Здесь ряд $\sum_{n=0}^{\infty}(a_n \cdot R^n)$ -- сходится, а последовательность $\left\{\left(\frac{|x|}{R}\right)^n\right\}$ монотонна и равномерно ограничена $\implies$ по теореме Абеля ряд \ref{eq:6.10.1} сходится на $[\alpha;R]$ равномерно $\implies$ сумма его непрерывна на $[\alpha;R] \implies$
+    \[
+        \implies\underset{x\rightarrow R}{\lim}\sum_{n=0}^{\infty}(a_n \cdot x^n) = \sum_{n=0}^{\infty} (a_n \cdot R^n).
+    \]
+\end{proof}
+
+\begin{theorem}[Об интегрировании степенного ряда]
+    Пусть дан ряд \ref{eq:6.10.1}. Пусть $S(x)$ -- его сумма, $R$ -- радиус сходимости ряда \ref{eq:6.10.1}. Тогда $\forall \overline{x} \in (-R;R)$ функция $S(x)$ интегрируема на $[0;\overline{x}]$ (или на $[\overline{x};0]$) и
+    \[
+        \int_{0}^{\overline{x}}S(x)dx = \int_{0}^{\overline{x}}\left(\sum_{n=0}^{\infty}(a_n \cdot x^n)\right)dx = \sum_{n=0}^{\infty}\int_{0}^{\overline{x}}(a_n \cdot x^n)dx = \sum_{n=0}^{\infty} \left(\frac{a_n}{n+1}\cdot \overline{x}^{n+1}\right).
+    \]
+
+    Если ряд \ref{eq:6.10.1} сходится при $x = R$, то утверждение остается верным и для $\overline{x} = R$.
+\end{theorem}
+
+\begin{theorem}[О дифференцировании степенного ряда]
+    Пусть дан ряд \ref{eq:6.10.1}. Пусть $S(x)$ -- его сумма, $R$ -- радиус сходимости ряда \ref{eq:6.10.1}. Тогда $\forall x \in (-R;R)$ функция $S(x)$ дифференцируема в точке $x$ и
+    \[
+        S'(x) = \left(\sum_{n=0}^{\infty}(a_n \cdot x^n)\right)' = \sum_{n=0}^{\infty}(a_n \cdot x^n)' = \sum_{n=0}^{\infty}(a_n \cdot n \cdot x^{n-1}).
+    \]
+
+    Если ряд $\sum_{n=0}^{\infty}(a_n \cdot n \cdot x^{n-1})$ сходится при $x = R \ (-R)$, то утверждение теоремы остается верно и при $x = R$.
+\end{theorem}
+
+\begin{proof}
+    Имеем,
+    \[
+        R = \frac{1}{\underset{n\rightarrow\infty}{\overline{\lim}}\sqrt[n]{|a_n|}}.
+    \]
+
+    Пусть $R'$ и $R''$ -- радиусы сходимости рядов $\sum_{n=0}^{\infty}\big(\frac{a_n}{n_1} \cdot x^{n+1}\big)$ и \\ $\sum_{n=0}^{\infty}(a_n \cdot n \cdot x^{n-1})$, соответственно:
+    \begin{eqnarray*}
+        R' & = & \frac{1}{\underset{n\rightarrow\infty}{\overline{\lim}}\sqrt[n]{\frac{|a_n|}{n+1}}} = \left|\begin{array}{l}
+            \underset{n\rightarrow\infty}{\lim}\sqrt[n]{n} = 1 \\
+            \text{смотреть Демидович}
+        \end{array}\right| = \frac{1}{\underset{n\rightarrow\infty}{\overline{\lim}}\sqrt[n]{| a_n | }} = R, \\
+        R'' & = & \frac{1}{\underset{n\rightarrow\infty}{\overline{\lim}}\sqrt[n]{|a_n|\cdot n}} = R.
+    \end{eqnarray*}
+
+    Таким образом для ряда \ref{eq:6.10.1} выполняется условия теорем об интегрировании и дифференцировании предельной функции.
+
+    Условия равномерной сходимости следуют из теоремы \ref{theorem:6.10.1}.
+\end{proof}
+
+\begin{theorem}[Об единственности]
+    Если существует окрестность $U$ точки $x = 0$ суммы рядов $\sum_{n=0}^{\infty}(a_n \cdot x^n)$ и $\sum_{n=0}^{\infty}(b_n \cdot x^n)$ совпадают для всех $x \in U$, то $\forall n $
+    \[
+        a_n = b_n.
+    \]
+\end{theorem}
+
+\begin{proof}
+    Положим $x = 0 \implies a_0 = b_0$. Далее рассмотрим ряд $\sum_{n=1}^{\infty}\big((a_n - b_n) \cdot x^n\big)$. Он сходится на $U$, так как сходятся исходные ряды.
+
+    Пусть $\sum_{n=0}^{\infty}(a_n \cdot x^n) = S_a(x), \ \sum_{n=0}^{\infty}(b_n \cdot x^n) = S_b(x)$. По условию теоремы, $\forall x \in U(0) $
+    \[
+        S_a(x) \equiv S_b(x),
+    \]
+    \[
+        \begin{array}{r}
+            \sum_{n=0}^{\infty}(a_n \cdot x^n) - \sum_{n=0}^{\infty}(b_n \cdot x^n) = S_a(x) - S_b(x) \equiv 0 \\
+            \verteq                                                                                            \\
+            \sum_{n=1}^{\infty}\big((a_n - b_n) \cdot x^{n-1}\big) \equiv 0
+        \end{array}
+    \]
+
+    Поделим $\sum_{n=1}^{\infty}\big((a_n - b_n) \cdot x^{n-1}\big) \equiv 0$ на $x \ne 0$, получится ряд
+    \[
+        \sum_{n=1}^{\infty}\big((a_n - b_n) \cdot x^{n-1}\big) \equiv 0.
+    \]
+
+    Перейдем к пределу в $\sum_{n=1}^{\infty}\big((a_n - b_n) \cdot x^{n-1}\big) \equiv 0$ при $x \rightarrow 0$:
+    \[
+        0 \equiv \underset{x\rightarrow0}{\lim}\sum_{n=1}^{\infty}\big((a_n - b_n) \cdot x^{n-1}\big) = \sum_{n=1}^{\infty}\underset{x\rightarrow0}{\lim}\big((a_n - b_n) \cdot x^{n-1} \big) = a_1 - b_1 \implies
+    \]
+    $\implies a_1 = b_1$. И так далее $\implies \forall n \ a_n = b_n$.
+\end{proof}

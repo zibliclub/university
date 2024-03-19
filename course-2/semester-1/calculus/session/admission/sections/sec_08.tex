@@ -1,0 +1,107 @@
+\section{Степенные ряды}
+
+\setcounter{subsection}{93}
+
+\subsection{Степенной ряд}
+
+\begin{definition}
+    \emph{Степенным рядом} называется выражение вида
+    \[
+        \sum_{n=0}^{\infty}\big(a_n\cdot (x-x_0)^n\big)
+    \]
+    или
+    \begin{equation}\label{eq:6.10.1}
+        \sum_{n=0}^{\infty}(a_n \cdot x^n).
+    \end{equation}
+\end{definition}
+
+\subsection{Теорема о сходимости степенного ряда}
+
+\begin{theorem}\label{theorem:6.10.1}\leavevmode
+    \begin{enumerate}
+        \item Областью сходимости степенного ряда \ref{eq:6.10.1} является промежуток $(-R;R)$, где $R \geqslant 0 \ (+ \infty)$.
+        \item $\forall [\alpha;\beta] \subset (-R;R)$ ряд \ref{eq:6.10.1} сходится равномерно на $[\alpha;\beta]$.
+        \item Число $R$, называемое \emph{радиусом сходимости степенного ряда} \ref{eq:6.10.1}, может быть вычислено:
+              \[
+                  R = \frac{1}{\underset{n\rightarrow\infty}{\overline{\lim}}\sqrt[n]{|a_n|}}.
+              \]
+    \end{enumerate}
+\end{theorem}
+
+\subsection{Радиус сходимости степенного ряда (определение)}
+
+\begin{definition}
+    Число $R$, называемое \emph{радиусом сходимости степенного ряда} \ref{eq:6.10.1}, может быть вычислено:
+    \[
+        R = \frac{1}{\underset{n\rightarrow\infty}{\overline{\lim}}\sqrt[n]{|a_n|}}.
+    \]
+\end{definition}
+
+\subsection{Теорема Абеля о сумме степенного ряда}
+
+\begin{theorem}
+    Если $R$ -- радиус сходимости ряда \ref{eq:6.10.1} и ряд $\sum_{n=0}^{\infty}(a_n \cdot R^n)$ сходится, то
+    \[
+        \underset{x\rightarrow R}{\lim}\sum_{n=0}^{\infty}(a_n \cdot x^n) = \sum_{n=0}^{\infty} (a_n \cdot R^n).
+    \]
+\end{theorem}
+
+\subsection{Теорема об интегрировании степенного ряда}
+
+\begin{theorem}
+    Пусть дан ряд \ref{eq:6.10.1}. Пусть $S(x)$ -- его сумма, $R$ -- радиус сходимости ряда \ref{eq:6.10.1}. Тогда $\forall \overline{x} \in (-R;R)$ функция $S(x)$ интегрируема на $[0;\overline{x}]$ (или на $[\overline{x};0]$) и
+    \begin{multline*}
+        \int_{0}^{\overline{x}}S(x)dx = \\
+        = \int_{0}^{\overline{x}}\left(\sum_{n=0}^{\infty}(a_n \cdot x^n)\right)dx = \sum_{n=0}^{\infty}\int_{0}^{\overline{x}}(a_n \cdot x^n)dx = \\
+        = \sum_{n=0}^{\infty} \left(\frac{a_n}{n+1}\cdot \overline{x}^{n+1}\right).
+    \end{multline*}
+
+    Если ряд \ref{eq:6.10.1} сходится при $x = R$, то утверждение остается верным и для $\overline{x} = R$.
+\end{theorem}
+
+\subsection{Теорема о дифференцировании степенного ряда}
+
+\begin{theorem}
+    Пусть дан ряд \ref{eq:6.10.1}. Пусть $S(x)$ -- его сумма, $R$ -- радиус сходимости ряда \ref{eq:6.10.1}. Тогда $\forall x \in (-R;R)$ функция $S(x)$ дифференцируема в точке $x$ и
+    \[
+        S'(x) = \left(\sum_{n=0}^{\infty}(a_n \cdot x^n)\right)' = \sum_{n=0}^{\infty}(a_n \cdot x^n)' = \sum_{n=0}^{\infty}(a_n \cdot n \cdot x^{n-1}).
+    \]
+
+    Если ряд $\sum_{n=0}^{\infty}(a_n \cdot n \cdot x^{n-1})$ сходится при $x = R \ (-R)$, то утверждение теоремы остается верно и при $x = R$.
+\end{theorem}
+
+\newpage
+
+\subsection{Теорема о единственности степенного ряда}
+
+\begin{theorem}
+    Если существует окрестность $U$ точки $x = 0$ суммы рядов $\sum_{n=0}^{\infty}(a_n \cdot x^n)$ и $\sum_{n=0}^{\infty}(b_n \cdot x^n)$ совпадают для всех $x \in U$, то $\forall n $
+    \[
+        a_n = b_n.
+    \]
+\end{theorem}
+
+\subsection{Ряд Тейлора}
+
+\begin{definition}
+    Пусть $f(x)$ бесконечно дифференцируема в окрестности точки $x_0$. \emph{Рядом Тейлора} функции $f(x)$ в этой окрестности называется ряд:
+    \[
+        f(x)\approx f(x_0) + \frac{f'(x_0)}{1!}\cdot (x-x_0) + \frac{f''(x_0)}{2!}\cdot (x - x_0)^2 + \ldots + \frac{f^{(n)}(x_0)}{n!}\cdot (x-x_0)^n + \ldots
+    \]
+\end{definition}
+
+\subsection{Утверждение о связи степенного ряда и ряда Тейлора}
+
+\begin{statement}
+    Если функция $f(x)$ в окрестности точки $x_0$ является суммой степенного ряда $\sum_{n=0}^{\infty}\big(a_n \cdot (x-x_0)^n\big)$, то этот ряд является ее рядом Тейлора.
+\end{statement}
+
+\subsection{Разложение элементарных функций в степенной ряд}
+
+\begin{lemma}
+    Если $f(x)$ -- $\infty$-но дифференцируемая функция на $[0;H]$ и $\exists L > 0: \ \forall n \in \N$ и $\forall x \in [0;H]$
+    \[
+        \big|f^{(n)}(x)\big| \leqslant L,
+    \]
+    то на $[0;H]$ функция $f$ может быть разложена в степенной ряд (ряд Тейлора).
+\end{lemma}

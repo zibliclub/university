@@ -1,0 +1,329 @@
+\section{Интегралы, зависящие от параметра}
+
+\setcounter{subsection}{104}
+
+\subsection{Теорема о непрерывности собственного интеграла, зависящего от параметра}
+
+Тут не уверен, оно или нет.
+
+\begin{theorem}\label{theorem:7.1.1}
+    Если функция $f(x,y)$ непрерывна на $P = [a;b] \times [c;d]$, то функция $F(y) = \int_{a}^{b}f(x,y)dx$ непрерывна на $[c;d]$.
+\end{theorem}
+
+\begin{proof}
+    Пусть $y_0 \in [c;d]$. Покажем, что $F(y)$ непрерывна в точке $y_0$.
+    \begin{multline*}
+        \big|F(y) - F(y_0)\big| = \\
+        = \left|\int_{a}^{b}f(x,y)dx - \int_{a}^{b}f(x,y_0)dx\right| = \left|\int_{a}^{b}\big(f(x,y) - f(x,y_0)\big)dx\right| \leqslant \\
+        \leqslant \int_{a}^{b}\big|f(x,y) - f(x,y_0)\big|dx.
+    \end{multline*}
+
+    Так как $f(x,y)$ непрерывна на $P$ и $P$ -- компактное, то $f(x,y)$ -- равномерно непрерывна на $P \implies \forall \epsilon > 0 \ \exists \delta > 0: \ \forall \equalto{M_1}{(x_1,y_1)},\equalto{M_2}{(x_2,y_2)} \in P$:
+    \begin{multline*}
+        \rho\big((x_1,y_1),(x_2,y_2)\big) = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} < \delta \implies \\
+        \implies \big|f(x_1,y_1) - f(x_2;y_2)\big| < \epsilon.
+    \end{multline*}
+
+    Пусть $\epsilon > 0$ задано. Выберем $\delta > 0: \forall M_1,M_2 \in P$:
+    \[
+        \rho(M_1,M_2) < \delta \implies \big|f(x_1,y_1) - f(x_2,y_2)\big| < \frac{\epsilon}{b - a}.
+    \]
+
+    Тогда
+    \begin{multline*}
+        \big|F(y) - F(y_0)\big| \leqslant \\
+        \leqslant \int_{a}^{b}\big|f(x,y) - f(x,y_0)\big|dx < \int_{a}^{b}\frac{\epsilon}{b-a}dx = \\
+        = \frac{\epsilon}{b - a} \cdot \int_{a}^{b}dx = \frac{\epsilon}{b - a} \cdot (b-a) = \epsilon
+    \end{multline*}
+    $\implies F(y)$ непрерывна в точке $y_0$, где точка $y_0$ -- прозвольная.
+\end{proof}
+
+\subsection{Теорема о дифференцировании собственного интеграла, зависящего от параметра}
+
+\begin{lemma}\label{lemma:7.1.1}
+    Если:
+    \begin{itemize}
+        \item $f(x,y)$ непрерывна на $P$,
+        \item $\frac{\partial f}{\partial y}(x,y)$ непрерывна на $P$,
+    \end{itemize}
+    то $F(y) = \int_{a}^{b}f(x,y)dx$ дифференцируема на $[c;d]$ и
+    \[
+        F'(y) = \int_{a}^{b}\frac{\partial f}{\partial y}(x,y)dx.
+    \]
+\end{lemma}
+
+\begin{theorem}[О дифференцировании собственного интеграла, зависящего от параметра]\label{theorem:7.1.2}
+    Пусть:
+    \begin{itemize}
+        \item $\alpha(y), \beta(y)$ -- дифференцируемые на $[c;d]$,
+        \item $\forall y \in [c;d] \ a\leqslant \alpha(y) \leqslant b$ и $a \leqslant \beta(y) \leqslant b$,
+        \item $f(x,y)$ -- непрерывна на $P = [a;b] \times [c;d]$,
+        \item $\frac{\partial f}{\partial y}$ -- непрерывна на $P$,
+    \end{itemize}
+    тогда $F(y) = \int_{\alpha(y)}^{\beta(y)}f(x,y)dx$ дифференцируема на $[c;d]$ и
+    \[
+        F'(y) = \int_{\alpha(y)}^{\beta(y)}\frac{\partial f}{\partial y}(x,y)dx + f\big(\beta(y),y\big) \cdot \beta'(y) - f\big(\alpha(y),y\big)\cdot \alpha'(y)
+    \]
+    \begin{center}
+        (формула Лейбница)
+    \end{center}
+\end{theorem}
+
+\begin{proof}
+    Используя лемму \ref{lemma:7.1.1}, рассмотрим функцию
+    \[
+        \Phi\big(y,\alpha(y),\beta(y)\big) = \int_{\alpha(y)}^{\beta(y)}f(x,y)dx:
+    \]
+    \begin{eqnarray*}
+        \Phi_y' & = & \Phi_y' \cdot y_y' + \Phi_\alpha'\cdot\alpha_y' + \Phi_\beta' \cdot \beta_y'                                       \\
+        \verteq &   &                                                                                                                    \\
+        F_y'    & = & \int_{\alpha(y)}^{\beta(y)}\frac{\partial f}{\partial y}(x,y)dx + f(\beta,y)\cdot \beta_y' - f(\alpha,y)\cdot\alpha_y'
+    \end{eqnarray*}
+\end{proof}
+
+\subsection{Теорема об интегрировании собственного интеграла, зависящего от параметра}
+
+\begin{theorem}[Об интегрировании собственного интеграла по параметру]\label{theorem:7.1.3}
+    Если $ f(x,y) $ непрерывна на $ P = [a;b] \times [c;d] $, то функция $ F(y) = \int_{a}^{b}f(x,y)dx $ интегрируема на $ [c;d] $ и
+    \[
+        \int_{c}^{d}F(y)dy = \int_{c}^{d}\left(\int_{a}^{b}f(x,y)dx\right)dy = \int_{a}^{b}\left(\int_{c}^{d}f(x,y)dy\right)dx.
+    \]
+
+    Обычно пишут:
+    \[
+        \int_{c}^{d}dy \int_{a}^{b}f(x,y)dx = \int_{a}^{b}dx \int_{c}^{d}f(x,y)dy.
+    \]
+\end{theorem}
+
+\begin{proof}
+    Рассмотрим функции
+    \begin{eqnarray*}
+        \phi(u) &=& \int_{c}^{u}\left(\int_{a}^{b}f(x,y)dx\right)dy, \\
+        \psi(u) &=& \int_{a}^{u}\left(\int_{c}^{d}f(x,y)dy\right)dx.
+    \end{eqnarray*}
+
+    $ \phi(u) $ и $ \psi(u) $ непрерывны и дифференцируемы на $ [a;b] $.
+
+    В самом деле, $ F(y) = \int_{a}^{b}f(x,y)dx $ непрерывна на $ [c;d] $ (так как $ f(x,y) $ непрерывна на $ P $ и по теореме \ref{theorem:7.1.1}).
+
+    А функция $ \phi(u) = \int_{c}^{u}F(y)dy $ -- непрерывна и дифференцируема на $ [c;d] $ (по теореме \ref{theorem:7.1.1}).
+
+    При этом
+    \[
+        \phi'(y) = F(u) = \int_{a}^{b}f(x,u)fx.
+    \]
+
+    Далее, функция $ \Phi(x,u) = \int_{c}^{u}f(x,y)dy $. $ \Phi(x,u) $ -- дифференцируема по $ u $ и $ \Phi_u'(x,u) = f(x,u) $.
+    \[
+        \psi'(u) = \int_{a}^{b}\Phi_u'(x,u)dx = \int_{a}^{b}f(x,u)fx.
+    \]
+
+    Имеем, что $ \phi'(u) = \psi'(u) \ \forall u \in [c;d] \implies $
+    \[
+        \implies \phi(u) - \psi(u) = const \ \forall u \in [c;d].
+    \]
+
+    Заметим, что $ \phi(c) - \psi(c) = 0 - 0 = 0 \implies \forall u \in [c;d] \ \phi(u) - \psi(u) = 0 \implies \phi(u) = \psi(u) \implies $
+    \[
+        \implies \int_{c}^{d}\left(\int_{a}^{b}f(x,y)dx\right)dx = \int_{a}^{b}\left(\int_{c}^{d}f(x,y)dy\right)dx.
+    \]
+\end{proof}
+
+\setcounter{subsection}{109}
+
+\subsection{Утверждение об эквивалентности сходимости несобственного интгерала, зависящего от параметра и семейства функций – интегралов по верхнему пределу, зависящих от параметра}
+
+\begin{definition}[Несобственный интеграл, зависящий от параметра]
+    Пусть $ \forall y \in Y \ \exists \int_{a}^{\omega}f(x,y)dx $.
+
+    \emph{Несобственным интегралом, зависящим от параметра $ y $} называется функция
+    \begin{equation}\label{eq:7.2.1}
+        F(y) = \int_{a}^{\omega}f(x,y)dx.
+    \end{equation}
+\end{definition}
+
+\begin{note}
+    Далее, рассмотрим семейство функций
+    \begin{equation}\label{eq:7.2.2}
+        F_b(y) = \int_{a}^{b}f(x,y)dx, \ b \in [a;\omega).
+    \end{equation}
+\end{note}
+
+\begin{statement}
+    Интеграл \ref{eq:7.2.1} сходится на $ Y $ равномерно $ \implies $ семейство функций \ref{eq:7.2.2} сходится на $ Y $ равномерно при $ b \rightarrow \omega $.
+\end{statement}
+
+\begin{proof}\leavevmode
+    \begin{enumerate}
+        \item Интеграл \ref{eq:7.2.1} сходится на $ Y $ равномерно $ \overset{\text{по опр.}}{\iff} \forall \epsilon > 0 \ \exists B \in [a;\omega): \ \forall b \in (B;\omega) $
+              \[
+                  \left|\int_{b}^{\omega}f(x,y)dx\right| < \epsilon.
+              \]
+        \item Семейство функций \ref{eq:7.2.2} равномерно сходится на $ Y $ при $ b \rightarrow \omega \overset{\text{по опр.}}{\iff} \forall \epsilon > 0 \ \exists \widetilde{B} \in [a;\omega): \ \forall b \in (\widetilde{B};\omega) $
+              \[
+                  \big|F_b(y) - F(y)\big| < \epsilon, \ \forall y \in Y.
+              \]
+              Но
+              \begin{multline*}
+                  \big|F_b(y) - F(y)\big| = \left|\int_{a}^{b}f(x,y)dx - \int_{a}^{\omega}f(x,y)dx\right| = \\
+                  = \left|-\left(\int_{a}^{b}f(x,y)dx + \int_{a}^{\omega}f(x,y)dx\right)\right| = \left|\int_{a}^{\omega}f(x,y)dx\right|.
+              \end{multline*}
+    \end{enumerate}
+\end{proof}
+
+\subsection{Критерий Коши равномерной сходимости несобственных интегралов, зависящих от параметра}
+
+\begin{theorem}[Критерий Коши равномерной сходимости несобственного интеграла зависящего от параметра]
+    Интеграл $F(y) = \int_{a}^{\omega}f(x,y)dx$ равномерно сходится $\iff \forall \epsilon > 0 \ \exists B \in [a;\omega): \ \forall b_1,b_2 \in (B;\omega) \ \forall y \in Y$
+    \[
+        \left|\int_{b_1}^{b_2}f(x,y)dx\right| < \epsilon.
+    \]
+\end{theorem}
+
+\begin{proof}
+    Для семейства функций $F_b(y) = \int_{a}^{b}f(x,y)dx$ равномерная сходимость на $Y$ при $b\rightarrow\infty$ равносильна утверждению $\forall \epsilon > 0 \ \exists B \in [a;\omega): \ \forall b_1,b_2 \in (B;\omega)$ и $\forall y \in Y$
+    \[
+        \big|F_{b_1}(y) - F_{b_2}(y)\big| < \epsilon,
+    \]
+    \begin{multline*}
+        \big|F_{b_1}(y) - F_{b_2}(y)\big| = \\
+        = \left|\int_{a}^{b_1}f(x,y)dx - \int_{a}^{b_2}f(x,y)dx\right| = \left|-\left(\int_{a}^{b_1}f(x,y)dx + \int_{a}^{b_2}f(x,y)dx\right)\right| = \\
+        = \left|\int_{b_1}^{b_2}f(x,y)dx\right| < \epsilon.
+    \end{multline*}
+\end{proof}
+
+\subsection{Следствие критерия Коши равномерной сходимости несобственных интегралов, зависящих от параметра}
+
+\begin{corollary}
+    Пусть $f(x,y)$ непрерывна на множестве $[a;\omega)\times[c;d] $, \\ $\int_{a}^{\omega}f(x,y)dx$ сходится на $[c;d)$ и расходится в точке $y = d$.
+
+    Отсюда следует, что $\int_{a}^{\omega}f(x,y)dx$ на $[c;d)$ сходится неравномерно.
+\end{corollary}
+
+\begin{proof}
+    Так как при $y = d \ \int_{a}^{\omega}f(x,y)dx$ расходится $\implies \exists \epsilon > 0 \ \forall B \in [a;\omega) \ \exists b_1,b_2 \in (B;\omega):$
+                \[
+                    \left|\int_{b_1}^{b_2}f(x,d)dx\right| \geqslant \epsilon.
+                \]
+
+                Далее, в силу непрерывности функции $f(x,y)$ на $[a;\omega)\times [c;d]$ следует, что $F(y) = \int_{b_1}^{b_2}f(x,y)dx$ непрерывна на $[c;d]$ (смотреть теорему \ref{theorem:7.1.1}).
+
+                        Следовательно, $\exists$ окрестность $(d - \delta;d]: \ \forall y \in (d - \delta;d]$
+    \[
+        \left|\int_{b_1}^{b_2}f(x,y)dx\right| \geqslant \epsilon.
+    \]
+
+    Таким образом, $\exists \epsilon > 0: \ \forall B \in [a;\omega) \ \exists b_1,b_2 \in (B;\omega):$
+    \[
+        \left|\int_{b_1}^{b_2}f(x,y)dx\right| \geqslant \epsilon
+    \]
+    $\implies$ по критерию Коши $\int_{a}^{\omega}f(x,y)dx$ сходится на $[c;d)$ неравномерно.
+\end{proof}
+
+\subsection{Признак Вейерштрасса и его следствие}
+
+\begin{theorem}[Признак Вейерштраса]
+    Пусть \begin{enumerate}
+        \item $\forall y \in Y$ и $\forall x \in [a;\omega)$
+              \[
+                  \big|f(x,y)\big| \leqslant g(x,y).
+              \]
+        \item $\int_{a}^{\omega}g(x,y)dx$ -- равномерно сходится на $Y$.
+    \end{enumerate}
+
+    Тогда $\int_{a}^{\omega}f(x,y)dx$ -- равномерно сходится на $Y$.
+\end{theorem}
+
+\begin{proof}
+    Имеем
+    \[
+        \left|\int_{b_1}^{b_2}f(x,y)dx\right| \leqslant \int_{b_1}^{b_2}\left|f(x,y)\right|dx \leqslant \int_{b_1}^{b_2}g(x,y)dx.
+    \]
+
+    Так как $\int_{a}^{\omega}g(x,y)dx$ сходится равномерно на $Y$, то по признаку Коши
+    \[
+        \left|\int_{b_1}^{b_2}g(x,y)dx\right| < \epsilon
+    \]
+    $\implies \int_{a}^{\omega}f(x,y)dx$ сходится равномерно на $Y$.
+\end{proof}
+
+\begin{corollary}
+    Если $\forall y \in Y, \ \forall x \in [a;\omega)$
+    \[
+        \big|f(x,y)\big| \geqslant g(x),
+    \]
+    то из сходимости $\int_{a}^{\omega}g(x)dx \implies$ равномерна сходимость
+    \[
+        \int_{a}^{\omega}f(x,y)dx \text{ на }Y.
+    \]
+\end{corollary}
+
+\subsection{Признак Абеля}
+
+\begin{theorem}[Признак Абеля]
+    Если \begin{enumerate}
+        \item $\int_{a}^{\omega}g(x,y)dx$ равномерно сходится на $Y$.
+        \item $\forall y \in Y$ функция $f(x,y)$ монотонна по $x$ и равномерно ограничена, то есть $\exists M > 0: \ \forall x \in [a;\omega)$ и $\forall y \in Y$
+              \[
+                  \left|f(x,y)\right| \leqslant M.
+              \]
+    \end{enumerate}
+
+    Тогда
+    \[
+        \int_{a}^{\omega}\big(f(x,y) \cdot g(x,y)\big)dx \text{ -- сходится равномерно на }Y.
+    \]
+\end{theorem}
+
+\begin{proof}
+    \begin{multline*}
+        \left|\int_{b_1}^{b_2}\big(f(x,y)\cdot g(x,y)\big)dx\right| \overset{\begin{array}{c}
+                \text{2-я теорема} \\
+                \text{о среднем}
+            \end{array}}{=} \\
+        = \left|f(b_1,y)\cdot \int_{b_1}^{\xi}g(x,y)dx + f(b_2,y)\cdot \int_{\xi}^{b_2}g(x,y)dx\right| \leqslant \\
+        \leqslant \left|f(b_1,y)\right| \cdot \left|\int_{b_1}^{\xi}g(x,y)dx\right| + \left|f(b_2,y)\right| \cdot \left|\int_{\xi}^{b_2}g(x,y)dx\right|.
+    \end{multline*}
+
+    Пусть выполнены 1. и 2. для признака Абеля. Пусть $\epsilon > 0$ задано, тогда
+    \begin{multline*}
+        \left|\int_{b_1}^{\xi}g(x,y)dx\right| < \frac{\epsilon}{2\cdot M} \quad\text{и}\quad \left|\int_{\xi}^{b_2}g(x,y)dx\right| < \frac{\epsilon}{2 \cdot M} \implies \\
+        \implies \left|\int_{b_1}^{b_2}\big(f(x,y)\cdot g(x,y)\big)dx \right| < M \cdot \frac{\epsilon}{2 \cdot M} + M \cdot \frac{\epsilon}{2 \cdot M} = \epsilon \implies
+    \end{multline*}
+    $\implies \int_{a}^{\omega}\big(f(x,y)\cdot g(x,y)\big)dx$ сходится равномерно на $Y$ по критерию Коши.
+\end{proof}
+
+\subsection{Признак Дирихле}
+
+\begin{theorem}[Признак Дирихле]
+    Если
+    \begin{enumerate}
+        \item $\int_{a}^{b}g(x,y)dx$ ограничена в совокупности, то есть $\exists L > 0: \ \forall y \in Y$ и $\forall b \in [a;\omega)$
+              \[
+                  \left|\int_{a}^{b}g(x,y)dx\right| \leqslant L.
+              \]
+        \item $\forall y \in Y \ f(x,y)$ монотонна по $x$ и $f(x,y) \rightarrow 0$ равномерно при $x \rightarrow \omega$.
+    \end{enumerate}
+
+    Тогда
+    \[
+        \int_{a}^{\omega}\big(f(x,y)\cdot g(x,y)\big)dx \text{ -- сходится равномерно на } Y.
+    \]
+\end{theorem}
+
+\begin{proof}
+    \begin{multline*}
+        \left|\int_{b_1}^{b_2}\big(f(x,y)\cdot g(x,y)\big)dx\right| \overset{\begin{array}{c}
+                \text{2-я теорема} \\
+                \text{о среднем}
+            \end{array}}{=} \\
+        = \left|f(b_1,y)\cdot \int_{b_1}^{\xi}g(x,y)dx + f(b_2,y)\cdot \int_{\xi}^{b_2}g(x,y)dx\right| \leqslant \\
+        \leqslant \left|f(b_1,y)\right| \cdot \left|\int_{b_1}^{\xi}g(x,y)dx\right| + \left|f(b_2,y)\right| \cdot \left|\int_{\xi}^{b_2}g(x,y)dx\right|.
+    \end{multline*}
+
+    Пусть выполнены 1. и 2. для признака Дирихле. Пусть $\epsilon > 0$ задано, тогда:
+    \[
+        \left|f(x,y)\right| < \frac{\epsilon}{2\cdot L} \implies \left|\int_{b_1}^{b_2}\big(f(x,y)\cdot g(x,y)\big)dx\right| < \frac{\epsilon}{2\cdot L} \cdot L + \frac{\epsilon}{2 \cdot L} \cdot L = \epsilon \implies
+    \]
+    $\implies \int_{a}^{\omega}\big(f(x,y)\cdot g(x,y)\big)dx$ сходится равномерно на $Y$.
+\end{proof}

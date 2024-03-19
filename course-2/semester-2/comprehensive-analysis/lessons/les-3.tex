@@ -1,0 +1,204 @@
+\lesson{3}{от 29 фев 2024 12:45}{Продолжение}
+
+
+\begin{definition}[Связное множество]
+    $ A \subset \overline{\Comp} $ называется \emph{связным}, если $ \nexists U,V \in O_P \overline{\Comp}: \ U \cap A \ne \O, \ U \cap V = \O $.
+    \[
+        O_P \overline{\Comp} \text{ -- совокупность всех открытых множеств}
+    \]
+\end{definition}
+
+\begin{example}
+    $ A = \big\{(0,y): \ -1 \leqslant y \leqslant 1\big\} \cup \left\{\left(x,\sin\frac{1}{x}\right): \ 0 < x \leqslant 1\right\} $ -- связное.
+\end{example}
+
+\begin{definition}[Линейно связное множество]
+    Множество называется \emph{линейно связным}, если любые его точки можно соединить путем, значения которого лежат в этом множестве.
+\end{definition}
+
+\begin{remark}
+    В пространстве $ \R^n $, и в частности $ \overline{\Comp} $, любое открытое множество связно $ \iff $ оно линейно связно.
+\end{remark}
+
+\begin{definition}[Область]
+    \emph{Областью} в $ \overline{\Comp} $ называется любое непустое открытое связное множество.
+\end{definition}
+
+\begin{definition}[Замкнутая область]
+    \emph{Замкнутой областью} будем называть замыкание области.
+\end{definition}
+
+\section{Функции комплексного переменного}
+
+\subsection{Структура функции комплексного переменного}
+
+\begin{note}
+    $ f : \Comp \longrightarrow \Comp $
+    \[
+        \begin{array}{l}
+            dom f \text{ -- область определения функции} \\
+            im f \text{ -- область значения функции}
+        \end{array}
+    \]
+\end{note}
+
+\begin{definition}[Предел отображения]
+    $ D \subset dom f, \ z_0 \in \overline{\Comp} $ -- предельная точка $ D $. Тогда $ w_0 \in \overline{\Comp} $ называется \emph{пределом отображения} $ f $,
+    \[
+        w_0 \coloneqq \underset{D \circ z \rightarrow z_0}{\lim}f(z) \text{, если }\forall V \in O_{w_0} \ \exists U \in O_{z_0}: \ f(\mathring{U}\cap D)\subset V,
+    \]
+    \[
+        U \in O_{z_0}, \quad \mathring{U} = U\setminus\{z_0\}.
+    \]
+\end{definition}
+
+\begin{note}
+    В случае, когда $ z_0,w_0 \in\Comp $ следует, что $ \forall \epsilon > 0 \ \exists \delta > 0 : \ \forall z \in D $
+    \[
+        0 < | z - z_0 | < \delta \implies \big| f(z) - w_0 \big| < \epsilon.
+    \]
+\end{note}
+
+\begin{definition}[Непрерывная функция в точке]
+    Функция $ f $ называется \emph{непрерывной в точке} $ z_0 \in \Comp $, если:
+    \begin{enumerate}
+        \item $ z_0 \in dom f $.
+        \item $ \forall \epsilon > 0 \ \exists \delta > 0: \ \forall z \in D $
+              \[
+                  0 < | z - z_0 | < \delta \implies | f(z) - w_0 | < \epsilon.
+              \]
+    \end{enumerate}
+\end{definition}
+
+\newpage
+
+\begin{definition}[Непрерывная функция на множестве]
+    Функция $ f : \Comp \longrightarrow \Comp $ непрерывна на $ D \subset \Comp $, если
+    \begin{enumerate}
+        \item $ D \subset dom f $.
+        \item $ \forall z_0 \in D \ \forall \epsilon > 0 \ \exists \delta > 0 \ \forall z \in D $
+              \[
+                  | z - z_0 | < \delta \implies \big|f(z) - f(z_0)\big| < \epsilon.
+              \]
+    \end{enumerate}
+\end{definition}
+
+\begin{note}[Функция Дирихле]
+    $ D(x) = \left\{\begin{array}{ll}
+            1, & x \in \Q              \\
+            0, & x \in \R \setminus \Q
+        \end{array}\right. $, непрерывна на $ \Q $, непрерывна на $ \R \setminus \Q $.
+\end{note}
+
+\begin{remark}
+    Если множество является открытым или совпадает с областью определения функции, то непрерывность функции на этом множестве равносильно ее непрерывности в каждой точке.
+    \[
+        f_n: \Comp \rightarrow \Comp (n \in \N), \quad D \coloneqq \underset{n \in \N}{\bigcap} dom f_n.
+    \]
+\end{remark}
+
+\begin{definition}
+    $ A \subset D, \ f : A \rightarrow \Comp, \ f_n \rightrightarrows f $ на $ A $, если $ \forall \epsilon > 0 \ \exists n_0 \in \N : \ \forall z \in A \ \forall n \geqslant n_0 $
+    \[
+        \big|f_n(z) - f(z)\big| < \epsilon.
+    \]
+
+    ($ \forall \epsilon > 0 \ \exists n_0 \in \N:  \forall n \geqslant n_0 \quad \underset{z \in A}{\sup} \big| f_n(z) - f(z) \big| < \epsilon, \ | z - z_0 | < \delta \implies \big| f(z) - f(z_0) \big| < \epsilon $).
+\end{definition}
+
+\begin{theorem}[Вейерштрасса]
+    Если $ \{f_n\}_{n\in\N} \subset C(A), \ f_n \rightrightarrows f $, то $ f \in C(A) $.
+\end{theorem}
+
+\begin{definition}[Функциональный ряд]
+    \emph{Функциональным рядом} называется формальная сумма членов последовательности функции.
+    \[
+        \text{Обозначение: } \sum_{n=1}^{\infty}f_n.
+    \]
+\end{definition}
+
+\begin{definition}[Числовой ряд]
+    $ \forall z \in D \ \sum_{n=1}^{\infty}f_n(z) $ называется \emph{числовым рядом} $ \{f_n(z)\}_{n \in \N} $.
+    \[
+        S_n \coloneqq \sum_{k=1}^{n}f_k \text{ -- частичная сумма}.
+    \]
+\end{definition}
+
+\begin{theorem}[Признак Вейерштрасса]
+    $ \sum_{n=1}^{\infty}f_n $ таков, что $ \forall n \in \N \ \forall z \in A \ | f_n | \leqslant c_n $, причем $ \sum_{n=1}^{\infty} c_n $ сходится. Тогда ряд $ \sum_{n=1}^{\infty} f_n $ равномерно абсолютно сходится на $ A $.
+\end{theorem}
+
+\begin{theorem}[Критерий Коши (равномерная сходимость)]
+    $ \{f_n\}_{n\in\N} $ равномерно сходится на $ A \iff \forall \epsilon > 0 \ \exists n_0 \in \N: \forall n,m \geqslant n_0 $
+    \[
+        \underset{z \in A}{\sup}\big|f_n(z) - f_n(z_0)\big| < \epsilon.
+    \]
+\end{theorem}
+
+\begin{definition}[Линейная функция]
+    Функция $ f : \Comp \longrightarrow \Comp $ называется \emph{линейной}, если $ \forall \alpha, \beta \in \Comp \ \forall z_1,z_2 \in \Comp $
+    \[
+        f(\alpha z_1 + \beta z_2) = \alpha f(z_1) + \beta f(z_2).
+    \]
+\end{definition}
+
+\begin{remark}
+    Функция $ f: \Comp \longrightarrow \Comp $ является линейной $ \iff \exists a \in \Comp : \forall z \in \Comp $
+    \[
+        f(z) = az
+    \]
+\end{remark}
+
+\subsection{Степенные ряды}
+
+\begin{note}
+    $ \sum_{n=0}^{\infty}a_n(z-z_0)^n $, где $ \{a_n\}_{n\in\N} \subset \Comp, \ z,z_0 \in \Comp $.
+\end{note}
+
+\begin{theorem}[1-я теорема Абеля]
+    Если ряд $ \sum_{n=0}^{\infty}a_n(z-z_0)^n $ сходится в точке $ \nequalto{z_1}{z_0} \in \Comp $, то он абсолютно сходится при $ | z - z_0 | < | z_1 - z_0 | $. А если ряд $ \sum_{n=0}^{\infty}a_n(z - z_0)^n $ расходится в точке $ \nequalto{z_1}{z_0} \in \Comp $, то он расходится и при $ | z - z_0 | > | z_1 - z_0 | $.
+\end{theorem}
+
+\begin{proof}\leavevmode
+    \begin{enumerate}
+        \item $ \sum_{n=0}^{\infty}a_n(z_1 - z_0)^n $ сходится $ \implies \big|a_n(z_1 - z_0)^n\big| \xrightarrow[n \rightarrow\infty]{} 0 $.
+              \[
+                  c \coloneqq \underset{n\in\N}{\sup} \big|a_n(z_1 - z_0)^n\big| < +\infty, \quad | z - z_0 | < | z_1 - z_0 |.
+              \]
+
+              Рассмотрим
+              \[
+                  \sum_{n=0}^{\infty}\big|a_n(z-z_0)^n\big| = \sum_{n=0}^{\infty}\big|a_n(z_1 - z_0)^n\big|\cdot \left|\frac{z-z_0}{z_1-z_0}\right|^n \leqslant c \cdot \sum_{n=0}^{\infty}\left|\frac{z-z_0}{z_1-z_0}\right|^n < + \infty.
+              \]
+        \item \textbf{добавить}
+    \end{enumerate}
+\end{proof}
+
+\begin{definition}[Радиус сходимости]
+    Элемент $ R \in [0;+\infty] $ называется \emph{радиусом сходимости} ряда $ \sum_{n=0}^{\infty}a_n(z-z_0)^n $, если при $ | z - z_0 | < R $ исходный ряд абсолютно сходится, а при $ | z-z_0 | > R $ исходный ряд расходится.
+\end{definition}
+
+\begin{theorem}[Коши-Адамара]
+    Для степенного ряда $ \sum_{n=0}^{\infty}a_n(z-z_0)^n $ положим $ l \coloneqq \underset{n \rightarrow\infty}{\overline{\lim}} \sqrt[n]{| a_n |} $. Тогда:
+    \begin{enumerate}
+        \item Если $ l=0 $, то исходный ряд сходится $ \forall z \in \Comp $.
+        \item Если $ l=\infty $, то исходный ряд сходится только в точке $ z_0 $.
+        \item Если $ l\in(0;+\infty) $, то при $ | z-z_0 | < \frac{1}{l} $, а при $ | z-z_0 | > \frac{1}{l} $ исходный ряд расходится.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}\leavevmode
+    \begin{enumerate}
+        \item $ \underset{n \rightarrow\infty}{\overline{\lim}} \sqrt[n]{| a_n |} = \underset{n \rightarrow\infty}{\lim} \sqrt[n]{| a_n |} = 0 $,
+              \[
+                  z \in \Comp, \ \sum_{n=0}^{\infty}\big| a_n(z-z_0)^n \big|.
+              \]
+              $ \underset{n \rightarrow \infty}{\lim} \sqrt[n]{\big| a_n(z-z_0)^n \big|} = \underset{n \rightarrow \infty}{\lim} \sqrt[n]{\big| a_n \big|} \cdot | z - z_0 | = 0 \implies $ ряд сходится.
+        \item $ \underset{n \rightarrow\infty}{\overline{\lim}} \sqrt[n]{| a_n |} = \infty $,
+              \[
+                  \exists\{a_{n_k}\}_{k\in\N} \subset \{a_n\}_{n\in\N}, \quad \sqrt[n_k]{| a_{n_k} |} \rightarrow + \infty.
+              \]
+              $ \sqrt[n_k]{| a_{n_k} |} \cdot | z - z_0 | \rightarrow +\infty \implies | a_{n_k} | $.
+        \item $ | z - z_0 | < \frac{1}{l} \implies l | z - z_0 | < 1 $.
+    \end{enumerate}
+\end{proof}

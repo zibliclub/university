@@ -1,0 +1,253 @@
+\section{Свойства предельной функции}
+
+\setcounter{subsection}{94}
+
+\subsection{Теорема о сходимости степенного ряда}
+
+\begin{definition}[Степенной ряд]
+    \emph{Степенным рядом} называется выражение вида
+    \[
+        \sum_{n=0}^{\infty}\big(a_n\cdot (x-x_0)^n\big)
+    \]
+    или
+    \begin{equation}\label{eq:6.10.1}
+        \sum_{n=0}^{\infty}(a_n \cdot x^n).
+    \end{equation}
+\end{definition}
+
+\begin{theorem}[О сходимости степенного ряда]\label{theorem:6.10.1}\leavevmode
+    \begin{enumerate}
+        \item Областью сходимости степенного ряда \ref{eq:6.10.1} является промежуток $(-R;R)$, где $R \geqslant 0 \ (+ \infty)$.
+        \item $\forall [\alpha;\beta] \subset (-R;R)$ ряд \ref{eq:6.10.1} сходится равномерно на $[\alpha;\beta]$.
+        \item Число $R$, называемое \emph{радиусом сходимости степенного ряда} \ref{eq:6.10.1}, может быть вычислено:
+              \[
+                  R = \frac{1}{\underset{n\rightarrow\infty}{\overline{\lim}}\sqrt[n]{|a_n|}}.
+              \]
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Воспользуемся признаком Коши:
+    \[
+        \underset{n\rightarrow\infty}{\overline{\lim}}\sqrt[n]{|a_n|\cdot|x|^n} = |x| \cdot \underset{n\rightarrow\infty}{\overline{\lim}}\sqrt[n]{|a_n|} = k.
+    \]
+
+    При $k < 1$ ряд $\sum_{n=0}^{\infty}|a_n \cdot x^n |$ сходится $\implies$ ряд \ref{eq:6.10.1} сходится абсолютно.
+
+    Покажем, что при $k > 1$ ряд \ref{eq:6.10.1} расходится. Для этого покажем, что при $k > 1 \ a_n \cdot x^n \nrightarrow 0$.
+
+    В самом деле, $\exists$ подпоследовательность номеров $n_k$ и $\exists k: \ \forall k > K$
+    \[
+        |a_{n_k} \cdot x^{n_k}| > \left(\frac{1 + k}{2}\right)^{n_k} > 1 \implies a_n \cdot x^n \underset{n\rightarrow\infty}{\nrightarrow} 0.
+    \]
+
+    Таким образом, $|x|\cdot \underset{n\rightarrow\infty}{\overline{\lim}}\sqrt[n]{|a_n|} < 1$,
+    \[
+        |x| < \frac{1}{\underset{n\rightarrow\infty}{\overline{\lim}}\sqrt[n]{|a_n|}} = R \implies x \in (-R;R) \text{ -- область сходимости \ref{eq:6.10.1}}.
+    \]
+
+    При $k = 1$ ряд \ref{eq:6.10.1} может как сходиться, так и расходиться.
+
+    Таким образом, доказали пункты 1. и 3..
+
+    Докажем пункт 2.:
+
+    Пусть $[\alpha;\beta]\subset(-R;R)$. Возьмем $x_0$:
+    \[
+        -R < -x_0 < \alpha < \beta < x_0 < R.
+    \]
+
+    Тогда $\forall x \in [\alpha;\beta]$
+    \[
+        |a_n \cdot x^n| < |a_n \cdot x_0^n|.
+    \]
+
+    Заметим, что так как $x_0 \in (-R;R)$, то ряд $\sum_{n=0}^{\infty}|a_n\cdot x_0^n|$ сходится $\implies$ по признаку Вейерштрасса ряд \ref{eq:6.10.1} сходится равномерно на $[\alpha;\beta]$.
+\end{proof}
+
+\setcounter{subsection}{96}
+
+\subsection{Теорема Абеля о сумме степенного ряда}
+
+\begin{theorem}[Абеля, о сумме степенного ряда]
+    Если $R$ -- радиус сходимости ряда \ref{eq:6.10.1} и ряд $\sum_{n=0}^{\infty}(a_n \cdot R^n)$ сходится, то
+    \[
+        \underset{x\rightarrow R}{\lim}\sum_{n=0}^{\infty}(a_n \cdot x^n) = \sum_{n=0}^{\infty} (a_n \cdot R^n).
+    \]
+\end{theorem}
+
+\begin{proof}
+    Заметим, что сумма ряда является непрерывной на интервале сходимости.
+
+    В самом деле, если $x_0 \in (-R;R)$, то $\exists x_0 \in [\alpha;\beta]$: по теореме \ref{theorem:6.10.1} на $[\alpha;\beta]$ ряд \ref{eq:6.10.1} сходится равномерно $\implies$ его сумма является непрерывной функцией на $[\alpha;\beta]$, то есть она непрерывна в точке $x_0$.
+
+    Так как $x_0 \in (-R;R)$ произвольная $\implies$ сумма ряда \ref{eq:6.10.1} непрерывна на $(-R;R)$.
+
+    Покажем, что ряд \ref{eq:6.10.1} равномерно сходится на промежутке $[\alpha;R]$, где $\alpha > - R$.
+
+    В самом деле, $\forall x \in [\alpha;R]$:
+    \[
+        \sum_{n=0}^{\infty}|a_n \cdot x^n| = \sum_{n=0}^{\infty}\bigg(a_n \cdot R^n \cdot \bigg|\bigg(\frac{x}{R}\bigg)^n\bigg|\bigg).
+    \]
+
+    Здесь ряд $\sum_{n=0}^{\infty}(a_n \cdot R^n)$ -- сходится, а последовательность $\left\{\left(\frac{|x|}{R}\right)^n\right\}$ монотонна и равномерно ограничена $\implies$ по теореме Абеля ряд \ref{eq:6.10.1} сходится на $[\alpha;R]$ равномерно $\implies$ сумма его непрерывна на $[\alpha;R] \implies$
+    \[
+        \implies\underset{x\rightarrow R}{\lim}\sum_{n=0}^{\infty}(a_n \cdot x^n) = \sum_{n=0}^{\infty} (a_n \cdot R^n).
+    \]
+\end{proof}
+
+\subsection{Теорема об интегрировании степенного ряда}
+
+\begin{theorem}[Об интегрировании степенного ряда]
+    Пусть дан ряд \ref{eq:6.10.1}. Пусть $S(x)$ -- его сумма, $R$ -- радиус сходимости ряда \ref{eq:6.10.1}. Тогда $\forall \overline{x} \in (-R;R)$ функция $S(x)$ интегрируема на $[0;\overline{x}]$ (или на $[\overline{x};0]$) и
+    \[
+        \int_{0}^{\overline{x}}S(x)dx = \int_{0}^{\overline{x}}\left(\sum_{n=0}^{\infty}(a_n \cdot x^n)\right)dx = \sum_{n=0}^{\infty}\int_{0}^{\overline{x}}(a_n \cdot x^n)dx = \sum_{n=0}^{\infty} \left(\frac{a_n}{n+1}\cdot \overline{x}^{n+1}\right).
+    \]
+
+    Если ряд \ref{eq:6.10.1} сходится при $x = R$, то утверждение остается верным и для $\overline{x} = R$.
+\end{theorem}
+
+\begin{proof}
+    Имеем,
+    \[
+        R = \frac{1}{\underset{n\rightarrow\infty}{\overline{\lim}}\sqrt[n]{|a_n|}}.
+    \]
+
+    Пусть $R'$ и $R''$ -- радиусы сходимости рядов $\sum_{n=0}^{\infty}\big(\frac{a_n}{n_1} \cdot x^{n+1}\big)$ и \\ $\sum_{n=0}^{\infty}(a_n \cdot n \cdot x^{n-1})$, соответственно:
+    \begin{eqnarray*}
+        R' & = & \frac{1}{\underset{n\rightarrow\infty}{\overline{\lim}}\sqrt[n]{\frac{|a_n|}{n+1}}} = \left|\begin{array}{l}
+            \underset{n\rightarrow\infty}{\lim}\sqrt[n]{n} = 1 \\
+            \text{смотреть Демидович}
+        \end{array}\right| = \frac{1}{\underset{n\rightarrow\infty}{\overline{\lim}}\sqrt[n]{| a_n | }} = R, \\
+        R'' & = & \frac{1}{\underset{n\rightarrow\infty}{\overline{\lim}}\sqrt[n]{|a_n|\cdot n}} = R.
+    \end{eqnarray*}
+
+    Таким образом для ряда \ref{eq:6.10.1} выполняется условия теорем об интегрировании и дифференцировании предельной функции.
+
+    Условия равномерной сходимости следуют из теоремы \ref{theorem:6.10.1}.
+\end{proof}
+
+\subsection{Теорема о дифференцировании степенного ряда}
+
+\begin{theorem}[О дифференцировании степенного ряда]
+    Пусть дан ряд \ref{eq:6.10.1}. Пусть $S(x)$ -- его сумма, $R$ -- радиус сходимости ряда \ref{eq:6.10.1}. Тогда $\forall x \in (-R;R)$ функция $S(x)$ дифференцируема в точке $x$ и
+    \[
+        S'(x) = \left(\sum_{n=0}^{\infty}(a_n \cdot x^n)\right)' = \sum_{n=0}^{\infty}(a_n \cdot x^n)' = \sum_{n=0}^{\infty}(a_n \cdot n \cdot x^{n-1}).
+    \]
+
+    Если ряд $\sum_{n=0}^{\infty}(a_n \cdot n \cdot x^{n-1})$ сходится при $x = R \ (-R)$, то утверждение теоремы остается верно и при $x = R$.
+\end{theorem}
+
+\begin{proof}
+    Имеем,
+    \[
+        R = \frac{1}{\underset{n\rightarrow\infty}{\overline{\lim}}\sqrt[n]{|a_n|}}.
+    \]
+
+    Пусть $R'$ и $R''$ -- радиусы сходимости рядов $\sum_{n=0}^{\infty}\big(\frac{a_n}{n_1} \cdot x^{n+1}\big)$ и \\ $\sum_{n=0}^{\infty}(a_n \cdot n \cdot x^{n-1})$, соответственно:
+    \begin{eqnarray*}
+        R' & = & \frac{1}{\underset{n\rightarrow\infty}{\overline{\lim}}\sqrt[n]{\frac{|a_n|}{n+1}}} = \left|\begin{array}{l}
+            \underset{n\rightarrow\infty}{\lim}\sqrt[n]{n} = 1 \\
+            \text{смотреть Демидович}
+        \end{array}\right| = \frac{1}{\underset{n\rightarrow\infty}{\overline{\lim}}\sqrt[n]{| a_n | }} = R, \\
+        R'' & = & \frac{1}{\underset{n\rightarrow\infty}{\overline{\lim}}\sqrt[n]{|a_n|\cdot n}} = R.
+    \end{eqnarray*}
+
+    Таким образом для ряда \ref{eq:6.10.1} выполняется условия теорем об интегрировании и дифференцировании предельной функции.
+
+    Условия равномерной сходимости следуют из теоремы \ref{theorem:6.10.1}.
+\end{proof}
+
+\subsection{Теорема о единственности степенного ряда}
+
+\begin{theorem}[Об единственности]
+    Если существует окрестность $U$ точки $x = 0$ суммы рядов $\sum_{n=0}^{\infty}(a_n \cdot x^n)$ и $\sum_{n=0}^{\infty}(b_n \cdot x^n)$ совпадают для всех $x \in U$, то $\forall n $
+    \[
+        a_n = b_n.
+    \]
+\end{theorem}
+
+\begin{proof}
+    Положим $x = 0 \implies a_0 = b_0$. Далее рассмотрим ряд $\sum_{n=1}^{\infty}\big((a_n - b_n) \cdot x^n\big)$. Он сходится на $U$, так как сходятся исходные ряды.
+
+    Пусть $\sum_{n=0}^{\infty}(a_n \cdot x^n) = S_a(x), \ \sum_{n=0}^{\infty}(b_n \cdot x^n) = S_b(x)$. По условию теоремы, $\forall x \in U(0) $
+    \[
+        S_a(x) \equiv S_b(x),
+    \]
+    \[
+        \begin{array}{r}
+            \sum_{n=0}^{\infty}(a_n \cdot x^n) - \sum_{n=0}^{\infty}(b_n \cdot x^n) = S_a(x) - S_b(x) \equiv 0 \\
+            \verteq                                                                                            \\
+            \sum_{n=1}^{\infty}\big((a_n - b_n) \cdot x^{n-1}\big) \equiv 0
+        \end{array}
+    \]
+
+    Поделим $\sum_{n=1}^{\infty}\big((a_n - b_n) \cdot x^{n-1}\big) \equiv 0$ на $x \ne 0$, получится ряд
+    \[
+        \sum_{n=1}^{\infty}\big((a_n - b_n) \cdot x^{n-1}\big) \equiv 0.
+    \]
+
+    Перейдем к пределу в $\sum_{n=1}^{\infty}\big((a_n - b_n) \cdot x^{n-1}\big) \equiv 0$ при $x \rightarrow 0$:
+    \[
+        0 \equiv \underset{x\rightarrow0}{\lim}\sum_{n=1}^{\infty}\big((a_n - b_n) \cdot x^{n-1}\big) = \sum_{n=1}^{\infty}\underset{x\rightarrow0}{\lim}\big((a_n - b_n) \cdot x^{n-1} \big) = a_1 - b_1 \implies
+    \]
+    $\implies a_1 = b_1$. И так далее $\implies \forall n \ a_n = b_n$.
+\end{proof}
+
+\setcounter{subsection}{101}
+
+\subsection{Утверждение о связи степенного ряда и ряда Тейлора}
+
+\begin{statement}
+    Если функция $f(x)$ в окрестности точки $x_0$ является суммой степенного ряда $\sum_{n=0}^{\infty}\big(a_n \cdot (x-x_0)^n\big)$, то этот ряд является ее рядом Тейлора.
+\end{statement}
+
+\begin{proof}
+    Имеем, $\forall x \in U(x_0) = (x_0 - \epsilon;x_0 + \epsilon)$:
+    \begin{equation}\label{eq:for_proof4}
+        f(x) = \sum_{n=0}^{\infty}\big(a_n\cdot (x-x_0)^n\big).
+    \end{equation}
+
+    Положим, что $x=x_0$, тогда $f(x_0) = a_0$. Продифференцируем выражение \ref{eq:for_proof4} и вычислим производную в точке $x=x_0$ (и далее по аналогии):
+    \begin{eqnarray*}
+        f'(x_0) &=& 1 \cdot a_1; \\
+        f''(x_0) &=& 2 \cdot 1 \cdot a_2 \implies a_2 = \frac{f''(x_0)}{1 \cdot 2} = \frac{f''(x_0)}{2!}; \\
+        f'''(x_0) &=& 3 \cdot 2 \cdot 1 \cdot a_3 \implies a_3 = \frac{f'''(x_0)}{1 \cdot 2 \cdot 3} = \frac{f'''(x_0)}{3!}; \\
+        &\vdots& \\
+        f^{(n)}(x_0) &=& n \cdot (n-1) \cdot \ldots \cdot 1 \cdot a_n \implies a_n = \frac{f^{(n)}(x_0)}{1 \cdot 2 \cdot \ldots \cdot n} = \frac{f^{(n)}(x_0)}{n!}.
+    \end{eqnarray*}
+\end{proof}
+
+\subsection{Разложение элементарных функций в степенной ряд}
+
+\begin{lemma}
+    Если $f(x)$ -- $\infty$-но дифференцируемая функция на $[0;H]$ и $\exists L > 0: \ \forall n \in \N$ и $\forall x \in [0;H]$
+    \[
+        \big|f^{(n)}(x)\big| \leqslant L,
+    \]
+    то на $[0;H]$ функция $f$ может быть разложена в степенной ряд (ряд Тейлора).
+\end{lemma}
+
+\begin{proof}
+    Имеем:
+    \[
+        \big|f(x) - F_n(x)\big| = \left|f(x) - \sum_{k=0}^{n}\left(\frac{f^{(k)}(0)}{k!}\cdot x^k\right)\right| = \big|R_n(x)\big|,
+    \]
+    где $ F_n(x) $ -- частичная сумма ряда Тейлора (степенной ряд), $ R_n(x) $ -- остаточный член в формуле Тейлора.
+
+    Так как $f(x)$ есть сумма ряда $\sum_{n=0}^{\infty}\frac{f^{(n)}(0)}{n!}\cdot x^n \iff R_n(x)$ должен $\rightarrow$ к $0$ при $n\rightarrow\infty$.
+
+    Рассмотрим
+    \[
+        R_n(x) = \frac{f^{(n+1)}(\xi)}{(n+1)!} \cdot x^{n+1}, \quad 0 < \xi < x.
+    \]
+
+    Если выполнены условия леммы, то
+    \[
+        \big|R_n(x)\big| = \left|\frac{f^{(n+1)}(\xi)}{(n+1)!} \cdot x^{n+1}\right| = \frac{\big|f^{(n+1)}(\xi)\big|}{(n+1)!} \cdot |x^{n+1}| \leqslant \frac{L \cdot H^{n+1}}{(n+1)!},
+    \]
+    \[
+        \underset{n\rightarrow\infty}{\lim}\frac{L\cdot H^{n+1}}{(n+1)!} = 0 \implies
+    \]
+    $ \implies $ (упражнение: доказать) $\implies R_n(x) \rightarrow 0$ при $n \rightarrow\infty$.
+\end{proof}

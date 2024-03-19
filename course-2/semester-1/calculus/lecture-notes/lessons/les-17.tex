@@ -1,0 +1,362 @@
+\lesson{17}{от 19 нояб 2023 8:47}{Продолжение}
+
+
+\chapter{Кратные интегралы}
+
+\section{Мера Жордана в $\R^n$}
+
+\begin{definition}[Непересекающиеся и попарно непересекающиеся множества]
+    Множества $A$ и $B$ называются \emph{непересекающимися}, если $A \cap B = \varnothing$.
+
+    Множества $A_1,\ldots,A_n$ называются \emph{попарно непересекающимися}, если $\forall i,j \in \{1,\ldots,n\} \ A_i$ и $A_j$ -- непересекающиеся.
+\end{definition}
+
+\begin{definition}[Разбиение множества]
+    \emph{Разбиением} множества $A$ называется совокупность попарно непересекающихся множеств $A_1,\ldots,A_n$.
+\end{definition}
+
+\begin{definition}[Клетка]
+    Множество
+    \begin{equation}\label{eq:8.1.1}
+        \Pi = \big\{(x_1,\ldots,x_n): \ a_i \leqslant x_i < b_i, \ i = \overline{1,n}\big\}
+    \end{equation}
+    называется \emph{клеткой} в $\R^n$.
+
+    Пустое множество также считается клеткой.
+    \[
+        \text{клетки: }\begin{array}{ll}
+            \text{в }\R   & \text{ -- }[a;b)\text{ полуинтервалы}                \\
+            \text{в }\R^2 & \text{ -- }\begin{array}{l}
+                                           \text{прямоугольники, у которых удалены} \\
+                                           \text{соответствующиеся стороны}
+                                       \end{array}  \\
+            \text{в }\R^3 & \text{ -- }\begin{array}{l}
+                                           \text{параллелепипеды, у которых удалены} \\
+                                           \text{соответствующиеся грани}
+                                       \end{array} \\
+        \end{array}
+    \]
+\end{definition}
+
+\begin{definition}[Клеточное множество]
+    Множество $A \subset \R^n$ называется \emph{клеточным}, если оно является объединением конечного числа попарно непересекающихся клеток.
+\end{definition}
+
+\newpage
+
+\subsection{Свойства клеточных множеств}
+
+\begin{itemize}
+    \item Свойсто $ \circled{1} $
+          \begin{statement}
+              Пересечение двух клеток есть клетка.
+          \end{statement}
+          \begin{proof}
+              Достаточно заметить, что $[a;b) \cap [c;d)$ есть либо тоже полуинтервал, либо $\varnothing$ (того же вида).
+          \end{proof}
+
+    \item Свойсто $ \circled{2} $
+          \begin{statement}
+              Объединение конечного числа непересекающихся клеточных множеств является клеточным множеством.
+          \end{statement}
+
+    \item Свойсто $ \circled{3} $
+          \begin{statement}
+              Пересечение двух клеточных множеств есть клеточное множество.
+          \end{statement}
+          \begin{proof}
+              Пусть $A$ и $B$ -- клеточные множества, \\ $\Pi_1,\Pi_2,\ldots,\Pi_n$ -- разбиение $A, \ \Pi_1',\Pi_2',\ldots,\Pi_k'$ -- разбиение множества $B$.
+
+              Пересечение $A \cap B$ состоит из клеток $\Pi_{ij} = \Pi_i \cap \Pi_j', \ i = \overline{1,n}, \ j = \overline{1,k}$, причем клетки $\Pi_{ij}$ попарно не пересекаются.
+          \end{proof}
+
+    \item Свойсто $ \circled{4} $
+          \begin{statement}
+              Разность двух клеток есть клеточное множество.
+          \end{statement}
+          \begin{proof}
+              Если клетка $R$ является пересечением клеток $\Pi$ и $Q$, то:
+              \[
+                  \Pi \setminus Q = \Pi \setminus R,
+              \]
+              и существует разбиение клетки $\Pi$ такая, что клитка $R$ является одной из клеток разбиения.
+          \end{proof}
+
+    \item Свойсто $ \circled{5} $
+          \begin{statement}
+              Разность двух клеточных множеств есть клеточное множество.
+          \end{statement}
+          \begin{proof}
+              Пусть множество $A$ разбито на клетки \\ $\Pi_1,\Pi_2,\ldots,\Pi_n$ и $Q$ -- некоторая клетка.
+
+              Множества $K_i = \Pi_i \setminus Q$ есть попарно непересекающиеся клеточные множества (в силу $ \circled{4} $-го свойства). Множество $A\setminus Q$ есть $\underset{i}{\bigcup}K_i$, тогда в силу $ \circled{2} $-го свойства $\underset{i}{\bigcup}K_i$ -- клеточное множество.
+
+              Пусть $B$ -- клеточное множество, имеет разбиение $\Pi_1',\Pi_2',\ldots,\Pi_k'$. Множество $A\setminus B$ можно получить, последовательно вычитая из $A$ клетки $\Pi_1',\Pi_2',\ldots,\Pi_k'$, каждый раз получая клеточное множество за конечное число шагов.
+          \end{proof}
+
+    \item Свойсто $ \circled{6} $
+          \begin{statement}
+              Объединение конечного числа клеточных множеств есть клеточное множество.
+          \end{statement}
+          \begin{proof}
+              Если $A$ и $B$ -- клеточные множества, то в силу $ \circled{3} $-го и $ \circled{5} $-го свойств, множества $A\setminus B, \ B \setminus A$ и $A \cap B$ являются конечными. Тогда:
+              \[
+                  A \cup B = (A\setminus B) \cup (B \setminus A) \cup(A \cap B)
+              \]
+              -- клеточное множество по свойству $ \circled{2} $.
+          \end{proof}
+\end{itemize}
+
+\subsection{Мера клеточного множества}
+
+\begin{definition}[Мера клетки]
+    \emph{Мерой $m(\Pi)$ клетки $\Pi$}, определенной \ref{eq:8.1.1}, называется число:
+    \begin{equation}\label{eq:8.1.2}
+        m(\Pi) = (b_1 - a_1)\cdot \ldots \cdot (b_n - a_n)
+    \end{equation}
+
+    Мера пустого множества равна нулю по определению.
+\end{definition}
+
+\begin{definition}[Мера клеточного множества]
+    \emph{Мерой $m(A)$ клеточного множества $A$}, разбитого на клетки $\Pi_1,\Pi_2,\ldots,\Pi_n$ называется число:
+    \begin{equation}\label{eq:8.1.3}
+        m(A) = \sum_{i=1}^{n}m(\Pi_i)
+    \end{equation}
+\end{definition}
+
+\begin{lemma}
+    Мера клеточного множества не зависит от способа разбиения множества на клетки.
+\end{lemma}
+
+\begin{proof}
+    Можно показать, что при $\forall$ разбиении $\Pi_1,\ldots,\Pi_k$ клетки $\Pi$ мера $\Pi$ как клеточного множества всегда равна $m(\Pi)$, определяемой \ref{eq:8.1.2}.
+
+    Для $\R^1$ очевидна верна формула \ref{eq:8.1.3},
+    \[
+        m(\Pi) = \underset{i}{\sum}m(\Pi_i).
+    \]
+
+    В общем случае для клетки $\Pi$ можно провести аналогичные рассуждения.
+\end{proof}
+
+\subsection{Свойства меры клеточных множеств}\label{subsec:8.1.3}
+
+\begin{itemize}
+    \item Свойсто $ \circled{1} $
+          \begin{statement}
+              Если клеточные множества $ A_1,\ldots,A_n $ попарно не пересекаются, то
+              \begin{equation}\label{eq:8.1.4}
+                  m(\overset{n}{\underset{i=1}{\bigcup}}A_i) = \sum_{i=1}^{n}m(A_i)
+              \end{equation}
+          \end{statement}
+
+    \item Свойство $ \circled{2} $
+          \begin{statement}
+              Если $ A $ и $ B $ -- клеточные множества и $ A \subset B $, то
+              \begin{equation}\label{eq:8.1.5}
+                  m(B) = m(A) + m(B \setminus A)
+              \end{equation}
+              и $ m(A) \leqslant m(B) $.
+          \end{statement}
+          \begin{proof}
+              $ A $ и $ B \setminus A $ -- не пересекающиеся множества, $ A \cup (B \setminus A) = B \implies $ по свойству $ \circled{1} $
+              \[
+                  m(B) = m(A) + m(B\setminus A) \implies m(A) \leqslant m(B).
+              \]
+          \end{proof}
+
+    \item Свойство $ \circled{3} $
+          \begin{statement}
+              Если $ A_1,\ldots,A_n $ -- клеточные множества, то
+              \begin{equation}\label{eq:8.1.6}
+                  m(\overset{n}{\underset{i=1}{\bigcup}}A_i) \leqslant \sum_{i=1}^{n}m(A_i)
+              \end{equation}
+          \end{statement}
+          \begin{proof}
+              Докажем для $ n=2 $, по индукции можно доказать $ \forall n $.
+
+              Имеем $ A_1 $ и $ A_2 $, заметим, что $ A_1 \subset A_1 \cup A_2 = B, \ B \setminus A_1 \subset A_2 $
+              \[
+                  m(A_1 \cup A_2) = m(B) \overset{\circled{5}}{=} m(A_1) + m(B\setminus A_1) \leqslant m(A_1) + m(A_2).
+              \]
+          \end{proof}
+
+    \item Свойство $ \circled{4} $
+          \begin{statement}
+              Для $ \forall $ клеточного множества $ A $ и $ \forall \epsilon > 0 \ \exists $ клеточное множество
+              \[
+                  A_\epsilon : \ A_\epsilon \subset \overline{A_\epsilon} \subset A^\circ \subset A,
+              \]
+              где $ \overline{A_\epsilon} $ -- замыкание множества $ A_\epsilon $, $ A^\circ $ -- совокупность все внутренних точке множества $ A $.
+          \end{statement}
+          \begin{proof}
+              Достаточно доказать для клетки \ref{eq:8.1.1}.
+
+              Из определения клетки $ \implies $ точка $ (x_1,\ldots,x_n) \in G\Pi $ ($ G\Pi $ -- граница клетки), если $ \exists i : \ x_i = a_i $ или $ x_i = b_i $.
+
+              Сдвигаем левые концы полуинтервалов $ [a_i;b_i) $ вправо, а правые -- влево $ \implies $ построена клетка $ \Pi_\epsilon $, которая не содержит граничных точек клетки $ \implies \Pi_i \subset \overline{\Pi_\epsilon} \subset \Pi^\circ \subset \Pi $.
+          \end{proof}
+\end{itemize}
+
+\subsection{Множества, измеримые по Жордану}
+
+\begin{definition}[Измеримое по Жордану множество]
+    Множество $ Q \subset \R $ называется \emph{измеримым по Жордану}, если $ \forall \epsilon > 0 \ \exists $ клеточные множества $ A $ и $ B $:
+    \[
+        A \subset \Omega \subset B \quad \text{и} \quad m(B) - m(A) < \epsilon.
+    \]
+\end{definition}
+
+\begin{definition}[Мера для измеримого по Жордану множества]
+    Если $ \Omega $ -- измеримое по Жордану множество, то его \emph{мерой} $ m(\Omega) $ называется число для $ \forall A $ и $ B $ -- клеточных множеств: $ A \subset \Omega \subset B $ выполнено
+    \[
+        m(A) \leqslant m(i) \leqslant m(B).
+    \]
+\end{definition}
+
+\begin{lemma}
+    Определение меры измеримого по Жордану множества корректно, число $ m(\Omega) \ \exists $ и $ ! $, причем
+    \[
+        m(\Omega) = \underset{A\subset\Omega}{\sup}m(A) = \underset{B\supset\Omega}{\inf}m(B).
+    \]
+\end{lemma}
+
+\begin{proof}
+    Пусть $ A $ и $ B $ -- некоторые клеточные множества, $ A \subset \Omega \subset B \implies A \subset B \implies m(A)\leqslant m(B) $.
+
+    $ \exists $ число $ \gamma $, разделяющее числовые множества $ \big\{m(A)\big\} $ и $ \big\{m(B)\big\} $, порожденные клеточными множествами $ A \subset \Omega $ и клеточными множествами $ B \supset \Omega $, то есть
+    \[
+        m(A) \leqslant \underset{A\subset\Omega}{\sup}m(A) \leqslant \gamma \leqslant \underset{B\supset\Omega}{\inf}m(B) \leqslant m(B).
+    \]
+
+    В качестве $ m(\Omega) $ можно взять $ \gamma $. Таким образом существование числа $ m(\Omega) $ доказано.
+
+    Теперь докажем, что $ \gamma $ -- единственное.
+
+    Пусть есть два числа $ \alpha $ и $ \beta: \ \forall A $ и $ B $ -- клеточных множеств: $ A \subset \Omega \subset B $
+    \begin{equation}\label{eq:for_proof5}
+        \boxed{m(A) \leqslant \alpha \leqslant \beta \leqslant m(B)}
+    \end{equation}
+
+    Так как $ \Omega $ измеримо по Жордану, то $ \forall \epsilon > 0 \ \exists $ клеточные множества $ A_\epsilon $ и $ B_\epsilon $:
+    \begin{equation}\label{eq:for_proof6}
+        \boxed{m(B_\epsilon) - m(A_\epsilon) < \epsilon, \quad A_\epsilon \subset \Omega \subset B_\epsilon} \quad \text{по свойству }\circled{4}
+    \end{equation}
+
+    Из \ref{eq:for_proof5} и \ref{eq:for_proof5} $ \implies m(B) - m(a) \geqslant m(B_\epsilon) - m(A_\epsilon) \geqslant \beta - \alpha \implies 0 \leqslant \beta - \alpha \leqslant m(B_\epsilon) - m(A_\epsilon) < \epsilon \implies 0 \leqslant \beta - \alpha < \epsilon $.
+
+    В силу производности $ \epsilon \implies \alpha = \beta $.
+\end{proof}
+
+\newpage
+
+\subsection{Свойства множеств меры нуль}\label{subsec:8.1.5}
+
+\begin{itemize}
+    \item Свойство $ \circled{1} $
+          \begin{statement}
+              Если $ E \subset \R^n $ и $ \forall \epsilon > 0 \ \exists B = B_\epsilon: \ E \subset B $ и $ m(B) < \epsilon \implies m(E) = 0 $.
+          \end{statement}
+          \begin{proof}
+              Пусть $ A = \emptyset \implies A \subset E \subset B \implies m(B) - m(A) = m(B) - 0, \ m(B) < \epsilon \implies E $ -- измеримое по Жордану множество и $ m(E) \leqslant m(B) < \epsilon $.
+
+              В силу произвольности $ \epsilon \implies m(E) = 0 $.
+          \end{proof}
+
+          \begin{definition}[Множество меры нуль]
+              Множество, удовлетворяющее условию свойства $ \circled{1} $, называется \emph{множеством меры нуль}.
+          \end{definition}
+
+    \item Свойство $ \circled{2} $
+          \begin{statement}
+              Объединение конечного числа множеств меры нуль есть множество меры нуль.
+          \end{statement}
+          \begin{proof}
+              Пусть $ E_1 $ и $ E_2 $ -- множества меры нуль.
+
+              $ m(E_1) = m(E_2) = 0 \implies \forall \epsilon > 0 \ \exists B_1 $ и $ B_2: \ E_1 \subset B_1 $ и $ E_2 \subset B_2 $ и $ m(B_1) < \frac{\epsilon}{2}, \ m(B_2) < \frac{\epsilon}{2} $.
+              \[
+                  (E_1 \cup E_2) \subset (B_1 \cup B_2).
+              \]
+
+              $ m(B_1 \cup B_2) \leqslant m(B_1) + m(B_2) \leqslant \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon \implies $
+              \[
+                  \implies m(E_1 \cup E_2) \leqslant m(B_1 \cup B_2) < \epsilon.
+              \]
+
+              В силу произвольности $ \epsilon \implies m(E_1 \cup E_2) = 0 $.
+          \end{proof}
+
+    \item Свойство $ \circled{3} $
+          \begin{statement}
+              Подмножество множества меры нуль есть множество меры нуль.
+          \end{statement}
+          \begin{proof}
+              Пусть $ E_1 \subset E $, где $ m(E) = 0 \implies \forall \epsilon > 0 \ \exists B: \ E \subset B $ и $ m(B) < \epsilon $.
+
+              Тогда $ E_1 \subset E \subset B \implies m(E_1) \leqslant m(E) \leqslant m(B) \leqslant \epsilon \implies m(E_1) < \epsilon $ и в силу произвольности $ \epsilon \implies m(E_1) = 0 $.
+          \end{proof}
+\end{itemize}
+
+\begin{lemma}\label{lemma:8.1.3}
+    Если связное множество $ A \subset \R^n $ не имеет общих точек с границей множества $ B \subset \R^n $, то $ A $ лежит либо внутри $ B $, либо в дополнении к $ B $.
+\end{lemma}
+
+\begin{theorem}[Критерий измеримости множества в $ \R^n $]
+    Множество $ \Omega \subset \R $ измеримо по Жордану $ \iff \Omega $ -- ограничено и $ m(G\Omega) = 0 $ (его граница меры нуль).
+\end{theorem}
+
+\begin{proof}\leavevmode
+    \begin{itemize}
+        \item $ \boxed{\Rightarrow} $ Пусть $ \Omega \subset \R^n $ измеримо по Жордану $ \implies \forall \epsilon > 0 \ \exists A $ и $ B $ -- клеточные множества: $ A \subset \Omega \subset B $ и $ m(B) - m(A) < \epsilon $.
+
+              Из свойства $ \circled{4} $ (из \ref{subsec:8.1.3}) $ \implies $ множество $ A $ не содержит все граничные точки $ \Omega $, а множество $ B $ -- содержит. Тогда клеточное множество $ B \setminus A \supset G\Omega $.
+              \[
+                  m(B\setminus A) = m(B) - m(A) < \epsilon \quad \text{и} \quad m(G\Omega) \leqslant m(B\setminus A) < \epsilon \implies
+              \]
+              $ \implies $ в силу произвольности $ \epsilon \implies m(G\Omega) = 0 $.
+
+        \item $ \boxed{\Leftarrow} $ Пусть $ m(G\Omega) = 0 $ и $ \Omega $ -- ограниченное множество в $ \R^n $.
+
+              Пусть $ \epsilon > 0 $ задано. Построим множество $ C: \ C\Omega \subset C $ и $ m(C) < \epsilon $ (\ref{subsec:8.1.5}, $ \circled{1} $) $ \implies \Pi \setminus C $ -- клеточное множество, не содержащее граничных точек $ \Omega $.
+
+              Пусть $ \Pi \setminus C = \overset{n}{\underset{i=1}{\bigcup}}\Pi_i $.
+
+              Так как $ \Pi_i $ не содержат граничных точек, то либо $ \Pi_i \cap \Omega = \emptyset $, либо $ \Pi_i \subset \Omega $ (лемма \ref{lemma:8.1.3}). Перенумеруем $ \Pi_i $ таким образом, чтобы $ \Pi_1,\ldots,\Pi_k \subset \Omega, \ \Pi_{k+1},\ldots,\Pi_n \cap \Omega = \emptyset $.
+
+              Обозначим $ A = \overset{n}{\underset{i=1}{\bigcup}}\Pi_i, \ B = \overset{n}{\underset{i=1}{\bigcup}} \Pi_i $,
+              \[
+                  D = A \cup C = \Pi \setminus B \implies A \subset \Omega \subset D,
+              \]
+              \begin{multline*}
+                  m(D) - m(A) = \\
+                  = m(A \cup C) - m(A) = m(\Pi\setminus B) - m(A) = m(C) < \epsilon \implies \\
+                  \implies m(D) - m(A) < \epsilon,
+              \end{multline*}
+              где $ A \subset \Omega \subset D \implies \Omega $ -- измеримое по Жордану множество.
+    \end{itemize}
+\end{proof}
+
+\subsection{Свойства множеств, измеримых по Жордану}
+
+\begin{itemize}
+    \item Свойство $ \circled{1} $
+          \begin{statement}
+              Если множества $ \Omega_1 $ и $ \Omega_2 $ измеримы по Жордану, то множества $ \Omega_1 \cup \Omega_2, \ \Omega_1 \cap \Omega_2, \ \Omega_1 \setminus \Omega_2 $ также измеримы по Жордану.
+          \end{statement}
+
+          \newpage
+
+    \item Свойство $ \circled{2} $
+          \begin{statement}
+              Если множества $ \Omega_i, \ i = \overline{1,n} $ измеримы по Жордану, то множество $ \overset{n}{\underset{i=1}{\bigcup}}\Omega_i $ измеримо по Жордану и
+              \[
+                  m\left(\overset{n}{\underset{i=1}{\bigcup}}\Omega_i\right) \leqslant \sum_{i=1}^{n}m(\Omega_i)
+              \]
+              и более того, если $ \Omega_i $ попарно не пересекаются, то
+              \[
+                  m\left(\overset{n}{\underset{i=1}{\bigcup}}\Omega_i\right) = \sum_{i=1}^{n}m(\Omega_i).
+              \]
+          \end{statement}
+\end{itemize}

@@ -1,0 +1,63 @@
+\lesson{?}{от 12 мар 2024 12:45}{Продолжение}
+
+
+\section{Неразрешимые проблемы}
+
+\begin{note}[Проблема истинности в арифметике]
+    Гильберт, 1900.
+    \[
+        \mathfrak{N} = <\N, +, \cdot, 1>,
+    \]
+    \[
+        \forall x \exists y \ (x = y+y), \quad \exists x \exists y \ (x = y+y),
+    \]
+    \[
+        P(z) = \forall x \forall y \ \Bigl((z = xy)\rightarrow \bigl((x = 1)\lor (y = 1)\bigr)\Bigr) \land \lnot(z = 1) \text{ -- простое число},
+    \]
+    \[
+        \forall x \exists y \exists z \ \Bigl(\lnot(x = 2)\rightarrow \bigl(P(y)\land P(z)\land (x + x = y + z)\bigr)\Bigr) \text{ -- гипотеза Гольдбака}.
+    \]
+    \begin{itemize}
+        \item \boxed{\text{ВХОД}} арифметическое утверждение $ \Phi $;
+        \item \boxed{\text{ВЫХОД}} $ \begin{array}{l}
+                      1 \text{, если } \Phi \text{ истинно над } \mathfrak{N} \ (\mathfrak{N} \vDash \Phi), \\
+                      0 \text{ иначе}.
+                  \end{array} $
+    \end{itemize}
+\end{note}
+
+\begin{theorem}[Чери, 1936]
+    Проблема истинности в арифметике неразрешима.
+\end{theorem}
+
+\begin{note}[Проблема истинности в геометрии]\leavevmode
+    \[
+        \mathfrak{R} = <\R, +, -, \cdot, /, 0, 1>,
+    \]
+    \begin{itemize}
+        \item \boxed{\text{ВХОД}} утверждение $ \Phi $;
+        \item \boxed{\text{ВЫХОД}} $ \begin{array}{l}
+                      1 \text{, если } \Phi \text{ истинно над } \mathfrak{R} \ (\mathfrak{R} \vDash \Phi), \\
+                      0 \text{ иначе}.
+                  \end{array} $
+    \end{itemize}
+\end{note}
+
+\begin{theorem}[Тарекий, 1940-е]
+    Проблема истинности в геометрии \emph{разрешима}.
+\end{theorem}
+
+\begin{note}[Десятая проблема Гильберта]\leavevmode
+    23 проблем, 1900.
+    \begin{itemize}
+        \item \boxed{\text{ВХОД}} диофантово уравнение $ P(x_1,\ldots,x_n) = 0 $;
+        \item \boxed{\text{ВЫХОД}} $ \begin{array}{l}
+                      1 \text{, если } \exists \text{ решение }a_1,\ldots,a_n \in \Z \quad P(a_1,\ldots,a_n) = 0, \\
+                      0 \text{ иначе}.
+                  \end{array} $
+    \end{itemize}
+\end{note}
+
+\begin{theorem}[1970, М.Дэвис, Х.Пантнем, Дж.Робинсон, Ю.В. Матиясевич]
+    10-я проблема Гильберта неразрешима.
+\end{theorem}

@@ -1,0 +1,133 @@
+\section{Эйлеровы интегралы}
+
+\setcounter{subsection}{120}
+
+\subsection{Бетта-функция}
+
+\[
+    \boxed{B(\alpha,\beta) = \int_{0}^{1}x^{\alpha - 1}\cdot (1-x)^{\beta-1}dx}
+\]
+
+\subsection{Гамма-функция}
+
+\[
+    \boxed{\Gamma(\alpha) = \int_{0}^{+\infty}x^{\alpha-1} \cdot e^{-x} dx}
+\]
+
+\subsection{Свойства бетта-функции}
+
+\begin{enumerate}
+    \item \textbf{ООФ}
+
+          \begin{statement}
+              $ B(\alpha,\beta) $ определенная при всех $ \alpha > 0, \ \beta > 0 $.
+          \end{statement}
+
+    \item \textbf{Симметричность}
+
+          \begin{statement}
+              \[
+                  B(\alpha,\beta) = B(\beta,\alpha).
+              \]
+          \end{statement}
+
+    \newpage
+
+    \item \textbf{Формула понижения}
+
+          \begin{note}
+              \begin{multline*}
+                  B(\alpha,\beta) = \int_{0}^{1}\underbrace{x^{\alpha-1}}_{u}\underbrace{(x-1)^{\beta-1}dx}_{v} = \\
+                  = \left|\begin{array}{ll}
+                      u = x^{\alpha-1}                & du = (\alpha-1)x^{\alpha-2}dx \\
+                      v = -\frac{1}{\beta}(1-x)^\beta & dv = (x-1)^{\beta-1}dx
+                  \end{array}\right| = \\
+                  = -x^{\alpha-1}(1-x)^\beta \cdot \frac{1}{\beta}\Bigg|_0^1 + \int_{0}^{1}\frac{1}{\beta}(1-x)^\beta(\alpha - 1)x^{\alpha-2}dx = \\
+                  = \frac{\alpha -1}{\beta}\int_{0}^{1}x^{\alpha-2}(1-x)^\beta dx = \frac{\alpha - 1}{\beta}\int_{0}^{1}\frac{1-x}{1-x}x^{\alpha-2}(1-x)^\beta dx = \\
+                  = \frac{\alpha -1}{\beta}\int_{0}^{1}(1-x)x^{\alpha-2}(1-x)^{\beta-1}dx = \\
+                  = \frac{\alpha - 1}{\beta}\int_{0}^{1}\bigl(x^{\alpha-2}(1-x)^{\beta-1} - x^{\alpha-1}(1-x)^{\beta-1}\bigr)dx = \\
+                  = \frac{\alpha-1}{\beta}\left(\int_{0}^{1}(1-x)^{\beta-1}dx - \int_{0}^{1}x^{\alpha-1}(1-x)^{\beta-1}dx\right) = \\
+                  = \frac{\alpha-1}{\beta}\bigl(B(\alpha-1,\beta) - B(\alpha,\beta)\bigr).
+              \end{multline*}
+              \begin{multline*}
+                  B(\alpha,\beta) = \frac{\alpha-1}{\beta}\bigl(B(\alpha-1,\beta) - B(\alpha,\beta)\bigr) \implies \\
+                  \implies B(\alpha,\beta)\left(1 + \frac{\alpha - 1}{\beta}\right) = \frac{\alpha-1}{\beta}B(\alpha-1,\beta).
+              \end{multline*}
+              \[
+                  \boxed{B(\alpha,\beta) = \frac{\alpha -1}{\beta + \alpha -1} - B(\alpha-1,\beta)}, \quad \alpha > 1, \ \beta > 0.
+              \]
+
+              Пусть $ \beta = 1 $:
+              \[
+                  B(\alpha,1) = \int_{0}^{1}x^{\alpha-1}dx = \left.\frac{x^\alpha}{\alpha}\right|_0^1 = \frac{1}{\alpha}.
+              \]
+
+              Далее, если $ \beta = n \in \N $, то
+              \begin{multline*}
+                  B(\alpha,n) = B(n,\alpha) = \\
+                  = \frac{n-1}{\alpha + n-1} \cdot B(n-1,\alpha) = \frac{n-1}{\alpha + n -1} \cdot \frac{n-2}{\alpha + n - 2} \cdot B(n-2,\alpha) = \\
+                  = \frac{(n-1)!}{(\alpha+n-1)(\alpha + n -2)\ldots(\alpha +1)} \cdot B(\alpha,1) = \\
+                  = \frac{(n-1)!}{(\alpha + n-1)\ldots(\alpha + 1)\alpha}.
+              \end{multline*}
+
+              Отсюда:
+              \[
+                  \boxed{B(m,n) = \frac{(n-1)!}{(m+n-1)\ldots(m+1)m} = \frac{(n-1)!\cdot(m-1)!}{(m+n-1)!}}
+              \]
+          \end{note}
+\end{enumerate}
+
+\subsection{Свойства гамма-функции}
+
+\begin{enumerate}
+    \item \textbf{ООФ}
+
+          \begin{statement}
+              $ \Gamma(\alpha) $ определенная при $ \alpha > 0 $.
+          \end{statement}
+
+    \item \textbf{Правило дифференцирования $ \Gamma(\alpha) $}
+
+          \begin{statement}
+              $ \forall \alpha > 0 \ \Gamma(\alpha) $ дифференцируема в точке $ \alpha $ и
+              \[
+                  \Gamma'(\alpha) = \int_{0}^{+\infty}x^{\alpha-1}e^{-x}\ln x dx.
+              \]
+
+              Более того, $ \Gamma(\alpha) $ бесконечно дифференцируема в точке $ \alpha $ и $ n $-ная производная
+              \[
+                  \Gamma^{(n)}(\alpha) = \int_{0}^{+\infty}x^{\alpha-1}e^{-x}\ln^n x dx.
+              \]
+          \end{statement}
+
+    \item \textbf{Формула понижения}
+
+          \begin{note}
+              \begin{multline*}
+                  \Gamma(\alpha+1) = \int_{0}^{+\infty}x^\alpha e^{-x}dx = \\
+                  = \left|\begin{array}{ll}
+                      u = x^\alpha & du = \alpha x^{\alpha-1}dx \\
+                      v = -e^{-x}  & dv = e^{-x}dx
+                  \end{array}\right| = x^\alpha(-e^{-x})\Big|_0^{+\infty} + \int_{0}^{+\infty}\alpha x^{\alpha-1}e^{-x}dx = \\
+                  = \alpha \int_{0}^{+\infty}x^{\alpha-1}e^{-x}dx = \alpha \Gamma(\alpha).
+              \end{multline*}
+              \[
+                  \boxed{\Gamma(\alpha+1) = \alpha\Gamma(\alpha)}
+              \]
+
+              Пусть $ \alpha=n \implies $
+              \begin{multline*}
+                  \implies \Gamma(n+1) = \\
+                  = n\Gamma(n) = n(n-1)\Gamma(n-1) = n(n-1)(n-2)\Gamma(n-2) = \\
+                  = n(n-1)\ldots\Gamma(1),
+              \end{multline*}
+              \[
+                  \Gamma(1) = \int_{0}^{+\infty}x^0 e^{-x}dx = -e^{-x}\Big|_0^{+\infty} = 1.
+              \]
+              \[
+                  \boxed{\Gamma(n+1) = n!}
+              \]
+          \end{note}
+\end{enumerate}
+
+\newpage

@@ -1,0 +1,352 @@
+\lesson{2}{от 15 окт 2023 08:47}{Продолжение}
+
+
+\section{Особые решения}
+
+\begin{note}
+    \[
+        \left\{\begin{array}{rl}
+            y'     & = f(y), \ f \in C(D), \ D \subset\mathbb{R}, \\
+            y(x_0) & = y_0
+        \end{array}\right.
+    \]
+    \[
+        \left[\begin{array}{rl}
+            f(y) = 0                           & \implies y = c\text{ -- ?}       \\
+            \left\{\begin{array}{rl}
+                       f(y)                & \ne 0,    \\
+                       \int\frac{dy}{f(y)} & = \int dx
+                   \end{array}\right. & \implies \left[\begin{array}{rl}
+                                                           y           & = \phi(x,C), \\
+                                                           \psi(y,x,C) & = 0
+                                                       \end{array}\right.
+        \end{array}\right.
+    \]
+
+    Для $\forall$ точки $x \in \{y = C\} \ \exists$ точка $(x_1,y_1)$ и интегральная кривая, проходящая через точку $(x_1,y_1)$, которая пересекает прямую $y = C$ в точке $x \ \big(x \equiv (x,C)\big)$.
+
+    Проинтегрируем на отрезке $[x_1;x]$:
+    \[
+        \int_{y_1}^{C}\frac{dy}{f(y)} = \int_{x_1}^{x}dx \iff \int_{y_1}^{C}\frac{dy}{f(y)} = x-x_1 \iff \underbrace{x}_{\text{конечная}} = x_1 + \underbrace{\int_{y_1}^{C}\frac{dy}{f(y)}}_{\text{конечный}},
+    \]
+    \begin{center}
+        (несобственный интеграл сходится)
+    \end{center}
+\end{note}
+
+\begin{note}[Критерий]
+    Решение $y = C$ дифференциального уравнения $y' = f(y), \ f\in C(D)$ такое, что $f(C) = 0$ называется \emph{особым} $\iff$
+    \[
+        \iff \int_{y_1}^{C}\frac{dy}{f(y)} < \infty \quad \text{(несобственный интеграл сходится)}
+    \]
+\end{note}
+
+\begin{example}
+    $y'=3y^{\frac{2}{3}}$
+    \begin{enumerate}
+        \item Непрерывно.
+        \item $f_y' = 2y^{-\frac{1}{3}}$ -- разрывна в точке $0$ (условие Липшица не выполнено?).
+    \end{enumerate}
+    \[
+        \left[\begin{array}{rl}
+            y                             & = 0 \ ?                                \\
+            \int\frac{dy}{3y^\frac{2}{3}} & = \int dx \implies y^\frac{1}{3} = x+C
+        \end{array}\right.
+    \]
+    \[
+        \int_{y_1}^{0}\frac{dy}{3y^\frac{2}{3}} = y^\frac{1}{3}\Big|_{y_1}^0 = 0 - y_1^\frac{1}{3} < + \infty \overset{\text{по критерию}}{\implies} y = 0\text{ -- особое}
+    \]
+\end{example}
+
+\begin{example}
+    Найти особое решение $y' = \left\{\begin{array}{rl}
+            y\cdot\ln y, & y > 0 \\
+            0,           & y = 0
+        \end{array}\right., \ D = [0;+\infty)$:
+    \[
+        f(y) = \left\{\begin{array}{rl}
+            y\cdot\ln y, & y > 0 \\
+            0,           & y = 0
+        \end{array}\right.
+    \]
+    \begin{enumerate}
+        \item Непрерывно.
+              \[
+                  \underset{y\rightarrow+0}{\lim}(y\cdot \ln y) = \underset{y\rightarrow+0}{\lim}\frac{\ln y}{\frac{1}{y}} = \underset{y\rightarrow+0}{\lim}\frac{\frac{1}{y}}{\frac{1}{y^2}} = -\underset{y\rightarrow+0}{\lim} = 0
+              \]
+        \item Условие Липшица:
+              \[
+                  \big|f(y_1) - f(y_2)\big| \leqslant L \cdot |y_1 - y_2|, \quad \begin{array}{l}
+                      y_1 \in (0;+\infty), \\
+                      y_2 = 0
+                  \end{array}
+              \]
+              \[
+                  \big|f(y_1) - f(y_2)\big| = |y_1\cdot \ln y_1 - 0| \leqslant |y_1|\cdot|\ln y_1| \leqslant |y_1| \cdot L,
+              \]
+              то есть $|\ln y_1| \leqslant L$.
+
+              Для $\forall L > 0 \ \exists y_1^*$ близкий к $0$ и такой, что $|\ln y_1^*| > L$.
+        \item $f(y) = 0 \implies \left[\begin{array}{l}
+                      y = 0 \\
+                      y = 1
+                  \end{array}\right.$
+              \begin{enumerate}
+                  \item $y = 0$:
+                        \[
+                            \int_{y_1}^{0}\frac{dy}{y \cdot \ln y} = \int_{y_1}^{0}\frac{d(\ln y)}{\ln y} = \ln |\ln y| \Big|_{y_1}^0 = \infty - \ln|\ln y_1| = \infty \implies
+                        \]
+                        $\implies y =0$ не является особым.
+                  \item $y = 1$:
+                        \[
+                            \int_{y_1}^{1}\frac{dy}{y\cdot \ln y} = \ln|\ln y| \Big|_{y_1}^1 = -\infty - \ln|\ln y_1| = - \infty \implies
+                        \]
+                        $\implies y =1$ не является особым.
+              \end{enumerate}
+    \end{enumerate}
+\end{example}
+
+\begin{example}
+    Найти особое решение $y' = \left\{\begin{array}{rl}
+            y\cdot\ln^2 y, & y > 0 \\
+            0,             & y = 0
+        \end{array}\right., \ D = [0;+\infty)$:
+    \[
+        f(y) = \left\{\begin{array}{rl}
+            y\cdot\ln^2 y, & y > 0 \\
+            0,             & y = 0
+        \end{array}\right.
+    \]
+    \begin{enumerate}
+        \item Непрерывно (аналогично).
+        \item Условие Липшица (аналогично).
+        \item $f(y) = 0 \implies y\cdot\ln^2y=0 \left[\begin{array}{l}
+                      y = 0 \\
+                      y = 1
+                  \end{array}\right.$
+              \begin{enumerate}
+                  \item $y = 0$:
+                        \[
+                            \int_{y_1}^{0}\frac{dy}{y \cdot \ln^2 y} = \int_{y_1}^{0}\frac{d(\ln y)}{\ln^2 y} = \frac{1}{\ln y} \Big|_{y_1}^0 = 0 + \frac{1}{\ln y_1} \implies
+                        \]
+                        $\implies y =0$ -- особое.
+                  \item $y = 1$:
+                        \[
+                            \int_{y_1}^{1}\frac{dy}{y\cdot \ln^2 y} = -\frac{1}{\ln y} \Big|_{y_1}^1 = -\infty + \frac{1}{\ln y_1}\text{ -- расходится } \implies
+                        \]
+                        $\implies y =1$ не является особым.
+              \end{enumerate}
+    \end{enumerate}
+\end{example}
+
+\chapter{Методы интегрирования дифференциальных уравнений $1$-го порядка}
+
+\section{Однородные уравнения}
+
+\begin{definition}[Однородное уравнение первого порядка]
+    \emph{Однородным уравнением первого порядка} называется уравнение вида:
+    \begin{equation}\label{eq6}
+        y' = f\left(\frac{y}{x}\right),\quad f\in C(D)
+    \end{equation}
+    или:
+    \begin{equation}\label{eq7}
+        y'=\frac{P(x,y)}{Q(x,y)},
+    \end{equation}
+    где $P(x,y)$ и $Q(x,y)$ являются однородными функциями одного и того же порядка.
+\end{definition}
+
+\begin{definition}[Однородная функция порядка $k$]
+    \emph{Однородной функцией порядка $k$} называется функция:
+    \[
+        P(\lambda x,\lambda y) = \lambda^k \cdot P(x,y),\quad \lambda \in \mathbb{R}, \ \lambda \ne 0
+    \]
+\end{definition}
+
+\begin{example}
+    $P(x,y) = x^2 - 2xy + 7y^2$
+    \[
+        P(\lambda x,\lambda y) = (\lambda x)^2 - 2(\lambda x)(\lambda y) + 7(\lambda y)^2 = \lambda^2(x^2 - 2xy + 7y^2)
+    \]
+\end{example}
+
+\begin{example}
+    $x(x^2 + y^2)dy = y(y^2 - xy + x^2)dx$
+    \[
+        \underbrace{x^3 + xy^2}_{Q(x,y)},\quad \underbrace{y^3 - xy^2 + yx^2}_{P(x,y)}
+    \]
+\end{example}
+
+\begin{note}[Замена переменной]
+    $t = \frac{y}{x} \implies y = t\cdot x$
+    \begin{align*}
+         & y = t(x)\cdot x \implies y' = t'\cdot x + t\text{ -- подставим в \ref{eq6}}: \\
+         & t'\cdot x = f(t) - t\text{ -- уравнение с разделяющей переменной (РП)}
+    \end{align*}
+    \[
+        \frac{dt}{dx}x = f(t) - t
+    \]
+    \[
+        \left[\begin{array}{l}
+            f(t) - t = 0 \\
+            \left\{\begin{array}{rl}
+                       f(t) - t                 & \ne 0               \\
+                       \int \frac{dt}{f(t) - t} & = \int \frac{dx}{x}
+                   \end{array}\right. \iff \left[\begin{array}{rl}
+                                                     t = \phi(x,C)   & \implies y = x \cdot \phi(x,C)     \\
+                                                     \psi(t,x,C) = 0 & \implies \psi(\frac{y}{x},x,C) = 0
+                                                 \end{array}\right.
+        \end{array}\right.
+    \]
+    $t'x = 0 \implies t'=0 \implies t = C \implies y = Cx$ -- решение при $C: \ f(C) - C = 0$.
+
+    \[
+        \text{Изоклины: }\begin{array}{l}
+            f(\frac{y}{x}) = const                \\
+            \frac{y}{x} = C \implies f(C) = const \\
+            y = Cx\text{ -- изоклины уравнения \ref{eq6}}
+        \end{array}
+    \]
+
+    \begin{enumerate}
+        \item \begin{enumerate}
+                  \item Уравнение вида $y' = f\left(\frac{a_1x + b_1y + c_1}{a_2x + b_2y + c_2}\right)$ сводится к однородному с помощью замены:
+                        \[
+                            \left\{\begin{array}{l}
+                                x = \xi + \alpha \\
+                                y = \eta + \beta
+                            \end{array}\right.,\quad (\alpha;\beta)\text{ -- решение системы }\left\{\begin{array}{l}
+                                a_1x + b_1y + c_1 = 0 \\
+                                a_2x + b_2y + c_2 = 0
+                            \end{array}\right.
+                        \]
+                  \item Прямые параллельны, то есть $a_1x + b_1y = k(a_2x + b_2y)$.
+
+                        Замена переменной $t = a_2x + b_2 y$ и привести к уравнению с РП.
+              \end{enumerate}
+        \item Замена переменной $y = t^m$. Подставить эту замену в уравнение и из условия однородности выбрать $m$.
+    \end{enumerate}
+\end{note}
+
+\begin{example}
+    $ydx + x(2xy + 1)dy = 0, \quad ydx + (2x^2 + x)dy = 0$
+    \[
+        y = t^m \implies t^mdx + (2x^2t^m + x)\cdot mt^{m-1}dt = 0
+    \]
+    \begin{align*}
+        m = 2m + 1 = m \\
+        m = -1 \implies y = t^{-1} = \frac{1}{t}
+    \end{align*}
+    \begin{multline*}
+        \frac{dx}{t} + \left(\frac{2x^2}{t} + x\right)\left(-\frac{1}{t^2}\right)dt = Q \implies \\
+        \implies dx - \frac{x}{t}\left(\frac{2x}{t} + 1\right)dt = 0\text{ -- однородное уравнение}\implies \\
+        \implies \frac{dx}{dt}=\frac{x}{t}\left(\frac{2x}{t} + 1\right)\equiv f\left(\frac{x}{t}\right)
+    \end{multline*}
+    Замена переменной: $u = \frac{x}{t}\implies x = ut \implies dx = udt + tdu$
+    \begin{align*}
+        udt + tdu - u(2u + t)dt = 0               \\
+        tdu - 2u^2dt = 0, \quad t\ne0, \ u^2\ne 0 \\
+        \int \frac{du}{2u^2} = \int \frac{dt}{t}  \\
+        -\frac{1}{2u} = \ln|t| + C
+    \end{align*}
+    \[
+        \left\{\begin{array}{l}
+            u = \frac{x}{t} \\
+            t=\frac{1}{y}
+        \end{array}\right. \implies \left\{\begin{array}{l}
+            u = xy \\ t = \frac{1}{y}
+        \end{array}\right., \quad \begin{array}{l}
+            -\frac{1}{xy} = \ln \left(\frac{1}{y}\right)^2 + C \\
+            -\frac{1}{xy} = \ln y^2 + C                        \\
+        \end{array}
+    \]
+    \[
+        \ln y^2 - \frac{1}{xy} = C
+    \]
+    \[
+        u = 0 \implies x\cdot y = 0 \implies \left[\begin{array}{l}
+            x = 0\text{ -- решение} \\
+            y = 0\text{ -- решение}
+        \end{array}\right.
+    \]
+
+    Ответ: $\ln y^2 - \frac{1}{xy} = C, \quad x=0, \ y=0$
+\end{example}
+
+\section{Линейные уравнения $1$-го порядка}
+
+\begin{definition}[Линейное уравнение $1$-го порядка]
+    \emph{Линейным уравнением $1$-го порядка} называется уравнение вида:
+    \begin{equation}\label{eq8}
+        a_0(x)y' + a_1(x)y = b(x),
+    \end{equation}
+    \begin{equation}\label{eq9}
+        a_0(x)y' + a_1(x)y = 0,
+    \end{equation}
+    где $b(x), a_0(x),a_1 \in C(\alpha;\beta), \ a_0(x) \ne 0, \quad -\infty \leqslant \alpha \leqslant\beta\leqslant+\infty$.
+\end{definition}
+
+\begin{note}[Задача Коши]
+    $y(x_0) = y_0$
+\end{note}
+
+\begin{theorem}[$\exists$ и $!$]
+    \[
+        y' = \underbrace{\frac{b(x)}{a_0(x)} - \frac{a_1(x)}{a_0(x)}y}_{f(x,y)}
+    \]
+    \begin{enumerate}
+        \item $f\in C\big((\alpha;\beta) \times (-\infty;+\infty)\big)$.
+        \item $f'_y = -\frac{a_1(x)}{a_0(x)}$
+    \end{enumerate}
+
+    Однородное уравнение \ref{eq9}.
+    \[
+        y = 0\text{ -- решение: }y = c\cdot e^{-\int \frac{a_1(x)}{a_0(x)}dx}
+    \]
+\end{theorem}
+
+\begin{definition}[Линейное уравнение $1$-го порядка]
+    \emph{Линейным уравнением $1$-го порядка} называется уравнение вида:
+    \begin{equation}\label{eq10}
+        y'+p(x)\cdot y = q(x),
+    \end{equation}
+    \begin{equation}\label{eq11}
+        y' + p(x)\cdot y = 0,
+    \end{equation}
+    где $p(x),q(x) \in C(\alpha;\beta)$.
+\end{definition}
+
+\begin{note}[Свойства \ref{eq11}]\leavevmode
+    \begin{enumerate}
+        \item Пусть $y_1(x)$ -- решение \ref{eq11} $\implies k\cdot y_1$ -- решение \ref{eq11}, $k \in \mathbb{R}(\mathbb{C})$.
+        \item Если $y_1,y_2$ -- решения \ref{eq11} $\implies y_1 + y_2$ -- решение \ref{eq11} ($k_1y_1 + k_2y_2$ -- решение).
+        \item $y=0$ -- решение \ref{eq11}.
+              \begin{statement}
+                  Решения \ref{eq11} образуют линейное пространство:
+                  \[
+                      y' + p(x)y = 0
+                  \]
+                  \begin{align*}
+                       & \frac{dy}{y} = -p(x)dx         \\
+                       & \ln|y| = -\int p(x)dx + \ln|C|
+                  \end{align*}
+                  \[
+                      (\star) \ y = C \cdot e^{-\int p(x)dx}
+                  \]
+                  \begin{align*}
+                       & \left\{\begin{array}{rl}
+                                    y' + p(x)y & = 0   \\
+                                    y(x_0)     & = y_0
+                                \end{array}\right., \quad [x_0;x]                   \\
+                       & \int_{x_0}^{x}\frac{y'(s)}{y(s)}ds = -\int_{x_0}^{x}p(s)dx
+                  \end{align*}
+                  \[
+                      \int_{y_0}^{y}\frac{dy}{y} = -\int_{x_0}^{x}p(s)dx \implies \ln|y| - \ln|y_0| = - \int_{x_0}^{x}p(x)dx \implies
+                  \]
+                  \[
+                      (\star\star) \ \implies y = y_0\cdot e^{-\int_{x_0}^{x}p(x)dx},
+                  \]
+                  при $C = y_0$.
+              \end{statement}
+        \item Если $y$ -- частное решение, то $C \cdot y$ -- общее решение \ref{eq11}.
+    \end{enumerate}
+\end{note}

@@ -1,0 +1,86 @@
+\section{Функциональные свойства несобственного интеграла, зависящего от параметра}
+
+\setcounter{subsection}{115}
+
+\subsection{Теорема о предельном переходе под знаком несобственного интеграла, зависящего от параметра}
+
+\begin{theorem}\label{theorem:7.3.1}
+    Если
+    \begin{enumerate}
+        \item $\forall b \in [a;\omega)$
+              \[
+                  f(x,y) \xrightrightarrows[\mathfrak{B}_y]{}\phi(x)
+              \]
+              на $[a;b]$, где $\mathfrak{B}_y$ -- база на $Y$.
+        \item $\int_{a}^{\omega}f(x,y)dx$ сходится равномерно на $Y$.
+    \end{enumerate}
+    Тогда \[
+        \underset{\mathfrak{B}_y}{\lim} F(y) = \underset{\mathfrak{B}_y}{\lim} \int_{a}^{\omega}f(x,y)dx = \int_{a}^{\omega}\underset{\mathfrak{B}_y}{\lim} f(x,y)dx = \int_{a}^{\omega}\phi(x)dx.
+    \]
+\end{theorem}
+
+\subsection{Теорема о непрерывности несобственного интеграла, зависящего от параметра}
+
+\begin{corollary}
+    Если \begin{enumerate}
+        \item $f(x,y)$ непрерывна на $[a;\omega)\times[c;d]$.
+        \item $\int_{a}^{\omega}f(x,y)dx$ равномерно сходится на $[c;d]$.
+    \end{enumerate}
+
+    Тогда $F(y) = \int_{a}^{\omega}f(x,y)dx$ непрерывна на $[c;d]$.
+\end{corollary}
+
+\subsection{Теорема о дифференцировании несобственного интеграла, зависящего от параметра}
+
+\begin{theorem}\label{theorem:7.3.2}
+    Если
+    \begin{enumerate}
+        \item $ f(x,y) $ непрерывна на $ [a;\omega)\times[c;d] $ и имеет непрерывную производную по $ y $.
+        \item $ \int_{a}^{\omega}f_y'(x,y)dx $ равномерно сходится на $ [c;d] $.
+        \item $ \int_{a}^{\omega}f(x,y)dx $ сходится хотя бы в одной точке $ y_0 \in (c;d) $.
+    \end{enumerate}
+
+    Тогда
+    \begin{enumerate}
+        \item $ \int_{a}^{\omega}f(x,y)dx $ сходится равномерно на $ [c';d']\subset (c;d) $.
+        \item $ F(y) = \int_{a}^{\omega}f(x,y)dx $ дифференцируема на $ (c;d) $.
+        \item $ F'(y) = \left(\int_{a}^{\omega}f(x,y)dx\right)_y' = \int_{a}^{\omega}f_y'(x,y)dx $.
+    \end{enumerate}
+\end{theorem}
+
+\subsection{Теорема об интегрировании несобственного интеграла, зависящего от параметра}
+
+\begin{theorem}\label{theorem:7.3.3}
+    Если
+    \begin{enumerate}
+        \item $ f(x,y) $ непрерывна на $ [a;\omega)\times[c;d] $.
+        \item $ \int_{a}^{\omega}f(x,y)dx $ равномерно сходится на $ [c;d] $.
+    \end{enumerate}
+
+    Тогда функция $ F(y) = \int_{a}^{\omega}f(x,y)dx $ интегрируема по Риману на $ [c;d] $ и
+    \[
+        \int_{c}^{d}dy \int_{a}^{\omega}f(x,y)dx = \int_{a}^{\omega}dx \int_{c}^{d}f(x,y)dy.
+    \]
+\end{theorem}
+
+\newpage
+
+\subsection{Теорема о перестановке двух несобственных интегралов, зависящих от параметра}
+
+\begin{theorem}
+    Пусть
+    \begin{enumerate}
+        \item $ f(x,y) $ непрерывна на $ [a;\omega)\times[c;\widetilde{\omega}) $.
+        \item $ \forall d \in [c;\widetilde{\omega}) \ \int_{a}^{\omega}f(x,y)dx $ сходится равномерно на $ [c;d] $.
+        \item $ \forall b \in [a;\omega) \ \int_{c}^{\widetilde{\omega}}f(x,y)dx $ сходится равномерно на $ [a;b] $.
+        \item Существует хотя бы одни из интегралов:
+              \[
+                  \int_{a}^{\omega}dx \int_{c}^{\widetilde{\omega}}\big|f(x,y)\big|dy \quad \text{или}\quad \int_{c}^{\widetilde{\omega}}dy \int_{a}^{\omega}\big|f(x,y)\big|dx.
+              \]
+    \end{enumerate}
+
+    Тогда существует
+    \[
+        \int_{a}^{\omega}dx \int_{c}^{\widetilde{\omega}}f(x,y)dy=\int_{c}^{\widetilde{\omega}}dy \int_{a}^{\omega}f(x,y)dx.
+    \]
+\end{theorem}

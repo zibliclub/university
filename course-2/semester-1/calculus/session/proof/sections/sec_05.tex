@@ -1,0 +1,52 @@
+\section{Поточечная и равномерная сходимость семейства функций}
+
+\setcounter{subsection}{74}
+
+\subsection{Критерий Коши сходимости семейства функций}
+
+\begin{theorem}[Критерий Коши сходимости семейства функций]
+    Пусть $Y$ -- полное метрическое пространство, $f_t:X \rightarrow Y, \ t \in T$ -- семейство $\{f_t\}$ равномерно сходится на $X$ по базе $\mathfrak{B} \iff \forall \epsilon > 0 \ \exists B \in \mathfrak{B}: \ \forall t_1,t_2 \in B$ и $\forall x \in X$
+    \[
+        \rho\big(f_{t_1}(x);f_{t_2}(x)\big) < \epsilon.
+    \]
+\end{theorem}
+
+\begin{proof}
+   А где
+\end{proof}
+
+\subsection{Следствие из критерия Коши сходимости семейства функций}
+
+\begin{corollary}
+    Пусть $X,Y$ -- метрические пространства, $E \subset X, \ x_0 \in E$ -- предельная точка для $E$. Семейство $f_t: X \rightarrow Y$:
+    \begin{enumerate}
+        \item $f_t$ сходится на $E$ по базе $\mathfrak{B}$.
+        \item $f_t$ расходится в точке $x_0$ по базе $\mathfrak{B}$.
+        \item $\forall t \ f_t$ непрерывно в точке $x_0$.
+    \end{enumerate}
+
+    Тогда на $E$ семейство $f_t$ сходится неравномерно.
+\end{corollary}
+
+\begin{proof}
+    Применим критерий Коши, покажем, что $\exists \epsilon > 0: \ \forall B \in \mathfrak{B} \ \exists t_1, t_2 \in B$ и $\exists x \in E$:
+    \[
+        \rho_Y\big(f_{t_1}(x), f_{t_2}(x)\big) \geqslant \epsilon.
+    \]
+
+    Таким образом $f_t$ расходится в точке $x_0$, тогда $\exists \epsilon > 0: \forall B \in \mathfrak{B} \ \exists t_1,t_2 \in B$:
+    \[
+        \rho_Y\big(f_{t_1}(x_0), f_{t_2}(x_0)\big) \geqslant \epsilon.
+    \]
+
+    Так как $f_{t_1}$ и $f_{t_2}$ непрерывны, тогда $\exists U(x_0)\subset X: \ \forall x \in U(x_0)$
+    \[
+        \rho_Y\big(f_{t_1}(x), f_{t_2}(x)\big) \geqslant \epsilon.
+    \]
+
+    Возьмем $\forall x \in U(x_0) \cap E \implies$ тогда в $x$ будет выполняться неравенство
+    \[
+        \rho_Y\big(f_{t_1}(x), f_{t_2}(x)\big)\geqslant \epsilon \implies
+    \]
+    $\implies f_t$ на $E$ сходится неравномерно.
+\end{proof}
