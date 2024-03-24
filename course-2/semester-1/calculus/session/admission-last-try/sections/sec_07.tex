@@ -1,0 +1,74 @@
+\section{Свойства предельной функции}
+
+\setcounter{subsection}{57}
+
+\subsection{Условия коммутирования двух предельных переходов}
+
+\begin{theorem}\label{theorem:6.3}
+    Пусть $ X,T $ -- множества, $ \mathfrak{B}_x $ -- база на $ X, \ \mathfrak{B}_T  $ -- база на $ T $, $ Y $ -- полное МП, $ f_t: X \rightarrow Y, \ f: X \rightarrow Y $:
+    \begin{itemize}
+        \item $ f_t \xrightrightarrows[\mathfrak{B}_T]{} f $ на $ X $,
+        \item $ \forall t \in T \ \exists \underset{\mathfrak{B}_X}{\lim} = A_t $,
+    \end{itemize}
+    тогда существуют и равны два повторных предела:
+    \[
+        \underset{\mathfrak{B}_T}{\lim}\underset{\mathfrak{B}_X}{\lim} f_t(x) = \underset{\mathfrak{B}_X}{\lim}\underset{\mathfrak{B}_T}{\lim} f_t(x).
+    \]
+
+    Запишем условия и утверждение теоремы в форме диаграмы:
+    \[
+        \begin{matrix}
+            f_t(x)                                                      & \xrightrightarrows[\mathfrak{B}_T]{} & f(x)                                               \\
+            {\scriptstyle\forall t, \ \mathfrak{B}_X} \xdownarrow[22pt] &                                      & \xdashdownarrow[20pt] {\scriptstyle\mathfrak{B}_X} \\
+            A_t                                                         & \xdashrightarrow[\mathfrak{B}_T]{}   & A
+        \end{matrix}
+    \]
+    \[
+        \rightarrow \text{ -- дано,}\quad \dashrightarrow \text{ -- утверждение}
+    \]
+\end{theorem}
+
+\subsection{Непрерывность предельной функции}
+
+\begin{theorem}
+    Пусть $ X,Y $ -- метрические пространства, $ \mathfrak{B} $ -- база на $ T, \ f_t: X \rightarrow Y, \ f: X \rightarrow Y $:
+    \begin{itemize}
+        \item $ \forall t \in T $ функция $ f_t $ непрерывна в точке $ x_0 \in X $,
+        \item семейство $ f_t \xrightrightarrows[\mathfrak{B}]{} f $ на $ X $,
+    \end{itemize}
+    тогда функция $ f $ непрерывна в точке $ x_0 $.
+\end{theorem}
+
+\subsection{Интегрируемость предельной функции}
+
+\begin{theorem}\label{theorem:6.9.2}
+    Пусть $ f_t: [a;b] \rightarrow \R, \ f: [a;b] \rightarrow \R $:
+    \begin{itemize}
+        \item $ \forall t \in T \ f_t $ интегрируема по Риману на $ [a;b] $,
+        \item $ f_t \xrightrightarrows[\mathfrak{B}]{} f $ на $ [a;b] $ ($ \mathfrak{B} $ -- база на $ T $),
+    \end{itemize}
+    тогда:
+    \begin{enumerate}
+        \item $ f $ интегрируема по Риману на $ [a;b] $.
+        \item \[
+                  \int_{a}^{b}f(x)dx = \underset{\mathfrak{B}}{\lim}\int_{a}^{b}f_t(x)dx \iff \underset{\mathfrak{B}}{\lim}\int_{a}^{b}f_t(x)dx = \int_{a}^{b}\underset{\mathfrak{B}}{\lim}f_t(x)dx.
+              \]
+    \end{enumerate}
+\end{theorem}
+
+\subsection{Дифференцируемость предельной функции}
+
+\begin{theorem}\label{theorem:6.9.5}
+    Пусть $ -\infty < a < b < +\infty $ ($ a,b $ -- конечны), $ f_t: (a;b)\rightarrow\R, \ f:(a;b) \rightarrow \R $:
+    \begin{itemize}
+        \item $ \forall t \in T \ f_t $ дифференцируема на $ (a;b) $,
+        \item $ \exists \phi: (a;b)\rightarrow\R: \ f_t' \xrightrightarrows[\mathfrak{B}]{} \phi $ на $ (a;b) $,
+        \item $ \exists x_0 \in (a;b): \ f_t(x_0) \rightarrow f(x_0) $,
+    \end{itemize}
+    тогда:
+    \begin{enumerate}
+        \item $ f_t \xrightrightarrows[\mathfrak{B}]{} f $ на $ (a;b) $.
+        \item $ f $ дифференцируема на $ (a;b) $.
+        \item $ \forall x \in (a;b) \ f'(x) = \phi(x) $.
+    \end{enumerate}
+\end{theorem}

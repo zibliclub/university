@@ -1,0 +1,83 @@
+\section{Поточечная и равномерная сходимость семейства функций}
+
+\setcounter{subsection}{42}
+
+\subsection{Семейство функций, зависящих от параметров}
+
+\begin{definition}
+    \emph{Семейство функций} -- это произвольное множество функций.
+
+    Пусть $f:X\times T \rightarrow Y$. Если по каким-либо соображениям элементам множества $T$ уделяется особое внимание, то будем их называть \emph{параметрами}.
+
+    То есть $\forall t \in T$ можно рассмотреть функцию
+    \[
+        f_t(x) = f(x,t).
+    \]
+
+    В этом случае будем говорить, что задано семейство функций, зависящих от параметра $t$.
+\end{definition}
+
+\subsection{Сходимость семейства функций по базе}
+
+\begin{definition}
+    Будем говорить, что \emph{семейство $\{f_t\}$ сходится в точке $x \in X$}, если $f_t(x)$ как функция аргумента $t$ имеет предел по базе $\mathfrak{B}$, то есть $\exists y_x \in Y_\rho: \ \forall \epsilon > 0 \ \exists B \in \mathfrak{B}: \ \forall t \in B$
+    \[
+        \rho\big(f_t(x),y_x\big) < \epsilon.
+    \]
+\end{definition}
+
+\subsection{Область сходимости семейства функций по базе}
+
+\begin{definition}
+    Множество $E = \big\{x \in X : \ \{f_t\}$ сходится в точке $x\big\}$ называется \emph{областью сходимости} семейства $\{f_t\}$ по базе $\mathfrak{B}$.
+\end{definition}
+
+\subsection{Предельная функция}
+
+\begin{definition}
+    На $E$ введем функцию, положив
+    \[
+        f(x) = \underset{\mathfrak{B}}{\lim}f_t(x).
+    \]
+
+    Функция $f(x)$ называется \emph{предельной}.
+\end{definition}
+
+\newpage
+
+\subsection{Поточечная сходимость семейства функций по базе}
+
+\begin{definition}
+    Дано семейство $f_t: X \rightarrow Y_u, \ f: X \rightarrow Y$. Будем говорить, что $f_t$ сходится по базе $\mathfrak{B}$ \emph{поточечно} к $f$ на $X$, если $\forall x \in X \ \forall \epsilon > 0 \ \exists B_x \in \mathfrak{B}: \ \forall t \in B_x$
+    \[
+        \rho\big(f_t(x),f(x)\big) < \epsilon.
+    \]
+
+    Обозначение:
+    \[
+        f_t \xrightarrow[\mathfrak{B}]{} f \ (\text{на } X)
+    \]
+\end{definition}
+
+\subsection{Равномерная сходимость семейства функций по базе}
+
+\begin{definition}
+    Семейство $\{f_t\}$ сходится \emph{равномерно} по базе $\mathfrak{B}$ к $f$ на $X$, если $\forall \epsilon > 0 \ \exists B \in \mathfrak{B}: \ \forall t \in B$ и $\forall x \in X$
+    \[
+        \rho\big(f_t(x),f(x)\big) < \epsilon.
+    \]
+
+    Обозначение:
+    \[
+        f_t \xrightrightarrows[\mathfrak{B}]{} f \ (\text{на } X)
+    \]
+\end{definition}
+
+\subsection{Критерий Коши сходимости семейства функций}
+
+\begin{theorem}
+    Пусть $Y$ -- полное метрическое пространство, $f_t:X \rightarrow Y, \ t \in T$ -- семейство $\{f_t\}$ равномерно сходится на $X$ по базе $\mathfrak{B} \iff \forall \epsilon > 0 \ \exists B \in \mathfrak{B}: \ \forall t_1,t_2 \in B$ и $\forall x \in X$
+    \[
+        \rho\big(f_{t_1}(x);f_{t_2}(x)\big) < \epsilon.
+    \]
+\end{theorem}

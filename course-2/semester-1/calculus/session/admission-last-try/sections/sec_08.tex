@@ -1,0 +1,68 @@
+\section{Степенные ряды}
+
+\setcounter{subsection}{61}
+
+\subsection{Степенной ряд}
+
+\begin{definition}
+    \emph{Степенным рядом} называется выражение вида
+    \[
+        \sum_{n=0}^{\infty}\big(a_n\cdot (x-x_0)^n\big)
+    \]
+    или
+    \begin{equation}\label{eq:6.10.1}
+        \sum_{n=0}^{\infty}(a_n \cdot x^n).
+    \end{equation}
+\end{definition}
+
+\subsection{Теорема о сходимости степенного ряда}
+
+\begin{theorem}\label{theorem:6.10.1}\leavevmode
+    \begin{enumerate}
+        \item Областью сходимости степенного ряда \ref{eq:6.10.1} является промежуток $(-R;R)$, где $R \geqslant 0 \ (+ \infty)$.
+        \item $\forall [\alpha;\beta] \subset (-R;R)$ ряд \ref{eq:6.10.1} сходится равномерно на $[\alpha;\beta]$.
+        \item Число $R$, называемое \emph{радиусом сходимости степенного ряда} \ref{eq:6.10.1}, может быть вычислено:
+              \[
+                  R = \frac{1}{\underset{n\rightarrow\infty}{\overline{\lim}}\sqrt[n]{|a_n|}}.
+              \]
+    \end{enumerate}
+\end{theorem}
+
+\subsection{Радиус сходимости степенного ряда (определение)}
+
+\begin{definition}
+    Число $R$, называемое \emph{радиусом сходимости степенного ряда} \ref{eq:6.10.1}, может быть вычислено:
+    \[
+        R = \frac{1}{\underset{n\rightarrow\infty}{\overline{\lim}}\sqrt[n]{|a_n|}}.
+    \]
+\end{definition}
+
+\newpage
+
+\subsection{Теорема Абеля о сумме степенного ряда}
+
+\begin{theorem}
+    Если $R$ -- радиус сходимости ряда \ref{eq:6.10.1} и ряд $\sum_{n=0}^{\infty}(a_n \cdot R^n)$ сходится, то
+    \[
+        \underset{x\rightarrow R}{\lim}\sum_{n=0}^{\infty}(a_n \cdot x^n) = \sum_{n=0}^{\infty} (a_n \cdot R^n).
+    \]
+\end{theorem}
+
+\subsection{Ряд Тейлора}
+
+\begin{definition}
+    Пусть $f(x)$ бесконечно дифференцируема в окрестности точки $x_0$. \emph{Рядом Тейлора} функции $f(x)$ в этой окрестности называется ряд:
+    \[
+        f(x)\approx f(x_0) + \frac{f'(x_0)}{1!}\cdot (x-x_0) + \frac{f''(x_0)}{2!}\cdot (x - x_0)^2 + \ldots + \frac{f^{(n)}(x_0)}{n!}\cdot (x-x_0)^n + \ldots
+    \]
+\end{definition}
+
+\subsection{Разложение элементарных функций в степенной ряд}
+
+\begin{lemma}
+    Если $f(x)$ -- $\infty$-но дифференцируемая функция на $[0;H]$ и $\exists L > 0: \ \forall n \in \N$ и $\forall x \in [0;H]$
+    \[
+        \big|f^{(n)}(x)\big| \leqslant L,
+    \]
+    то на $[0;H]$ функция $f$ может быть разложена в степенной ряд (ряд Тейлора).
+\end{lemma}

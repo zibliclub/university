@@ -1,0 +1,23 @@
+\section{Функции многих переменных}
+
+\subsection{Градиент функции}
+
+\begin{definition}
+    $ D \subset \R^n, \ f:D\rightarrow \R $ диф-ма в $x_0 \in D, \ \vec{a} \in \R^n: \ df(x_0)\cdot h = \vec{a} \cdot h, \ h \in \mathbb{R}$ называется \emph{градиентом функции $f$ в} $x_0$ и обозначается
+    \[
+        gradf(x_0).
+    \]
+\end{definition}
+
+\begin{note}
+    Если в $\R^n$ зафиксировать ортонормированный базис, то
+    \[
+        gradf(x_0) = \left\{\frac{\partial f}{\partial x_1}(x_0),\frac{\partial f}{\partial x_2}(x_0),\ldots,\frac{\partial f}{\partial x_n}(x_0)\right\}.
+    \]
+\end{note}
+
+\subsection{Производная по направлению вектора}
+
+\begin{definition}
+    $ \vec{v}\in T\R_{x_0}^n, $ $ |\vec{v}| = 1 \implies \frac{\partial f}{\partial \vec{v}}(x) $ называется \emph{производной по направлению вектора} $ \vec{v} $.
+\end{definition}

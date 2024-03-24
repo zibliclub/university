@@ -1,0 +1,48 @@
+\section{Кратные интегралы. Мера Жордана в $\R^n$}
+
+\setcounter{subsection}{86}
+
+\subsection{Мера клеточного множества}
+
+\begin{definition}
+    \emph{Мерой $m(A)$ клеточного множества $A$}, разбитого на клетки $\Pi_1,\Pi_2,\ldots,\Pi_n$ называется число:
+    \begin{equation}\label{eq:8.1.3}
+        m(A) = \sum_{i=1}^{n}m(\Pi_i)
+    \end{equation}
+\end{definition}
+
+\subsection{Множество, измеримое по Жордану}
+
+\begin{definition}
+    Множество $ Q \subset \R $ называется \emph{измеримым по Жордану}, если $ \forall \epsilon > 0 \ \exists $ клеточные множества $ A $ и $ B $:
+    \[
+        A \subset \Omega \subset B \quad \text{и} \quad m(B) - m(A) < \epsilon.
+    \]
+\end{definition}
+
+\subsection{Мера измеримого по Жордану множества}
+
+\begin{definition}
+    Если $ \Omega $ -- измеримое по Жордану множество, то его \emph{мерой} $ m(\Omega) $ называется число для $ \forall A $ и $ B $ -- клеточных множеств: $ A \subset \Omega \subset B $ выполнено
+    \[
+        m(A) \leqslant m(i) \leqslant m(B).
+    \]
+\end{definition}
+
+\subsection{Множество меры нуль}
+
+\begin{statement}
+    Если $ E \subset \R^n $ и $ \forall \epsilon > 0 \ \exists B = B_\epsilon: \ E \subset B $ и $ m(B) < \epsilon \implies m(E) = 0 $.
+\end{statement}
+
+\begin{definition}
+    Множество, удовлетворяющее условию утверждения, называется \emph{множеством меры нуль}.
+\end{definition}
+
+\subsection{Критерий измеримости множества в $\R^n$}
+
+\begin{theorem}
+    Множество $ \Omega \subset \R $ измеримо по Жордану $ \iff \Omega $ -- ограничено и $ m(G\Omega) = 0 $ (его граница меры нуль).
+\end{theorem}
+
+\newpage

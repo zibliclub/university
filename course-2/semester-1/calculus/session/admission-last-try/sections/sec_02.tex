@@ -1,0 +1,103 @@
+\section{Основные теоремы дифференциального исчисления функций многих переменных}
+
+\setcounter{subsection}{2}
+
+\subsection{Теорема о среднем (аналог теоремы Лагранжа)}
+
+\begin{theorem}
+    $ D \subset \R^n, \ [x;x+h]\subset D, \ f: D \rightarrow\R $ диф-ма на $ (x;x+h) $ и непрерывна на $ [x;x+h] \implies \exists \xi \in (x;x+h): $
+    \[
+        f(x+h)-f(x) = f'(\xi)\cdot h = \frac{\partial f}{\partial x_1}(\xi)\cdot h^1 + \frac{\partial f}{\partial x_2}(\xi)\cdot h^2 + \ldots + \frac{\partial f}{\partial x_n}(\xi)\cdot h^n.
+    \]
+\end{theorem}
+
+\begin{note}
+    $ \{1,2,\ldots,n\} $ над $ h $ -- индексы.
+\end{note}
+
+\subsection{Достаточное условие дифференцируемости функции}
+
+\begin{theorem}
+    $ D \subset \R^n, \ f:D \rightarrow\R $ имеет непрерывные частные производные в каждой окрестности $ x \in D \implies f $ диф-ма в $ x $.
+\end{theorem}
+
+\newpage
+
+\subsection{Производные высших порядков}
+
+\begin{definition}
+    $ D \subset \R^n, \ f:D \rightarrow\R $. Производная по $ x^j $ от производной по $ x^i $ называется \emph{второй производной функции $ f $ по} $ x^i,x^j $ и обозначается
+    \[
+        \frac{\partial^2f}{\partial x^i\partial x^j}(x)\text{ или }f_{x^i,x^j}''(x).
+    \]
+\end{definition}
+
+\subsection{Теорема о смешанных производных}
+
+\begin{theorem}
+    $ D \subset \R^n, \ f: D \rightarrow\R $ имеет в $ D $ непрерывные смешанные производные (второго порядка) $ \implies $ производные не зависят от порядка диф-ния.
+\end{theorem}
+
+\subsection{Формула Тейлора}
+
+\begin{theorem}
+    $ D \subset \R^n, \ f:D\rightarrow\R, \ f\in C^{(k)}(D,\R), \ [x;x+h] \subset D \implies $
+    \[
+        f(x + h) = f(x) + \sum_{i=1}^{k-1}\frac{1}{i!}\left(\frac{\partial f}{\partial x^1}\cdot h^1 + \ldots + \frac{\partial f}{\partial x^n}\cdot h^n\right)^i \cdot f(x) + R^k.
+    \]
+\end{theorem}
+
+\begin{note}
+    $R^k$ -- остаточный член,
+    \[
+        R^k = \frac{1}{k!}\left(\frac{\partial f}{\partial x^1}\cdot h^1 + \ldots + \frac{\partial f}{\partial x^n}\cdot h^n\right)^k \cdot f(x + \xi \cdot h),
+    \]
+    \[
+        x = (x^1,\ldots,x^n), \quad h = (h^1,\ldots,h^n).
+    \]
+\end{note}
+
+\subsection{Локальный экстремум функции многих переменных}
+
+\begin{definition}
+    $ X $ -- МП, $ f:X \rightarrow\R, \ x_0 $ называется \emph{точкой локального максимума (минимума)}, если $ \exists U(x_0) \subset X: \ \forall x \in U(x_0) $
+    \[
+        f(x)\leqslant f(x_0) \quad \big(f(x) \geqslant f(x_0)\big)
+    \]
+\end{definition}
+
+\subsection{Необходимое условие локального экстремума}
+
+\begin{theorem}
+    $ D \subset \R^n, \ f:D \rightarrow\R, \ x_0 \in D $ точка локального экстремума $ \implies $ в $ x_0 \ \forall i = \overline{1,n}$
+    \[
+        \frac{\partial f}{\partial x^i}(x_0) = 0.
+    \]
+\end{theorem}
+
+\newpage
+
+\subsection{Критическая точка функции}
+
+\begin{definition}
+    $ D \subset \R^n, \ f:D \rightarrow\R^k $ диф-ма в $ x_0 \in D, \ x_0 $ называется \emph{критической точкой функции} $ f(x) $, если:
+    \[
+        rank \mathfrak{I} f(x_0) < \min(n,k).
+    \]
+\end{definition}
+
+\begin{note}
+    $ \mathfrak{I}f(x_0) $ -- матрица Якоби функции $ f(x_0) $.
+\end{note}
+
+\subsection{Достаточное условие локального экстремума}
+
+\begin{theorem}
+    $ D \subset \R^n, \ f: D \rightarrow \R, \ f \in C^2(D,\R), \ f$ диф-ма в $x \in D $ -- критической точке для $ f $. Тогда, если:
+    \begin{enumerate}
+        \item $Q(h)$ -- знакоположительна $\implies x$ -- лок. $ \min $.
+        \item $Q(h)$ -- знакоотрицательна $\implies x$ -- лок. $ \max $.
+        \item $Q(h)$ может принимать различные значения ($>0, < 0$) $\implies $ в $ x$ нет экстремума.
+    \end{enumerate}
+\end{theorem}
+

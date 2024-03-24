@@ -1,0 +1,186 @@
+\section{Приложение теоремы о неявной функции}
+
+\setcounter{subsection}{11}
+
+\subsection{Диффиоморфизм, гомеоморфизм}
+
+\begin{definition}
+    $ D,G \subset \R^n, \ f:D \rightarrow G $ называтеся \emph{диффиоморфизмом класса $ C^{(p)} $}, $ p \geqslant 0 $, если:
+    \begin{enumerate}
+        \item $ f $ -- обратимое.
+        \item $ f \in C^{(p)}(D,G) $.
+        \item $ f^{-1} \in C^{(p)}(D,G) $.
+    \end{enumerate}
+
+    При $ p=0 \ f $ называется \emph{гомеоморфизмом}.
+\end{definition}
+
+\begin{note}
+    $ f $ -- гомеоморфизм, если $ f $ -- взаимно однозначное отображение и $ f,f^{-1} $ -- непрерывны.
+\end{note}
+
+\newpage
+
+\subsection{Касательная плоскость (касательное пространство) к $ K $-мерной поверхности в $ \R^n $}
+
+\begin{definition}
+    $ S $ -- $ k $-мерная поверхность в $ \R^n, \ x_0 \in S, \ x = x(t):\R^k \rightarrow \R^n $ -- параметризация $ S $ в окрестности $ x_0 = x(0) $.
+
+    \emph{Касательным пространством} (или плоскостью) к $S$ в точке $x_0$ называется $k$-мерная плоскость, заданная уравнением:
+    \begin{equation}\label{eq:8}
+        x = x_0 + x'(0) \cdot t,
+    \end{equation}
+    \begin{align*}
+        x_0   & = (x^1_0,x^2_0,\ldots,x^n_0)                                                           \\
+        x(t)  & = \left\{\begin{array}{l}
+                             x^1(t^1,\ldots,t^k) \\
+                             x^2(t^1,\ldots,t^k) \\
+                             \vdots              \\
+                             x^n(t^1,\ldots,t^k)
+                         \end{array}\right.                                                           \\
+        x'(t) & = \left(\begin{matrix}
+                                \frac{\partial x^1}{\partial t^1} & \ldots & \frac{\partial x^1}{\partial t^k} \\
+                                \vdots                            & \ddots & \vdots                            \\
+                                \frac{\partial x^n}{\partial t^1} & \ldots & \frac{\partial x^n}{\partial t^k} \\
+                            \end{matrix}\right)(t), \quad t = \left(\begin{matrix}
+                                                                        t^1 \\ t^2 \\ \vdots \\ t^k
+                                                                    \end{matrix}\right)
+    \end{align*}
+
+    Таким образом касательное пространство задается системой из \ref{eq:8}:
+    \[
+        \left\{\begin{array}{l}
+            x^1 = x^1_0 + \frac{\partial x^1}{\partial t^1} (0)\cdot t^1 + \ldots + \frac{\partial x^1}{\partial t^k}(0)\cdot t^k \\
+            x^2 = x^2_0 + \frac{\partial x^2}{\partial t^1} (0)\cdot t^1 + \ldots + \frac{\partial x^2}{\partial t^k}(0)\cdot t^k \\
+            \vdots                                                                                                                \\
+            x^n = x^n_0 + \frac{\partial x^n}{\partial t^1} (0)\cdot t^1 + \ldots + \frac{\partial x^n}{\partial t^k}(0)\cdot t^k
+        \end{array}\right..
+    \]
+\end{definition}
+
+\subsection{Теорема о структуре касательного пространства}
+
+\begin{theorem}\label{theorem:2}
+    $S$ -- $k$-мерная поверхность в $\R^n, \ x_0 \in S \implies $ касательное пространство $TS_{x_0}$ в $x_0$ состоит из направляющих векторов касательных к гладким кривым на $S$, проходящих через $x_0$.
+\end{theorem}
+
+\subsection{Задача на условный экстремум, условный экстремум}
+
+\begin{task}
+    Пусть требуется найти условный экстремум функции $f:D\rightarrow\R, \ D \subset \R^n$, на поверхности $S$, заданной системой уравнений:
+    \[
+        \left\{\begin{array}{l}
+            F^1(x^1,\ldots,x^n) = 0 \\
+            \vdots                  \\
+            F^k(x^1,\ldots,x^n) = 0
+        \end{array}\right..
+    \]
+
+    Составим функцию Лагранжа:
+    \begin{multline*}
+        L(x,\lambda) = L(x^1,\ldots,x^n,\lambda^1,\ldots,\lambda^k) = \\
+        = f(x^1,\ldots,x^n) + \sum_{i=1}^{k}\lambda^i\cdot F^i(x^1,\ldots,x^n),
+    \end{multline*}
+    $\lambda = (\lambda^1,\ldots,\lambda^k), \ \lambda^i \in \R$ -- коэффициент, в общем случае пока неизвестен.
+
+    Необходимое условие локального экстремума для функции $L:$
+    \begin{equation}\label{eq:24}
+        \left\{\begin{array}{l}
+            \left.\begin{array}{l}
+                      \frac{\partial L}{\partial x^1} = \frac{\partial f}{\partial x^1} + \sum_{i = 1}^{k}\lambda^i\cdot\frac{\partial F^i}{\partial x^1} = 0 \\
+                      \vdots                                                                                                                                  \\
+                      \frac{\partial L}{\partial x^n} = \frac{\partial f}{\partial x^n} + \sum_{i = 1}^{k}\lambda^i\cdot\frac{\partial F^i}{\partial x^n} = 0 \\
+                  \end{array}\right\}\begin{array}{l}
+                                         \text{необходимое условие условного} \\
+                                         \text{экстремума функции }f
+                                     \end{array} \\
+            \left.\begin{array}{l}
+                      \frac{\partial L}{\partial \lambda^1} = F^1(x^1,\ldots,x^n) = 0 \\
+                      \vdots                                                          \\
+                      \frac{\partial L}{\partial \lambda^k} = F^k(x^1,\ldots,x^n) = 0
+                  \end{array}\right\}\text{ поверхность }S
+        \end{array}\right.
+    \end{equation}
+\end{task}
+
+\begin{definition}
+    $ D \subset \R^n, \ f:D\rightarrow\R, \ S $ -- поверхность в $D$, \emph{условным экстремумом} функции $f$ называется экстремум функции $f\big|_S$.
+\end{definition}
+
+\subsection{Линия уровня}
+
+\begin{definition}
+    $D \subset \R^n, \ f:D\rightarrow\R$. \emph{Линией уровня ($c$-уровнем)} функции $f$ называется множество
+    \[
+        N_c = \big\{x\in D \ \big| \ f(x) = c\big\}.
+    \]
+\end{definition}
+
+\subsection{Необходимое условие условного локального экстремума}
+
+\begin{theorem}
+    Пусть система уровнений
+    \begin{equation}\label{eq:20}
+        \left\{\begin{array}{l}
+            F^1(x^1,\ldots,x^n) = 0 \\
+            \vdots                  \\
+            F^{n-k}(x^1,\ldots,x^n) = 0
+        \end{array}\right.
+    \end{equation}
+    задает $(n-k)$-мерную гладкую поверхность $S$ в $D \subset \R^n $. Функция $f:D\rightarrow\R$ -- гладкая. Если $x_0 \in S$ является точкой условного локального экстремума для функции $f$, то существует такой набор чисел $\lambda_1,\lambda_2,\ldots,\lambda_{n-k} \in \R:$
+    \[
+        grad f(x_0) = \sum_{i = 1}^{n-k}\lambda_i \cdot grad F^i(x_0).
+    \]
+\end{theorem}
+
+\newpage
+
+\subsection{Функция Лагранжа}
+
+\begin{note}
+    $ D \subset \R^n, \ f:D\rightarrow\R, \ f \in C^{(2)} (D,\R), \ S$ -- $(n-k)$-мерная поверхность в $D$, заданная системой уравнений:
+    \[
+        \left\{\begin{array}{l}
+            F^1(x^1,\ldots,x^n) = 0 \\
+            \vdots                  \\
+            F^k(x^1,\ldots,x^n) = 0
+        \end{array}\right..
+    \]
+
+    Функция Лагранжа:
+    \[
+        L(x,\lambda) = f(x^1,\ldots,x^n) + \sum_{i = 0}^{k}\lambda_i \cdot F^i(x^1,\ldots,x^n).
+    \]
+
+    Здесь $\lambda_1,\ldots,\lambda_k$ выбираются таким образом, чтобы было выполнено необходимое условие условного экстремума в точке $x_0$ (\ref{eq:24}).
+    \[
+        \left\{\begin{array}{l}
+            \frac{\partial L}{\partial x^i} = 0 \\
+            \vdots                              \\
+            \frac{\partial L}{\partial \lambda_j} = 0
+        \end{array}\right. \implies x_0,\quad \lambda_1,\ldots,\lambda_k.
+    \]
+\end{note}
+
+\subsection{Метод Лагранжа}
+
+Я запутался.
+
+\subsection{Достаточное условие условного локального экстремума}
+
+\begin{theorem}
+    Если при введенных выше условиях квадратичная форма
+    \[
+        Q(\xi) = \sum_{i,j=1}^{n}\frac{\partial^2 L}{\partial x^i \partial x^j}(x_0)\cdot\xi^i\xi^j, \quad \big(\xi=(\xi^1,\ldots,\xi^n)\big)
+    \]
+    \begin{enumerate}
+        \item Знакоопределена на $TS_{x_0}$:
+              \begin{itemize}
+                  \item если $Q$ знакоположительна, то точка $x_0$ -- точка условного локального $\min$
+                  \item если $Q$ знакоотрицательна, то точка $x_0$ -- точка условного локального $\max$
+              \end{itemize}
+        \item Если $Q$ может принимать значения разных знаков, то в точке $x_0$ условного экстремума не наблюдается.
+    \end{enumerate}
+\end{theorem}
+
+\newpage
