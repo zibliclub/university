@@ -1,0 +1,159 @@
+\lesson{1}{от 14 фев 2024 8:45}{Начало}
+
+
+\section*{Введение}
+
+\begin{note}
+    \emph{Массовое явление} -- явление, для которого можно неоднозначно повторить исходные условия.
+
+    \emph{Случайное событие} -- результат эксперимента.
+\end{note}
+
+\begin{definition}[Благоприятное событие, подмножество с подмножеством всех благоприятных исходов]
+    Пусть $ A $ -- случайное событие, $ \omega \in \Omega $ -- \emph{благоприятное событие} для $ A $, если $ \omega $ влечет $ A $.
+
+    Тогда $ A $ -- \emph{подмножество $ \Omega $ с подмножеством всех благоприятных для $ A $ исходов}.
+\end{definition}
+
+\begin{example}
+    $ A $ и $ B $ -- случайные события ($ A, B \subset \Omega $),
+    \[
+        \begin{array}{l}
+            \text{не }A = \overline{A} = \Omega \setminus A \\
+            A\text{ и }B = A \cdot B = A \cap B             \\
+            A\text{ или }B = A + B = A \cup B
+        \end{array}
+    \]
+\end{example}
+
+\begin{definition}[Алгебра, сигма-алгебра]
+    $ F $ -- семейство подмножеств $ \Omega $. $ F $ называется \emph{алгерой}, если:
+    \begin{enumerate}
+        \item $ \Omega \in F \ (\emptyset \in F) $.
+        \item $ A \in F \implies \overline{A} \in F $.
+        \item $ A,B \in F \implies AB \in F, \ A + B \in F $.
+    \end{enumerate}
+
+    Если, кроме этого, верно $ \forall \{A_\alpha\}\subset F \ \bigcap_\alpha A_\alpha \in F $, то $ F $ называется \emph{сигма-алгеброй ($ \sigma $-алгеброй)}.
+\end{definition}
+
+\begin{remark}
+    Случайные события должны образовывать $ \sigma $-алгебру.
+\end{remark}
+
+\begin{remark}
+    Очевидно, что $ \overline{\Sigma_\alpha A_\alpha} = \Pi_\alpha \overline{A_\alpha}, \ \overline{\Pi_\alpha A_\alpha} = \Sigma_\alpha \overline{A_\alpha} $.
+\end{remark}
+
+\begin{remark}
+    $ A \implies B $ тождественно $ A \subseteq B $.
+
+    $ A \iff B $ тождественно $ A = B $.
+\end{remark}
+
+\begin{definition}[Мера на сигма-алгебре]
+    Вероятностное пространство $ (\Omega, F, P) $.
+
+    $ \Omega $ -- множество элементов исходов, $ F $ -- $ \sigma $-алгебра, $ P $ -- \emph{мера} на $ F $, то есть $ P: F \longrightarrow R $:
+    \begin{description}
+        \item[$ \quad $\circled{A1}] $ \forall A \in F \quad P(A) \geqslant 0 $.
+        \item[$ \quad $\circled{A2}] $ P(\Omega) = 1 $ (условие нормировки), мера конечна.
+        \item[$ \quad $\circled{A3}] $ \forall A,B \in F \quad AB = \emptyset \implies P(A + B) = P(A) + P(B) $.
+        \item[$ \quad $\circled{A4}] $ \{A_n\}\subset F, \ A_{n+1} \subseteq A_n \quad \bigcap_n A_n = \emptyset, \ \underset{n \rightarrow \infty}{\lim}P(A_n) = 0 $ (непрерывность меры).
+    \end{description}
+\end{definition}
+
+\begin{theorem}[Свойство вероятностей]
+    $ (\Omega,F,P) $ -- вероятностное пространство.
+    \begin{enumerate}
+        \item $ A \in F \implies P(\overline{A}) = 1 - P(A) $.
+        \item $ A \subseteq B \implies P(A) \leqslant P(B) $.
+        \item $ A_1,\ldots,A_n \in F \quad A_iA_j = \emptyset \ (i \ne j) $.
+        \item $ A_1,\ldots,A_n \in F \quad P(A_1 + \ldots + A_n) \leqslant \sum_{k=1}^{n}P(A_k) $.
+        \item $ P(A \cup B) = P(A) + P(B) - P(AB) $.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}\leavevmode
+    \begin{enumerate}
+        \item $ \begin{array}{l}
+                      B = \overline{A}, \ AB = \emptyset, \ A+B = \Omega \\
+                      1 = P(\Omega) = P(A + \overline{A}) = P(A) + P(\overline{A})
+                  \end{array} \implies P(\emptyset) = 0 $.
+        \item $ \begin{array}{l}
+                      C = B \setminus A = B \cup \overline{A} \in F, \ B = A+C, \ AC = \emptyset \\
+                      P(B) = P(A) + P(C) \geqslant P(A)
+                  \end{array} \implies \underset{\emptyset \subseteq A \subseteq \Omega}{\forall A \in F} $
+              \[
+                  0 \leqslant P(A) \leqslant 1.
+              \]
+        \item Индукция по $ n $.
+        \item $ \begin{array}{l}
+                      B_k = A_k \setminus (\sum_{i=1}^{k-1}A_i), \ \sum_{k=1}^{n}A_k = \sum_{k=1}^{n}B_k \\
+                      P(\sum A_k) = P(\sum B_k) = \sum P(B_k) \leqslant \sum P(A_k)
+                  \end{array} \implies B_k \subseteq A_k $.
+        \item $ C = A \setminus B. \quad P(A) = P(C + AB) = P(C) + P(AB) $.
+
+              $ P(C) = P(A) - P(AB). \quad P(A\cup B) = P(B+C) = P(B) + P(C) = P(B) + P(A) - P(AB) $.
+    \end{enumerate}
+\end{proof}
+
+\begin{note}[$ \sigma $-аддитивность]
+    \circled{A$ 3^* $}
+
+    \[
+        \{A_n\} \subset F \quad A_iA_j = \emptyset \implies P\left(\sum_{n=1}^{\infty}A_n\right) = \sum_{n=1}^{\infty}P(A_n).
+    \]
+\end{note}
+
+\newpage
+
+\begin{theorem}
+    \[
+        \circled{A1},\circled{A2},\circled{A3} \text{ и } \circled{A4} \iff \circled{A1},\circled{A2},\circled{A$3^*$}.
+    \]
+\end{theorem}
+
+\begin{proof}
+    Покажем, что $ \circled{A3} $ и $ \circled{A4} \implies \circled{A$3^*$} $.
+
+    $ \{A_n\}\subset F \quad A_iA_j = \emptyset. \quad B = \sum_{k=n+1}^{\infty}, \ A = \sum_{k=1}^{\infty}A_k$,
+    \[
+        A = A_1 + \ldots + A_n + B_n,
+    \]
+    \[
+        P(A) = P(A_1) + \ldots + P(A_n) + P(B_n).
+    \]
+    $ B_{n+1} \subseteq B_n, \ \bigcap_n B_n = \emptyset \implies B_n \longrightarrow 0, \ P(B_n) \underset{n \rightarrow \infty}{\longrightarrow} 0 $,
+    \[
+        P(A) = \sum_{k=1}^{n}P(A_k) + P(B_n) \longrightarrow \sum_{n=1}^{\infty}P(A_n) + 0.
+    \]
+
+    Пусть выполняется $ \circled{A$3^*$} $.
+
+    $ A_1,\ldots,A_n $, ? последовательность $ A_1,\ldots,A_n,\emptyset,\ldots,\emptyset,\ldots $,
+    \[
+        \begin{array}{ccc}
+            P\bigl(\sum_{n=1}^{\infty}A_n\bigr) & = & P\bigl(\sum_{k=1}^{n}A_k\bigr) \\
+            \verteq                             &   &                                \\
+            \sum_{n=1}^{\infty}P(A_n)           & = & \sum_{k=1}^{n}P(A_k)
+        \end{array} \implies \circled{A3}.
+    \]
+
+    $ \{A_n\}\subset F, \ A_n \supseteq A_{n+1} $ и $ \bigcap A_n = \emptyset $.
+
+    $ B_{n+1} = A_n \setminus A_{n+1}, \quad B?B =\emptyset, \ \bigcup B_n = \bigcup A_n $.
+    \[
+        B_1 = A_1.
+    \]
+    \[
+        \equalto{P\left(\sum_{n=1}^{\infty}A_n\right)}{P(A_1)} = P\left(\sum_{n=1}^{\infty}P(B_n)\right)\text{ -- сходится}.
+    \]
+    \[
+        A_n = \sum_{k=n+1}^{\infty}B_k \implies P(A_n) = \sum_{k=n+1}^{\infty}P(B_k) \rightarrow 0 \implies \circled{A4}.
+    \]
+\end{proof}
+
+\begin{example}
+    $ \Omega = \{B,H\}, \ F = \big\{\emptyset,\Omega,\{B\},\{H\}\big\} $.
+\end{example}

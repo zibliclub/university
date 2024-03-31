@@ -76,15 +76,7 @@
 \subsection{Интегральный признак сходимости Коши-Маклорена}
 
 \begin{theorem}
-    Дан положительный ряд $ (A), \ f(x)$ удовлетворяет условиям:
-    \begin{enumerate}
-        \item $f(x): \ [1;+\infty) \rightarrow\R$.
-        \item $f(x)$ -- непрерывна.
-        \item $f(x)$ -- монотонна.
-        \item $f(x) = a_n, \ \forall n \in \N$.
-    \end{enumerate}
-
-    Тогда $(A)$ и $\int_{1}^{\infty}f(x)dx$ ведут себя одинаково.
+    $ (A), \ \forall n \ a_n > 0, \ f(x): \ [1;+\infty) \rightarrow \R $ -- непрерывна и монотонна, $ \forall n \in \N \ f(x) = a_n \implies (A)$ и $\int_{1}^{\infty}f(x)dx$ ведут себя одинаково.
 \end{theorem}
 
 \subsection{Радикальный признак Коши}
@@ -125,11 +117,10 @@
 \subsection{Признак Кумера}
 
 \begin{theorem}
-    Дан положительный ряд $(A), \ c_1,c_2,\ldots,c_n,\ldots: \ \forall n > N \ c_n > 0$ и ряд $\sum_{n=1}^{\infty}c_n$ расходится. Если
+    $ (A),(C), \ \forall n \ a_n,c_n > 0 $ и ряд $\sum_{n=1}^{\infty}c_n$ расходится. Если
     \[
-        \underset{n\rightarrow\infty}{\lim}\left(c_n \cdot \frac{a_n}{a_{n+1}} - c_{n+1}\right) = k,
+        \underset{n\rightarrow\infty}{\lim}\left(c_n \cdot \frac{a_n}{a_{n+1}} - c_{n+1}\right) = k \implies
     \]
-    то
     \begin{enumerate}
         \item $k > 0: (A)$ сходится.
         \item $k < 0: (A)$ расходится.
@@ -140,17 +131,18 @@
 \subsection{Признак Бертрана}
 
 \begin{theorem}
-    Дан положительный ряд $(A)$. Если
+    $(A), \ \forall n \ a_n > 0$. Если
     \[
-        \underset{n\rightarrow\infty}{\lim} \ln n \cdot \left[n \cdot \left(\frac{a_n}{a_{n+1}} - 1\right)\right] = B,
+        \underset{n\rightarrow\infty}{\lim} \ln n \cdot \left[n \cdot \left(\frac{a_n}{a_{n+1}} - 1\right)\right] = B \implies
     \]
-    то
     \begin{enumerate}
         \item $B > 1: (A)$ сходится.
         \item $B < 1: (A)$ расходится.
         \item $B = 1: (A)$ может как сходиться, так и расходиться.
     \end{enumerate}
 \end{theorem}
+
+\newpage
 
 \subsection{Признак Гаусса}
 
@@ -194,29 +186,31 @@
 \subsection{Знакочередующиеся ряды}
 
 \begin{definition}
-    Ряд $(A)$ называется \emph{знакочередующимся}, если $\forall n \in \N $ \\ $ a_n \cdot a_{n+1} < 0$. Обозначим знакочередующийся ряд:
+    Ряд $(A)$ называется \emph{знакочередующимся}, если \\ $\forall n \in \N  \ a_n \cdot a_{n+1} < 0$. Обозначим знакочередующийся ряд:
     \[
         (\overline{A}) \ \sum_{n=1}^{\infty}(-1)^{n-1}\cdot a_n, \quad a_n > 0 \ \forall n \in\N.
     \]
 \end{definition}
 
+\newpage
+
 \subsection{Признак Лейбница}
 
 \begin{theorem}
-    Пусть ряд $(\overline{A}), \forall n \ a_n > 0 $ удовлетворяет условиям:
+    $(\overline{A}), \ \forall n \ a_n > 0, $ 
     \begin{enumerate}
-        \item $a_1 \geqslant a_2 \geqslant a_3 \geqslant \ldots \geqslant a_n \geqslant \ldots$.
+        \item $a_1 \geqslant \ldots \geqslant a_n \geqslant \ldots$.
         \item $\underset{n\rightarrow\infty}{\lim} a_n = 0$.
     \end{enumerate}
 
-    Тогда ряд $(\overline{A})$ сходится и его сумма $S: \ 0 < S \leqslant a_1$.
+    $\implies (\overline{A})$ сходится, сумма $S: \ 0 < S \leqslant a_1$.
 \end{theorem}
 
 \subsection{Признак Абеля}
 
 \begin{theorem}
     Если \begin{itemize}
-        \item последовательность $\{a_n\}$ монотонна и ограничена,
+        \item $\{a_n\}$ монотонна и ограничена,
         \item ряд $\sum_{n=1}^{\infty} b_n$ сходится,
     \end{itemize}
     то ряд $\sum_{n=1}^{\infty}a_n \cdot b_n$ сходится.
@@ -226,8 +220,8 @@
 
 \begin{theorem}
     Если \begin{itemize}
-        \item последовательность $\{a_n\}$ монотонна и $\underset{n\rightarrow\infty}{\lim}a_n = 0$,
-        \item частичные суммы ряда $(B)$ ограничены, то есть $\exists k > 0: $ \\ $ \forall n \ \left|\sum_{m=1}^{n} b_m\right|< k$,
+        \item $\{a_n\}$ монотонна и $\underset{n\rightarrow\infty}{\lim}a_n = 0$,
+        \item частичные суммы ряда $(B)$ ограничены,
     \end{itemize}
     то $\sum_{n=1}^{\infty}a_n \cdot b_n$ сходится.
 \end{theorem}
@@ -235,7 +229,7 @@
 \subsection{Теорема Римана о перестановке членов условно сходящегося ряда}
 
 \begin{theorem}
-    Если ряд $(A)$ условно сходится, то $\forall B \in \R$ (в том числе $B = \pm\infty$) $\exists$ перестановка ряда $(A)$ такая, что полученный ряд сходится и имеет сумму $B$. Более того, $\exists$ перестановка ряда $(A)$ такая, что частичные суммы полученного ряда не стремятся ни к конечному, ни к бесконечному пределу.
+    $(A)$ условно сходится $\implies \forall B \in \R \ \exists$ перестановка ряда $(A)$ такая, что полученный ряд сходится и имеет сумму $B$. Более того, $\exists$ перестановка ряда $(A)$ такая, что частичные суммы полученного ряда не стремятся ни к конечному, ни к бесконечному пределу.
 \end{theorem}
 
 \newpage

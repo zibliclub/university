@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include <cassert>
+#include <vector>
 
 #include "utils/box_struct_functions.h"
 #include "utils/weight_limit_exception.h"
