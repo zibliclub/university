@@ -1,3 +1,0 @@
-\babel@toc {russian}{}\relax 
-\contentsline {chapter}{\numberline {0}Введение}{3}{chapter.0}%
-\contentsline {chapter}{\numberline {1}Классическая схема и комбинаторика}{8}{chapter.1}%
