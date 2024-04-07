@@ -3,6 +3,9 @@
 
 #include <iostream>
 
+#include <cassert>
+#include <algorithm>
+
 class DynamicIntArray {
 private:
     int *array_;
@@ -10,8 +13,8 @@ private:
 
 public:
     DynamicIntArray();
-    DynamicIntArray(size_t);
-    DynamicIntArray(size_t, int);
+    DynamicIntArray(int);
+    DynamicIntArray(int, int);
     DynamicIntArray(const DynamicIntArray &);
     DynamicIntArray(DynamicIntArray &&);
 
@@ -24,17 +27,17 @@ public:
     void PushBack(int);
     int PopBack();
 
-    int &operator[](size_t);
-    const int &operator[](size_t) const;
+    int &operator[](int);
+    const int &operator[](int) const;
     DynamicIntArray &operator=(const DynamicIntArray &);
-    DynamicIntArray &operator=(DynamicIntArray &&); // нужен ли noexcept?
+    DynamicIntArray &operator=(DynamicIntArray &&); 
     bool operator==(const DynamicIntArray &) const;
     bool operator!=(const DynamicIntArray &) const;
     bool operator<(const DynamicIntArray &) const;
     bool operator<=(const DynamicIntArray &) const;
     bool operator>(const DynamicIntArray &) const;
     bool operator>=(const DynamicIntArray &) const;
-    bool operator+(const DynamicIntArray &) const;
+    int * operator+(const DynamicIntArray &) const;
 };
 
 std::ostream &operator<<(std::ostream &, const DynamicIntArray &);

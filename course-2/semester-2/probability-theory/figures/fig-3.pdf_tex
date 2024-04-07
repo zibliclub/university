@@ -1,6 +1,6 @@
 %% Creator: Inkscape 1.3.2 (091e20e, 2023-11-25), www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
-%% Accompanies image file 'fig-1.pdf' (pdf, eps, ps)
+%% Accompanies image file 'fig-3.pdf' (pdf, eps, ps)
 %%
 %% To include the image in your LaTeX document, write
 %%   \input{<filename>.pdf_tex}
@@ -53,10 +53,11 @@
   \begin{picture}(1,0.5)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
-    \put(0.40818497,0.15247637){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}мат. модель\end{tabular}}}}%
-    \put(0.16482994,0.22719796){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}МС\end{tabular}}}}%
-    \put(0.85257136,0.23160082){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}ТВ\end{tabular}}}}%
-    \put(0.44032342,0.30736993){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}окр. мир\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=1]{fig-1.pdf}}%
+    \put(0.08425291,0.15988833){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$1$ -- входит в подмножество\end{tabular}}}}%
+    \put(0.08352366,0.07255325){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$0$ -- не входит\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{fig-3.pdf}}%
+    \put(0.48168653,0.36752618){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{$n$}\end{tabular}}}}%
+    \put(0.47067258,0.27933165){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{$\ldots$}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{fig-3.pdf}}%
   \end{picture}%
 \endgroup%
