@@ -1,0 +1,3 @@
+[submodule "university-programming"]
+	path = university-programming
+	url = git@github.com:zibliclub/university-programming.git
