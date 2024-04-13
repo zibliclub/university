@@ -1,0 +1,304 @@
+\lesson{3}{от 21 фев 2024 8:46}{Продолжение}
+
+
+\section{Независимость событий}
+
+Пусть $(\Omega,\mathcal{F},P)$ -- вероятностное пространство, $B \in \mathcal{F}, \ P(B) > 0$.
+
+\begin{definition}
+  Пусть $P(B)>0$ условий. Все исходы -- это $B$, исходы $AB \implies$
+  \[
+    P(A|B) = \frac{P(AB)}{P(B)}.
+  \]
+  \begin{figure}[H]
+    \centering
+    \incfig[0.4]{fig-10}
+    \label{fig:fig-10}
+  \end{figure}
+\end{definition}
+
+\begin{theorem}[Умножение вероятностей]
+  \[
+    P(AB) = P(A|B)\cdot P(B).
+  \]
+\end{theorem}
+
+\begin{proof}
+  Очевидно.
+\end{proof}
+
+Получили новое вероятностное пространство $(\Omega,\mathcal{F},P_B))$,
+\[
+  P_B(A) = \frac{P(AB)}{P(B)}\geqslant 0, \qquad P_B(\Omega) = \frac{P(\Omega B)}{P(B)} = 1,
+\]
+\[
+  A_n \searrow \varnothing \implies A_nB \searrow \varnothing,
+\]
+
+\[
+  P_B(A_n) = \frac{P(A_nB)}{P(B)} \rightarrow 0.
+\]
+
+\begin{eg}
+  $N$ шаров, $M$ белых.
+
+  Вытаскиваем два исхода по очереди:
+  \[
+    P(\text{оба белых})
+  \]
+  \[
+    \begin{array}{lcl}
+      A \text{ -- }& \text{``1'' белый }P(A)&=\frac{M}{N}, \\
+      B \text{ -- }& \text{``2'' белый }P(B|A)&=\frac{M-1}{N-1}
+    \end{array}
+  \]
+  \[
+    P(AB) = P(B|A)\cdot P(A)=\frac{M(M-1)}{N(N-1)}.
+  \]
+\end{eg}
+
+\begin{eg}
+  Два шара одновременно.
+
+  Исход -- пара шаров, неупорядоченных, без повторений.
+  \[
+    (\Omega) = C_{N}^{2}, \ \abs{A} = C_{M}^{2},
+  \]
+  \[
+    P(\text{оба белых}) = \frac{C_{M}^{2}}{C_{N}^{2}} = \frac{M!2!(N-2)!}{2!(M-2)!N!} = \frac{M(M-1)}{N(N-1)}.
+  \]
+\end{eg}
+
+\begin{theorem}
+  Пусть $A_1,A_2,\ldots,A_n \in \mathcal{F}$, тогда
+  \begin{align*}
+    P(A_1 \ldots A_n) &=P(A_1 \ldots A_{n-1}|A_n)\cdot P(A_n) \\
+    &=P(A_1|A_2 \ldots A_n)\cdot P(A_2|A_3 \ldots A_n)\cdot \ldots \cdot P(A_{n-1}|A_n)\cdot P(A_n).
+  \end{align*}
+\end{theorem}
+
+\begin{proof}\leavevmode
+  \begin{description}
+    \item[\boxed{\text{База}}] $P(A_1A_2) = P(A_1 | A_2)P(A_2)$.
+    \item[\boxed{\text{Переход}}] Пусть верно для $A_2 \ldots A_{n+1}$, добавим $A_1$:
+    \[
+      B = A_2 \ldots A_{n+1},
+    \]
+    \begin{align*}
+      P(A_1B) &= P(A_1A_2 \ldots A_{n+1}) \\
+      &= P(A_1|A_2 \ldots A_{n+1})\cdot \big(P(A_2|A_3 \ldots A_{n+1})\cdot P(A_{n+1})\big).
+    \end{align*}
+  \end{description}
+\end{proof}
+
+\begin{definition}[Разбиение]
+  \emph{Разбиение} -- множество событий $H_1,\ldots,H_n$ таких, что
+  \begin{enumerate}
+    \item $H_iH_j = \varnothing, \ \forall i \ne j$.
+    \item $\sum_{j=1}^{n}H_j = \Omega$.
+  \end{enumerate}
+\end{definition}
+
+\begin{theorem}[Формула полной вероятности]
+  Пусть $A$ -- случайные события, $H_1,\ldots,H_n$ -- разбиения, тогда
+  \[
+    P(A) = \sum_{j=1}^{n}P(A|H_j)\cdot P(H_j).
+  \]
+\end{theorem}
+
+\begin{proof}
+  $\sum H_j = \Omega, \quad A \cdot \sum H_j = A$,
+  \[
+    A \cdot H_j \cap AH_j = \varnothing,
+  \]
+  \begin{align*}
+    P(A) &= P\left(A \cdot \sum H_j\right) \\
+    &= P\left(\sum_{j}A H_j\right) \\
+    &= \sum_{j}P(AH_j) \\
+    &= \sum_{j}P(A|H_j)P(H_j)
+  \end{align*}
+\end{proof}
+
+\begin{eg}
+  $N$ билетов, $M$ хороших.
+  \[
+    \begin{array}{l}
+      A_1 \text{ -- зашли 1ым и вытащили хороший билет} \\
+      A_2 \text{ -- зашли 2ым и вытащили хороший билет}
+    \end{array}
+  \]
+  $P(A_1) = \frac{M}{N}, \quad A_1$ и $\overline{A_1}$ -- разбиение,
+  \begin{align*}
+    P(A_2) &= P(A_2|A_1)\cdot P(A_1) + P(A_2|\overline{A_1})P(\overline{A_1}) \\
+    &= \frac{M-1}{N-1} \cdot \frac{M}{N} + \frac{M}{N-1}\cdot \frac{N-M}{N} \\
+    &= \frac{M}{N(N-1)}(M-1+N-M) \\
+    &= \frac{M}{N}
+  \end{align*}
+\end{eg}
+
+\begin{theorem}[Формула Байесса]
+  $H_1,\ldots,H_n$ -- разбиение, $A \in \mathcal{F}$,
+  \[
+    P(H_i|A) = \frac{P(A|H_i)P(H_i)}{\sum_{j}P(A|H_j)P(H_j)},
+  \]
+  апостериорные вероятности,
+  \[
+    P(H_i) \text{ -- априорные вероятности}.
+  \]
+\end{theorem}
+
+\begin{proof}
+  \[
+    P(H_i|A) = \frac{P(AH_j)}{P(A)} = \frac{P(A|H_i)\cdot P(H_i)}{\sum_{j}P(A|H_j)\cdot P(H_j)}.
+  \]
+\end{proof}
+
+\begin{eg}
+  $N$ билетов, $M$ -- хороших, $A_1,A_2$,
+  \begin{align*}
+    P(A_1) &= \frac{M}{N}, \\
+    P(A_1|A_2) &= \frac{P(A_1A_2)}{P(A_2)} = \frac{P(A_2|A_1)P(A_1)}{P(A_2)} = \frac{\frac{M-1}{N-1}\cdot \frac{N}{M}}{\frac{M}{N}} = \frac{M-1}{N-1}, \\
+    P(A_2|A_1) &= \frac{M-1}{N-1}.
+  \end{align*}
+\end{eg}
+
+\begin{definition}[Независимые события]
+  $(\Omega,\mathcal{F},P)$ -- в.п., $A,B \in \mathcal{F}$.
+
+  Говорят, что $A$ и $B$ \emph{независимы}, если $P(A|B) = P(A)$ ($A$ не зависит от $B$).
+\end{definition}
+
+\begin{remark}
+  Если $A$ не зависит от $B$, то $B$ не зависит от $A$:
+  \[
+    P(B|A) = \frac{P(AB)}{P(A)} = \frac{P(A|B)\cdot P(B)}{P(A)} = \frac{P(A)\cdot P(B)}{P(A)} = P(B).
+  \]
+\end{remark}
+
+\begin{remark}
+  Если $A$ и $B$ независимы, то
+  \[
+    P(AB) = P(A|B)\cdot P(B) = P(A)\cdot P(B).
+  \]
+\end{remark}
+
+\begin{definition}[Независимые в совокупности]
+  $A_1,\ldots,A_n$ \emph{независимы в совокупности}, если
+  \[
+    P(A_1A_2 \ldots A_n) = P(A_1)P(A_2)\ldots P(A_n).
+  \]
+\end{definition}
+
+\begin{eg}
+  $A_1,A_2$ -- орел в $1^{\text{м}}$ и $2^{\text{м}}$ бросках,
+  \begin{align*}
+    P(A_1) &= \frac{1}{2} = P(A_2) \\
+    P(A_1A_2) &= \frac{1}{4} = P(A_1)P(A_2)
+  \end{align*}
+\end{eg}
+
+\begin{eg}
+  52 карты, вытаскиваем одну, $A$ -- туз, $B$ -- бубновая,
+  \begin{align*}
+    P(A) &= \frac{4}{52} = \frac{1}{13} \\
+    P(B) &= \frac{13}{52} = \frac{1}{4} \\
+    P(AB) &= \frac{1}{52} = P(A)\cdot P(B)
+  \end{align*}
+\end{eg}
+
+\begin{eg}
+  $2,3,5,30$, $A_2,A_3,A_5$, $A_k: \text{число} \vdots k$.
+
+  Выбираем одно число:
+  \begin{align*}
+    P(A_2) &= \frac{1}{2} = P(A_3) = P(A_5) \\
+    P(A_2A_3) &= \frac{1}{4} = P(A_2)\cdot P(A_3) \implies A_2 \text{ и } A_3 \text{ независимы}
+  \end{align*}
+  \begin{align*}
+    A_2 \text{ и } A_5 & \text{ -- независимы}, \\
+    A_3 \text{ и } A_5 & \text{ -- независимы},
+  \end{align*}
+  \[
+    P\equalto{(A_2A_3A_5)}{\frac{1}{4}} \ne \underset{\frac{1}{2}\cdot \frac{1}{2} \cdot \frac{1}{2}}{P(A_2)P(A_3)P(A_5))}.
+  \]
+\end{eg}
+
+\begin{remark}
+  ``зависимые'' = ``не являются независимыми''.
+\end{remark}
+
+\begin{theorem}
+  Если $A_1,\ldots,A_n$ независимы в совокупности, $P(A_1 \ldots A_n) > 0, \ i_1 \ldots i_k j_1 \ldots j_m$ -- различные индексы от $1$ до $n$, то
+  \[
+    P(A_{i_1}\ldots A_{i_k}|A_{j_1}\ldots A_{j_m}) = P(A_{i_1}\ldots A_{i_k}).
+  \]
+\end{theorem}
+
+\begin{proof}
+  $P(A_{i_1}\ldots A_{i_k}) = P(A_{i_1})\ldots P(A_{i_k})$,
+  \[
+    P \left(\underbrace{A_{i_1}\ldots A_{i_k}}_{A}\underbrace{A_{j_1}\ldots A_{j_m}}_{B}\right) = P(A_{i_1})\ldots P(A_{i_k})P(A_{j_1})\ldots P(A_{j_m}),
+  \]
+  \[
+    P(AB) = P(A)P(B),
+  \]
+  $\implies P(A|B) = \frac{P(AB)}{P(B)} = P(A)$.
+\end{proof}
+
+\begin{definition}[Алгебра, порожденная $\gamma$]
+  $\gamma$ -- некоторое конечное семейство множеств $A_1,\ldots,A_n$.
+
+  \emph{Алгебра ($\sigma$-алгебра), порожденная $\gamma$} -- это минимальная по включению алгебра ($\sigma$-алгебра), содержащая все элементы $\gamma$.
+
+  Пусть $A_1 \ldots A_n$ -- разбиение $\Omega$ -- $\alpha$,
+  \begin{align*}
+    \mathcal{A}(\alpha) &\text{ -- } \sigma \text{-алгебра, порожденная } \alpha, \\
+    \mathcal{A}(\alpha) &\text{ -- конечно, содержит все множества вида }A_{i_1} + \ldots + A_{i_k}.
+  \end{align*}
+\end{definition}
+
+\begin{theorem}
+  Любая конечная $\sigma$-алгебра порождена некоторым разбиением.
+\end{theorem}
+
+\begin{proof}
+  $\mathcal{B}$ -- конечная $\sigma$-алгебра, $w \in \Omega, \quad \mathcal{B}_w = \{B \in \mathcal{B}: \ w \in B\}$,
+  \[
+    B_w = \bigcap_{B \in \mathcal{B}_w}B \ni w \quad \text{и} \quad w \in B \implies B \supset B_w. 
+  \]
+
+  $w_1,w_2 \in \Omega$, покажем, что $B_{w_1} = B_{w_2}$ или $B_{w_1}\cap B_{w_2} = \varnothing$.
+
+  Пусть $B_{w_1}\cap B_{w_2} \ne \varnothing $, $w \in B_{w_1}\cap B_{w_2}$,
+  \[
+    w \in B_{w_1} \implies B_{w_1} \supset B_w \implies \forall B \in \mathcal{B}_{w_1} \quad w \in B,
+  \]
+  \[
+    \begin{array}{cc}
+      \bigcap_{B \in \mathcal{B}_{w_1}} &\subset \bigcap_{w\in B}B = B_w \\
+      \verteq & \\
+      B_{w_1} &
+    \end{array} \implies B_{w_1} = B_w = B_{w_2}.
+  \]
+\end{proof}
+
+\begin{definition}[Независимые $\sigma$-алгебры]
+  $\mathcal{A}_1 \ldots \mathcal{A}_n$ -- $\sigma$-алгебры, они \emph{независимы}, если $A_1 \ldots A_n$ независимы для всех $A_i \in \mathcal{A}_i$.
+\end{definition}
+
+\begin{theorem}
+  Конечные $\mathcal{A}_1,\ldots,\mathcal{A}_n$ $\sigma$-алгебры независимы $\iff$ независимы порождающие их разбиения.
+\end{theorem}
+
+\begin{lemma}
+  $A$ и $B$ независимы, тогда $A$ и $\overline{B}$ тоже независимы.
+\end{lemma}
+
+\begin{proof}
+  \begin{align*}
+    P(A\overline{B}) &= P(A) - P(AB) \\
+    &= P(A)-P(A)P(B) \\
+    &= P(A)\left(1-P(B)\right) \\
+    &= P(A)P(\overline{B}).
+  \end{align*}
+\end{proof}

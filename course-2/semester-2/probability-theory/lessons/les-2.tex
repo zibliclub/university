@@ -1,4 +1,7 @@
-\chapter{Классическая схема и комбинаторика}
+\lesson{2}{от 21 фев 2024 8:45}{Продолжение}
+
+
+\section{Классическая схема и комбинаторика}
 
 \begin{definition}[Классическая схема]
   $\Omega$ -- конечное множество равновозможных исходов, $\mathcal{F}$ -- все подмножества $\Omega$ (их $2^{\abs{\Omega}}$),
@@ -142,3 +145,114 @@
     \bottomrule
   \end{tabular}
 \end{center}
+
+\begin{eg}[Гипергеометрическое распределение]
+  $N$ различных шариков (есть номера). Из них $M$ белых шариков.
+
+  Вынимаем $n$ шариков,
+  \[
+    P(\text{ровно }k \text{ белых среди }n) =\ ?
+  \]
+
+  Исход -- неупорядоченный набор из $n$ шаров (всего $N$); шары не повторяются,
+  \[
+    A = \text{``ровно $k$ белых''},\qquad \abs{A} = C_{M}^{k}\cdot C_{N-M}^{n-k},
+  \]
+  \[
+    P(A) = \frac{C_{M}^{k}\cdot C_{N-M}^{n-k}}{C_{N}^{n}} = \frac{M! (N-M)! n! (N-n)!}{k! (M-k)! (n-k)! (N-M-n+k)! N!}.
+  \]
+\end{eg}
+
+\section{Геометрическая схема}
+
+Пусть $\mu$ -- \emph{мера в $\R^n$} (чаще всего Жордана).
+
+$\Omega$ -- некоторое измеримое множество. \emph{Исход} -- точка $\Omega$, все исходы равновозможны.
+
+$\mathcal{F}$ -- $\sigma$-алгебра измеримых подмножеств $\Omega$,
+\[
+  A \in \mathcal{F} \implies P(A) = \frac{\mu(A)}{\mu(\Omega)}.
+\]
+
+\begin{eg}
+  Палку 1м ломаем на 2 части, затем большую часть ломаем еще на две:
+  \[
+    P(\text{из них составляем треугольник})
+  \]
+  \begin{figure}[H]
+    \centering
+    \incfig[0.5]{fig-4}
+    \label{fig:fig-4}
+  \end{figure}
+
+  \[
+    \begin{array}{ll}
+      x\text{ -- место }1^{\text{го}}\text{ разлома}, \ x \leqslant \frac{1}{2} \\
+      y\text{ -- место }2^{\text{го}}\text{ разлома}
+    \end{array}
+  \]
+  
+  Исход -- пара чисел $(x;y)$ -- точка с координатами $(x;y)$.
+
+  $\Omega$ -- все исходы; $0 \leqslant x \leqslant \frac{1}{2}, \ x \leqslant y \leqslant 1$.
+
+  \begin{figure}[H]
+    \centering
+    \incfig{fig-5}
+    \label{fig:fig-5}
+  \end{figure}
+
+  Длины сторон: $x,\ y-x,\ 1-y$,
+  \[
+    \left\{\begin{array}{ll}
+      x + y - x &> 1-y \\
+      x+1 - y &> y-x \\
+      y-x+1-y&>x
+    \end{array}\right., \qquad \begin{array}{l}
+      y > \frac{1}{2} \\
+      y < x + \frac{1}{2} \\
+      x < \frac{1}{2}
+    \end{array},
+  \]
+  \[
+    P = \frac{\mu(A)}{\mu(\Omega)} = \frac{\frac{1}{8}}{\frac{3}{8}} = \frac{1}{3}.
+  \]
+\end{eg}
+
+\begin{eg}
+  $AB$ -- хорда, $P(AB > \sqrt{3})$,
+  \begin{figure}[H]
+    \centering
+    \incfig[0.5]{fig-6}
+    \label{fig:fig-6}
+  \end{figure}
+
+  \begin{enumerate}
+    \item Исход -- точка $B$ -- точка на окружности.
+
+    $\Omega$ -- вся окружность, $\abs{\Omega} = 360\degree \implies P(AB > \sqrt{3}) = \frac{1}{3}$.
+    \begin{figure}[H]
+      \centering
+      \incfig[0.5]{fig-7}
+      \label{fig:fig-6}
+    \end{figure}
+
+    \item $AB$ -- всегда вертикальна.
+
+    Исход -- точка $M$ на диаметре. $\Omega$ -- диаметр, $\abs{\Omega} = 2 \implies P(AB > \sqrt{3}) = \frac{1}{2}$.
+    \begin{figure}[H]
+      \centering
+      \incfig[0.5]{fig-8}
+      \label{fig:fig-8}
+    \end{figure}
+
+    \item Исход -- точка $M$ -- середина хорды.
+
+    $\Omega$ -- круг, $\abs{\Omega} = \pi \implies P(AB > \sqrt{3}) = \frac{\pi(\frac{1}{2})^2}{\pi} = \frac{1}{4}$.
+    \begin{figure}[ht]
+      \centering
+      \incfig[0.5]{fig-9}
+      \label{fig:fig-9}
+    \end{figure}
+  \end{enumerate}
+\end{eg}
