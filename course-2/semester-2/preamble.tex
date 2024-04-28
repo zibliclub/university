@@ -9,6 +9,8 @@
 \usepackage{tikz}
 \usepackage{booktabs} % tabular \toprule, ...
 \usepackage{gensymb} % \degree
+\usepackage{mathtools} % for \coloneqq
+\usepackage{multicol}
 
 
 % for title
@@ -86,6 +88,7 @@
 \declaretheorem[style=thmbox, name=Предложение]{prop}
 \declaretheorem[style=thmbox, name=Теорема]{theorem}
 \declaretheorem[style=thmbox, name=Лемма]{lemma}
+\declaretheorem[style=thmbox, name=Критерий]{crit}
 
 \declaretheorem[numbered=no, style=thmproofline, name=Доказательство]{replacementproof}
 \declaretheorem[style=thmunbox, numbered=no, name=Упражнение]{ex}
@@ -163,6 +166,13 @@
 \newcommand\Q{\ensuremath{\mathbb{Q}}}
 \renewcommand\C{\ensuremath{\mathbb{C}}}
 \newcommand{\diff}{\ensuremath{\operatorname{d}\!}}
+\renewcommand{\d}{\operatorname{d}}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\Arg}{\operatorname{Arg}}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\cl}{\operatorname{cl}}
+\newcommand{\Cl}{\operatorname{Cl}}
 
 \newcommand{\abs}[1]{\left\lvert #1\right\rvert}
 \newcommand{\verteq}[0]{\rotatebox{90}{$=$}}

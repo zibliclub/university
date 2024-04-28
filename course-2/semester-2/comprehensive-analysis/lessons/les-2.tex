@@ -1,231 +1,278 @@
 \lesson{2}{от 22 фев 2024 12:45}{Продолжение}
 
 
-\begin{note}[Свойства окрестностей]\leavevmode
-    \begin{enumerate}
-        \item $ \forall z \in \overline{\Comp}, \ \forall V \in O_z \quad z \in V $.
-        \item $ \forall z \in \overline{\Comp}, \ \forall U,V \in O_z \quad U \cap V \in O_z $.
-        \item $ \forall z \in \overline{\Comp}, \ \forall U \in O_z, \ \forall V \supset U \quad V \in O_z $.
-        \item $ \forall z \in \overline{\Comp}, \ \forall V \in O_z, \ \exists U \in O_z : \ U \subset V \ \& \ \forall w \in U \quad U \in O_w  $.
-    \end{enumerate}
-\end{note}
+\[
+  \forall z \in \C \ d(z ; \infty )\coloneqq +\infty, \quad \begin{array}{ll}
+    d: & \C^2 \rightarrow \R \\
+    d: & \C^2 \rightarrow \overline{\R} \\
+    \rho: & \overline{\C}^2 \rightarrow \R, \quad \rho(z ; \infty ) \in \R
+  \end{array}
+\]
+
+\begin{property}[Свойства окрестностей]
+  $\forall z \in \overline{\C}$:
+  \begin{enumerate}
+    \item $\forall V \in O_z \quad z \in V$.
+    \item $\forall U,V \in O_z \quad U \cap V \in O_z$.
+    \item $\forall U \in O_z, \ \forall V \supset U \quad V \in O_z$.
+    \item $\forall V \in O_z, \ \exists U \in O_z : \ U \subset V \ \& \ \forall w \in U \quad U \in O_w$.
+  \end{enumerate}
+\end{property}
 
 \begin{definition}[Открытое множество]
-    Множество называется \emph{открытым}, если оно является окрестностью каждой своей точки.
+  Множество называется \emph{открытым}, если оно является окрестностью каждой своей точки.
 \end{definition}
 
 \begin{definition}[Окрестность множества]
-    \emph{Окрестностью множества} называется множество, являющееся окрестностью каждой точки исходного множества.
+  \emph{Окрестностью множества} называется множество, являющееся окрестностью каждой точки исходного множества ($V$ -- окрестность множества $A$, если $\forall z \in A \ V \in O_z$).
 \end{definition}
 
-\begin{note}
-    $ D \subset \overline{\Comp}, \ z \in \Comp $
+\begin{definition}
+  $D \subset \overline{\C}, \ z \in \C$,
+  \begin{multicols}{2}
     \[
-        dist(z,D) \coloneqq \underset{w\in D}{\inf} d(z,w).
+      \dist(z,D)\coloneqq \underset{w \in D}{\inf}\d(z,w),
     \]
 
-    $ D_1,D_2 \subset \overline{\Comp} $
-    \[
-        dist(D_1,D_2) \coloneqq \underset{w \in D_2}{\underset{z\in D_1}{\inf}} d(z,w).
-    \]
-\end{note}
+    \columnbreak
 
-\begin{definition}[Внутренняя точка]
-    $ D \subset \overline{\Comp}, \ z \in D $ называется \emph{внутренней точкой} множества $ D $, если $ D \in O_z $.
+    \begin{figure}[H]
+      \centering
+      \incfig{fig-4}
+      \label{fig:fig-4}
+    \end{figure}
+  \end{multicols}
+\end{definition}
+
+\begin{definition}
+  $D_1,D_2 \subset \overline{\C}$,
+  \begin{multicols}{2}
+    \[
+      \dist(D_1,D_2) \coloneqq \underset{z \in D_1, \ w \in D_2}{\inf}\d(z,w),
+    \]
+
+    \columnbreak
+
+    \begin{figure}[H]
+      \centering
+      \incfig{fig-5}
+      \label{fig:fig-5}
+    \end{figure}
+  \end{multicols}
 \end{definition}
 
 \begin{definition}[Внутренность]
-    Множество всех внутренних точек называется \emph{внутренностью} и обозначается:
+  Множество всех внутренних точек называется \emph{внутренностью}.
+  \begin{notation}
     \[
-        int D.
+      \operatorname{int}D.
     \]
+  \end{notation}
 \end{definition}
 
 \begin{definition}[Предельная точка множества]
-    Точка называется \emph{предельной точкой множества}, если в любой ее окрестности есть точки множества, отличные от данной.
+  Точка называется \emph{предельной точкой множества}, если в любой ее окрестности есть точки множества, отличные от данной.
 \end{definition}
 
 \begin{remark}
-    Точка является предельной точкой множества на расширенной комплексной плоскости $ \iff $ любая ее окрестность содержит бесконечное число точек данного множества.
+  Точка является предельной точкой множества на расширенной комплексной плоскости $(\overline{\C}) \iff \forall $ ее окрестность содержит бесконечное число точек данного множества.
 \end{remark}
 
-\begin{definition}[Окрестность бесконечности]
-    $ V \subset \overline{\Comp} $ является \emph{окрестностью бесконечности}, если $ \exists \epsilon > 0 : \ \{z \in \overline{\Comp} : \ | z | > \epsilon \} \subset V $.
+\begin{definition}[Окрестность бесконечно удаленной точки]
+  Множество $V \subset \overline{\C}$ является \emph{окрестностью бесконечно удаленной точки}, если $\exists \epsilon > 0 : \big\{z \in \overline{\C}: \ \abs{z}>\epsilon\big\} \subset V$.
+  \begin{figure}[H]
+    \centering
+    \incfig[0.7]{fig-6}
+    \label{fig:fig-6}
+  \end{figure}
 \end{definition}
 
-\begin{definition}[Точка прикосновения, замыкание]
-    Точка $ z \in \overline{\Comp} $ называется \emph{точкой прикосновения множества} $ D $, если $ \forall V \in O_z \quad V \cap D \ne \emptyset $.
-
-    Множество всех точек прикосновения называется \emph{замыканием} и обозначается:
+\begin{definition}[Точка прикосновения множества]
+  Точка $z \in \overline{\C}$ расширенной комплексной плоскости называется \emph{точкой прикосновения множества} $D \subset \overline{\C}$, если пересечение $\forall V \in O_z \quad V \cap D \ne \varnothing$.
+  \begin{notation}
     \[
-        cl D.
+      \cl D \text{ -- \emph{замыкание} (closure)}
     \]
+  \end{notation}
 \end{definition}
 
 \begin{definition}[Замкнутое множество]
-    Множество называется \emph{замкнутым}, если его дополнение открыто.
+  Множество называется \emph{замкнутым}, если его дополнение открыто.
+  \begin{notation}
+    \[
+      \partial D
+    \]
+  \end{notation}
 \end{definition}
 
 \begin{definition}[Граничная точка]
-    Точка называется \emph{граничной точкой множества}, если в любой ее окрестности есть как точки множества, так и точки его дополнения.
+  Точка называется \emph{граничной точкой множества}, если в любой ее окрестности есть как точки множества, так и точки его дополнения.
+  \begin{notation}
+    Множество всех замкнутых подмножеств в $\overline{\C}$:
     \[
-        \text{Обозначение: } \partial D.
+      \Cl \overline{\C} \ \text{(closed)}
     \]
+  \end{notation}
 \end{definition}
-
-\begin{note}
-    \emph{Множество всех замкнутых подмножеств расширенной комплексной плоскости}:
-    \[
-        Cl \overline{\Comp}.
-    \]
-\end{note}
 
 \begin{definition}[Компактное множество]
-    Множество $ \overline{\Comp} $ называется \emph{компактным}, если любое его открытое покрытие имеет конечное подпокрытие.
+  Множество в $\overline{\C}$ называется \emph{компактным}, если $\forall $ его открытое покрытие имеет конечное подпокрытие.
+  \begin{notation}
+    \[
+      v \text{ -- покрытие множества }D \text{, если }D \underset{V \in v}{\subset }UV,
+    \]
+  \end{notation}
+  \begin{notation}
+    \[
+      \mathcal{P}(\overline{\C}) \text{ -- совокупность всех подмножеств }\overline{\C}.
+    \]
+  \end{notation}
 \end{definition}
 
-\begin{note}
-    $ v $ -- покрытие множества $ D $, если $ D \subset \bigcup_{V \in v}V, \ v \subset \underbrace{\mathcal{P}(\overline{\Comp})}_{2^{\overline{\Comp}}} $
-\end{note}
-
-\begin{theorem}[Критерий компактности (первый)]
-    Подмножество $ \Comp $ компактно $ \iff $ оно замкнуто и ограниченно.
-\end{theorem}
+\begin{crit}[Компактности]
+  Подмножество $\C$ компактно $\iff $ оно замкнуто и ограничено.
+\end{crit}
 
 \begin{note}
-    Множество ограниченно, если оно содержится в некотором шаре.
+  Множество ограничено, если оно содержится в некотором шаре.
 \end{note}
 
 \begin{remark}
-    $ \overline{\Comp} $ -- компактно.
+  $\overline{\C}$ -- компактно.
 \end{remark}
 
 \begin{definition}
-    $ \{z_n\}_{n\in\N} \subset \Comp $ сходится к $ z \in \Comp $, если $ \forall \epsilon > 0 \ \exists n_0 \in \N: \ \forall n \geqslant n_0 \quad | z_n - z | < \epsilon $.
-    \[
-        d(z_n,z) \xrightarrow[n \rightarrow \infty]{} 0,
-    \]
-    $ z_n \longrightarrow \infty $, если $ \underset{n \rightarrow \infty}{\lim}| z_n | =\pm\infty, $
-    \[
-        z = \underset{n \rightarrow\infty}{\lim}z_n, \quad  z_n \xrightarrow[n \rightarrow \infty]{} z.
-    \]
+  Последовательность $\{z_n\}_{n \in \N}\subset \C$ сходится к $z \in \C$, если $\forall \epsilon > 0 \ \exists n_0 \in \N: \ \forall n \geqslant n_0$
+  \[
+    \abs{z_n - z} < \epsilon.
+  \]
+  \[
+    \d(z_n,z) \xrightarrow[n \rightarrow \infty ]{} 0, \qquad z_n \rightarrow \infty \text{, если } \lim_{n \rightarrow \infty }\abs{z_n} = \pm \infty.
+  \]
+  \[
+    z = \lim_{n \rightarrow \infty } z_n, \qquad z_n \xrightarrow[n \rightarrow \infty ]{} z.
+  \]
 \end{definition}
 
 \begin{remark}
-    $ z_n \longrightarrow z $ в $ \Comp \iff \left\{\begin{array}{l}
-            Rez_n \longrightarrow Rez \\
-            Imz_n \longrightarrow Inz
-        \end{array}\right. $ в $ \R $.
-    \[
-        | z_n - z | = \sqrt{(Re z_n - Re z)^2 + (Im z_n - Im z)^2} \geqslant | Re z_n - Re z |,
-    \]
-    \[
-        Re(z_1 \pm z_2) = Rez_1 \pm Re z_2.
-    \]
+  \[
+    z_n \rightarrow z \text{ в } \C \iff \left\{\begin{array}{l}
+      \Re z_n \rightarrow \Re z \\
+      \Im z_n \rightarrow \Im z
+    \end{array}\right. \text{ в } \R,
+  \]
+
+  \[
+    \abs{z_n - z} = \sqrt{(\Re z_n - \Re z)^2 + (\Im z_n - \Im z)^2} \geqslant \abs{\Re z_n - \Re z},
+  \]
+  \[
+    \Re(z_1 \pm z_2) = \Re z_1 \pm \Re z_2.
+  \]
 \end{remark}
 
-\begin{theorem}[Критерий Коши]
-    Последовательность $ \{z_n\}_{n\in\N} \subset \Comp $ сходится $ \iff \forall \epsilon > 0 \ \exists n_0 \in \N : \ \forall n,m \geqslant n_0 $
-    \[
-        | z_n - z_m | < \epsilon.
-    \]
-\end{theorem}
+\begin{crit}[Коши]
+  Последовательность $\{z_n\}_{n \in \N}\subset \C$ сходится $\iff \forall \epsilon > 0 \ \exists n_0 \in \N: \ \forall n,m \geqslant n_0$
+  \[
+    \abs{z_n - z_m} < \epsilon.
+  \]
+\end{crit}
 
-\begin{theorem}[Критерий Коши (в $ \overline{\Comp} $)]
-    Последовательность $ \{z_n\}_{n\in\N}\subset \Comp $ сходится $ \iff \forall \epsilon > 0 \ \exists n_0 \in \N : \forall n,m \geqslant n_0 $
-    \[
-        \rho(z_n,z_m) < \epsilon.
-    \]
-\end{theorem}
+\begin{crit}[Коши в $\overline{\C}$]
+  Последовательность $\{z_n\}_{n \in \N}\subset \overline{\C}$ сходится $\iff \forall \epsilon > 0 \ \exists n_0 \in \N: \ \forall n,m \geqslant n_0$
+  \[
+    \rho(z_n,z_m) < \epsilon,
+  \]
+  \[
+    z_n \xrightarrow[n \rightarrow \infty ]{} z \iff \rho(z_n,z)\xrightarrow[n \rightarrow \infty ]{} 0.
+  \]
+\end{crit}
 
-\begin{note}
-    $ z_n \xrightarrow[n \rightarrow \infty]{} z \iff \rho(z_n,z) \xrightarrow[n \rightarrow \infty]{} 0 $.
-\end{note}
+\begin{crit}[Компактности (расширенный)]
+  Подмножество $D \subset \overline{\C}$ компактно $\iff \forall $ его последовательность имеет сходящуюся подпоследовательность: $D \subset \overline{\C} \ \forall \{z_n\}_{n \in \N} \subset D \ \exists \{z_{n_k}\}_{k \in \N} \subset \{z_n\}_{n \in \N}:$ 
+  \[
+    z_{n_k} \rightarrow z \in D.
+  \]
 
-\begin{theorem}[Критерий компактности (второй)]
-    $ D \subset \overline{\Comp}, \ \forall \{z_n\}_{n\in\N}\subset D $ \\ $ \exists \{z_{n_k}\}_{k\in\N}\subset \{z_n\}_{n\in\N}: $
-    \[
-        z_{n_k} \longrightarrow z \in D.
-    \]
-\end{theorem}
-
-\begin{note}
-    $ \{z_n\}_{n\in\N} \subset \Comp $
-    \[
-        S_n \coloneqq \sum_{k=1}^{\infty}z_k, \quad \sum_{n=1}^{\infty}z_n = \underset{n \rightarrow\infty}{\lim} S_n.
-    \]
-\end{note}
+  Пусть $\{z_n\}_{n \in \N} \subset \C:$
+  \[
+    \sum_{n=1}^{\infty }z_n = \lim_{n \rightarrow \infty }S_n.
+  \]
+\end{crit}
 
 \begin{definition}[Числовой ряд]
-    \emph{Числовым рядом} называется формальная сумма членов
+  \emph{Числовым рядом} называется формальная сумма членов.
 \end{definition}
 
 \begin{definition}[Абсолютно сходящийся числовой ряд]
-    Числовой ряд называется \emph{абсолютно сходящимся}, если сходится ряд $ \sum_{n=1}^{\infty}| z_n | $.
+  Числовой ряд называется \emph{абсолютно сходящимся}, если сходится ряд
+  \[
+    \sum_{n=1}^{\infty }\abs{z_n}.
+  \]
 \end{definition}
 
-\begin{theorem}[Критерий Коши сходимости ряда]
-    Ряд $ \sum_{n=1}^{\infty} z_n $ сходится $ \iff \forall \epsilon > 0 \ \exists m \in \N: \ \forall n \geqslant m \ \forall k \in \N $
-    \[
-        \underbrace{| z_{n+1} + z_{n+2} + \ldots + z_{n+k} |}_{| S_{n+k} - S_n |} < \epsilon.
-    \]
-\end{theorem}
+\begin{crit}[Коши (сходимости ряда)]
+  $\sum_{n=1}^{\infty }z_n$ сходится $\iff \forall \epsilon > 0 \ \exists m \in \N: \ \forall n \geqslant m \ \forall k \in \N$
+  \[
+    \underbrace{\abs{z_{n+1}+z_{n+2}+\ldots+z_{n+k}}}_{\abs{S_{n+k}-S_n}} < \epsilon.
+  \]
+\end{crit}
 
 \begin{corollary}
-    Если ряд сходится, то его общий член стремится к нулю.
+  Если ряд сходится, то его общий член стремится к $0$.
 \end{corollary}
 
 \begin{corollary}
-    Каждый абсолютно сходящийся числовой ряд -- сходится.
+  Каждый абсолютно сходящийся числовой ряд сходится.
 \end{corollary}
 
 \subsection{Пути, кривые и области}
 
 \begin{definition}[Путь]
-    $ \gamma: \ [a;b] \longrightarrow \Comp, \ \gamma $ -- непрерывное отображение $ [a;b] $ в $ \Comp $ -- это \emph{путь}.
+  Путем $\gamma:[a ; b] \rightarrow \C$ называется непрерывное отображение $[a ; b]$ в $\C$.
 \end{definition}
 
-\begin{example}
-    $ \gamma(t) = e^{it}, \quad o \leqslant t \leqslant 2\pi $.
-\end{example}
+\begin{eg}
+  $\gamma(t) = e^{it},$
+  \begin{multicols}{2}
+    \begin{figure}[H]
+      \centering
+      \incfig{fig-7}
+      \label{fig:fig-7}
+    \end{figure}
 
-\begin{definition}[Эквивалентные пути]
-    \[
-        \begin{array}{l}
-            \gamma_1 : [a_1;b_1]\longrightarrow \Comp, \\
-            \gamma_2 : [a_2;b_2]\longrightarrow \Comp.
-        \end{array}
-    \]
+    \columnbreak
 
-    $ \gamma_1 \sim  \gamma_2 $, если $ \exists $ возрастающая непрерывная функция $ \phi: [a_1;b_1] \longrightarrow [a_2;b_2] :  $
     \[
-        \gamma_1(t) = \gamma_2\bigl(\phi(t)\bigr), \quad \forall t \in [a_1,b_1].
+      0 \leqslant t \leqslant 2\pi.
     \]
+  \end{multicols}
+\end{eg}
+
+\begin{definition}
+  $\gamma_1 : [a_1 ; b_1] \rightarrow \C, \ \gamma_2 : [a_2 ; b_2] \rightarrow \C$. $\gamma_1 \sim \gamma_2$, если $\exists $ возрастающая непрерывная функция $\phi: [a_1 ; b_1] \xrightarrow[]{\text{на}} [a_2 ; b_2]:$
+  \[
+    \gamma_1(t) = \gamma_2\big(\phi(t)\big), \quad \forall t \in [a_1 ; b_1].
+  \]
 \end{definition}
 
-\begin{example}
+\begin{eg}
+  \begin{multicols}{2}
     \[
-        \begin{array}{ll}
-            \gamma_1(t) = t,      & 0 \leqslant t \leqslant 1             \\
-            \gamma_2(t) = \sin t, & 0 \leqslant t \leqslant \frac{\pi}{2} \\
-            \gamma_3(t) = \sin t, & 0 \leqslant t \leqslant \pi           \\
-            \gamma_4(t) = \cos t, & 0 \leqslant t \leqslant \frac{\pi}{2}
-        \end{array},
+      \begin{array}{ll}
+        \gamma_1(t) = t & 0 \leqslant t \leqslant 1 \\
+        \gamma_2(t) = \sin t & 0 \leqslant t \leqslant \frac{\pi}{2} \\
+        \gamma_3(t) = \sin t & 0 \leqslant t \leqslant \pi \\
+        \gamma_4(t) = \cos t & 0 \leqslant t \leqslant \frac{\pi}{2}
+      \end{array}
     \]
-
+    $\phi(t) = \arcsin t$,
     \[
-        \phi(t) = \arcsin t, \quad \gamma_1(t) = \gamma_2\big(\phi(t)\big).
+      \gamma_1(t) = \gamma_2\left(\phi(t)\right).
     \]
-\end{example}
-
-\begin{definition}[Жорданов путь]
-   Путь называется \emph{жордановым}, если он является взаимно однозначной функцией.
-\end{definition}
-
-\begin{lemma}
-    Для каждого жорданова пути $ \exists \delta > 0 : $ для любой не кольцевой точки пути окружность с центром в этой точке с радиусом $ \delta $ пересекает путь не более чем в двух точках ($ \delta $ -- стандартный радиус жорданова пути).
-\end{lemma}
-
-\begin{definition}[Кривая]
-    \emph{Кривой} называется класс эквивалентных между собой путей.
-\end{definition}
+    \begin{figure}[H]
+      \centering
+      \incfig{fig-8}
+      \label{fig:fig-8}
+    \end{figure}
+  \end{multicols}
+\end{eg}
