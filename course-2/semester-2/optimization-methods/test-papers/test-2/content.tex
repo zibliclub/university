@@ -1,0 +1,171 @@
+\section{Выпуклое множество}
+
+\begin{definition}[Выпуклое множество]
+	Множество $D \subseteq \R^{n}$ называется \emph{выпуклым}, если вместе с любыми двумя его точками в множестве содержится отрезок, их соединящий:
+	\[
+		\forall x^{1}, x^{2} \in D, \ \forall \lambda \in (0,1) \quad x^{\lambda} = (1 - \lambda)x^{1} + \lambda x^{2} \in D.
+	\]
+\end{definition}
+
+\section{Выпуклая функция}
+
+\begin{definition}[Выпуклая функция]
+	Функция $f : D \rightarrow \R$ называется \emph{выпуклой}, если
+	\[
+		\forall x^{1},x^{2} \in D, \ \forall \lambda \in (0,1) \quad f \big((1-\lambda)x^{1} + \lambda x^{2}\big) \leqslant (1-\lambda)f(x^{1}) + \lambda f(x^{2}),
+	\]
+	где $D$ -- выпуклое множество.
+\end{definition}
+
+\section{Задача выпуклого программирования}
+
+\begin{task}[Выпуклого программирования]
+	\[
+		\left\{\begin{array}{l}
+			f(x) \rightarrow \min                       \\
+			\phi_i(x) \leqslant 0, \ i = \overline{1,m} \\
+			x \in G
+		\end{array}\right.
+	\]
+
+	Здесь $f,\phi_i$ -- выпуклые на множестве $G$, $G \subseteq \R^n$ -- выпуклое замкнутое множество.
+\end{task}
+
+\section{Условие Слейтера}
+
+\begin{note}[Условие $\exists$-я внутренней точки множества $D$]
+	$\exists \widetilde{x} \in G: \ \phi_i(\widetilde{x}) < 0 \ \forall i = \overline{1,m}$,
+	\[
+		D = \big\{x \in G \ | \ \phi_i(x) \leqslant 0, \ i = \overline{1,m}\big\} \text{ -- множество дополнительных решений ЗВП}.
+	\]
+\end{note}
+
+\section{Теорема о градиенте и производной по направлению}
+
+\begin{theorem}
+	Если функция $f(x)$ дифференцируема в $x_0$, то
+	\[
+		f_{z}'(x_0) = \big(\nabla f(x_0),z\big).
+	\]
+\end{theorem}
+
+\begin{definition}[Дифференцируемая в точке функция]
+	Функция $f(x) = f(x_1,\ldots,x_n)$ \emph{дифференцируема} в точке $x_0$, если она определена в некоторой окрестности этой точки и $\exists \nabla f(x_0):$
+	\[
+		f(x) = f(x_0) + \big(\nabla f(x_0), x - x_0\big) + O(\| x - x_0 \|),
+	\]
+	\[
+		\text{где} \quad \nabla f(x_0) = \left(\frac{\partial f}{\partial x_1}(x_0), \ldots, \frac{\partial f}{\partial x_n}(x_0)\right).
+	\]
+\end{definition}
+
+\begin{definition}[Производная по направлению]
+	Функция $f(x)$, точка $x_0$, $z$ -- направление.
+
+	\emph{Производной функции} $f(x)$ в точке $x_0$ \emph{по направлению} $z$ называется предел
+	\[
+		\underset{\lambda \rightarrow 0 + 0}{\lim} \frac{f(x_0 + \lambda z) - f(x_0)}{\lambda} = f_z'(x_0), \text{ если он }\exists.
+	\]
+\end{definition}
+
+\section{Возможное направление}
+
+\begin{definition}[Возможное направление]
+	Направление $z$ называется \emph{возможным (допустимым)} направлением в точке $x^0 \in D$, если $\forall i \in I_0:$
+	\[
+		\big(\nabla \phi_i(x^0),z\big) < 0,
+	\]
+	\[
+		I_0 = \big\{i \ | \ \phi_i(x^0) = 0\big\} \text{ -- множество активных ограничений}.
+	\]
+\end{definition}
+
+\newpage
+
+\section{Прогрессивное направление}
+
+\begin{definition}[Прогрессивное направление]
+	Направление $z$ называется \emph{прогрессивным} в точке $x^0 \in D$, если
+	\[
+		\left\{\begin{array}{ll}
+			\big(\nabla \phi_i(x^0),z\big) & < 0 \\
+			\big(\nabls f(x^0),z\big)      & < 0
+		\end{array}\right., \quad i \in I_0.
+	\]
+\end{definition}
+
+\section{Критерий оптимальности задачи ВП}
+
+\begin{theorem}
+	$x^* \in D$ -- оптимальное решение задачи ВП $\iff $ в точке $x^*$ не существует прогрессивного направления.
+\end{theorem}
+
+\section{Каноническая задача ВП}
+
+\begin{definition}[Каноническая задача ВП]
+	Задача ВП называется \emph{канонической}, если её целевая функция линейна:
+	\[
+		f = (c,x) \rightarrow \min.
+	\]
+\end{definition}
+
+\section{Теорема Куна-Таккера о седловой точке}
+
+\begin{theorem}
+	$x^* \in G$ -- оптимальное решение задачи ВП $\iff \exists y^* \geqslant 0: \ (x^*,y^*)$ является седловой точкой, соответствующей функции Лагранжа.
+\end{theorem}
+
+\begin{definition}[Седловая точка]
+	Точка $(x^*,y^*)$ называется \emph{седловой точкой} функции Лагранжа, если
+	\[
+		L(x^*,y) \leqslant L(x^*,y^*) \leqslant L(x,y^*) \ \forall x \in G, \ y \geqslant o.
+	\]
+\end{definition}
+
+\begin{definition}[Функция Лагранжа для задачи ВП]
+	\[
+		L(x,y) = f(x) + \sum_{i=1}^{m}y_i \phi_i(x), \text{ где }y_i \geqslant 0, \ i = \overline{1,m}.
+	\]
+\end{definition}
+
+\section{Задача ЦЛП}
+
+\[
+	\begin{array}{lllllr}
+		f(x) = & \sum_{j=1}^{n}c_jx_j \rightarrow \max &           &      &                    & (1) \\
+		       & \sum_{j=1}^{n}a_{ij}x_j               & \leqslant & b_i, & i = \overline{1,m} & (2) \\
+		       & x_j                                   & \geqslant & 0,   & j = \overline{1,n} & (3) \\
+		       & x_j                                   & \in       & \Z,  & j = \overline{1,n} & (4)
+	\end{array}
+\]
+
+\section{Правильное отсечение}
+
+\begin{definition}[Правильное отсечение]
+	Пусть $\overline{x}$ -- оптимальное решение текущей задачи ЛП.
+
+	Тогда отсечение $\sum_{j=1}^{n} \gamma_j x_j \leqslant \gamma_0$ называется \emph{правильным}, если:
+	\begin{enumerate}
+		\item $\overline{x}$ не удовлетворяет отсечению, то есть
+		      \[
+			      \sum_{j=1}^{n} \gamma_j \overline{x}_j > \gamma_0.
+		      \]
+		\item Любая целочисленная точка из области $D$ удовлетворяет отсечению, то есть
+		      \[
+			      \forall z \in \Z^n, \ z \in D \quad \sum_{j=1}^{n} \gamma_j z_j \leqslant \gamma_0.
+		      \]
+	\end{enumerate}
+\end{definition}
+
+\section{Отсечение Гомори}
+
+\begin{definition}[Отсечение Гомори]
+  \[
+    \sum_{j \in N_b} \{a_{pj}\}x_j \geqslant \{a_{p0}\},
+  \]
+  $N_b$ -- множество небазисных переменных.
+\end{definition}
+
+\begin{theorem}
+  Отсечение Гомори является правильным.
+\end{theorem}

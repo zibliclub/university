@@ -15,8 +15,8 @@
 
 % for title
 \author{
-  Основано на лекциях \lecturer \\
-  \small Конспект написан Заблоцким Данилом
+	Основано на лекциях \lecturer \\
+	\small Конспект написан Заблоцким Данилом
 }
 \date{\term\ \year}
 \title{\course}
@@ -25,12 +25,12 @@
 
 \let\@real@maketitle\maketitle
 \renewcommand{\maketitle}{
-  {\let\newpage\relax\@real@maketitle}
-  \begin{center}
-    \begin{minipage}[c]{0.9\textwidth}
-      \centering\footnotesize Эти записи не одобряются лекторами, и я вношу в них изменения (часто существенно) после лекций. Они далеко не точно отражают то, что на самом деле читалось, и, в частности, все ошибки почти наверняка мои.
-    \end{minipage}
-  \end{center}
+	{\let\newpage\relax\@real@maketitle}
+	\begin{center}
+		\begin{minipage}[c]{0.9\textwidth}
+			\centering\footnotesize Эти записи не одобряются лекторами, и я вношу в них изменения (часто существенно) после лекций. Они далеко не точно отражают то, что на самом деле читалось, и, в частности, все ошибки почти наверняка мои.
+		\end{minipage}
+	\end{center}
 }
 
 \let\@real@tableofcontents\tableofcontents
@@ -44,16 +44,16 @@
 
 \usepackage{hyperref}
 \hypersetup{
-  colorlinks,
-  linkcolor={black},
-  citecolor={black},
-  urlcolor={blue!80!black}
+	colorlinks,
+	linkcolor={black},
+	citecolor={black},
+	urlcolor={blue!80!black}
 }
 
 
 % horizontal rule
 \newcommand\hr{
-  \noindent\rule[0.5ex]{\linewidth}{0.5pt}
+	\noindent\rule[0.5ex]{\linewidth}{0.5pt}
 }
 
 
@@ -65,22 +65,22 @@
 \theoremstyle{definition}
 
 \declaretheoremstyle[
-  headfont=\bfseries\sffamily,
-  bodyfont=\normalfont,
-  mdframed={ nobreak }
+	headfont=\bfseries\sffamily,
+	bodyfont=\normalfont,
+	mdframed={ nobreak }
 ]{thmbox}
 
 \declaretheoremstyle[
-  headfont=\bfseries\sffamily,
-  bodyfont=\normalfont
+	headfont=\bfseries\sffamily,
+	bodyfont=\normalfont
 ]{thmunbox}
 
 \declaretheoremstyle[
-  headfont=\bfseries\sffamily,
-  bodyfont=\normalfont,
-  numbered=no,
-  mdframed={ rightline=false, topline=false, bottomline=false, },
-  qed=\qedsymbol
+	headfont=\bfseries\sffamily,
+	bodyfont=\normalfont,
+	numbered=no,
+	mdframed={ rightline=false, topline=false, bottomline=false, },
+	qed=\qedsymbol
 ]{thmproofline}
 
 \declaretheorem[style=thmbox, name=Определение]{definition}
@@ -95,6 +95,7 @@
 \declaretheorem[style=thmunbox, numbered=no, name=Пример]{eg}
 \declaretheorem[style=thmunbox, numbered=no, name=Замечание]{remark}
 \declaretheorem[style=thmunbox, numbered=no, name=Примечание]{note}
+\declaretheorem[style=thmunbox, numbered=no, name=Задача]{task}
 
 \renewenvironment{proof}[1][\proofname]{\begin{replacementproof}}{\end{replacementproof}}
 
@@ -117,18 +118,18 @@
 
 \def\testdateparts#1{\dateparts#1\relax}
 \def\dateparts#1 #2 #3 #4 #5\relax{
-  \marginpar{\small\textsf{\mbox{#1 #2 #3 #5}}}
+	\marginpar{\small\textsf{\mbox{#1 #2 #3 #5}}}
 }
 
 \def\@lesson{}
 \newcommand{\lesson}[3]{
-  \ifthenelse{\isempty{#3}}{
-    \def\@lesson{Лекция #1}
-  }{
-    \def\@lesson{Лекция #1: #3}
-  }
-  \subsection*{\@lesson}
-  \testdateparts{#2}
+	\ifthenelse{\isempty{#3}}{
+		\def\@lesson{Лекция #1}
+	}{
+		\def\@lesson{Лекция #1: #3}
+	}
+	\subsection*{\@lesson}
+	\testdateparts{#2}
 }
 
 
@@ -150,8 +151,8 @@
 \usepackage{xcolor}
 
 \newcommand{\incfig}[2][1]{%
-  \def\svgwidth{#1\columnwidth}
-  \import{./figures/}{#2.pdf_tex}
+	\def\svgwidth{#1\columnwidth}
+	\import{./figures/}{#2.pdf_tex}
 }
 
 \pdfsuppresswarningpagegroup=1
@@ -182,9 +183,9 @@
 \newcommand{\RomanNumeralCaps}[1]{\MakeUppercase{\romannumeral #1}}
 
 \newcommand*\circled[1]{
-  \tikz[baseline=(char.base)]{
-    \node[shape=circle,draw,inner sep=1pt] (char) {#1};
-  }
+	\tikz[baseline=(char.base)]{
+		\node[shape=circle,draw,inner sep=1pt] (char) {#1};
+	}
 }
 
 
@@ -193,26 +194,26 @@
 
 \newcommand*{\relrelbarsep}{.450ex}
 \newcommand*{\relrelbar}{
-  \mathrel{
-    \mathpalette\@relrelbar\relrelbarsep
-  }
+	\mathrel{
+		\mathpalette\@relrelbar\relrelbarsep
+	}
 }
 \newcommand*{\@relrelbar}[2]{
-  \raise#2\hbox to 0pt{$\m@th#1\relbar$\hss}
-  \lower#2\hbox{$\m@th#1\relbar$}
+	\raise#2\hbox to 0pt{$\m@th#1\relbar$\hss}
+	\lower#2\hbox{$\m@th#1\relbar$}
 }
 
 \providecommand*{\rightrightarrowsfill@}{
-  \arrowfill@\relrelbar\relrelbar\rightrightarrows
+	\arrowfill@\relrelbar\relrelbar\rightrightarrows
 }
 \providecommand*{\leftleftarrowsfill@}{
-  \arrowfill@\leftleftarrows\relrelbar\relrelbar
+	\arrowfill@\leftleftarrows\relrelbar\relrelbar
 }
 \providecommand*{\xrightrightarrows}[2][]{
-  \ext@arrow 0359\rightrightarrowsfill@{#1}{#2}
+	\ext@arrow 0359\rightrightarrowsfill@{#1}{#2}
 }
 \providecommand*{\xleftleftarrows}[2][]{
-  \ext@arrow 3095\leftleftarrowsfill@{#1}{#2}
+	\ext@arrow 3095\leftleftarrowsfill@{#1}{#2}
 }
 
 \makeatother
