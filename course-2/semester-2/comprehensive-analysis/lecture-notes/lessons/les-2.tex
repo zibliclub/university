@@ -1,0 +1,278 @@
+\lesson{2}{от 22 фев 2024 12:45}{Продолжение}
+
+
+\[
+	\forall z \in \C \ d(z ; \infty )\coloneqq +\infty, \quad \begin{array}{ll}
+		d:    & \C^2 \rightarrow \R                                            \\
+		d:    & \C^2 \rightarrow \overline{\R}                                 \\
+		\rho: & \overline{\C}^2 \rightarrow \R, \quad \rho(z ; \infty ) \in \R
+	\end{array}
+\]
+
+\begin{property}[Свойства окрестностей]
+	$\forall z \in \overline{\C}$:
+	\begin{enumerate}
+		\item $\forall V \in O_z \quad z \in V$.
+		\item $\forall U,V \in O_z \quad U \cap V \in O_z$.
+		\item $\forall U \in O_z, \ \forall V \supset U \quad V \in O_z$.
+		\item $\forall V \in O_z, \ \exists U \in O_z : \ U \subset V \ \& \ \forall w \in U \quad U \in O_w$.
+	\end{enumerate}
+\end{property}
+
+\begin{definition}[Открытое множество]
+	Множество называется \emph{открытым}, если оно является окрестностью каждой своей точки.
+\end{definition}
+
+\begin{definition}[Окрестность множества]
+	\emph{Окрестностью множества} называется множество, являющееся окрестностью каждой точки исходного множества ($V$ -- окрестность множества $A$, если $\forall z \in A \ V \in O_z$).
+\end{definition}
+
+\begin{definition}
+	$D \subset \overline{\C}, \ z \in \C$,
+	\begin{multicols}{2}
+		\[
+			\dist(z,D)\coloneqq \underset{w \in D}{\inf}\d(z,w),
+		\]
+
+		\columnbreak
+
+		\begin{figure}[H]
+			\centering
+			\incfig{fig-4}
+			\label{fig:fig-4}
+		\end{figure}
+	\end{multicols}
+\end{definition}
+
+\begin{definition}
+	$D_1,D_2 \subset \overline{\C}$,
+	\begin{multicols}{2}
+		\[
+			\dist(D_1,D_2) \coloneqq \underset{z \in D_1, \ w \in D_2}{\inf}\d(z,w),
+		\]
+
+		\columnbreak
+
+		\begin{figure}[H]
+			\centering
+			\incfig{fig-5}
+			\label{fig:fig-5}
+		\end{figure}
+	\end{multicols}
+\end{definition}
+
+\begin{definition}[Внутренность]
+	Множество всех внутренних точек называется \emph{внутренностью}.
+	\begin{notation}
+		\[
+			\operatorname{int}D.
+		\]
+	\end{notation}
+\end{definition}
+
+\begin{definition}[Предельная точка множества]
+	Точка называется \emph{предельной точкой множества}, если в любой ее окрестности есть точки множества, отличные от данной.
+\end{definition}
+
+\begin{remark}
+	Точка является предельной точкой множества на расширенной комплексной плоскости $(\overline{\C}) \iff \forall $ ее окрестность содержит бесконечное число точек данного множества.
+\end{remark}
+
+\begin{definition}[Окрестность бесконечно удаленной точки]
+	Множество $V \subset \overline{\C}$ является \emph{окрестностью бесконечно удаленной точки}, если $\exists \epsilon > 0 : \big\{z \in \overline{\C}: \ \abs{z}>\epsilon\big\} \subset V$.
+	\begin{figure}[H]
+		\centering
+		\incfig[0.7]{fig-6}
+		\label{fig:fig-6}
+	\end{figure}
+\end{definition}
+
+\begin{definition}[Точка прикосновения множества]
+	Точка $z \in \overline{\C}$ расширенной комплексной плоскости называется \emph{точкой прикосновения множества} $D \subset \overline{\C}$, если пересечение $\forall V \in O_z \quad V \cap D \ne \varnothing$.
+	\begin{notation}
+		\[
+			\cl D \text{ -- \emph{замыкание} (closure)}
+		\]
+	\end{notation}
+\end{definition}
+
+\begin{definition}[Замкнутое множество]
+	Множество называется \emph{замкнутым}, если его дополнение открыто.
+	\begin{notation}
+		\[
+			\partial D
+		\]
+	\end{notation}
+\end{definition}
+
+\begin{definition}[Граничная точка]
+	Точка называется \emph{граничной точкой множества}, если в любой ее окрестности есть как точки множества, так и точки его дополнения.
+	\begin{notation}
+		Множество всех замкнутых подмножеств в $\overline{\C}$:
+		\[
+			\Cl \overline{\C} \ \text{(closed)}
+		\]
+	\end{notation}
+\end{definition}
+
+\begin{definition}[Компактное множество]
+	Множество в $\overline{\C}$ называется \emph{компактным}, если $\forall $ его открытое покрытие имеет конечное подпокрытие.
+	\begin{notation}
+		\[
+			v \text{ -- покрытие множества }D \text{, если }D \underset{V \in v}{\subset }UV,
+		\]
+	\end{notation}
+	\begin{notation}
+		\[
+			\mathcal{P}(\overline{\C}) \text{ -- совокупность всех подмножеств }\overline{\C}.
+		\]
+	\end{notation}
+\end{definition}
+
+\begin{crit}[Компактности]
+	Подмножество $\C$ компактно $\iff $ оно замкнуто и ограничено.
+\end{crit}
+
+\begin{note}
+	Множество ограничено, если оно содержится в некотором шаре.
+\end{note}
+
+\begin{remark}
+	$\overline{\C}$ -- компактно.
+\end{remark}
+
+\begin{definition}
+	Последовательность $\{z_n\}_{n \in \N}\subset \C$ сходится к $z \in \C$, если $\forall \epsilon > 0 \ \exists n_0 \in \N: \ \forall n \geqslant n_0$
+	\[
+		\abs{z_n - z} < \epsilon.
+	\]
+	\[
+		\d(z_n,z) \xrightarrow[n \rightarrow \infty ]{} 0, \qquad z_n \rightarrow \infty \text{, если } \lim_{n \rightarrow \infty }\abs{z_n} = \pm \infty.
+	\]
+	\[
+		z = \lim_{n \rightarrow \infty } z_n, \qquad z_n \xrightarrow[n \rightarrow \infty ]{} z.
+	\]
+\end{definition}
+
+\begin{remark}
+	\[
+		z_n \rightarrow z \text{ в } \C \iff \left\{\begin{array}{l}
+			\Re z_n \rightarrow \Re z \\
+			\Im z_n \rightarrow \Im z
+		\end{array}\right. \text{ в } \R,
+	\]
+
+	\[
+		\abs{z_n - z} = \sqrt{(\Re z_n - \Re z)^2 + (\Im z_n - \Im z)^2} \geqslant \abs{\Re z_n - \Re z},
+	\]
+	\[
+		\Re(z_1 \pm z_2) = \Re z_1 \pm \Re z_2.
+	\]
+\end{remark}
+
+\begin{crit}[Коши]
+	Последовательность $\{z_n\}_{n \in \N}\subset \C$ сходится $\iff \forall \epsilon > 0 \ \exists n_0 \in \N: \ \forall n,m \geqslant n_0$
+	\[
+		\abs{z_n - z_m} < \epsilon.
+	\]
+\end{crit}
+
+\begin{crit}[Коши в $\overline{\C}$]
+	Последовательность $\{z_n\}_{n \in \N}\subset \overline{\C}$ сходится $\iff \forall \epsilon > 0 \ \exists n_0 \in \N: \ \forall n,m \geqslant n_0$
+	\[
+		\rho(z_n,z_m) < \epsilon,
+	\]
+	\[
+		z_n \xrightarrow[n \rightarrow \infty ]{} z \iff \rho(z_n,z)\xrightarrow[n \rightarrow \infty ]{} 0.
+	\]
+\end{crit}
+
+\begin{crit}[Компактности (расширенный)]
+	Подмножество $D \subset \overline{\C}$ компактно $\iff \forall $ его последовательность имеет сходящуюся подпоследовательность: $D \subset \overline{\C} \ \forall \{z_n\}_{n \in \N} \subset D \ \exists \{z_{n_k}\}_{k \in \N} \subset \{z_n\}_{n \in \N}:$
+	\[
+		z_{n_k} \rightarrow z \in D.
+	\]
+
+	Пусть $\{z_n\}_{n \in \N} \subset \C:$
+	\[
+		\sum_{n=1}^{\infty }z_n = \lim_{n \rightarrow \infty }S_n.
+	\]
+\end{crit}
+
+\begin{definition}[Числовой ряд]
+	\emph{Числовым рядом} называется формальная сумма членов.
+\end{definition}
+
+\begin{definition}[Абсолютно сходящийся числовой ряд]
+	Числовой ряд называется \emph{абсолютно сходящимся}, если сходится ряд
+	\[
+		\sum_{n=1}^{\infty }\abs{z_n}.
+	\]
+\end{definition}
+
+\begin{crit}[Коши (сходимости ряда)]
+	$\sum_{n=1}^{\infty }z_n$ сходится $\iff \forall \epsilon > 0 \ \exists m \in \N: \ \forall n \geqslant m \ \forall k \in \N$
+	\[
+		\underbrace{\abs{z_{n+1}+z_{n+2}+\ldots+z_{n+k}}}_{\abs{S_{n+k}-S_n}} < \epsilon.
+	\]
+\end{crit}
+
+\begin{corollary}
+	Если ряд сходится, то его общий член стремится к $0$.
+\end{corollary}
+
+\begin{corollary}
+	Каждый абсолютно сходящийся числовой ряд сходится.
+\end{corollary}
+
+\subsection{Пути, кривые и области}
+
+\begin{definition}[Путь]
+	Путем $\gamma:[a ; b] \rightarrow \C$ называется непрерывное отображение $[a ; b]$ в $\C$.
+\end{definition}
+
+\begin{eg}
+	$\gamma(t) = e^{it},$
+	\begin{multicols}{2}
+		\begin{figure}[H]
+			\centering
+			\incfig{fig-7}
+			\label{fig:fig-7}
+		\end{figure}
+
+		\columnbreak
+
+		\[
+			0 \leqslant t \leqslant 2\pi.
+		\]
+	\end{multicols}
+\end{eg}
+
+\begin{definition}
+	$\gamma_1 : [a_1 ; b_1] \rightarrow \C, \ \gamma_2 : [a_2 ; b_2] \rightarrow \C$. $\gamma_1 \sim \gamma_2$, если $\exists $ возрастающая непрерывная функция $\phi: [a_1 ; b_1] \xrightarrow[]{\text{на}} [a_2 ; b_2]:$
+	\[
+		\gamma_1(t) = \gamma_2\big(\phi(t)\big), \quad \forall t \in [a_1 ; b_1].
+	\]
+\end{definition}
+
+\begin{eg}
+	\begin{multicols}{2}
+		\[
+			\begin{array}{ll}
+				\gamma_1(t) = t      & 0 \leqslant t \leqslant 1             \\
+				\gamma_2(t) = \sin t & 0 \leqslant t \leqslant \frac{\pi}{2} \\
+				\gamma_3(t) = \sin t & 0 \leqslant t \leqslant \pi           \\
+				\gamma_4(t) = \cos t & 0 \leqslant t \leqslant \frac{\pi}{2}
+			\end{array}
+		\]
+		$\phi(t) = \arcsin t$,
+		\[
+			\gamma_1(t) = \gamma_2\left(\phi(t)\right).
+		\]
+		\begin{figure}[H]
+			\centering
+			\incfig{fig-8}
+			\label{fig:fig-8}
+		\end{figure}
+	\end{multicols}
+\end{eg}

@@ -1,0 +1,101 @@
+\section{Модуль и аргумент коплексного числа}
+
+\[
+	\abs{z} \coloneq r = \sqrt{x^2 + y^2},
+\]
+
+\[
+	\arg z \coloneq \phi, \quad 0 \leqslant \arg z < 2\pi,
+\]
+
+\[
+	\Arg z \coloneq \arg z + 2\pi k, \quad k \in \Z.
+\]
+
+\section{Алгербраическая, показательная и тригонометрическая формы записи комплексного числа}
+
+Алгебраическая форма записи:
+\[
+	z = (x,y) = x + iy, \quad x,y \in \R,
+\]
+Показательная форма записи:
+\[
+	z = \abs{z} \cdot e^{i\arg z}.
+\]
+Тригонометрическая форма записи:
+\[
+	z = \abs{z} \cdot (\cos \arg z + i \sin \arg z),
+\]
+
+\section{Сопряжённое к комплексному числу}
+
+\[
+	\overline{z} = x - iy.
+\]
+
+\section{Сложение, умножение и деление комплексных чисел}
+
+$\R^2 \coloneq \R \times \R$,
+\[
+	\begin{array}{rcl}
+		(x_1, y_1) + (x_2, y_2)       & \coloneq & (x_1 + x_2, y_1 + y_2),                                                             \\
+		(x_1, y_1) \cdot (x_2, y_2)   & \coloneq & (x_1 x_2 - y_1 y_2, x_1 y_2 + x_2 y_1),                                             \\
+		\frac{(x_1, y_1)}{(x_2, y_2)} & \coloneq & (\frac{x_1 x_2 + y_1 y_2}{x_2^2 + y_2^2}, \frac{y_1 x_2 - x_1 y_2}{x_2^2 + y_2^2}).
+	\end{array}
+\]
+
+\section{Формула Эйлера}
+
+\[
+	e^{i \phi} = \cos \phi + i \sin \phi, \quad \forall \phi \in \R.
+\]
+
+\section{Формула Муавра}
+
+\[
+	z^n = r^n(\cos n \phi + i\sin n \phi).
+\]
+
+\section{Расстояние между двумя конечными точками на комплексной плоскости}
+
+\[
+	\dist (M_1, M_2) \coloneq \sqrt{(\xi_1 - \xi_2)^2 + (\eta_1 - \eta_2)^2 + (\zeta_1 - \zeta_2)^2},
+\]
+\[
+	d(z_1,z_2) \coloneq \abs{z_1 - z_2}, \quad z_1,z_2 \in \C,
+\]
+
+$P: \C \xrightarrow[]{\text{на}} S \setminus \{N\}$,
+\[
+	\rho(z_1,z_2) \coloneq \dist \big(P(z_1), P(z_2)\big).
+\]
+
+\section{Окрестность конечной точки на комплексной плоскости}
+
+\begin{definition}
+	Множество называется \emph{окрестностью} точки, если оно содержит некоторый шарик с центром в этой точке.
+	\begin{notation}
+		\[
+			O_z, \quad z \in \overline{\C}.
+		\]
+	\end{notation}
+\end{definition}
+
+\section{Окрестность бесконечно удалённой точки}
+
+\begin{definition}
+	Множество $V \subset \overline{\C}$ является \emph{окрестностью бесконечно удаленной точки}, если $\exists \epsilon > 0:$
+	\[
+		\big\{z \in \overline{\C}: \abs{z} > \epsilon\big\} \subset V.
+	\]
+\end{definition}
+
+\section{Предельная точка множества}
+
+\begin{definition}
+	Точка называется \emph{предельной} точкой множества, если в любой ее окрестности есть точки множества, отличные от данной.
+\end{definition}
+
+\begin{remark}
+	Точка является предельной точкой множества на расширенной комплексной плоскости ($\overline{\C}$) $\iff \forall $ ее окрестность содержит бесконечное число точек данного множества.
+\end{remark}
