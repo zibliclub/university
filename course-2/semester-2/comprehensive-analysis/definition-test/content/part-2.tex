@@ -1,6 +1,8 @@
 \section{Внутренняя точка множества}
 
- {\huge НАЙТИ}
+\begin{definition}
+	$\mathfrak{D}\subset \C$. $z \in \mathfrak{D}$ называется \emph{внутренней точкой} множества $\mathfrak{D}$, если $\mathfrak{D} \in O_z$.
+\end{definition}
 
 \section{Граничная точка множества}
 
@@ -13,33 +15,78 @@
 	\end{notation}
 \end{definition}
 
+\newpage
+
 \section{Предел последовательности комплексных чисел}
 
- {\huge НАЙТИ}
+\begin{definition}
+	Комплексное число $z_0$ называется \emph{пределом последовательности комплексных чисел} $\{z_n\}_{n \in \N}$, если $\forall \epsilon > 0 \ \exists n_0 \in \N: \ \forall n \geqslant n_0$
+	\[
+		\abs{z_n - z_0} < \epsilon \quad \big(\d(z_n,z_0)\xrightarrow[n \rightarrow \infty]{} 0\big),
+	\]
+	\[
+		\underset{n \rightarrow \infty}{\lim}z_n = z_0.
+	\]
+\end{definition}
 
 \section{Предел функции}
 
- {\huge НАЙТИ}
+\begin{definition}
+	$\mathfrak{D}\subset \dom f, \ z_0 \in \overline{\C}$ -- предельная точка $\mathfrak{D}$. Тогда $\omega_0 \in \overline{\C}$ называется \emph{пределом отображения} $f, \ \omega_0 \coloneq \underset{\mathfrak{D}\ni z \rightarrow z_0}{\lim}f(z)$, если $\forall V \in O_{\omega_0} \ \exists U \in O_{z_0}$
+	\[
+		f(\mathring{U} \cap \mathfrak{D}) \subset V.
+	\]
+
+	$\dom f$ -- область определения функции.
+\end{definition}
 
 \section{Непрерывность функции в точке}
 
- {\huge НАЙТИ}
+\begin{definition}
+	Функция $f$ называется \emph{непрерывной в точке} $z_0 \in \overline{\C}$, если
+	\begin{enumerate}
+		\item $z_0 \in \dom f$.
+		\item $\forall \epsilon > 0 \ \exists \delta > 0: \ \forall z \in \mathfrak{D}$
+		      \[
+			      0 < \abs{z - z_0} < \delta \implies \abs{f(z) - \omega_0} < \epsilon.
+		      \]
+	\end{enumerate}
+\end{definition}
 
 \section{Производная функции в точке}
 
- {\huge НАЙТИ}
+\begin{definition}
+	Если $f: \C \rightarrow \C$ определена в некоторой окрестности точки $z_0 \in \C$ и $\exists \underset{z \rightarrow z_0}{\lim}\frac{f(z) - f(z_0)}{z - z_0} \eqqcolon f'(z_0)$ называется \emph{производной функции в точке} $z_0$.
+\end{definition}
+
+\newpage
 
 \section{Равномерная сходимость последовательности функций на множестве}
 
- {\huge НАЙТИ}
+\begin{definition}
+	Пусть ($n\in \N$), $f_n : \C \rightarrow \C$, $D \coloneq \underset{n \in \N}{\bigcap}\dom f_n$.
+
+	$A \subset \mathfrak{D}, \ f: A \rightarrow \C$. Говорят, что последовательность $f_n \rightrightarrows f$ на $A$, если $\forall \epsilon> 0 \ \exists n_0 \in \N: \ \forall z \in A \ \forall n \geqslant n_0$
+	\[
+		\underset{z \in A}{\sup}\big|f_n(z) - f(z)\big| < \epsilon
+	\]
+	\begin{multline*}
+		\big(\forall \epsilon > 0 \ \exists n_0 \in \N : \ \forall n \geqslant n_0 \\
+		\underset{z \in A}{\sup}\big|f_n(z)-f(z)\big| < \epsilon, \ \abs{z-z_0} < \delta \implies \big|f(z) - f(z_0)\big|< \epsilon\big).
+	\end{multline*}
+\end{definition}
 
 \section{Признак Вейерштрасса равномерной сходимости функционального ряда}
 
- {\huge НАЙТИ}
+\begin{note}
+	Предположим, что $\sum_{n=1}^{\infty}f_n$ таков, что $\forall n \in \N \ \forall z \in A \ \big|f_n(z)\big|$, причем $\sum_{n=1}^{\infty}c_n$ сходится. Тогда ряд $\sum_{n=1}^{\infty}f_n$ равномерно абсолютно сходится на $A$.
+\end{note}
 
 \section{Теорема Вейерштрасса (о равномерно сходящейся последовательности непрерывных функций)}
 
- {\huge НАЙТИ}
+\begin{theorem}
+	Если $\{f_n\}_{n \in \N} \subset C(A), \ f_n \rightrightarrows f$, то $f \in C(A)$.
+\end{theorem}
 
 \section{Путь, эквивалентные пути, жорданов путь, кривая, кривая Жордана, гладкая кривая, кусочногладкая кривая (это разные вопросы)}
 
@@ -57,13 +104,13 @@
 \end{definition}
 
 \begin{definition}[Жорданов путь]
-  Путь называется \emph{жордановым}, если он является взаимно однозначной функцией.
+	Путь называется \emph{жордановым}, если он является взаимно однозначной функцией.
 \end{definition}
 
 \begin{definition}[Гладкая кривая]
-  {\huge НАЙТИ}
+	Кривая называется \emph{гладкой}, если в каждой ее точке $\exists $ касательная, непрерывно изменяющаяся вдоль кривой (если в каждой ее точке $\exists $ непрерывная производная).
 \end{definition}
 
 \begin{definition}[Кусочногладкая кривая]
-  {\huge НАЙТИ}
+	Кривая, состоящая из конечного числа гладких дуг, называется \emph{кусочно-гладкой}.
 \end{definition}

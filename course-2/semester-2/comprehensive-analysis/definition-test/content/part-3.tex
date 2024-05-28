@@ -1,38 +1,76 @@
 \section{Множество связное}
 
-{\huge НАЙТИ}
+\begin{definition}
+	Множество $A \subset \overline{\C}$ называется \emph{связным}, если не существует $U,V \in O_p \overline{\C}: \ U \cap A \ne \varnothing, \ V \cap A \ne \varnothing, \ U \cap V = \varnothing$.
+
+	\begin{notation}
+		$O_p \overline{\C}$ -- совокупность всех открытых множеств.
+	\end{notation}
+\end{definition}
+
+\begin{definition}
+	Множество называется \emph{линейно связным}, если $\forall $ две его точки можно соединить путем, значения которого лежат в этом множестве.
+\end{definition}
 
 \section{Область, односвязная область}
 
-{\huge НАЙТИ}
+\begin{definition}
+	\emph{Областью в $\C$} ($\overline{\C}$) называется $\forall $ непустое открытое связное множество.
+
+	Область называется \emph{односвязной}, если $\forall $ замкнутая кривая ????????? некоторой точки этой прямой (кривая ????????? точке, если она стягивается в эту точку).
+\end{definition}
 
 \section{Производная функции в точке}
 
-{\huge НАЙТИ}
+\begin{definition}
+	Если $f: \C \rightarrow \C$ определена в некоторой окрестности точки $z_0 \in \C$ и $\exists \underset{z \rightarrow z_0}{\lim}\frac{f(z) - f(z_0)}{z - z_0} \eqqcolon f'(z_0)$ называется \emph{производной функции в точке} $z_0$.
+\end{definition}
+
+\newpage
 
 \section{Моногенная в точке функция}
 
-{\huge НАЙТИ}
+\begin{definition}
+	Если $f: \C \rightarrow \C$ определена в некоторой окрестности точки $z_0 \in \C$, то она называется \emph{моногенной в точке} $z_0$, если $\exists $ конечный $\underset{z \rightarrow z_0}{\lim}\frac{f(z) - f(z_0)}{z-z_0}\eqqcolon f'(z_0)$.
+
+	Другими словами, функция называется моногенной в точке, если она имеет в этой точке конечную производную.
+\end{definition}
 
 \section{Голоморфная в точке функция}
 
-{\huge НАЙТИ}
+\begin{definition}
+	Функция называется \emph{голоморфной в точке}, если она моногенна в некоторой ее окрестности, то есть дифференцируема в каждой точке ее окрестности.
+\end{definition}
 
 \section{Голоморфная в области функция}
 
 \begin{definition}
-  Функция называется \emph{голоморфной} в области, если она моногенна в каждой точке этой области.
+	Функция называется \emph{голоморфной} в области, если она моногенна в каждой точке этой области.
 \end{definition}
 
 \section{Условия Коши-Римана}
 
-{\huge НАЙТИ}
+\begin{note}
+	Если функция
+	\[
+		f(z) = f(x+iy) = u(x,y) + iv(x,y)
+	\]
+	дифференцируема в точке $z$, то ее действительная и мнимая части обладают частными производными первого порядка, которые удовлетворяют условиям Коши-Римана:
+	\[
+		\left\{\begin{array}{l}
+			\frac{\partial u}{\partial x}(x_0,y_0) = \frac{\partial v}{\partial y}(x_0,y_0), \\
+			\frac{\partial u}{\partial y}(x_0,y_0) = - \frac{\partial v}{\partial x}(x_0,y_0)
+		\end{array}\right.
+	\]
+\end{note}
 
 \section{Степенной ряд}
 
 \[
-  \sum_{n=0}^{\infty}a_n (z-z_0)^n, \quad \text{где }\{a_n\}_{n\in\N}\subset \C, \ z,z_0 \in \C.
+	\sum_{n=0}^{\infty}a_n (z-z_0)^n, \quad \text{где }\{a_n\}_{n\in\N}\subset \C, \ z,z_0 \in \C.
 \]
+
+\newpage
 
 \section{1-я теорема Абеля}
 

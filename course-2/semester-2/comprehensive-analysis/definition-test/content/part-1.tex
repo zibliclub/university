@@ -1,16 +1,18 @@
 \section{Модуль и аргумент коплексного числа}
 
-\[
-	\abs{z} \coloneq r = \sqrt{x^2 + y^2},
-\]
+\begin{definition}
+  \emph{Полярные координаты} комплексного числа:
+  \[
+    z = x + iy,
+  \]
+  \emph{полярный радиус}:
+  \[
+    r = \sqrt{x^2 + y^2}
+  \]
+  и \emph{полярный угол} $\phi$, то есть угол между положительным направлением оси $OX$ и вектора $z$, соответственно называется его  \emph{молулем и аргументом}.
 
-\[
-	\arg z \coloneq \phi, \quad 0 \leqslant \arg z < 2\pi,
-\]
-
-\[
-	\Arg z \coloneq \arg z + 2\pi k, \quad k \in \Z.
-\]
+  Модуль определяется однозначно, а аргумент -- с точностью до слагаемого $2\pi k, \ k \in \Z$.
+\end{definition}
 
 \section{Алгербраическая, показательная и тригонометрическая формы записи комплексного числа}
 
@@ -27,6 +29,8 @@
 	z = \abs{z} \cdot (\cos \arg z + i \sin \arg z),
 \]
 
+\newpage
+
 \section{Сопряжённое к комплексному числу}
 
 \[
@@ -35,13 +39,22 @@
 
 \section{Сложение, умножение и деление комплексных чисел}
 
-$\R^2 \coloneq \R \times \R$,
 \[
-	\begin{array}{rcl}
-		(x_1, y_1) + (x_2, y_2)       & \coloneq & (x_1 + x_2, y_1 + y_2),                                                             \\
-		(x_1, y_1) \cdot (x_2, y_2)   & \coloneq & (x_1 x_2 - y_1 y_2, x_1 y_2 + x_2 y_1),                                             \\
-		\frac{(x_1, y_1)}{(x_2, y_2)} & \coloneq & (\frac{x_1 x_2 + y_1 y_2}{x_2^2 + y_2^2}, \frac{y_1 x_2 - x_1 y_2}{x_2^2 + y_2^2}).
-	\end{array}
+  z_1 + z_2 = (x_1, y_1) + (x_2, y_2) = (x_1 + x_2, y_1 + y_2),
+\]
+
+\begin{multline*}
+  z_1 \cdot z_2 = (x_1, y_1) \cdot (x_2, y_2) = \\
+  = (x_1x_2 - y_1y_2, x_1 y_2 + x_2y_1) = \\
+  = x_1x_2 - y_1y_2 + i(x_1y_2 + x_2y_1),
+\end{multline*}
+
+\[
+  \frac{z_1}{z_2} = \frac{z_1 \cdot \overline{z_2}}{z_2 \cdot \overline{z_2}} = \frac{z_1 \cdot \overline{z_2}}{\abs{z_2}^{2}},
+\]
+
+\[
+  z \cdot \overline{z} = \abs{z}^{2}.
 \]
 
 \section{Формула Эйлера}
@@ -56,18 +69,20 @@ $\R^2 \coloneq \R \times \R$,
 	z^n = r^n(\cos n \phi + i\sin n \phi).
 \]
 
+\begin{definition}
+  \emph{Корнем $n$-ой степени} комплексного числа $z$ называется комплексное число, $n$-ая степень которого равна $z$,
+  \[
+    z^n = z_0,
+  \]
+  \[
+    \sqrt[n]{z_0} = \sqrt[n]{\abs{z_0}} \cdot e^{i \frac{\arg z_0 + 2\pi k}{n}}, \quad 0 \leqslant k \leqslant n-1.
+  \]
+\end{definition}
+
 \section{Расстояние между двумя конечными точками на комплексной плоскости}
 
 \[
-	\dist (M_1, M_2) \coloneq \sqrt{(\xi_1 - \xi_2)^2 + (\eta_1 - \eta_2)^2 + (\zeta_1 - \zeta_2)^2},
-\]
-\[
-	d(z_1,z_2) \coloneq \abs{z_1 - z_2}, \quad z_1,z_2 \in \C,
-\]
-
-$P: \C \xrightarrow[]{\text{на}} S \setminus \{N\}$,
-\[
-	\rho(z_1,z_2) \coloneq \dist \big(P(z_1), P(z_2)\big).
+  \dist(z_1,z_2) \coloneq \abs{z_1 - z_2}, \text{ где }z_1,z_2 \in \C.
 \]
 
 \section{Окрестность конечной точки на комплексной плоскости}

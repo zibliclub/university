@@ -23,91 +23,162 @@
 \section{Интегральная формула Коши}
 
 \begin{theorem}
-  Если функция $f$ голоморфна в односвязной области $D$, ограничена замкнутой спрямляемой кривой Жордана $\gamma$, непрерывна вплоть до границы, то
-  \[
-    \frac{1}{2\pi i}\int_{\gamma}\frac{f(z)}{z - z_0}dz = \left\{\begin{array}{ll}
-        f(z_0), & \text{если } z_0 \in \mathfrak{D} \\
-        0, & \text{если } z_0 \notin \cl \mathfrak{D}
-    \end{array}\right..
-  \]
+	Если функция $f$ голоморфна в односвязной области $D$, ограничена замкнутой спрямляемой кривой Жордана $\gamma$, непрерывна вплоть до границы, то
+	\[
+		\frac{1}{2\pi i}\int_{\gamma}\frac{f(z)}{z - z_0}dz = \left\{\begin{array}{ll}
+			f(z_0), & \text{если } z_0 \in \mathfrak{D}        \\
+			0,      & \text{если } z_0 \notin \cl \mathfrak{D}
+		\end{array}\right..
+	\]
 \end{theorem}
 
 \section{Интеграл типа Коши}
 
 \begin{definition}
-  Пусть односвязная область $\mathfrak{D}$ ограничена замкнутой спрямляемой кривой Жордана $\gamma$, а функция $f$ непрерывна на $\gamma$. Положим
-  \[
-    F(z) = \frac{1}{2\pi i}\int_{\gamma}\frac{f(\zeta)}{\zeta - z}d \zeta, \quad z \in \mathfrak{D}.
-  \]
+	Пусть односвязная область $\mathfrak{D}$ ограничена замкнутой спрямляемой кривой Жордана $\gamma$, а функция $f$ непрерывна на $\gamma$. Положим
+	\[
+		F(z) = \frac{1}{2\pi i}\int_{\gamma}\frac{f(\zeta)}{\zeta - z}d \zeta, \quad z \in \mathfrak{D}.
+	\]
 
-  Функция $F$ называется \emph{интегралом типа Коши}.
+	Функция $F$ называется \emph{интегралом типа Коши}.
 \end{definition}
 
 \section{Теорема Лиувилля}
 
 \begin{theorem}
-  Если функция $f$ голоморфна в $\C$ и ограничена, то $f = \const$.
+	Если функция $f$ голоморфна в $\C$ и ограничена, то $f = \const$.
 \end{theorem}
 
 \section{Теоремы Мореры и Вейерштрасса}
 
 \begin{theorem}[Морера]
-  Для того, чтобы непрерывная в односвязной области функция была голоморфна в этой области, необходимо и достаточно, чтобы интеграл от этой функции по $\forall $ замкнутому контуру (то есть по $\forall $ замкнутой спрямляемой кривой Жордана), лежащему в области, был равен $0$.
+	Для того, чтобы непрерывная в односвязной области функция была голоморфна в этой области, необходимо и достаточно, чтобы интеграл от этой функции по $\forall $ замкнутому контуру (то есть по $\forall $ замкнутой спрямляемой кривой Жордана), лежащему в области, был равен $0$.
 \end{theorem}
 
 \begin{theorem}[Вейерштрасса]
-  Равномерный предел последовательности голоморфных функция является голоморфной функцией, то есть если $\{f_n\}_{n \in \N}\subset \mathcal{H}(\mathfrak{D})$ и $f_n \rightrightarrows f$ внутри $\mathfrak{D}$, то $f \in \mathcal{H}(\mathfrak{D})$.
+	Равномерный предел последовательности голоморфных функция является голоморфной функцией, то есть если $\{f_n\}_{n \in \N}\subset \mathcal{H}(\mathfrak{D})$ и $f_n \rightrightarrows f$ внутри $\mathfrak{D}$, то $f \in \mathcal{H}(\mathfrak{D})$.
 \end{theorem}
 
 \section{Ряд Тейлора голоморфной в круге функции}
 
- {\huge НАЙТИ}
+\begin{theorem}
+	Пусть $f \in \mathcal{H}(\mathfrak{D})$. Тогда $\forall z_0 \in \mathfrak{D} \ \exists r > 0$: при $\abs{z-z_0} < r$
+	\[
+		f(z) = \sum_{n=0}^{\infty}\frac{f^{(n)}(z_0)}{n!}(z-z_0)^n.
+	\]
+\end{theorem}
 
 \section{Ряд Лорана голоморфной в кольце функции}
 
 \begin{theorem}
-  Если функция $f$ голоморфна в кольце $r \subset \abs{z-z_0}\subset R$, то в этом кольце она разлагается в ряд Лорана:
-  \[
-    f(z) = \sum_{n=-\infty}^{\infty}c_n(z-z_0)^n
-  \]
-  с коэфициентами $c_n$, определяемыми формулами:
-  \[
-    c_n = \frac{1}{2\pi i}\int_{\abs{\xi - z_0 = \rho}}\frac{f(\xi)}{(\xi-z_0)^{n+1}}d \xi, \quad \forall \rho \in (r,R).
-  \]
+	Если функция $f$ голоморфна в кольце $r \subset \abs{z-z_0}\subset R$, то в этом кольце она разлагается в ряд Лорана:
+	\[
+		f(z) = \sum_{n=-\infty}^{\infty}c_n(z-z_0)^n
+	\]
+	с коэфициентами $c_n$, определяемыми формулами:
+	\[
+		c_n = \frac{1}{2\pi i}\int_{\abs{\xi - z_0 = \rho}}\frac{f(\xi)}{(\xi-z_0)^{n+1}}d \xi, \quad \forall \rho \in (r,R).
+	\]
 \end{theorem}
 
 \section{Правильная и главная части ряда Лорана в конечной точке и в бесконечно удалённой точке}
 
- {\huge НАЙТИ}
+\begin{note}[В конечной точке]
+	Рассмотрим ряд Лорана:
+	\[
+		\sum_{n=1}^{\infty}\frac{c_{-n}}{(z-z_0)^n} + \sum_{n=0}^{\infty}c_n(z-z_0)^n,
+	\]
+	где $z_0$ -- фиксированная точка комплексной плоскости, $c_n \in \C$.
+
+	\[
+		\begin{array}{ll}
+			\sum_{n=0}^{\infty}c_n(z - z_0)^n           & \text{ -- правильная часть}, \\
+			\sum_{n=1}^{\infty}\frac{c_{-n}}{(z-z_0)^n} & \text{ -- главная часть}.
+		\end{array}
+	\]
+\end{note}
+
+\begin{note}[В бесконечно удаленной точке]
+	Пусть функция $f(z)$ является голоморфной в окрестности бесконечно удаленной точки. Тогда функция $f\left(\frac{1}{t}\right)$ имеет разложение в окрестности $t = 0$:
+	\[
+		f \left(\frac{1}{t}\right) = \sum_{n=0}^{\infty}b_nt^n + \sum_{n=1}^{\infty}\frac{b_{-n}}{t^n}.
+	\]
+
+	Делая замену переменной $t = \frac{1}{z}$ и, полагая $c_n - b_{-n}$, получаем разложение функции $f(z)$ в ряд Лорана в окрестности бесконечно удаленной точки:
+	\[
+		f(z) = \sum_{n=0}^{\infty}\frac{b_n}{z^n} + \sum_{n=1}^{\infty}b_{-n}z^n = \sum_{n=-\infty}^{\infty} c_nz^n,
+	\]
+
+	\[
+		\begin{array}{ll}
+			\sum_{n=0}^{\infty}\frac{c_{-n}}{z^n} & \text{ -- правильная часть}, \\
+			\sum_{n=1}^{\infty}c_nz_n             & \text{ -- главная часть}.
+		\end{array}
+	\]
+\end{note}
 
 \section{Определение вычета в конечной точке и в бесконечно удалённой}
 
- {\huge НАЙТИ}
+\begin{definition}
+	Если $z_0$ -- изолированная точка функции $f$, то вычетом $f$ относительно $z_0$ (в точке $z_0$) называется интеграл $\frac{1}{2\pi i}\int_{\gamma}f(z)dz$, где $\gamma$ -- произвольный контур, ограничивающий область $\mathfrak{D}$: $f$ непрерывна в $\d \mathfrak{D} \setminus \{z_0\}$ и голоморфна в $\mathfrak{D}\setminus \{z_0\}$, то есть в качестве $\gamma$ можно брать любую окрестность сколь угодно малого радиуса с центром в $z_0$.
+	\begin{notation}
+		\[
+			Res f\Big|_{z=z_0} \coloneq \frac{1}{2\pi i}\int_{\gamma}f(z)dz.
+		\]
+	\end{notation}
+
+	Если особая точка является бесконечно удаленной точкой, то $\underset{\infty}{Res}f = -c-1$.
+\end{definition}
 
 \section{Вормулы для вычисления вычета в полюсе $k$-го порядка в конечной точке и в бесконечно удалённой}
 
- {\huge НАЙТИ}
+\begin{enumerate}
+	\item Если $z_0 \in \C$ -- простой полюс функции $f$, то
+	      \[
+		      \underset{z_0}{Res}f = \underset{z \rightarrow z_0}{\lim}(z-z_0)f(z)
+	      \]
+	\item Если $z_0 \in \C$ -- полюс порядка $k$ функции $f$, то
+	      \[
+		      \underset{z_0}{Res}f = \frac{1}{(k-1)!}\underset{z \rightarrow z_0}{\lim}\big((z-z_0)^kf(z)\big)^{(k-1)}.
+	      \]
+	\item Если $f(z) = \frac{\phi(z)}{\psi(z)}$, где $\phi(z_0) \ne 0, \ \psi(z_0) = 0$ и $\psi'(z_0) \ne 0$, то
+	      \[
+		      \underset{z_0}{Res}f = \frac{\phi(z_0)}{\psi(z_0)}.
+	      \]
+	\item Если $\infty$ -- полюс порядка $k$ функции $f$, то
+	      \[
+		      \underset{\infty}{Res}f = \frac{(-1)^{k}}{(k+1)!}\underset{z \rightarrow \infty}{\lim}z^{k+1}f^{(k+1)}(z).
+	      \]
+	\item Если $\underset{z \rightarrow \infty}{\lim}f(z) = 0$, то $\underset{\infty}{Res}f = - \underset{z \rightarrow \infty}{\lim} z f(z)$.
+	\item Если $f$ ограничена в проколотой окрестности $\infty$, то есть $\infty$ является устранимой точкой, то
+	      \[
+		      \underset{\infty}{Res}f = \underset{z \rightarrow \infty}{\lim}z^2 f'(z) = \underset{z \rightarrow \infty}{\lim}z \big(f(\infty) - f(z)\big),
+	      \]
+	      где $f(\infty)\coloneq \underset{z \rightarrow \infty}{\lim}f(z)$.
+\end{enumerate}
 
 \section{Гармоническая функция}
 
 \begin{definition}
-  Определенная в односвязной области $\mathfrak{D}\subset \R^2$ функция $u(x,y)$ называется \emph{гармонической функцией}, если $u \in C^2(\mathfrak{D})$ и
-  \[
-    \triangle u \coloneq \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \equiv 0,
-  \]
-  $\triangle$ -- оператор Лапласа.
+	Определенная в односвязной области $\mathfrak{D}\subset \R^2$ функция $u(x,y)$ называется \emph{гармонической функцией}, если $u \in C^2(\mathfrak{D})$ и
+	\[
+		\triangle u \coloneq \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \equiv 0,
+	\]
+	$\triangle$ -- оператор Лапласа.
 \end{definition}
 
 \section{Определения целой и мероморфной функций}
 
 \begin{definition}[Целая функция]
-  Голоморфная в $\C$ функция называется \emph{целой функцией}.
+	Голоморфная в $\C$ функция называется \emph{целой функцией}.
 \end{definition}
 
 \begin{definition}[Мероморфная функция]
-  Функция, голоморфная в области $\mathfrak{D}$ всюду, за исключением полюсов, называется \emph{мероморфной} в этой области функцией.
+	Функция, голоморфная в области $\mathfrak{D}$ всюду, за исключением полюсов, называется \emph{мероморфной} в этой области функцией.
 \end{definition}
 
 \section{Теорема Римана}
 
- {\huge НАЙТИ}
+\begin{theorem}
+	Любая односвязная область $\mathfrak{D}$, граница которой содержит более одной точки, конформно эквивалентна единичному кругу.
+\end{theorem}
