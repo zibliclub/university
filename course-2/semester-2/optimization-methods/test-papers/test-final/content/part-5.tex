@@ -1,0 +1,118 @@
+\section{Теорема Куна-Таккера в дифференциальной форме 1}
+
+\begin{theorem}
+	$x^* \geqslant 0$ является решением ЗВП ($I$) $\iff \exists y^* \geqslant 0$:
+	\begin{enumerate}
+		\item $\nabla_x(x^*,y^*)\geqslant \overline{0}$, то есть $\frac{\partial L(x,y^*)}{\partial x_j}\Big|_{x=x^*} \geqslant 0, \ j = \overline{1,n}$.
+		\item $\big(x^*,\nabla_x L(x^*,y^*)\big) = 0$, то есть $x_{j}^{*}\cdot \frac{\partial L(x,y^*)}{\partial x_j}\Big|_{x=x^*}=0, \ j = \overline{1,n}$.
+		\item $\nabla_y L(x^*,y^*)\leqslant \overline{0}$, то есть $\phi_i(x^*)\leqslant 0, \ i = \overline{1,m}$.
+		\item $\big(y^*,\nabla_y L(x^*,y^*)\big) = 0$, то есть $y_{i}^{*} \phi(x^*) = 0, \ i = \overline{1,m}$.
+	\end{enumerate}
+\end{theorem}
+
+\newpage
+
+\section{Теорема Куна-Таккера в дифференциальной форме 2}
+
+\begin{theorem}
+	Точка $x^* \in \R^n$ является оптимальной точкой задачи $(II) \iff \exists y^*\geqslant 0$:
+	\begin{enumerate}
+		\item $\nabla_y L(x^*,y^*) = \overline{0}$, то есть $\frac{\partial L(x,y^*)}{\partial x_j}\Big|_{x=x^*}\geqslant 0, \ j = \overline{1,n}$.
+		\item $\nabla_y L(x^*,y^*)\leqslant 0$, то есть $\frac{\partial L(x^*,y)}{\partial y_i}\Big|_{y=y^*} = \phi_i(x^*)\leqslant 0$.
+		\item $\big(\nabla_y L(x^*,y^*),y^*\big)=0$, то есть $\phi_i(x^*)y_{i}^{*} = 0, \ i = \overline{1,m}$.
+	\end{enumerate}
+\end{theorem}
+
+\section{Задача целочисленного линейного программирования}
+
+\[
+	\begin{array}{lllllr}
+		f(x) = & \sum_{j=1}^{n}c_jx_j \rightarrow \max &           &      &                    & (1) \\
+		       & \sum_{j=1}^{n}a_{ij}x_j               & \leqslant & b_i, & i = \overline{1,m} & (2) \\
+		       & x_j                                   & \geqslant & 0,   & j = \overline{1,n} & (3) \\
+		       & x_j                                   & \in       & \Z,  & j = \overline{1,n} & (4)
+	\end{array}
+\]
+
+\section{Правильное отсечение}
+
+\begin{definition}[Правильное отсечение]
+	Пусть $\overline{x}$ -- оптимальное решение текущей задачи ЛП.
+
+	Тогда отсечение $\sum_{j=1}^{n} \gamma_j x_j \leqslant \gamma_0$ называется \emph{правильным}, если:
+	\begin{enumerate}
+		\item $\overline{x}$ не удовлетворяет отсечению, то есть
+		      \[
+			      \sum_{j=1}^{n} \gamma_j \overline{x}_j > \gamma_0.
+		      \]
+		\item Любая целочисленная точка из области $D$ удовлетворяет отсечению, то есть
+		      \[
+			      \forall z \in \Z^n, \ z \in D \quad \sum_{j=1}^{n} \gamma_j z_j \leqslant \gamma_0.
+		      \]
+	\end{enumerate}
+\end{definition}
+
+\newpage
+
+\section{Отсечение Гомори}
+
+\begin{definition}[Отсечение Гомори]
+	\[
+		\sum_{j \in N_b} \{a_{pj}\}x_j \geqslant \{a_{p0}\},
+	\]
+	$N_b$ -- множество небазисных переменных.
+\end{definition}
+
+\section{Квадратичная форма}
+
+\begin{definition}
+	\emph{Квадратичной формой} от $n$ переменных называется функция вида
+	\[
+		g(x) = (Cx,x) = \sum_{i=1}^{n}\sum_{j=1}^{n}c_{ij}x_ix_j,
+	\]
+	где $C$ -- симметричная матрица, $c_{ij} = c_{ji}, \ i \ne j$.
+\end{definition}
+
+\section{Квадратичная функция}
+
+\begin{definition}
+	Функция вида
+	\[
+		f(x)=\sum_{i=1}^{n}\sum_{j=1}^{n}c_{ij}x_ix_j + \sum_{j=1}^{n}p_jx_j + p_0 = (Cx,x) + (p,x) + p_0
+	\]
+	называется \emph{квадратичной функцией} от $n$ переменной.
+\end{definition}
+
+\section{Задача квадратичного программирования}
+
+\begin{definition}
+	Задача вида
+	\[
+		\begin{array}{l}
+			f(x)=\sum_{i=1}^{n}\sum_{j=1}^{n}a_jx_ix_j + \sum_{j=1}^{n}p_jx_j + p_0 \rightarrow \min \\
+			\sum_{j=1}^{n}a_{ij}x_j \leqslant b_i, \ i = \overline{1,m}                              \\
+			x_j \geqslant 0, \ j= \overline{1,n}
+		\end{array}
+	\]
+	называется \emph{задачей квадратичного программирования}.
+\end{definition}
+
+\newpage
+
+\section{Критерий оптимальности для задачи квадратичного программирования}
+
+\begin{theorem}
+	Вектор $x^* \geqslant 0$ является оптимальным решением задачи КП $\iff \exists $ неотрицательные векторы $y^*,u^* \in \R^m, \ v \in \R^n$ выполняющие следующие условия:
+	\begin{enumerate}
+		\item $2Cx^* + A^Ty^* - v^* = -p$.
+		\item $Ax^* + u^* = b$.
+		\item $(x^*,v^*) = 0$ или $x_jv_{j}^{*}=0, \ j=\overline{1,n}$.
+		\item $(y^*,u^*)=0$ или $y_{i}^{*}u_{i}^{*}=0, \ i = \overline{1,m}$.
+	\end{enumerate}
+\end{theorem}
+
+\section{Лемма с практики ???}
+
+\begin{remark}
+	Если $\exists $ оптимальное решение ЗКП, то оно является одинм из допустимых базисных решений системы (1)-(2).
+\end{remark}

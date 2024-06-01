@@ -1,0 +1,119 @@
+\section{Теорема 2 эквивалентности}
+
+\begin{theorem}
+	Для любой задачи ЛП существует эквивалентная ей \emph{стандартная} задача ЛП.
+\end{theorem}
+
+\section{Критерий разрешимости задачи ЛП}
+
+\begin{theorem}
+	Если задача ЛП разрешима, и ее многогранное множество имеет хотя бы одну вершину, то существует вершина этого множества, в которой целевая функция достигает своего оптимального значения.
+\end{theorem}
+
+\section{Система линейных уравнений с базисом}
+
+Рассмотрим каноническую задачу ЛП (КЗЛП):
+\begin{equation}\label{eq:2.1}
+	f(x)=c_0 + \sum^{n}_{j=1}c_jx_j\rightarrow \max
+\end{equation}
+\begin{equation}\label{eq:2.2}
+	\sum_{j=1}^{n}a_{ij}x_j=b_i,\quad i=\overline{1,m},
+\end{equation}
+\begin{equation}\label{eq:2.3}
+	x_j \geqslant 0,\quad j = \overline{1,n}.
+\end{equation}
+
+\begin{definition}
+	Система линейный уравнений (\ref{eq:2.2}) называется \emph{системой с базисом}, если в каждом уравнении имеется переменная, которая входит в него с коэффициентом $ +1 $ и отсутствует в остальных уравнениях. Такие переменные называются \emph{базисными}, а остальные -- \emph{небазисными}.
+\end{definition}
+
+\section{Приведенная задача ЛП}
+
+Рассмотрим каноническую задачу ЛП (КЗЛП):
+\begin{equation}\label{eq:2.1}
+	f(x)=c_0 + \sum^{n}_{j=1}c_jx_j\rightarrow \max
+\end{equation}
+\begin{equation}\label{eq:2.2}
+	\sum_{j=1}^{n}a_{ij}x_j=b_i,\quad i=\overline{1,m},
+\end{equation}
+\begin{equation}\label{eq:2.3}
+	x_j \geqslant 0,\quad j = \overline{1,n}.
+\end{equation}
+
+\begin{definition}
+	Каноническая задача ЛП называется \emph{приведенной задачей ЛП (ПЗЛП)}, если:
+	\begin{enumerate}
+		\item Система уравнений (\ref{eq:2.2}) есть система с базисом.
+		\item Целевая функция $ f(x) $ выражена только через небазисные переменные.
+	\end{enumerate}
+\end{definition}
+
+\section{Базисное решение системы линейных уравнений}
+
+Введем обозначения для вектор-столбцов, составленных из коэффициентов системы (\ref{eq:2.2}):
+\[
+	A_1 = \left(\begin{matrix}
+			a_{11} \\ \vdots \\ a_{m1}
+		\end{matrix}\right), \quad A_2 = \left(\begin{matrix}
+			a_{12} \\ \vdots \\ a_{m2}
+		\end{matrix}\right), \quad \ldots, \quad A_n = \left(\begin{matrix}
+			a_{1n} \\ \vdots \\ a_{mn}
+		\end{matrix}\right).
+\]
+
+\begin{definition}
+	Решение $ x = (x_1,\ldots,x_n) $ системы линейных уравнений (\ref{eq:2.2}) называется \emph{базисным}, если система вектор-столбцов $ A_j $, соответствующих ненулевым компонентам $ x_j $, линейно независима.
+\end{definition}
+
+\section{Базисное решение КЗЛП}
+
+\begin{definition}
+	Неотрицательное базисное решение системы линейных уравнений (\ref{eq:2.2}) называется \emph{базисным решением канонической задачи ЛП}.
+\end{definition}
+
+\section{Прямо допустимая симплекс-таблица}
+
+\begin{center}
+	\begin{tabular}{| c | c | c c c c c |}
+		\hline
+		$B$       & $1$      & $x_1$    & $\cdots$ & $x_q$    & $\cdots$ & $x_{n+m}$   \\
+		\hline
+		$f$       & $a_{00}$ & $a_{01}$ & $\cdots$ & $a_{0q}$ & $\cdots$ & $a_{0,n+m}$ \\
+		\hline
+		$x_{n+1}$ & $a_{10}$ & $a_{11}$ & $\cdots$ & $a_{1q}$ & $\cdots$ & $a_{1,n+m}$ \\
+		$x_{n+2}$ & $a_{20}$ & $a_{21}$ & $\cdots$ & $a_{2q}$ & $\cdots$ & $a_{2,n+m}$ \\
+		$\cdots$  & $\cdots$ & $\cdots$ & $\cdots$ & $\cdots$ & $\cdots$ & $\cdots$    \\
+		$x_{n+p}$ & $a_{p0}$ & $a_{p1}$ & $\cdots$ & $a_{pq}$ & $\cdots$ & $a_{p,n+m}$ \\
+		$\cdots$  & $\cdots$ & $\cdots$ & $\cdots$ & $\cdots$ & $\cdots$ & $\cdots$    \\
+		$x_{n+m}$ & $a_{m0}$ & $a_{m1}$ & $\cdots$ & $a_{mq}$ & $\cdots$ & $a_{m,n+m}$ \\
+		\hline
+	\end{tabular}
+\end{center}
+
+\begin{definition}
+	Симплексная таблица называется \emph{прямо допустимой}, если $a_{0j}\geqslant 0, \ j = \overline{1,n+m}$.
+\end{definition}
+
+\section{Проверка на оптимальность в симплекс-методе}
+
+\begin{enumerate}
+	\item[Шаг 1.] Проверка на оптимальность
+
+	      Если $a_{0j} \geqslant 0, \ j = \overline{1,n+m}$, то конец -- базисное решение $x$, соответствущее симплексной таблице, оптимально. Иначе переходим к шагу 2.
+\end{enumerate}
+
+\section{Проверка на неразрешимость в симплекс-методе}
+
+\begin{enumerate}
+	\item[Шаг 2.] Проверка на неразрешимость
+
+	      Если существует столбец с номером $q \in \{1,\ldots,n+m\}$ такой, что $a_{0q} < 0$, и $a_{iq} < 0, \ i = \overline{1,m}$, то конец -- задача ЛП неразрешима ($f(x)$ не ограничена сверху на множестве допустимых решений). Иначе переходим к шагу 3.
+\end{enumerate}
+
+\section{Выбор ведущего столбца в симплекс-методе}
+
+\begin{enumerate}
+	\item[Шаг 3.] Выбор ведущего стобца $q$
+
+	      Столбец с номером $q \in \{1,\ldots,n+m\}$ выбирается ведущим, если $a_{0q} < 0$. Если таких столбцов несколько, то выбирается любой из них. Переходим к шагу 4.
+\end{enumerate}

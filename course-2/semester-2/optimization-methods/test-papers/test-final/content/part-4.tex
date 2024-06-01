@@ -1,0 +1,95 @@
+\section{Выпуклое множество}
+
+\begin{definition}[Выпуклое множество]
+	Множество $D \subseteq \R^{n}$ называется \emph{выпуклым}, если вместе с любыми двумя его точками в множестве содержится отрезок, их соединящий:
+	\[
+		\forall x^{1}, x^{2} \in D, \ \forall \lambda \in (0,1) \quad x^{\lambda} = (1 - \lambda)x^{1} + \lambda x^{2} \in D.
+	\]
+\end{definition}
+
+\section{Выпуклая функция}
+
+\begin{definition}[Выпуклая функция]
+	Функция $f : D \rightarrow \R$ называется \emph{выпуклой}, если
+	\[
+		\forall x^{1},x^{2} \in D, \ \forall \lambda \in (0,1) \quad f \big((1-\lambda)x^{1} + \lambda x^{2}\big) \leqslant (1-\lambda)f(x^{1}) + \lambda f(x^{2}),
+	\]
+	где $D$ -- выпуклое множество.
+\end{definition}
+
+\section{Задача выпуклого программирования}
+
+\begin{task}[Выпуклого программирования]
+	\[
+		\left\{\begin{array}{l}
+			f(x) \rightarrow \min                       \\
+			\phi_i(x) \leqslant 0, \ i = \overline{1,m} \\
+			x \in G
+		\end{array}\right.
+	\]
+
+	Здесь $f,\phi_i$ -- выпуклые на множестве $G$, $G \subseteq \R^n$ -- выпуклое замкнутое множество.
+\end{task}
+
+\section{Условие Слейтера}
+
+\begin{note}[Условие $\exists$-я внутренней точки множества $D$]
+	$\exists \widetilde{x} \in G: \ \phi_i(\widetilde{x}) < 0 \ \forall i = \overline{1,m}$,
+	\[
+		D = \big\{x \in G \ | \ \phi_i(x) \leqslant 0, \ i = \overline{1,m}\big\} \text{ -- множество допустимых решений ЗВП}.
+	\]
+\end{note}
+
+\section{Теорема о градиенте и производной по направлению}
+
+\begin{theorem}
+	Если функция $f(x)$ дифференцируема в $x_0$, то
+	\[
+		f_{z}'(x_0) = \big(\nabla f(x_0),z\big).
+	\]
+\end{theorem}
+
+\section{Возможное направление}
+
+\begin{definition}[Возможное направление]
+	Направление $z$ называется \emph{возможным (допустимым)} направлением в точке $x^0 \in D$, если $\forall i \in I_0:$
+	\[
+		\big(\nabla \phi_i(x^0),z\big) < 0,
+	\]
+	\[
+		I_0 = \big\{i \ | \ \phi_i(x^0) = 0\big\} \text{ -- множество активных ограничений}.
+	\]
+\end{definition}
+
+\section{Прогрессивное направление}
+
+\begin{definition}[Прогрессивное направление]
+	Направление $z$ называется \emph{прогрессивным} в точке $x^0 \in D$, если
+	\[
+		\left\{\begin{array}{ll}
+			\big(\nabla \phi_i(x^0),z\big) & < 0 \\
+			\big(\nabls f(x^0),z\big)      & < 0
+		\end{array}\right., \quad i \in I_0.
+	\]
+\end{definition}
+
+\section{Критерий оптимальности задачи выпуклого программирования}
+
+\begin{theorem}
+	$x^* \in D$ -- оптимальное решение задачи ВП $\iff $ в точке $x^*$ не существует прогрессивного направления.
+\end{theorem}
+
+\section{Каноническая задача выпуклого программирования}
+
+\begin{definition}[Каноническая задача ВП]
+	Задача ВП называется \emph{канонической}, если её целевая функция линейна:
+	\[
+		f = (c,x) \rightarrow \min.
+	\]
+\end{definition}
+
+\section{Теорема Куна-Таккера о седловой точке}
+
+\begin{theorem}
+	$x^* \in G$ -- оптимальное решение задачи ВП $\iff \exists y^* \geqslant 0: \ (x^*,y^*)$ является седловой точкой, соответствующей функции Лагранжа.
+\end{theorem}

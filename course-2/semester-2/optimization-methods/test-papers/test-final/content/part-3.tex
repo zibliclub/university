@@ -1,0 +1,104 @@
+\section{Выбор ведущей строки в симплекс-методе}
+
+\begin{enumerate}
+	\item[Шаг 4.] Выбор ведущей строки $p$
+
+	      Строка с номером $p \in \{1,\ldots,m\}$ выбирается ведущей, если
+	      \[
+		      \frac{a_{p0}}{a_{pq}} = \underset{a_{iq} > 0}{\min}\frac{a_{i0}}{a_{iq}}.
+	      \]
+\end{enumerate}
+
+\section{Правило прямоугольника}
+
+\begin{definition}
+	Формулу
+	\[
+		a_{ij}' = \frac{a_{pj}}{a_{pq}}, \ i = \overline{0,n+m}
+	\]
+	называют \emph{правилом треугольника}.
+\end{definition}
+
+\section{Вспомогательная задача ЛП (в методе искусственного базиса)}
+
+\begin{definition}
+	В общем случае \emph{ВЗЛП} имеет вид:
+	\[
+		\begin{array}{l}
+			h(x,t) = -(t_1 + \ldots + t_m) \rightarrow \max \\
+			a_{11}x_1 + \ldots + a_{1n}x_n + t_1 = b_1,     \\
+			a_{21}x_1 + \ldots + a_{2n}x_n + t_2 = b_2,     \\
+			\vdots                                          \\
+			a_{m1}x_1 + \ldots + a_{mn}x_n + t_m = b_m,     \\
+			x_j \geqslant 0, \ j = \overline{1,n}; \ t_i \geqslant 0, \ i = \overline{1,m}.
+		\end{array}
+	\]
+\end{definition}
+
+\section{Пара двойственных задач ЛП}
+
+Рассмотрим пару задач ЛП следующего вида:
+\[
+	\begin{array}{lcl}
+		\qquad \qquad \qquad (\text{\RomanNumeralCaps{1}})                 &                     & \qquad \qquad (\text{\RomanNumeralCaps{2}})                      \\
+		f(x) = \sum_{j=1}^{n}c_jx_j \rightarrow \max                       & \longleftrightarrow & g(y) = \sum_{i=1}^{m}b_iy_i \rightarrow \min                     \\
+		\sum_{j=1}^{n}a_{ij}x_jjk \leqslant b_i, \quad i = \overline{1,k}, & \longleftrightarrow & y_i \geqslant 0, \quad i = \overline{1,k},                       \\
+		\sum_{j=1}^{n}a_{ij}x_jjk = b_i, \quad i = k + \overline{1,m},     & \longleftrightarrow & y_i \in R, \quad i = k + \overline{1,m},                         \\
+		x_j \geqslant 0, \quad j = \overline{1,l},                         & \longleftrightarrow & \sum_{i=1}^{m}a_{ij}y_i \geqslant c_j, \quad j = \overline{1,l}, \\
+		x_j \in R, \quad j = l + \overline{1,n}.                           & \longleftrightarrow & \sum_{i=1}^{m}a_{ij}y_i = c_j, \quad j = l + \overline{1,n}.
+	\end{array}
+\]
+
+\begin{definition}
+	Задачи (\RomanNumeralCaps{1}) и (\RomanNumeralCaps{2}) называются \emph{взаимно двойственными}, а ограничения задач, соответствующие друг другу, назваются \emph{сопряженными} (они отмечены стрелками).
+
+	Далее через $ \mathfrak{D}_\text{\RomanNumeralCaps{1}} $ и $ \mathfrak{D}_\text{\RomanNumeralCaps{2}} $ обозначим множества допустимых решений задач (\RomanNumeralCaps{1}) и (\RomanNumeralCaps{2}) соответственно.
+\end{definition}
+
+\section{Первая теорема двойственности}
+
+\begin{theorem}[Первая теорема двойственности]
+	Если одна из пары двойственных задач (\RomanNumeralCaps{1}),(\RomanNumeralCaps{2}) разрешима, то разрешима и другая задача, причем оптимальные значения целевых функций совпадают, то есть $ f(x^{*}) = g(y^*) $, где $ x^*,y^* $ -- оптимальные решения задач (\RomanNumeralCaps{1}) и (\RomanNumeralCaps{2}) соответственно.
+\end{theorem}
+
+\section{Первый критерий оптимальности}
+
+\begin{corollary}
+	$x^* \in \mathfrak{D}_\RomanNumeralCaps{1}$ является оптимальным $\iff \exists y^* \in D_{\RomanNumeralCaps{2}}:$
+	\[
+		f(x^*) = g(y^*).
+	\]
+\end{corollary}
+
+\section{Условия дополняющей нежесткости}
+
+\begin{definition}
+	Говорят, что решения $ x \in \mathfrak{D}_\text{\RomanNumeralCaps{1}}, \ y \in \mathfrak{D}_\text{\RomanNumeralCaps{2}} $ удовлетворяют \emph{условиям дополняющей нежесткости (УДН)}, если при подстановке этих векторов в любую пару сопряженных неравенств хотя бы одно из них обращается в равенство.
+
+	Это означает, что если вектора $ x,y $ удовлетворяют УДН, то следующие \emph{характеристические произведения} равны нулю:
+	\[
+		\left(\sum_{j=1}^{n}a_{ij}x_j - b_i\right)y_i = 0, \quad i = \overline{1,k}, \qquad x_j \left(\sum_{i=1}^{m}a_{ij}y_i - c_j\right) = 0, \quad j = \overline{1,l}.
+	\]
+\end{definition}
+
+\section{Вторая теорема двойственности}
+
+\begin{theorem}[Вторая теорема двойственности]
+	Решения $ x \in \mathfrak{D}_\text{\RomanNumeralCaps{1}}, \ y \in \mathfrak{D}_\text{\RomanNumeralCaps{2}} $ оптимальны в задачах (\RomanNumeralCaps{1}),(\RomanNumeralCaps{2}) $ \iff $ они удовлетворяют УДН.
+\end{theorem}
+
+\section{Второй критерий оптимальности (не уверен что он)}
+
+\begin{corollary}
+	Вектор $x \geqslant \overline{0}$ является решением ЗКП $\iff \exists \ m$-мерные $y \geqslant \overline{0}, \ u \geqslant \overline{0}$ и $n$-мерный $v \geqslant \overline{0}$:
+	\begin{enumerate}
+		\item $2 \sum_{i=1}^{n}c_{ij}x_j + \sum_{i=1}^{n}a_{ij}y_i - v_j = -p_j, \ i = \overline{1,n}$.
+		\item $\sum_{j=1}^{n}a_{ij}x_j + u_i = b_i, \ i = \overline{1,m}$.
+		\item $x_jv_j = 0, \ j = \overline{1,n}$.
+		\item $y_iu_i = 0, \ i = \overline{1,m}$.
+	\end{enumerate}
+\end{corollary}
+
+\section{Третья теорема двойственности}
+
+content
