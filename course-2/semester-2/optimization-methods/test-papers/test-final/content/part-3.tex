@@ -14,9 +14,9 @@
 \begin{definition}
 	Формулу
 	\[
-		a_{ij}' = \frac{a_{pj}}{a_{pq}}, \ i = \overline{0,n+m}
+		a_{ij}' = a_{ij} - \frac{a_{iq}}{a_{pq}} = \frac{a_{ij}a_{pq} - a_{iq}a_{pj}}{a_{pq}},
 	\]
-	называют \emph{правилом треугольника}.
+	где $i = \overline{0,m}, \ j = \overline{0,n+m}, \ i\ne p$ называют \emph{правилом треугольника}.
 \end{definition}
 
 \section{Вспомогательная задача ЛП (в методе искусственного базиса)}
@@ -87,17 +87,9 @@
 	Решения $ x \in \mathfrak{D}_\text{\RomanNumeralCaps{1}}, \ y \in \mathfrak{D}_\text{\RomanNumeralCaps{2}} $ оптимальны в задачах (\RomanNumeralCaps{1}),(\RomanNumeralCaps{2}) $ \iff $ они удовлетворяют УДН.
 \end{theorem}
 
-\section{Второй критерий оптимальности (не уверен что он)}
+\section{Второй критерий оптимальности}
 
-\begin{corollary}
-	Вектор $x \geqslant \overline{0}$ является решением ЗКП $\iff \exists \ m$-мерные $y \geqslant \overline{0}, \ u \geqslant \overline{0}$ и $n$-мерный $v \geqslant \overline{0}$:
-	\begin{enumerate}
-		\item $2 \sum_{i=1}^{n}c_{ij}x_j + \sum_{i=1}^{n}a_{ij}y_i - v_j = -p_j, \ i = \overline{1,n}$.
-		\item $\sum_{j=1}^{n}a_{ij}x_j + u_i = b_i, \ i = \overline{1,m}$.
-		\item $x_jv_j = 0, \ j = \overline{1,n}$.
-		\item $y_iu_i = 0, \ i = \overline{1,m}$.
-	\end{enumerate}
-\end{corollary}
+content
 
 \section{Третья теорема двойственности}
 

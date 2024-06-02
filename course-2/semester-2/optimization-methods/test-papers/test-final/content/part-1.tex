@@ -18,7 +18,7 @@
 		\sum_{j=1}^{n}a_{ij}x_{j} \geqslant b_{i}, \quad i = k + \overline{1,l},
 	\end{equation}
 	\begin{equation}\label{eq:1.4}
-		\sum_{j=1}^{n}a_{ij}x_{j} \geqslant b_{i}, \quad i = l + \overline{1,m},
+		\sum_{j=1}^{n}a_{ij}x_{j} = b_{i}, \quad i = l + \overline{1,m},
 	\end{equation}
 	\begin{equation}\label{eq:1.5}
 		x_{j} \geqslant 0, \quad j \in J \subseteq \{1,\ldots,n\},
@@ -56,15 +56,23 @@
 
 \section{Каноническая задача ЛП (КЗЛП)}
 
-\begin{theorem}
-	Для любой задачи ЛП существует эквивалентная ей \emph{каноническая} задача ЛП.
-\end{theorem}
+\[
+	\begin{array}{l}
+		f(x) = c_0 + \sum_{j=1}^{n}c_jx_j \rightarrow \max   \\
+		\sum_{j=1}^{n}a_{ij}x_j = b_i, \ i = \overline{1,m}, \\
+		x_j \geqslant 0, \ j = \overline{1,n}.
+	\end{array}
+\]
 
 \section{Симметричная задача ЛП}
 
-\begin{theorem}
-	Для любой задачи ЛП существует эквивалентная ей \emph{стандартная (симметричная)} задача ЛП.
-\end{theorem}
+\[
+	\begin{array}{l}
+		f(x) = c_0 + \sum_{j=1}^{n}c_jx_j \rightarrow \max           \\
+		\sum_{j=1}^{n}a_{ij}x_j \leqslant b_i, \ i = \overline{1,m}, \\
+		x_j \geqslant 0, \ j = \overline{1,n}.
+	\end{array}
+\]
 
 \section{Эквивалентность задач ЛП}
 

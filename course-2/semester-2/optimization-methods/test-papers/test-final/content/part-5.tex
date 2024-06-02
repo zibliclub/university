@@ -3,21 +3,19 @@
 \begin{theorem}
 	$x^* \geqslant 0$ является решением ЗВП ($I$) $\iff \exists y^* \geqslant 0$:
 	\begin{enumerate}
-		\item $\nabla_x(x^*,y^*)\geqslant \overline{0}$, то есть $\frac{\partial L(x,y^*)}{\partial x_j}\Big|_{x=x^*} \geqslant 0, \ j = \overline{1,n}$.
+		\item $\nabla_x L(x^*,y^*)\geqslant \overline{0}$, то есть $\frac{\partial L(x,y^*)}{\partial x_j}\Big|_{x=x^*} \geqslant 0, \ j = \overline{1,n}$.
 		\item $\big(x^*,\nabla_x L(x^*,y^*)\big) = 0$, то есть $x_{j}^{*}\cdot \frac{\partial L(x,y^*)}{\partial x_j}\Big|_{x=x^*}=0, \ j = \overline{1,n}$.
 		\item $\nabla_y L(x^*,y^*)\leqslant \overline{0}$, то есть $\phi_i(x^*)\leqslant 0, \ i = \overline{1,m}$.
 		\item $\big(y^*,\nabla_y L(x^*,y^*)\big) = 0$, то есть $y_{i}^{*} \phi(x^*) = 0, \ i = \overline{1,m}$.
 	\end{enumerate}
 \end{theorem}
 
-\newpage
-
 \section{Теорема Куна-Таккера в дифференциальной форме 2}
 
 \begin{theorem}
 	Точка $x^* \in \R^n$ является оптимальной точкой задачи $(II) \iff \exists y^*\geqslant 0$:
 	\begin{enumerate}
-		\item $\nabla_y L(x^*,y^*) = \overline{0}$, то есть $\frac{\partial L(x,y^*)}{\partial x_j}\Big|_{x=x^*}\geqslant 0, \ j = \overline{1,n}$.
+		\item $\nabla_x L(x^*,y^*) = \overline{0}$, то есть $\frac{\partial L(x,y^*)}{\partial x_j}\Big|_{x=x^*}\geqslant 0, \ j = \overline{1,n}$.
 		\item $\nabla_y L(x^*,y^*)\leqslant 0$, то есть $\frac{\partial L(x^*,y)}{\partial y_i}\Big|_{y=y^*} = \phi_i(x^*)\leqslant 0$.
 		\item $\big(\nabla_y L(x^*,y^*),y^*\big)=0$, то есть $\phi_i(x^*)y_{i}^{*} = 0, \ i = \overline{1,m}$.
 	\end{enumerate}
@@ -51,8 +49,6 @@
 		      \]
 	\end{enumerate}
 \end{definition}
-
-\newpage
 
 \section{Отсечение Гомори}
 
@@ -96,8 +92,6 @@
 	\]
 	называется \emph{задачей квадратичного программирования}.
 \end{definition}
-
-\newpage
 
 \section{Критерий оптимальности для задачи квадратичного программирования}
 
