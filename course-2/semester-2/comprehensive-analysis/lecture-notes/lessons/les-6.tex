@@ -1,47 +1,261 @@
-\lesson{5}{от 21 мар 2024 12:45}{Продолжение}
+\newpage
 
+\lesson{6}{от 21 мар 2024 12:45}{Продолжение}
+
+
+\section{Ряды Тейлора и Лорана. Элементы теории вычетов}
+
+\subsection{Разложение голоморфной функции в ряд Тейлора}
 
 \begin{theorem}
-  $ f=u_iv $ у и в вещественные мнимые части комлпексной функции ф, если у и в непрерывно дифференцируемы в функции и в этой области в точке консерватизм угло
+	Пусть $f \in \mathcal{H}(D)$. Тогда $\forall z_0 \in D \ \exists r > 0$: при $\abs{z-z_0} < r$
+	\[
+		f(x) = \sum_{n=0}^{\infty } \frac{f^{(n)} (z_0)}{n!} (z - z_n)^n.
+	\]
 \end{theorem}
 
+\begin{corollary}
+	$\mathcal{H}(D) = \mathcal{A}(D)$.
+\end{corollary}
 
 \begin{theorem}
-  $ f = u+iv $ если функции у и в непрерывно дифференцируемы в области и в этой области функция ф обладает свойством постоянства искажения масштаба, то фунцкия ф голоморфна или антиголоморфна.
+	Пусть $f$ голоморфна в $B_r(z_0) \ \forall z \in B_r(z_0) \ f(z) = \sum_{n=0}^{\infty } C_n (z-z_0)^n$.
+
+	Тогда $\forall n \in \overline{\N}$
+	\[
+		C_n = \frac{1}{2\pi i} \int_{\abs{\xi -z_0} = \rho} \frac{f(z)}{(\xi - z_0)^{n+1} } \d \xi \quad \forall \rho \in (0,r).
+	\]
+
+	То есть любой степенной ряд является рядом Тейлора для своей суммы.
 \end{theorem}
 
-Функция антиголоморфна, если голоморфны ее сопряженные.
+\begin{proof}
+	Радиус сходимости $\geqslant r, \ \rho \in (0 ; r)$.
 
-\begin{definition}
-  Говорят, что фунцкия $ f $ голоморфна (моногенна) в бесконечно удаленной точке, если функция $ g(z) := f \left(\frac{1}{z}\right) $ голоморфна (моногенна) в нуле.
-  \[
-      f(z) = \frac{1}{z}, \quad g(z) = f \left(\frac{1}{z}\right) = z.
-  \]
+	$\abs{z-z_0} = \rho \implies $ ряд сходится, рассмотрим:
+	\begin{multline*}
+		f(z) = \frac{1}{2\pi i} \int_{\abs{\xi -z_0}= \rho } \frac{f(\xi )}{(\xi -z_0)^{k+1} } \d \xi = \\
+		= \frac{1}{2\pi i} \int_{\abs{\xi -z_0} = \rho } \frac{\sum_{n=0}^{\infty } C_n(\xi -z_0)^n}{(\xi -z_0)^{k+1} } \d \xi = \\
+		= -\frac{k!}{2\pi i} \cdot C_k \cdot 2\pi i = C_n \cdot k!,
+	\end{multline*}
+	\[
+		C_k = \frac{f^{(k)} (z_0)}{k!} .
+	\]
+\end{proof}
+
+\begin{theorem}[Неравенство Коши]
+	Пусть $f$ голоморфна в $D$ и $B_r[z_0] \subset D, \ f(z) = \sum_{n=0}^{\infty } C_n(z-z_0)^n$.
+
+	Пусть $M \coloneq \underset{\abs{z-z_0} \leqslant r}{\sup} \big|f(z)\big|$. Тогда $\forall n \in \overline{\N} \ \abs{C_n}  \leqslant \frac{M}{r^n} $.
+\end{theorem}
+
+\begin{definition}[Предельная точка]
+	Точка называется \emph{предельной точкой множества}, если в любой ее окрестности есть точки множества, отличные от данной.
 \end{definition}
 
-\begin{note}
-    \[
-        df(z_0): \ \Comp \ni h \rightarrow f^{(z_0)}\cdot h \in \Comp.
-    \]
-    \[
-        d f(z_0) = f^{(z_0)}dz,
-    \]
-    \[
-        f(z)=z, \quad \Comp\ni h \rightarrow h \in \Comp,
-    \]
-    \[
-        \forall z \in \Comp f^{(z)} \ f^{(z)} = 1,
-    \]
-    \[
-        d f(z_0) (h) = f^{(z_0)}\cdot h,
-    \]
-\end{note}
+\begin{corollary}
+	Любые две аналитические в области функции, совпадающие на множестве, имеющем в этом множестве предельную точку, тождественно равны.
+\end{corollary}
 
-\begin{note}[Правила дифференцирования]\leavevmode
-  \begin{enumerate}
-      \item $ \forall \alpha,\beta \in \Comp \quad (\alpha f + \beta g)^{'} = \alpha \cdot f^{'} + \beta \cdot g^{'} $;
-  \end{enumerate} 
-\end{note}
+\subsection{Ряды Лорана}
 
-\subsection{Дробно линейные отображения}
+\begin{definition}[Ряд Лорана]
+	\emph{Рядом Лорана} называется степенной ряд вида $\sum_{n=-\infty }^{\infty } C_n(z-z_0)^n$. Ряд Лорана раскладывается на сумму двух рядов:
+	\[
+		\sum_{n=-\infty }^{\infty } C_n (z-z_0)^n \coloneq \sum_{n=0}^{\infty } C_n (z-z_0)^n + \sum_{n=1}^{\infty } C_{-n} (z-z_0)^{-n} .
+	\]
 
+	Ряд Лорана сходится $\iff $ сходятся обе его составляющие.
+
+	Область сходимости ряда Лорана: $0 \leqslant r < \abs{z-z_0} < R \leqslant +\infty $.
+\end{definition}
+
+\begin{theorem}[О ряде Лорана]
+	Если функция $f$ голоморфна в кольце $r < \abs{z-z_0} < R$, то в этом кольце она разлагается в ряд Лорана.
+
+	$f(z) = \sum_{n=-\infty }^{\infty } C_n(z-z_0)^n$ с коэфициентами $C_n$, определяемыми формулами:
+	\[
+		C_n = \frac{1}{2\pi i} \int_{\abs{\xi -z_0} = \rho} \frac{f(\xi )}{(\xi -z_0)^{n+1} } \d \xi \quad \forall \rho \in (r,R).
+	\]
+\end{theorem}
+
+\subsection{Классификация изолированных особых точек}
+
+\begin{definition}[Правильная точка]
+	Точка $z_0 \in \dom f$ называется \emph{правильной} точкой функции $f$, если $f$ определена в некоторой области и непрерывна в самой функции.
+\end{definition}
+
+\begin{definition}[Особая точка]
+	\emph{Особой} точкой функции называется предельная точка ее области определения, этой области не принадлежащая.
+\end{definition}
+
+\begin{definition}[Изолированная особая точка]
+	Особая точка называется \emph{изолированной} особой точкой, если в некоторой ее окрестности других особых точек нет.
+\end{definition}
+
+\begin{remark}
+	Особая точка функции называется изолированной, если в проколотой окрестности этой точки функция голоморфна.
+\end{remark}
+
+\begin{eg}
+	\[
+		f(z) = \frac{1}{\sin \frac{1}{z} },
+	\]
+
+	$z_0 = 0$ -- особая точка,
+
+	$\sin \frac{1}{z} = 0 \implies  \frac{1}{z} = \pi k, \ k \in Z$,
+
+	$z_k = \frac{1}{\pi k} , \ k \in \Z$ -- особые точки,
+
+	\[
+		\frac{1}{\pi(k+1)} < \frac{1}{\pi k} < \frac{1}{\pi (k-1)}.
+	\]
+\end{eg}
+
+\begin{theorem}[О путях и полюсах]
+	Изолированная особая точка $z_0$ функции $f$ является полюсом порядка $m$ функции $f \iff $ она является путем $m$-го порядка функции $\rho (z)= \frac{1}{f(x)} $.
+\end{theorem}
+
+\begin{proof}
+	Самостоятельно.
+\end{proof}
+
+\begin{theorem}[Сохоцкий]
+	Изолированная особая точка функции является существенно особой точкой $\iff $ в любой ее окрестности функция принимает значения сколь угодно близкие к любому числу $a \in \overline{\C} $.
+\end{theorem}
+
+\begin{definition}[$A$-точка]
+	Пусть $A \in \C$, точка $z$ называется \emph{$A$-точкой} функции $f$, если $f(z) = A$.
+\end{definition}
+
+\begin{theorem}[Большая теорема Пикара]
+	В окрестности существенно особой точки $z_0$ голоморфной функции $f \ \forall A \in \C$, за исключением быть может одного, существует последовательность $A$-точек функции $f$, сходящаяся к точке $z_0$.
+\end{theorem}
+
+\subsection{Вычеты}
+
+\begin{definition}[Вычет функции относительно точки]
+	Если $z_0$ -- изолированная особая точка функции $f$, то \emph{вычетом} $f$ относительно $z_0$ называется интеграл $\frac{1}{2\pi i} \int_{\gamma } f(z)\d z$, где $\gamma $ -- произволный контур, ограничивающий область $D$: $f$ непрерывна в $\cl D \setminus \{z_0\}$ и голоморфна в $D \setminus \{z_0\}$, то есть в качестве $\gamma $ можно брать любую окрестность сколь угодно малого радиуса с центром в точке $z_0$.
+	\begin{notation}
+		$\Res f\big|_{z=z_0}\coloneq \frac{1}{2\pi i} \int_{\gamma } f(z)\d z$.
+	\end{notation}
+\end{definition}
+
+\begin{theorem}[Основная теорема теории вычетов]
+	Пусть $\gamma $ -- замкнутый контур, ограничивающий односвязную область $D$, функция $f$ непрерывна на $\cl D = D \cup \gamma $ и голоморфна внутри $D$, за исключением конечного числа точек. Тогда:
+	\[
+		\int_{\gamma } f(z)\d z = 2\pi i \sum_{k=1}^{m} \underset{z_k}{\Res} f.
+	\]
+\end{theorem}
+
+\begin{proof}
+	$m = 3$,
+	\begin{figure}[H]
+		\centering
+		\incfig[0.7]{fig-16}
+		\label{fig:fig-16}
+	\end{figure}
+	\[
+		\Gamma = \gamma \cup \gamma_{1}^{-} \cup \gamma_{2}^{-} \cup \gamma_{3}^{-},
+	\]
+	\[
+		\int_{\Gamma } f(z)\d z = 0 = \int_{\gamma } f(z)\d z - \int_{\gamma _1} f(z)\d z - \int_{\gamma _2} f(z)\d z - \int_{\gamma _3} f(z)\d z.
+	\]
+\end{proof}
+
+\begin{theorem}[О сумме вычетов]
+	Если функция голоморфна в $\overline{\C} $, за исключением конечного числа изолированных о.т., то
+	\[
+		\sum_{k=0}^{m} \underset{z_k}{\Res} f = 0.
+	\]
+\end{theorem}
+
+\subsection{Вычисление интегралов}
+
+\begin{definition}
+	Главным значнием по Коши интеграла $\int_{-\infty }^{+\infty } f(x)dx$ называется
+	\[
+		\underset{R \rightarrow \infty }{\lim} \int_{-R}^{R} f(x)\d x \eqcolon Vp \int_{-\infty }^{\infty } f(x)\d x.
+	\]
+\end{definition}
+
+\begin{remark}
+	Если несобственный интеграл $\int_{-\infty }^{\infty } f(x)\d x$ сходится, то его значение совпадает с его главным значением по Коши, Обратно неверно.
+\end{remark}
+
+\begin{lemma}
+	Пусть
+	\begin{enumerate}
+		\item Для некоторого $R_0 > 0$ функция $f$ непрерывна при $\abs{z} > R_0$ и $\Im z \geqslant 0$.
+		\item $\underset{R \rightarrow \infty }{\lim} \underset{z \in \gamma _R}{\sup} \big|zf(z)\big| = 0$.
+	\end{enumerate}
+
+	Тогда $\underset{R \rightarrow \infty }{\lim} \int_{\gamma_R } f(z)\d z = 0$.
+\end{lemma}
+
+\begin{lemma}[Жордана]
+	Пусть $\alpha >0$,
+	\begin{enumerate}
+		\item Для некоторого $R_0 > 0$ функция $f$ непрерывна при $\abs{z} > R_0$ и $\Im z \geqslant 0$.
+		\item $\underset{R \rightarrow \infty }{\lim} \underset{z \in \gamma _A}{\sup} \big|f(z)\big| = 0$.
+	\end{enumerate}
+
+	Тогда $\underset{R \rightarrow \infty }{\lim} \int_{\gamma R} e^{i \alpha z} f(z)\d z = 0$.
+\end{lemma}
+
+\newpage
+
+\subsection{Гармонические функции}
+
+\begin{definition}[Гармоническая функция]
+	Определенная в односвязной области $D \subset \R^2$ функция $u(x,y)$ называется \emph{гармонической функцией}, если $u \in C^2(D)$ и
+	\[
+		\triangle u \coloneq \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \equiv 0,
+	\]
+	где $\triangle$ -- оператор Лапласа.
+\end{definition}
+
+\begin{theorem}
+	Если функция $f$ голоморфна в односвязной области $D \subset \C$, то ее вещественная и мнимая части являются гармоническими функциями в этой области.
+\end{theorem}
+
+\begin{proof}
+	\[
+		f(z) = f(x + iy) = u(x,y) + iv(x,y),
+	\]
+	\[
+		\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y} , \ \frac{partial u}{\partial y} = - \frac{\partial v}{\partial x},
+	\]
+	\[
+		\frac{partial^2 u}{\partial y^2}  = \frac{\partial}{\partial y} \left(\frac{\partial u}{\partial y} \right) = \frac{\partial}{\partial y} \left(-\frac{\partial v}{\partial x} \right) = - \frac{\partial^2 v}{\partial y \partial x} .
+	\]
+
+	Получаем, что смеш. производные непрерывны, зачит они равны $\implies \frac{\partial^2u}{\partial x^2} + \frac{\partial^2u}{\partial y^2} \equiv 0 \implies $ вещественная и мнимая части являются гармоническими.
+\end{proof}
+
+\subsection{Целые и мероморфные функции}
+
+\begin{definition}[Целая функция]
+	Голоморфная в $\C$ функция называется \emph{целой функцией}. Целая функция называется \emph{трансцендентной}, если бесконечность является ее существенно о.т.
+\end{definition}
+
+\begin{definition}[Мероморфная функция]
+	Функция, голоморфная в области $D$ всюду, за исключением полюсов, называется \emph{мероморфной} в этой области функцией.
+\end{definition}
+
+\begin{theorem}[О мероморфной функции]
+	Если $\infty $ является устранимой о.т. мероморфной функции, то данная функция является частным двух многочленов, то есть является рациональной функцией.
+\end{theorem}
+
+\begin{proof}
+	$\infty $ -- изолированная о.т. (в силу условия), $z_1,\ldots,z_n$ -- конечное число оптимальных точек.
+
+	\[
+		f(z) = h(z) + \sum_{k=1}^{m} f_k \left(\frac{1}{z - z_0} \right),
+	\]
+	\[
+		\underset{z \rightarrow \infty }{\lim} f(z) = C_0, \quad \underset{z \rightarrow \infty }{\lim} h(z) = C_0
+	\]
+	$\implies h = const$ (по теореме Лиувиля) $\implies f(z) = C_0 + \sum_{k=1}^{m} f_k \left(\frac{1}{z-z_k} \right) = \frac{P(z)}{Q(z)} $.
+\end{proof}

@@ -1,1 +1,354 @@
 \lesson{4}{от 7 мар 2024 12:45}{Продолжение}
+
+
+\begin{corollary}
+	Для любого $\sum_{n=0}^{\infty}a_n(z-z_0)^n \ R = \frac{1}{l} $, где $l \coloneq \overline{\lim} \sqrt[n]{\abs{a_n} } $.
+\end{corollary}
+
+\begin{remark}
+	Если $\exists \underset{n \rightarrow \infty }{\lim} \frac{\abs{a_n} }{\abs{a_{n+1} } } $, то этот предел равен $R$ (радиусу сходимости).
+\end{remark}
+
+\begin{theorem}[О непрерывности степенного ряда]
+	Пусть $R$ -- радиус сходимости степенного ряда $\sum_{n=0}^{\infty } a_n(z-z_0)^n$. Тогда $\forall r \in (0 ; R )$ равномерно абсолютно сходится при $\abs{z - z_0} \leqslant r$.
+\end{theorem}
+
+\begin{proof}
+	\[
+		\sum_{n=0}^{\infty }\big|a_n(z-z_0)\big|^n \leqslant \sum_{n=0}^{\infty } \abs{a_n} \cdot r^n < +\infty,
+	\]
+	исходный ряд сходится равномерно по признаку Вейерштрасса.
+\end{proof}
+
+\begin{corollary}
+	Каждый степенной ряд непрерывен внутри своего круга сходимости.
+\end{corollary}
+
+\begin{note}
+	$\big\{z \in \C: \ \abs{z - z_0} < R\big\}$ -- круг сходимости.
+\end{note}
+
+\begin{theorem}
+	Пусть $R$ -- радиус сходимости $\sum_{n=0}^{\infty } a_n(z-z_0)^n$. Предположим, что $\abs{z_1 - z_0} < R$. Тогда $\exists \{b_n\}_{n\in\N} \subset \C:$
+	\[
+		\sum_{n=0}^{\infty } b_n(z-z_1)^n = \sum_{n=0}^{\infty } a_n(z-z_0)^n
+	\]
+	при $\abs{z-z_1} < \dist \big(z_1,\big\{w \in \C: \ \abs{w - z_0} =R\big\}\big)$.
+	\begin{figure}[H]
+		\centering
+		\incfig[0.7]{fig-10}
+		\label{fig:fig-10}
+	\end{figure}
+\end{theorem}
+
+\begin{remark}
+	Свойства ряда $\sum_{n=0}^{\infty } a_n(z-z_0)^n, \ \abs{z-z_0} <R$ идентичны свойствам ряда $\sum_{n=0}^{\infty } a_nw^n, \ \abs{w} <R$.
+\end{remark}
+
+\begin{theorem}[Вторая теорема Абеля]
+	Если ряд $\sum_{n=0}^{\infty } a_n(z-z_0)^n$ сходится в точке $z_1 \ne z_0$ и $S(z)$ -- его сумма при $\abs{z-z_0} < \abs{z_1-z_0} $, то
+	\[
+		\underset{z \rightarrow z_0}{\lim} S(z) = S(z_1) \coloneq \sum_{n=0}^{\infty } a_n(z_1 - z_0)^n
+	\]
+	при стремлении $z$ к $z_1$ по любому пути, заключенному между двумя хордами к окружности $\abs{z-z_0}  = \abs{z_1-z_0} $, исходящими из точки $z_1$.
+	\begin{figure}[H]
+		\centering
+		\incfig[0.7]{fig-11}
+		\label{fig:fig-11}
+	\end{figure}
+	\[
+		[z_0,z_1) \ni z \rightarrow z_1, \quad z - z_0 \eqcolon (z_1 - z_0)t, \ 0 \leqslant t < 1.
+	\]
+\end{theorem}
+
+\[
+	e^z \coloneq \sum_{n=0}^{\infty } \frac{z^n}{n!},
+\]
+\[
+	\begin{array}{l}
+		\sin z \coloneq \sum_{n=0}^{\infty } (-1)^n \cdot \frac{z^{2n+1} }{(2n+1)!} , \\
+		\cos z \coloneq \sum_{n=0}^{\infty } (-1)^n \frac{z^{2n} }{(2n)!} ,
+	\end{array}
+	\quad \forall z \in \C \ e^{iz} = \cos z + i\sin z.
+\]
+
+\begin{theorem}[Единственность]
+	Если ряд $\sum_{k=0}^{\infty } a_nz^n$ и $\sum_{k=0}^{\infty }b_nz^n $ сходятся в круге $\abs{z} < R \ne 0$ и в точках ненулевой плоскости $\{z_k\}_{k \in \N} $, лежащей в этом круге и сходящейся к нулю, суммы этих рядов совпадают, то $\forall n \in \overline{\N} a_n = b_n$.
+\end{theorem}
+
+\begin{proof}
+	\[
+		\begin{array}{l}
+			\forall k \in \N \ \sum_{n=0}^{\infty } a_nz_{k}^{n} = \sum_{n=0}^{\infty } b_nz_{k}^{n}, \ z_k \xrightarrow[k \rightarrow \infty ]{} 0 \implies a_0 = b_0,       \\
+			\forall k \in \N \ \sum_{n=1}^{\infty } a_n z_{k}^{n-1} = \sum_{n=1}^{\infty } b_n z_{k}^{n-1} , \ z_k \xrightarrow[k \rightarrow \infty ]{0} \implies a_1 = b_1, \\
+			\vdots
+		\end{array}
+	\]
+\end{proof}
+
+\subsection{Дифференцируемые и конформные отображения}
+
+\begin{definition}[Дифференцируемое отображение]
+	Отображение $f:\C \rightarrow \C$, определенное в некоторой окрестности точки $z_0 \in \C$, называется \emph{дифференцируемым} в этой точке, если $\exists a \in \C: \ \forall z$ достаточно близких к $z_0$ справедливо равенство:
+	\[
+		f(z) - f(z_0) = a \cdot (z-z_0) + o(z - z_0).
+	\]
+\end{definition}
+
+\begin{remark}
+	Из определния вытекает, что дифференциемость функции в точке равносильна существованию $\underset{z \rightarrow z_0}{\lim} \frac{f(z)- f(z_0)}{z - z_0} \in \C$.
+\end{remark}
+
+\begin{definition}[Голоморфная функция]
+	Функция называется \emph{голоморфной} в точке, если она моногенна в некоторой ее окрестности, то есть она ???.
+\end{definition}
+
+\begin{definition}[Регулярная функция]
+	Функция называется \emph{регулярной} в точке, если она имеет в этой точке конечную производную, отличную от 0.
+\end{definition}
+
+\begin{remark}
+	$f(z) = f(x + iy) = \equalto{u(x,y)}{\Re f} + i \equalto{v(x,y)}{\Im f}$,
+	\begin{multline*}
+		\underset{z \rightarrow z_0}{\lim} \frac{f(z)-f(z_0)}{z-z_0}  = \\
+		= \underset{\triangle x \rightarrow 0}{\lim} \frac{u(x_0 + \trianglex,y_0) + i v(x_0 + \triangle x, y_0) - u(x_0,y_0 - iv(x_0,y_0))}{\triangle x} = \\
+		= \frac{\partial u}{\partial x}(x_0,y_0) + i \frac{\partial v}{\partial x} (x_0,y_0),
+	\end{multline*}
+	\[
+		z = x_0 + \triangle x + iy_0.
+	\]
+\end{remark}
+
+\begin{eg}
+	$f(z) = f(x+iy) = x + 2iy$,
+	\[
+		\frac{\partial u}{\partial x} = 1 \ne \frac{\partial v}{\partial y} = 2.
+	\]
+\end{eg}
+
+\begin{theorem}
+	Если вещественная и мнимая части функции $f$ дифференцируемы в точке $(x_0,y_0)$ и в этой точке выполнены условия Коши-Римана, то $f$ монотонна в $z_0 = x_0 + iy_0$.
+\end{theorem}
+
+\begin{remark}
+	Предположим, что $f$ дифференцируема в точке $z_0$ и $f' (z_0) \ne 0$ (другими словами, $f$ регулярна в точке $z_0$)
+	\[
+		\triangle w = f(z) - f(z_0), \ \triangle z = z - z_0,
+	\]
+	\[
+		\underset{\triangle z \rightarrow 0}{\lim} \frac{\triangle w}{\triangle z} = f'(z_0) \implies \underset{\triangle z \rightarrow 0}{\lim} \left|\frac{\triangle w}{\triangle z} \right| = \big|f'(z_0)\big| \ne 0,
+	\]
+	\[
+		\left|\frac{\triangle w}{\triangle z} \right| \approx \big|f'(z_0)\big|.
+	\]
+
+	Это свойство называется \emph{постоянством искажения масштаба}.
+	\[
+		\triangle w \approx f'(z_0) \cdot \triangle z, \quad \arg\triangle w = \arg f' (z_0) + \arg \triangle z.
+	\]
+\end{remark}
+
+\begin{definition}[Конфорное отображение]
+	$f : D \rightarrow \C$ называется \emph{конфорным отображением}, если оно является гомеоморфизмом и оно конфорно в каждой точке области $D$, то есть в каждой точки области $D$ сохраняется постоянство изменения масштаба.
+\end{definition}
+
+\begin{definition}[Голоморфная функция]
+	Функция называется \emph{голоморфной в области}, если она моногенна в каждой точке этой области.
+\end{definition}
+
+\begin{definition}[Одноместная функция]
+	Если комплексная функция взаимнооднозначна в некоторой области, то она называется \emph{одноместной в этой области}.
+
+	Если $f$ определена в $D \ \forall z_1,z_2 \in D$ из $f(z_1) = f(z_2) \implies z_1 = z_2$.
+\end{definition}
+
+\begin{theorem}
+	Каждое конфорное в области отображение гомеоморфно и ???
+\end{theorem}
+
+\begin{theorem}
+	Каждое одноместное гомеоморфное и регулярное отображение является конфорным отображением в этой области.
+\end{theorem}
+
+\begin{theorem}[О голоморфной сумме степенного ряда]
+	Пусть ряд \\ $\sum_{n=0}^{\infty } a_nz^n$ сходится в круге $\abs{z} < R \ne 0$ и $S(z)$ -- его сумма в этом круге. Тогда $S$ голоморфна при $\abs{z} < R$ и $S' (z) = \sum_{n=1}^{\infty } na_n z^{n-1} $ при $\abs{z} < R$.
+\end{theorem}
+
+\begin{corollary}
+	Сумма каждого степенного ряда в круге его сходимости бесконечно дифференцируема.
+\end{corollary}
+
+\begin{definition}[Аналитическая функция]
+	Функция называется \emph{аналитической} в области, если в некоторой окружности каждой точки этой области она раскладывается в степенной ряд,
+	\[
+		f(z) = \sum_{n=0}^{\infty } a_n(z - z_0)^n, \quad \abs{z-z_0} < r, \quad \{a_n\}_{n \in \overline{\N} } \subset \C,
+	\]
+	\begin{figure}[H]
+		\centering
+		\incfig[0.7]{fig-12}
+		\label{fig:fig-12}
+	\end{figure}
+\end{definition}
+
+\begin{corollary}
+	Каждая аналитическая функция бесконечно дифференцируема.
+\end{corollary}
+
+\begin{remark}
+	Каждая голоморфная в области функция является аналитической.
+\end{remark}
+
+\begin{definition}[Антикофорное отображение]
+	Отображение называется \emph{антиконфорным} или конфорным отображением второго рода в области, если в каждой точке этой области имеет место постоянство искажения масштаба и ... квасиконсерватсум углов.
+\end{definition}
+
+\begin{definition}[Антианалитическое отображение]
+	Отображение называется \emph{антианалитическим} в области, если его сопряженное аналитично в этой области.
+\end{definition}
+
+\begin{theorem}
+	$u$ и $v$ -- вещественная и мнимая части комплексного числа $f=u+iv$. Если $u$ и $v$ непрерывно дифференцируемы в этой области и в каждой точке этой области для функции $f$ имеет место консерватизм, то функция $f$ голоморфна и регулярна в этой области.
+\end{theorem}
+
+\begin{theorem}
+	Если функции $u,v$ непрерывно дифференцируемы в области и в этой области функция $f$ обладает свойством постоянства искажения масштабов, то $f$ голоморфна или атиголоморфна в этой области.
+\end{theorem}
+
+\begin{remark}
+	Функция антиголоморфна, если голоморфны ее отображения.
+\end{remark}
+
+\begin{definition}[Голоморфная в бесконечно удаленной точке функция]
+	Говорят, что функция $f$ \emph{голоморфна в бесконечно удаленной точке}, если функция $g(z)\coloneq f \left(\frac{1}{z} \right)$ голоморфна.
+\end{definition}
+
+\subsection{Дробно-линейные отображения}
+
+\begin{definition}[Дробно-линейное отображение]
+	\emph{Дробно-линейным отображением} называется функция вида
+	\[
+		f(z) = \frac{az + b}{cz + d}.
+	\]
+
+	Если выполняется $ad - bc \ne 0$, то дробно-линейное отображение называется \emph{невырожденным}.
+\end{definition}
+
+\begin{eg}
+	$f \left(-\frac{d}{c} \right) \coloneq  \infty , \quad f(\infty ) \coloneq \frac{d}{c} $.
+\end{eg}
+
+\begin{theorem}\leavevmode
+	\begin{enumerate}
+		\item Каждое дробно-линейное отображение является гомеоморфизмом $\overline{\C} $ на $\overline{\C} $.
+		\item Каждая дробно-линейная функция однозначно определяется своими значениями в трех различных точках.
+		\item Любое двойное отношение сохраняется при дробно-линейном отображении, если $f$ -- дробно-линейная функция, то $\forall $ различных $z_1,z_2,z_3,z_4$
+		      \[
+			      \frac{z_3 - z-1}{z_3 - z_2} : \frac{z_4 - z_1}{z_4 - z_2} = \frac{f(z_3) - f(z_1)}{f(z_3) - f(z_2)} : \frac{f(z_4) - f(z_1)}{f(z_4) - f(z_2)} .
+		      \]
+
+		\item Суперпозиция дробно-линейных функций является дробно-линейной функцией.
+		\item Определяя произведение двух дробно-линейных функций как их суперпозицию, получаем, что множество всех дробно-линейных функций образует группу ($M$).
+	\end{enumerate}
+\end{theorem}
+
+\begin{definition}[Симметричная точка]
+	$z^* \in \C$ называется \emph{симметричной точкой} $z$ из круга $\abs{\xi - z_0} \leqslant R$, если:
+	\begin{enumerate}
+		\item $\arg(z^* - z_0) = \arg(z-z_0)$.
+		\item $\abs{z^* - z_0} \cdot \abs{z - z_0}  = R^2.$
+	\end{enumerate}
+	\begin{figure}[H]
+		\centering
+		\incfig[0.7]{fig-13}
+		\label{fig:fig-13}
+	\end{figure}
+	\[
+		\frac{R}{\abs{z-z_0} } = \frac{\abs{z^* - z_0} }{R} .
+	\]
+	Формула для симметричной точки: $z^* = \frac{R^2}{\overline{z} -\overline{z_0} } + z_0$.
+\end{definition}
+
+\begin{definition}[Отображение симметрии]
+	\emph{Отображением симметрии} мы называем сопоставление каких-то симметричных им относительно какой-то окрестности.
+\end{definition}
+
+\begin{theorem}
+	Каждая дробно-линейная функция является суперпозицией четного числа симметрий относительно окружности или прямой.
+\end{theorem}
+
+\begin{definition}[Общее уравнение окружности]
+	\[
+		A(x^2 + y^2) + bx + b_1 y + c = 0,
+	\]
+
+	\[
+		B \coloneq \frac{b + ib_1}{2} , \quad Az \overline{z}  + \overline{B} z + B \overline{z} + c = 0.
+	\]
+\end{definition}
+
+\begin{theorem}
+	При $\forall $ дробно-линейном отображении окрестность переходит в окружность.
+\end{theorem}
+
+\begin{theorem}
+	Если $ad - bc \ne 0$, то дробно-линейная функция $f(z) = \frac{az + b}{cz + d} $ во всех точках $z \in \C \setminus \left\{-\frac{d}{c} \right\}$ голоморфна и регулярна.
+\end{theorem}
+
+\begin{theorem}
+	Каждый дробно-линейный автоморфизм верхней полуплоскости представим в виде
+	\[
+		f(z) = \frac{az + b}{cz + d} ,
+	\]
+	где $a,b,c,d \in \R$ и $ad - bc > 0$.
+
+	$\forall $ отображение такого вида является отображением верхней полуплоскости на себя (то есть, ее автоморфизмом).
+\end{theorem}
+
+\begin{theorem}
+	Каждый дробно-линейный изоморфизм верхней полуплоскости на единичном круге можно представить в виде
+	\[
+		f(z) = e^{i \theta } \frac{z - a}{z - \overline{a} } ,
+	\]
+	где $\theta \in \R, \ \Im a > 0$.
+
+	$\forall $ отображение такого вида является изоморфизмом верхней полуплоскости на единичном круге.
+\end{theorem}
+
+\begin{theorem}
+	Каждый дробно-линейный автоморфизм единичного круга на себя можно представить в виде
+	\[
+		f(z) = e^{i \theta } \frac{z - a}{1 - \overline{a} z} ,
+	\]
+	где $\theta \in \R, \ \abs{a} < 1$.
+
+	$\forall $ отображение такого вида является автоморфизмом единичного круга.
+\end{theorem}
+
+\subsection{Элементарные функции}
+
+\[
+	z^n(n \in \N), \ e^z, \ \sin z, \ \cos z,
+\]
+
+\[
+	\begin{array}{ll}
+		\tan z \coloneq \frac{\sin z}{\cos z} ,   & \cot z \coloneq \frac{\cos z}{\sin z} ,  \\
+		\ch z \coloneq \frac{e^z + e^{-z}  }{2} , & \sh z \coloneq \frac{e^z - e^{-z} }{2} .
+	\end{array}
+\]
+
+\begin{note}[Функция Жуковского]
+	\[
+		\begin{array}{ll}
+			w = \frac{1}{2} (z+\frac{1}{z} ), & w(0) \coloneq \infty,       \\
+			w = z + \sqrt{z^2 - 1},           & w(\infty )\coloneq \infty .
+		\end{array}
+	\]
+	\[
+		z_1 \cdot z_2 = 1.
+	\]
+
+	Областью одноместности функции Жуковского является точки, не уд. $z_1 \cdot z_2 = 1$, в частности единичный круг, его внешность, верхняя и нижняя полуплоскости.
+
+	Функция Жуковского является конфорным отображением $\forall $ области, не содержащих точки $\pm 1$.
+\end{note}

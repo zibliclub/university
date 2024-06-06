@@ -1,6 +1,244 @@
+\newpage
+
 \lesson{5}{от 14 мар 2024 12:45}{Продолжение}
 
 
-\begin{theorem}[Единственности]
-   Если ряды $ \sum_{n=0}^{\infty}a_n z^n $ и $ \sum_{n=0}^{\infty}b_n z^n $ сходятся в круге $ | z | \in R \ne 0 $ и в 
+\section{Теория интеграла Коши}
+
+\subsection{Определения и основные свойства интеграла Коши}
+
+\begin{definition}[Разбиение кривой Жордана]
+	Пусть $\gamma $ -- кривая Жордана, $\gamma \in \C$ с концами $\alpha , \beta  \in \C$.
+
+	\begin{figure}[H]
+		\centering
+		\incfig[0.7]{fig-14}
+		\label{fig:fig-14}
+	\end{figure}
+
+	Разбиением кривой Жордана назовем $\sigma \coloneq \{z_0,z_1,\ldots ,z_n,\xi_0,\ldots \xi_{n-1} \}$, где $n \in \N, \ z_0 = \alpha , \ z_n = \beta , \ z_{k+1} \notin \overbrace{z_0z_k} \ \forall k \in \overline{0,n-1} , \ \zeta _k \in \overbrace{z_k,z_{k+1} } $
+	\[
+		\triangle z_k \coloneq z_{k+1} -z_k,
+	\]
+	\[
+		\d(\sigma ) \coloneq \underset{0 \leqslant k < n-1}{\max} \abs{\triangle z_k} \text{ -- диаметр разбиения } \sigma.
+	\]
+\end{definition}
+
+\begin{definition}
+	Если $f: \gamma \rightarrow \C, \ \sigma $ -- интегральная сумма, то
+	\[
+		S_\sigma (f) \coloneq \sum_{k=1}^{n-1} f(S_k)\underbrace{(z_{k+1} -z_n)}_{\triangle z_k}.
+	\]
+\end{definition}
+
+\begin{definition}
+	$\prod (\gamma )$ -- множество всех разбиений кривой $\gamma $,
+	\[
+		\Phi : \prod(\gamma ) \rightarrow \C.
+	\]
+
+	Будем говорить, что $\exists \underset{d(\sigma )\rightarrow 0}{\lim} \Phi (v) =w \in \C$, если $\forall \epsilon > 0 \ \exists \delta > 0: \ \forall \sigma \in \prod(\gamma ) \ \d(\sigma )< \delta \implies \big|\Phi (\sigma ) - w\big| < \epsilon $.
+\end{definition}
+
+\begin{definition}[Интеграл Коши]
+	Если $f: \gamma  \rightarrow \C$ и $\exists \underset{\d(\sigma )\rightarrow 0}{\lim} S_{\sigma } (f)\in \C$, то
+	\[
+		\int_{\gamma } f(z)\d z \coloneq \underset{\d(\sigma )\rightarrow 0}{\lim} S_{\sigma } (f)
+	\]
+	называется \emph{интегралом Коши} от функции $f$ по кривой $\gamma $.
+\end{definition}
+
+\begin{theorem}
+	Если $f$ непрерывна на спрямляемой кривой Жордана $\gamma $, то $\int_{\gamma } f(z)\d z$ существует (то есть является элементом $\C$).
 \end{theorem}
+
+\begin{proof}
+	$f(z) = f(x + iy) = u(x,y) + iv(x,y)$,
+	\begin{multline*}
+		\int_{\gamma } f(z)\d z = \int_{\gamma } \big(u(x,y)+iv(x,y)\big)\d(x+iy) = \\ = \int_{\gamma } u\d x - v\d y + \int_{\gamma } v\d x + u\d y \in \C.
+	\end{multline*}
+\end{proof}
+
+\subsection{Интегральная теорема Коши}
+
+\begin{lemma}[Гауса]
+	Если функция $f$ непрерывна в области $D$, то для любой спрямляемой кривой Жордана $\gamma \subset D$, для любого $\epsilon > 0$ существует вписанная в $\gamma $ ломанная $P$ такая, что
+	\[
+		\left|\int_{\gamma } f(z)\d z - \int_{P} f(z)\d z\right| < \epsilon.
+	\]
+\end{lemma}
+
+\begin{theorem}[Интегральная теорема Коши]
+	Пусть $D$ -- односвязная область в $\C$, функция $f$ голоморфна в $D$. Тогда для любой замкнутой спрямляемой кривой Жордана $\gamma $
+	\[
+		\int_{\gamma } f(z)\d z = 0.
+	\]
+\end{theorem}
+
+\begin{proof}
+	Пусть $\gamma $ -- $\triangle$ в $D$.
+	\begin{figure}[H]
+		\centering
+		\incfig[0.7]{fig-15}
+		\label{fig:fig-15}
+	\end{figure}
+
+	Докажем, что интеграл по этому треугольнику равен нулю. Допустим противное:
+	\[
+		\left|\int_{\gamma } f(z)\d z\right| \eqcolon M \ne 0.
+	\]
+
+	$\gamma _1, \gamma _2, \gamma _3, \gamma _4, \quad \int_{\gamma } f(z)\d z = \sum_{k=1}^{4} \int_{\gamma _n} f(z)\d z$,
+	\[
+		\left|\int_{\gamma } f(z)\d z\right| \leqslant \sum_{k=1}^{n} \left|\int_{\gamma k} f(z)\d z\right|,
+	\]
+	\[
+		\overline{\triangle_0} \coloneq \gamma , \quad \overline{\triangle_1} \coloneq \gamma _i : \ \left|\int_{\gamma _i} f(z)\d z\right| \geqslant  \frac{M}{4} ,
+	\]
+	\[
+		\exists \overline{\triangle_2} : \ \left|\int_{\overline{\triangle_2} }f(z)dz \right| \geqslant  \frac{M}{4^2} .
+	\]
+
+	Продолжая этот процесс, мы получм последовательность $\{\overline{\triangle_k} \}:$
+	\[
+		\left|\int_{\overline{\triangle_k} } f(z)\d z\right| \geqslant \frac{M}{4^k} ,
+	\]
+	\[
+		D(\overline{\triangle_{k+1} } ) \subset D(\overline{\triangle_k} ).
+	\]
+
+	То есть можем считать эту последовательность $\{\overline{\triangle_k} \}$ как последовательность вложенных множеств $\implies \exists z_0 \in \underset{k \in \N}{\bigcap} D(\overline{\triangle_k} ) \ne \varnothing $.
+
+	????????
+
+	В силу произвольности $\epsilon $ получаем, что $M = 0$,
+	\[
+		\left|\int_{\gamma } f(z)\d z - \int_{P} f(z)\d z\right| < \epsilon .
+	\]
+\end{proof}
+
+\begin{theorem}[Обобщенная интегральная теорема Коши]
+	Если функция $f$ голоморфна в односвязной области $D$, ограниченной замкнутой спрямляемой кривой Жордана $\gamma $ и $f$ непрерывна вплоть до границы, то есть $\forall z_0 \in \gamma $
+	\[
+		\underset{D \ni z \rightarrow z_0}{\lim} f(z) = f(z_0) \implies \int_{\gamma } f(z)\d z = 0.
+	\]
+\end{theorem}
+
+\begin{corollary}
+	Если область $D$ ограничена конечным числом замкнутых спрямляемых кривых Жордана. Если $f$ голоморфна в этой области ???
+\end{corollary}
+
+\begin{corollary}
+	Утверждение обобщенной теоремы остается в силе, если условие голоморфности функции $f$ в области нарушается в конечном количестве точек $z_1,\ldots z_n \in D$, в которых функция ведет себя так:
+	\[
+		\underset{\exists \rightarrow z_k}{\lim} (z-z_k)f(z) = 0 \quad (0 \leqslant k \leqslant n).
+	\]
+\end{corollary}
+
+\subsection{Интегральная формула Коши, интеграл типа Коши}
+
+\begin{theorem}[Интегральная формула Коши]
+	Если функция $f$ голоморфна в односвязной области $D$, ограничена замкнутой спрямляемой кривой Жордана $\gamma $, непрерывна вплоть до границы, то
+	\[
+		\frac{1}{2\pi i} \int_{\gamma } \frac{f(z)}{z-z_0} \d z = \left\{ \begin{array}{l}
+			f(z_0), \text{ если } z_0 \in D \\
+			0, \text{ если } z_0 \notin \cl D
+		\end{array}\right.
+	\]
+\end{theorem}
+
+\begin{definition}[Интеграл типа Коши]
+	Пусть односвязная область $D$ ограничена замкнутой спрямляемой кривой Жордана $\gamma $, а функция $f$ непрерывна на $\gamma $. Положим
+	\[
+		F(z) = \frac{1}{2\pi i} \int_{\gamma } \frac{f(\xi )}{\xi - z} \d \xi , \ z \in D.
+	\]
+
+	Эта функция $F$ называется \emph{интегралом типа Коши}.
+\end{definition}
+
+\begin{theorem}[Лиувилль]
+	Если функция $f$ голоморфна в $\C$ и ограничена, то $f \equiv const$.
+\end{theorem}
+
+\newpage
+
+\begin{proof}
+	$R > 0, \ z \in \C$
+	\[
+		f'(z) = \frac{1}{2\pi i} \int_{|\xi - z| = R} \frac{f(\xi )}{(\xi  - z)^2} \d \xi .
+	\]
+
+	Пусть $M > 0: \ \underset{z \in \C}{\sup} \big|f(z)\big|\leqslant M \implies$
+	\[
+		\big|f '(z)\big| \leqslant \frac{1}{2\pi} \int_{|\xi - z| = R} \frac{\abs{f(\xi )} }{\abs{\xi -z}^2 } \abs{\d \xi } \leqslant \frac{1}{2\pi} \cdot \frac{M}{R^2} \cdot 2\pi R = \frac{M}{R} \xrightarrow[R \rightarrow +\infty ]{}0 \implies
+	\]
+	$\implies f '(z) = 0 \ (\forall z \in \C)$.
+
+	\[
+		u_{x}^{'} = u_{y}^{'} = v_{x}^{'} = v_{y}^{'} = 0 \implies  u = const, \ v = const \implies f = const.
+	\]
+\end{proof}
+
+\subsection{Неопределенный интеграл теорем Мореры и Вейерштрасса}
+
+\begin{theorem}
+	Непрерывная в односвязной области $D$ функция $f$ голоморфна в этой области $\iff \forall z_0,z \in D \ \int_{z_0}^{z} f(\xi )\d \xi $ не зависит от пути интегрирования, соединяющего области $D$ точек $z_0,z$.
+\end{theorem}
+
+\begin{definition}[Первообразная голоморфной в области]
+	\emph{Первообразной голоморфной в области} $D$ функции $f$ называется голоморфная в $D$ функция $F: \ \forall  z \in D \ F '(z) = f(z)$.
+\end{definition}
+
+\begin{remark}
+	Любые две первообразные голоморфной функции отличаются только на константу.
+\end{remark}
+
+\begin{definition}[Неопределенный интеграл]
+	Совокупность всех первообразных голоморфной функции называется ее \emph{неопределенным интегралом}.
+	\begin{notation}
+		$\int f(z)\d z = F(z) + c $.
+	\end{notation}
+\end{definition}
+
+\begin{remark}
+	Если функция $f$ голоморфна в области $D$ и $F$ -- ее первообразная, то $\forall z_0,z \in D$
+	\[
+		\int_{z_0}^{z} f(\xi )\d \xi = F(z) - F(z_0).
+	\]
+\end{remark}
+
+\begin{theorem}[Морера]
+	Для того, чтобы непрерывная в односвязной области функция была голоморфна в этой области, необходимо и достаточно, чтобы интеграл от этой функции по любому замкнутому контуру, лежащему в области, был равен $0$.
+\end{theorem}
+
+\begin{remark}
+	В сторону достаточности условия теоремы Мореры можно ослабить. Если функция непрерывна в односвязной области и $\int_{\triangle} f(z)\d z = 0$, то функция голоморфна $\forall \triangle \in D$.
+\end{remark}
+
+\begin{definition}
+	Пусть $\{f_n\}_{n \in \N} \subset C(D)$. Говорят, что эта последовательность сходится равномерно к $f$ внутри $D$, если $\forall K \in D \Subset D \ f_n \rightrightarrows f$ на $K$, то есть $\forall \epsilon > 0 \exists n \in \N: \ \forall n \geqslant n_0$
+	\[
+		\underset{I \in K}{\sup} \big|f_n(z)- f(z)\big| < \epsilon .
+	\]
+\end{definition}
+
+\begin{theorem}[Вейерштрасса]
+	Равномерный предел последовательности голоморфных функций является голоморфной функцией, то есть если $\{f_n\}_{n \in \N} \subset \mathcal{H}(D)$ и $f_n \rightrightarrows f$ внутри $D$, то $f \in \mathcal{H}(D)$.
+\end{theorem}
+
+\begin{definition}[Корень многочлена]
+	\emph{Корнем многочлена} $P(z)\coloneq a_n z^n + \ldots + a_1z + a_0,$ где $a_0,a_1,\ldots ,a_n \in \C$, называется число $z_0 \in \C: \ P(z_0) = 0$.
+\end{definition}
+
+\begin{theorem}[Безу]
+	Если $z_0$ -- корень многочлена $P$, то $\exists $ многочлен $Q: \ P(z) = (z-z_0)\cdot Q(z_0)$.
+\end{theorem}
+
+\begin{theorem}[Основная теорема алгебры]
+	Каждый многочлен с комплексными коэффициентами в $\deg \geqslant 1$ имеет к.б. один комплексный корень.
+\end{theorem}
+
+\begin{corollary}
+	Каждый многочлен $n$-ой степени имеет $n$ корней.
+\end{corollary}
