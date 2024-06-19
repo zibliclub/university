@@ -1,0 +1,134 @@
+\section{Алгебра событий}
+
+\begin{definition}[Алгебра]
+	$\mathcal{F}$ -- семейство подмножеств $\Omega $, $\mathcal{F}$ -- \emph{алгебра}, если:
+	\begin{enumerate}
+		\item $\Omega \in \mathcal{F} \ (\varnothing \in \mathcal{F})$.
+		\item $A \in \mathcal{F} \implies \overline{A} \in \mathcal{F}$.
+		\item $A,B \in \mathcal{F} \implies AB \in \mathcal{F}, \ A + B \in \mathcal{F}$.
+	\end{enumerate}
+\end{definition}
+
+\section{Сигма-алгебра событий}
+
+\begin{definition}[$\sigma $-алгебра]
+	$\mathcal{F}$ -- семейство подмножеств $\Omega $, $\mathcal{F}$ -- \emph{$\sigma $-алгебра}, если:
+	\begin{enumerate}
+		\item $\Omega \in \mathcal{F} \ (\varnothing \in \mathcal{F})$.
+		\item $A \in \mathcal{F} \implies \overline{A} \in \mathcal{F}$.
+		\item $A,B \in \mathcal{F} \implies AB \in \mathcal{F}, \ A + B \in \mathcal{F}$.
+		\item $\forall \{A_{\alpha} \} \subset \mathcal{F} \ \underset{\alpha }{\bigcap} A_{\alpha} \in \mathcal{F} $ и $\underset{\alpha }{\bigcup} A_{\alpha } \in \mathcal{F}$.
+	\end{enumerate}
+\end{definition}
+
+\section{Борелевская сигма-алгебра}
+
+\begin{note}
+	Взято не из лекций.
+\end{note}
+
+\begin{definition}[Борелевская $\sigma $-алгебра]
+	$\R$ -- топологическое пространство, \emph{борелевская $\sigma $-алгебра} -- это алгебра, порожденная всеми интервалами.
+\end{definition}
+
+\newpage
+
+\section{Определение меры}
+
+\begin{note}
+	Взято не из лекций.
+\end{note}
+
+\begin{definition}[Мера]
+	Пусть $X$ -- некоторое множество и $\Sigma $ -- $\alpha $-алгебра над $X$.
+
+	Функция $\mu $ из $\Sigma $ в расширенную действительную числовую прямую называется \emph{мерой}, если она удовлетворяет следующим свойствам:
+	\begin{itemize}
+		\item неотрицательность: для всех $E$ в $\Sigma $ имеем
+		      \[
+			      \mu (E) \geqslant 0 ;
+		      \]
+		\item пустой набор:
+		      \[
+			      \mu (\varnothing ) = 0 ;
+		      \]
+		\item счетная аддитивность (или $\sigma $-аддитивность): для всех счетных наборов попарно непересекающихся множеств в $\Sigma $:
+		      \[
+			      \{E_k\}_{k=1}^{\infty},
+		      \]
+		      \[
+			      \mu \left(\bigcup_{k=1}^{\infty}E_k\right) = \sum_{k=1}^{\infty} \mu (E_k).
+		      \]
+	\end{itemize}
+\end{definition}
+
+\section{Аксиомы вероятности}
+
+\begin{definition}
+	Вероятностное пространство $(\Omega , \mathcal{F}, P)$.
+
+	$\Omega $ -- множество элементарных исходов, $\mathcal{F}$ -- $\sigma $-алгебра подмножеств $\Omega $, $P$ -- мера на $\mathcal{F}$, $P: \mathcal{F} \rightarrow \R$,
+	\begin{description}
+		\item[\circled{$A_1$}] $\forall A \in \mathcal{F} \ P(A) \geqslant 0$.
+		\item[\circled{$A_2$}] $P(\Omega ) = 1$ (условие нормировки).
+		\item[\circled{$A_3$}] $\forall A,B \in \mathcal{F} \ AB = \varnothing \implies P(A+B) = P(A) + P(B)$.
+		\item[\circled{$A_4$}] $\{A_n\} \subset \mathcal{F} \ A_{n+1} \leqslant A_n \ \underset{n}{\bigcap} A_n = \varnothing $,
+		      \[
+			      \underset{n \rightarrow \infty}{\lim}P(A_n) = 0 \ \text{(непрерывность меры)}.
+		      \]
+	\end{description}
+\end{definition}
+
+\newpage
+
+\section{Определение вероятности в классической схеме}
+
+\begin{definition}[Вероятность в классической схеме]
+	$\Omega $ -- конечное множество равновозможных исходов. $\mathcal{F}$ -- все подмножества $\Omega $ (их $2^{\abs{\Omega } } $),
+	\[
+		P(A) = \frac{\abs{A} }{\abs{\Omega } } .
+	\]
+\end{definition}
+
+\section{Формула числа перестановок}
+
+\begin{definition}[формула числа перестановок]
+	\emph{Число перестановок} $n$ различных шаров (перестановки отличаются порядком шаров) -- $P(n)$,
+	\[
+		P(n) = n!, \quad n \cdot (n-1)\cdot (n-2)\cdot \ldots \cdot 1 = n!, \ 0! = 1.
+	\]
+
+	Пусть есть $n_1,\ldots,n_m$ шаров $m$ видов, $n =n_1 + \ldots + n_m$.
+
+	\emph{Число перестановок} этих $n$ шаров равно $P(n_1,\ldots ,n_m)$,
+	\[
+		P(n_1,\ldots ,n_m) = \frac{(n_1 + \ldots  + n_m)!}{n_1!n_2!\ldots n_n!}.
+	\]
+\end{definition}
+
+\section{Формула числа размещений}
+
+\begin{definition}[Формула числа размещений]
+	\emph{Размещения} $n$ элементов по $k$ местам. Выкладываем в ряд $k$ шариков из имеющихся $n$:
+	\[
+		A_{n}^{k} = n \cdot (n-1)\cdot \ldots \cdot (n-k+1) = \frac{n!}{(n-k)!} .
+	\]
+\end{definition}
+
+\section{Формула числа сочетаний}
+
+\begin{definition}[Формула числа сочетаний]
+	\emph{Сочетания} $k$ элементов из $n$. Число $k$-элементарных подмножеств из $n$-элементов множества -- $C_{n}^{k} $,
+	\[
+		C_{n}^{k} = \frac{A_{n}^{k}}{k!} = \frac{n!}{(n-k)!k!}.
+	\]
+\end{definition}
+
+\section{Формула числа размещений с повторениями}
+
+\begin{remark}
+	Если мы разрешим шарики повторять, то получим размещения с повторениями:
+	\[
+		\overline{A_{n}^{k}} = n \cdot n \cdot \ldots \cdot n = n^k.
+	\]
+\end{remark}
