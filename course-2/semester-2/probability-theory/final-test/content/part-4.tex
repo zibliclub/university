@@ -1,39 +1,166 @@
 \section{Плотность распределения}
 
-content
+\begin{note}
+	\emph{С этого момента начинаю копировать с файла второй группы, так как устал лишний раз заглядывать в конспекты в ожидании найти хоть что-то (вероятно это имеется в конспектах, просто я не вижу).}
+\end{note}
+
+\begin{definition}[Плотность распределения]
+	Будем говорить, что функция $P(x) = P_{\xi } (x)$ называется \emph{плотностью распределения} случайной величины $\xi $, если:
+	\[
+		\forall x_1 < x_2 \quad P(x_1 < \xi < x_2) = \int_{x_1}^{x_2} P_{\xi } (x)\d x.
+	\]
+\end{definition}
+
+\newpage
 
 \section{Биномиальное распределение, его среднее и дисперсия}
 
-content
+\begin{definition}[Биномиальное распределение]
+	\emph{Биномиальное распределение} $B(n,p), \ \Bin(n,p)$, $\xi $ -- случайная величина $\big(\xi \Subset B(n,p) \big)$, если:
+	\[
+		P(\xi = k) = C_{n}^{k} p^k (1- p)^{n-k}, \quad k = \overline{0,n} ,
+	\]
+	$\xi $ -- число успехов в схеме Бернулли.
+
+	\begin{description}
+		\item[Среднее:] $np$.
+		\item[Дисперсия:] $D \big(B(n,p)\big) = np(1-p)$.
+	\end{description}
+\end{definition}
 
 \section{Геометрическое распределение, его среднее и дисперсия}
 
-content
+\begin{definition}[Геометрическое распределение]
+	\[
+		P(\xi = k) = p(1-p)^{k-1} , \quad k = \overline{1,n} .
+	\]
+
+	$\varnothing \_ \varnothing$
+
+	\begin{description}
+		\item[Среднее:] $\frac{1-p}{p} $.
+		\item[Дисперсия:] $\frac{1-p}{p^2} $.
+	\end{description}
+\end{definition}
 
 \section{Гипергеометрическое распределение}
 
-content
+\begin{definition}[Гипергеометрическое распределение]
+	\[
+		P(\xi = m) = \frac{C_{M}^{m}C_{N-M}^{n-m}  }{C_{N}^{n} } , \quad m=\overline{0,\min(M,n)}.
+	\]
+	$N,M,n \in \N: \ M \leqslant N, \ n \leqslant N$.
+\end{definition}
+
+\newpage
 
 \section{Распределение Пуассона, его среднее и дисперсия}
 
-content
+\begin{definition}[Распределение Пуассона]
+	Распределение Пуассона:
+	\[
+		P(\lambda ), \Pi(\lambda ),
+	\]
+
+	\[
+		\xi \Subset P(\lambda ) \iff P(\xi = k) = \frac{\lambda^k}{k!} e^{-\lambda } , \quad k = 0,1,2,\ldots
+	\]
+
+	\begin{description}
+		\item[Среднее:] $\lambda $.
+		\item[Дисперсия:] $\lambda $.
+	\end{description}
+\end{definition}
 
 \section{Равномерное распределение на отрезке $[a ; b]$, его среднее и дисперсия}
 
-content
+\begin{definition}[Равномерное распределение]
+	Равномерное распределение $U_{[a ; b]} $.
+
+	Если $\xi $ -- случайная величина равномерна на $[a ; b]$, то:
+	\[
+		F_{\xi } = P(\xi < x) = \left\{\begin{array}{ll}
+			0,                & x \leqslant a     \\
+			\frac{x-a}{b-a} , & a < x \leqslant b \\
+			1,                & x > b
+		\end{array}\right.
+	\]
+
+	\begin{description}
+		\item[Среднее:] $\frac{a+b}{2} $.
+		\item[Дисперсия:] $\frac{(b-a)^2}{12} $.
+	\end{description}
+\end{definition}
+
+\newpage
 
 \section{Нормальное распределение, его среднее и дисперсия}
 
-content
+\begin{definition}[Нормальное распределение]
+	Нормальное распределение $\mathcal{N}(a,\sigma ^2)$.
+
+	$\xi $ -- нормальное распределение $\iff \xi \Subset \mathcal{N}(a,\sigma ^2)\iff P(\xi \in B) = \frac{1}{\sigma \sqrt{2\pi} } \int_{B} e^{-\frac{(x-a)^2}{2 \sigma ^2} } \d x$, $\mathcal{N}(0,1)$ -- стандартное нормальное распределение.
+	\[
+		P(\xi \in B) = \frac{1}{\sqrt{2 \pi} } \int_{B} e^{- \frac{x^2}{2} } \d x,
+	\]
+	\[
+		F_{\xi } = \frac{1}{\sqrt{2\pi} } , \quad \int_{-\infty }^{x} e^{-\frac{t^2}{2} } \d t = \Phi (x).
+	\]
+
+	\begin{description}
+		\item[Среднее:] $a $.
+		\item[Дисперсия:] $\sigma ^2 $.
+	\end{description}
+\end{definition}
 
 \section{Распределение Коши, его среднее и дисперсия}
 
-content
+\begin{definition}[Распределение Коши]
+	Распределение Коши $K(a,\sigma ), \ a \in \R, \ \sigma > 0$.
+
+	\[
+		\sigma \Subset K(a,\sigma ) \iff P(B) = \frac{1}{\pi \sigma } \int_{B} \frac{1}{1 + \left(\frac{x-a}{\sigma } \right)^2} \d x.
+	\]
+	\[
+		K = K(0,1), \ F_{\xi } = K(x), \quad \eta \Subset K(a,\sigma ), \ F_{\eta} (x) = K \left(\frac{x-a}{\sigma } \right).
+	\]
+
+	\begin{description}
+		\item[Среднее:] $a $.
+		\item[Дисперсия:] Не существует.
+	\end{description}
+\end{definition}
+
+\newpage
 
 \section{Экспоненциальное распределение, его среднее и дисперсия}
 
-content
+\begin{definition}[Экспоненциальное распределение]
+	$\Exp(a), \ E(a)$.
+
+	\[
+		\xi \underset{a \geqslant 0}{\Subset} \Exp(a), \ \text{если} \ P(\xi \in B) = a \int_{B \cap [0 ; +\infty )}e^{-at} \d t,
+	\]
+
+	\[
+		\left\{\begin{array}{ll}
+			0,                                                                  & x \leqslant 0 \\
+			a \int_{0}^{x} e^{-at} \d t = -e^{-at} \Big|_{0}^{x} = 1 - e^{ax} , & x > 0
+		\end{array}\right.
+	\]
+
+	\begin{description}
+		\item[Среднее:] $a^{-1}  $.
+		\item[Дисперсия:] $a^{-2} $.
+	\end{description}
+\end{definition}
 
 \section{Случайный вектор}
 
-content
+\begin{definition}[Случайный вектор]
+	$(\Omega , \mathcal{F}, P)$ -- вероятностное пространство, $\xi_1, \ldots , \xi_n$ -- случайные величины. Функция
+	\[
+		\xi (w) = \big(\xi _1(w), \ldots , \xi _1(w)\big): \ \Omega \rightarrow \R^n
+	\]
+	называется \emph{случайным вектором ($n$-мерным случайным вектором)}.
+\end{definition}

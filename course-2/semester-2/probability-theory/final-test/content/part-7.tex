@@ -1,23 +1,48 @@
 \section{Неравенство Чебышёва}
 
-content
+\[
+	P \big(\abs{X - M(X)} > a\big) < \frac{D(x)}{a^2},
+\]
+где $X$ -- любая случайная величина, у которой существует мат. ожидание и дисперсия $D(x), \ 0 \leqslant a \leqslant 1$.
 
 \section{Классическое неравенство Чебышёва}
 
-content
+Если $\xi $ -- случайная величина, имеющая дисперсию $D(\xi )$, то:
+\[
+	P \big(\abs{\xi - \mu \xi } \geqslant \epsilon \big) \leqslant \frac{D(\xi )}{\epsilon ^2} .
+\]
 
 \section{Нормированная случайная величина}
 
-content
+\begin{definition}[Нормированная случайная величина]
+	Случайная величина называется \emph{нормированной}, если ее дисперсия равна $1$,
+	\[
+		\widetilde{\xi } = \frac{\xi - \mu \xi }{\sqrt{D(\xi )} } .
+	\]
+\end{definition}
 
 \section{Коэффициент корреляции}
 
-content
+\begin{definition}[Коэффициент корреляции]
+	Пусть $\xi ,\eta$ -- случайные величины. \emph{Коэффициентом корреляции} $\xi , \eta$ называется число:
+	\[
+		\rho (\xi ,\eta) = \mu (\widetilde{\xi } \cdot \widetilde{\eta}) = \frac{\mu (\xi \eta) - \mu \xi \cdot \mu \eta}{\sqrt{D(\xi )\cdot D(\eta)} } .
+	\]
+\end{definition}
 
 \section{Ковариация}
 
-content
+\[
+	\cov (\xi _1,\xi _2) = \mu \big((\xi _1 - \mu \xi _1)(\xi _2 - \mu \xi _2)\big) = \mu (\xi _1 \xi _2) - \mu \xi _1 \cdot \mu \xi _2.
+\]
+
+\newpage
 
 \section{Условное математическое ожидание относительно события положительной вероятности}
 
-content
+\begin{definition}[Условное мат. ожидание относительно события положительной вероятности]
+	\emph{Условным математическим ожиданием} случайной величины $\xi $ при условии, что $\eta = y_j$, называется число:
+	\[
+		\mu (\xi \ | \ \eta = y_j) = \sum_{i=1}^{\infty } x_i \frac{p_i j}{p \cdot j} .
+	\]
+\end{definition}

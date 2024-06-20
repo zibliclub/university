@@ -1,39 +1,137 @@
 \section{Формула числа сочетаний с повторениями}
 
-content
+\begin{note}
+	Взято не из лекций.
+\end{note}
+
+\begin{definition}[Число сочетаний с повторениями]
+	\[
+		\overline{C_{n}^{k}} = C_{n+k-1}^{k}.
+	\]
+\end{definition}
 
 \section{Условная вероятность $P(A | B)$}
 
-content
+\begin{definition}[Условная вероятность]
+	Пусть $P(B)> 0$ условий. Все исходы -- это $B$, исходы $AB$ и тогда:
+	\[
+		P(A | B) = \frac{P(AB)}{P(B)}.
+	\]
+\end{definition}
 
 \section{Определение независимых событий}
 
-content
+\begin{note}
+	Взято не из лекций.
+\end{note}
+
+\begin{definition}[Независимое событие]
+	$(\Omega , \mathcal{F}, P)$ -- В.П., $A,B \in \mathcal{F}$ -- случайные события. Говорят, что $A$ и $B$ \emph{независимы}, если $P(A | B) = P(A)$ ($A$ не зависит от $B$).
+\end{definition}
 
 \section{Формула полной вероятности}
 
-content
+\begin{theorem}[Формула полной вероятности]
+	Пусть $A$ -- случайные события, $H_1,\ldots , H_n$ -- разбиения, тогда:
+	\[
+		P(A) = \sum_{j=1}^{n} P(A | H_j) \cdot P(H_j).
+	\]
+\end{theorem}
+
+\newpage
 
 \section{Формула Байеса}
 
-content
+\begin{theorem}[Формула Байесса]
+	$H_1,\ldots ,H_n$ -- разбиение, $A \in \mathcal{F}$,
+	\[
+		P(H_i | A) = \frac{P(A | H_i)P(H_i)}{\sum_{j} P(A | H_j)P(H_j)},
+	\]
+	апостериорные вероятности, $P(H_i )$ -- априорные вероятности.
+\end{theorem}
 
 \section{Формула Бернулли}
 
-content
+\begin{note}
+	Взято не из лекций.
+\end{note}
+
+\begin{theorem}[Формула Бернулли]
+	Вероятность того, что в $n$ независимых испытаниях, в каждом из которых вероятность успеха равна $0 < p < 1$, а вероятность неудачи равна $q = 1 -p$, событие наступит ровно $k$ раз, безразлично в какой последовательности равна:
+	\[
+		P(B_k) = C_{n}^{k} \cdot p^k \cdot q^{n-k}.
+	\]
+\end{theorem}
 
 \section{Наиболее вероятное число успехов в схеме Бернулли}
 
-content
+\begin{note}
+	Взято не из лекций.
+\end{note}
+
+\begin{note}
+	Наиболее вероятное число успехов в схеме Бернулли:
+	\[
+		np - q \leqslant k \leqslant np + p.
+	\]
+
+	Наиболее вероятное число успехов $(np + p)$. Число успехов с наибольшей вероятностью:
+	\[
+		[np + p] \quad \text{или} \quad [np + p] + 1.
+	\]
+\end{note}
+
+\newpage
 
 \section{Закон больших чисел для схемы Бернулли}
 
-content
+\begin{note}
+	Взято не из лекций.
+\end{note}
+
+\begin{theorem}
+	Пусть производится последовательность независимых испытаний, в результате каждого из которых может наступить или не наступить событие $A$, причем вероятность наступления этого события одна и та же при каждом испытании и равна $p$.
+
+	Если событие $A$ фактически произошло $m$ раз в $n$ испытаниях, то отношение $\frac{m}{n} $ называют, как мы знаем, частотой появляения события $A$. Частота есть случайная величина, причем вероятность того, что частота принимает значение $\frac{m}{n} $, выражается по формуле Бернулли:
+	\[
+		P_n(m) = C_{n}^{m} p^m q^{n-m} .
+	\]
+
+	Закон больших чисел в форме Бернулли состоит в следующем:
+	\[
+		\underset{n \rightarrow \infty }{\lim} P \left[\abs{\frac{m}{n} - p} < \epsilon \right] = 1.
+	\]
+\end{theorem}
 
 \section{Локальная формула Муавра-Лапласа}
 
-content
+\begin{note}
+	Взято не из лекций.
+\end{note}
+
+\begin{theorem}
+	\[
+		P_n(k) = \frac{1}{\sqrt{npq} } \phi (x),
+	\]
+	\[
+		\phi (x) = \frac{1}{\sqrt{2\pi} } \cdot e^{-\frac{x^2}{2} } , \qquad x = \frac{k - np}{\sqrt{npq} } .
+	\]
+\end{theorem}
 
 \section{Интегральная формула Муавра-Лапласа}
 
-content
+\begin{theorem}[Интегральная теорема Муавра-Лапласа]
+	В схеме Бернулли $\sigma = \sqrt{npq} \rightarrow \infty $, то для $a,b \in \R \ m$ -- число успехов в схеме Бернулли, то:
+	\[
+		P \left(a \leqslant \frac{m - np}{\sqrt{npq} } \leqslant b\right) - \frac{1}{\sqrt{2\pi} } \cdot \int_{n}^{b} e^{-\frac{x^2}{2} } \d x \xrightarrow[n \rightarrow \infty]{} 0.
+	\]
+\end{theorem}
+
+\begin{note}
+	\[
+		p_n (k_1 \leqslant k \leqslant k_2) = \Phi (x_2) - \Phi (x_1), \quad \frac{k_i - np}{\sqrt{npq} } ,
+	\]
+	\[
+		\Phi (x) = \frac{1}{\sqrt{2\pi} } \int_{-\infty }^{x} e^{-\frac{t^2}{2} } \d t.
+	\]
+\end{note}
