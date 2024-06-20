@@ -1,0 +1,168 @@
+\lesson{8}{от 4 июн 2024 12:45}{Продолжение}
+
+
+\begin{theorem}[Принцип взаимно однозначного соответствия]
+	Пусть $f$ -- голоморфна в области $D, \ \gamma $ -- простой контур в $D: \ D_{\gamma } \subset D$. Если функция $f$ взаимно однозначна на $\gamma $, то $f$ однолистна в $D_{\gamma } $ и, следовательно, осуществяет конформное отображение области $D_{\gamma } $.
+\end{theorem}
+
+\subsection{Принцип компактности}
+
+\begin{definition}[Относительно компактное подмножество]
+	Подмножество МП называется \emph{относительно компактным}, если его замыкание компактно.
+\end{definition}
+
+\begin{definition}[Секвенциально компактное подмножество]
+	Подмножество МП называется \emph{севенциально компактным}, если каждая его последовательность имеет подпоследовательность, сходящуюся к элементу этого подмножества.
+\end{definition}
+
+\begin{note}
+	В МП севенциальная компактность равносильна компактности.
+\end{note}
+
+\begin{lemma}
+	Подмножество МП является относительно компактным $\iff \forall $ его последовательность имеет сходящуюся подпоследовательность.
+\end{lemma}
+
+\begin{remark}
+	Подмножество комплексной плоскости компактно $\iff $ оно замкнуто и ограничено.
+\end{remark}
+
+\begin{definition}[Равномерно ограниченное множество функций]
+	Множество $\mathcal{F}$ функция из $\C$ в $\C$ называется \emph{равномерно ограниченным} на $A \subset \C$, если
+	\[
+		\underset{f \in \mathcal{F}}{\sup} \underset{z \in A}{\sup} \big|f(z)\big| < +\infty .
+	\]
+\end{definition}
+
+\begin{definition}[Равностепенно непрерывное множество функций]
+	Множество $\mathcal{F}$ функций из $\C$ в $\C$ называется \emph{равностепенно непрерывным} на $A \subset \C$, если $\forall z \in A \ \forall \epsilon > 0 \ \exists \delta > 0 : \ \forall f \in \mathcal{F} \ \forall z ' \in A$ из $\abs{z ' - z} \subset \delta $ следует, что $\big|f(z ') - f(z)\big| < \epsilon $.
+\end{definition}
+
+\begin{remark}
+	Пусть $K$ -- компакт в $\C$,
+	\[
+		C(K) \ d (f_1,f_2) \coloneq \underset{z \in K}{\sup} \big|f_1(z) - f_2(z)\big|.
+	\]
+\end{remark}
+
+\begin{theorem}[Арцела-Асколи]
+	Пусть $K$ -- компакт в $\C$. Множество $\mathcal{F}\subset C(k)$ относительно компактно $\iff $ оно равномерно ограничено на $K$ и равностепенно непрерывно на $K$.
+\end{theorem}
+
+\begin{definition}[Относительно компактное множество]
+	$\mathcal{F} \subset C(D)$ называется \emph{относительно компактным} в $D$, если для $\forall \{f_n\}_{n \in N} \subset \mathcal{F} \ \exists $ ее подпоследовательность $\{f_{n_k} \}_{k \in N} : \ \forall K \Subset D \ f_{n_k} \rightrightarrows f$ на $K$.
+\end{definition}
+
+\begin{lemma}
+	Пусть $D$ -- область в $\C, \ \mathcal{F}\subset C(D)$ и $\mathcal{F}$ относительно компактно в $C(K) \ \forall K \Subset D$. Тогда $\mathcal{F}$ относительно компактно в $D$.
+\end{lemma}
+
+\begin{proof}
+	$K_n \eqcolon \{z \in D : \dist (z,\partial D)\geqslant \frac{1}{n} \& \abs{z} \leqslant n\}, \ n \in \N $.
+
+	$K_n \subset K_{n+1} $ и $\underset{n \in \N}{\bigcup} K_n = D$ (стандартная последовательность).
+
+	$\exists \{f_{n_k} \}_{n\in\N} $ -- подпоследовательность $\{f_n\}$.
+
+	\[
+		\{f_{n}^{n} \}_{n\in\N} \quad f_{n}^{n} \rightrightarrows \text{ на } K_m \ \forall m \in \N,
+	\]
+
+	$\exists m \in \N : \ \frac{1}{m} \subset \dist \implies  K \subset K_m$.
+\end{proof}
+
+\begin{definition}[Равномерно ограниченное отображение]
+	$f \subset C(D)$ называется \emph{равномерно ограниченным} в $D$, если это множество равномерно ограничено на каждом компакте.
+\end{definition}
+
+\begin{lemma}
+	Пусть $D$ -- область в $\C$, $K$ -- компакт в $D$ и $V \in O_p \C : \ K \subset V \subset \cl V \subset D :$ если $\mathcal{F} \subset \mathcal{H}(D): \ \mathcal{F}_1 \eqcolon \{f ' : f \in \mathcal{F}\}$ равномерно ограничен на $V$, то $\mathcal{F}$ равностепенно непрерывен на $K$.
+\end{lemma}
+
+\begin{proof}
+	$z \in K \ \exists \delta _1 > 0: \ B_{\delta _1} [z]\subset V$,
+	\[
+		z ' \in V : \ \abs{z ' - z } < \delta _1,
+	\]
+	\[
+		\big|f(z ') - f(z)\big| = \left|\int_{z}^{z '}f '(\xi )\d \xi \right| \leqslant \underset{\xi  \in V}{\sup} \big|f '(\xi )\big| \cdot \abs{z ' - z} < M \cdot \delta _1 \leqslant \epsilon .
+	\]
+
+	$\delta \eqcolon \min \{\delta _1 ; \frac{\epsilon }{M + 1} \}$.
+\end{proof}
+
+\begin{theorem}[Принцип компактности, теорема Ментеля]
+	Если $\mathcal{F}\subset A(D)$ равномерно ограничен в $D$, то $\mathcal{F}$ относительно компактно в $A(D)$.
+\end{theorem}
+
+\begin{proof}
+	$K \subset D \ \exists \gamma : \ K \subset D_{\gamma } \ \& \ \cl D_{\gamma } \subset D$,
+	\[
+		\delta = \dist(K,\gamma ) > 0.
+	\]
+
+	$f '(z) = \frac{1}{2\pi} \int_{\gamma } \frac{f(\xi )}{(\xi - z)^2} \d \xi \ \forall z \in K $.
+
+	$\forall z \in K \ \big|f '(z)\big| \leqslant \frac{M \cdot l (\gamma )}{2\pi \delta ^2} $, где $M = \underset{z \in \gamma }{\sup} \big|f(z)\big| < +\infty $, $l (\gamma )$ -- длина $\gamma \implies $ по пред. лемме, множество равномерно ограниченно $\implies $ по теореме Ацела-Аскяли все доказано.
+\end{proof}
+
+\subsection{Принцип непрерывности}
+
+\begin{theorem}[Принцип непрерывности]
+	Пусть $f$ непрерывно в $D$ и голоморфна в $D \setminus \gamma  $, где $\gamma $ -- ломанная в $D$, состоящая из конечного числа дуг окружностей. Тогда $f$ голоморфна в $D$.
+\end{theorem}
+
+\begin{proof}
+	$\gamma = I \coloneq [z_1,z_2]$, возьмем $\triangle \subset D, \ \partial \triangle$,
+	\[
+		\cl \triangle \cap I = \varnothing , \quad \int_{\partial \triangle}f(z)\d z = 0,
+	\]
+	\[
+		\cl \triangle \cap I \ne \varnothing .
+	\]
+	$\int_{\partial \triangle} = \int_{\gamma _1}  + \int_{\gamma _2} =0 $ (по обобщенной теореме Коши) каждый из интегралов равен нулю.
+\end{proof}
+
+\begin{remark}
+	Утверждение теоремы остается в силе, если $\gamma $ будет спрямляемой кривой Жордана.
+\end{remark}
+
+\subsection{Принцип симметрии}
+
+\begin{theorem}[Принцип симметрии]
+	Пусть $D$ -- область в $\C$ и часть $\gamma $ ее границы является дугой окрестности.
+
+	Если функция $f$ голоморфна в $D$ и непрерывна вплоть до $\gamma $, то функция $\widetilde{f}$, определенная в области $D^{*} $, симметричной области $D$ относительно $\gamma $, равенство $\widetilde{f}(z^{*} ) = (f^{(z)} )^{*} $, будет голоморфно в области $D \cup \gamma \cup P^{*} $.
+\end{theorem}
+
+\begin{proof}
+	$z^{*} = \overline{z}  $.
+
+	\[
+		\widetilde{f}(\overline{z} ) = \overline{f(z)} = \overline{\sum_{n=0}^{\infty } C_n(z-z_0)} = \sum_{n=0}^{\infty } C_n (\overline{z}  - \overline{z_0} )^n
+	\]
+	раскладывается в ряд Тейлора, $z_0 \in D, \ z_0^{*} = \overline{z_0} \implies $ голоморфна в $D$, на отрезке $\gamma $ непрерывна $\implies $ по теореме $f$ голоморфно в объединении.
+\end{proof}
+
+\section{Конформные отображения}
+
+\begin{theorem}[Лемма Шварца]
+	$\mathbb{D} \coloneq \{z \in \C: \ \abs{z} \subset 1\}$.
+
+	Пусть $f$ голоморфна в $\mathbb{D}$ и $f(0) = 0, \ \abs{f(z)} \leqslant 1$ в $\mathbb{D}$. Тогда $\big|f '(0)\big| \leqslant 1$ и $\big|f(z)\big| \leqslant \abs{z} \ \forall z \in \mathbb{D}$.
+\end{theorem}
+
+\begin{remark}
+	Если в одном из неравенств имеет место равенство, то $\exists $ число $\lambda \in \C: \ \abs{\lambda } =1 : \forall z \in \mathbb{D}$
+	\[
+		f(z) = \lambda z.
+	\]
+\end{remark}
+
+\begin{remark}
+	Если $\phi $ -- конформное отображение $\mathbb{D}$ на себя и $\phi (0) \coloneq 0$, то $\forall  z \in \mathbb{D} \ \phi (z) = \lambda z$, где $\lambda = const, \ \abs{\lambda }  = 1$.
+\end{remark}
+
+\begin{theorem}[Римана]
+	Если $D$ -- односвязная область, отличная от $\C$, то $\forall z_0 \in D \ \exists $ единственное конформное отображение $\phi : D \rightarrow \mathbb{D}: \ \phi (z_0)= 0$ и $\phi ' (z_0) > 0$.
+\end{theorem}
