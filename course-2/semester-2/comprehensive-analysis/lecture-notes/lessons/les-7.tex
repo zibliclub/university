@@ -16,16 +16,87 @@
 \end{definition}
 
 \begin{lemma}
-  Пусть $z_0$ -- обычная точка или полюс функции $f$. Тогда
-  \[
-    \underset{z_0}{\Res} \frac{f'}{f} = M_f(z_0).
-  \]
+	Пусть $z_0$ -- обычная точка или полюс функции $f$. Тогда
+	\[
+		\underset{z_0}{\Res} \frac{f'}{f} = M_f(z_0).
+	\]
 \end{lemma}
 
 \begin{note}
-  $\frac{f'}{f} = \big(\ln f(z)\big)' $ -- логарифмическая производная функции $f$.
+	$\frac{f'}{f} = \big(\ln f(z)\big)' $ -- логарифмическая производная функции $f$.
 \end{note}
 
 \begin{remark}
-  Предположим, что есть многозначная функция $\phi $ и кривая $\gamma $. Если мы можем выделить ветвь функции $\phi $, которая будет непрерывна в окружности $\gamma : [a,b] \rightarrow \C, \ \gamma (a), \gamma (b)$, то вариацией этой функции вдоль кривой $\gamma $
+	Предположим, что есть многозначная функция $\phi $ и кривая $\gamma $. Если мы можем выделить ветвь функции $\phi $, которая будет непрерывна в окружности $\gamma : [a,b] \rightarrow \C, \ \gamma (a), \gamma (b)$, то вариацией этой функции вдоль кривой $\gamma $
 \end{remark}
+
+\begin{remark}
+	Пусть $D$ ограничено кусочно-гладкой кривой $\gamma , \ f$ голоморфна в этой области, за исключением конечного числа полюсов $b_1,\ldots ,b_n$, а $a_1,\ldots ,a_m$ -- пути,
+	\[
+		N_f = m \text{ -- количество путей},
+	\]
+	\[
+		P_f = n \text{ -- количество полюсов},
+	\]
+
+	\[
+		N_f = m = \sum_{z \in D} \max \{0,M_f(z)\}, \quad P_f = n = \sum_{z \in D} \min \{0,M_f(z)\}.
+	\]
+\end{remark}
+
+\begin{theorem}[Принцип аргумента]
+	Пусть $f$ голоморфна в окрестности $dD$, где $D$ -- область, ограниченная простым контуром, кроме конечного числа полюсов в $D$ и $f$ не имеет нулей на $\gamma $. Тогда
+	\[
+		\underset{\gamma }{Var} \arg f = 2\pi (N_f - P_f).
+	\]
+\end{theorem}
+
+\begin{theorem}[Теорема Руше]
+	Пусть $D$ -- область, ограниченная контуром $\gamma $, функции $f$ и $g$ голоморфны в некоторой окружности $dD$ и $f \ne 0$ на $\gamma $. Если
+	\[
+		\forall z \in \gamma \quad \big|f(z) - g(z)\big| < \big|f(z)\big|,
+	\]
+	то в $D$ функции $f$ и $g$ имеют одинаковое количество нулей.
+\end{theorem}
+
+\begin{corollary}
+	Если последовательность $f_n$ голоморфных в некоторой окрестности замыканий $dD$ области $D$ функций равномерно сходится к $f$ в этой окрестности, а функция $f \ne 0$ на $dD$, то $\exists n_0 \in \N: \ \forall n \geqslant n_0 \ N_{f_0} = N_f$.
+\end{corollary}
+
+\subsection{Принципы открытости и максимума модуля}
+
+\begin{definition}[Открытое отображение]
+	Отображение $f:\C \rightarrow \C$ называется \emph{открытым}, если $\forall V \in O_p \C \ f(V) \in O_p \C$.
+\end{definition}
+
+\begin{theorem}[Принцип открытости]
+	Если функция $f$ голоморфна в об-ти $D$ и не является постоянной, то отображение $f : D \rightarrow \C$ открыто.
+\end{theorem}
+
+\begin{theorem}[Принцип максимума]
+	Пусть $f$ голоморфна в области $D$, непрерывна в $dD$ и ограничена от постоянной. Тогда $\nexists z_0 \in D$
+	\[
+		\big|f(z_0)\big| = \underset{z \in D}{\sup} \big|f(z)\big|.
+	\]
+\end{theorem}
+
+\begin{proof}
+	Допустим противное $\implies \exists z \in D: \ f(z_0) = \underset{z\in D}{\sup} \big|f(z)\big| \eqcolon r$,
+	\[
+		B_r [0] \supset f(D), \quad f(z_0) \in f(D), \quad f(z_0)\in \partial B_r[0].
+	\]
+\end{proof}
+
+\begin{corollary}
+	Голоморфная в огр. области и непрерывная в ее замыкании функция достигает максимума модуля на границе этой области.
+\end{corollary}
+
+\subsection{Принцип взаимно однозначного соответствия}
+
+\begin{theorem}
+	Одонолистная в области $D$ голоморфная функция $f$ осуществляет конформное отображение этой области.
+\end{theorem}
+
+\begin{proof}
+	Предположим противное $\implies \exists z_0 \in D \ f '(z_0) = 0$. Можем считать, что $f(z_0) = 0 \implies z_0$ является нулем кратности 2. Берем $\delta >0: \ B_{\delta }[z_0] \subset D, \ \epsilon = \inf \{\abs{f(z)} : z \in S_{\delta } (z_0)\}> 0, \ \forall w \in \C \ \abs{w} < \epsilon , \ f(z)$ и $f(z)-w$ имеют одинаковое количество нулей, $z_w$ -- ноль $f(z)-w \implies \forall w \ f '(z_w) = 0 \implies f ' = 0 \implies f$.
+\end{proof}
