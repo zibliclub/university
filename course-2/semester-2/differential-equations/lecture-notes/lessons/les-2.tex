@@ -1,0 +1,185 @@
+\lesson{2}{от 5 мар 2024 10:30}{Продолжение}
+
+
+\section{Линейные однородные системы с постоянными коэффициентами}
+
+\[
+	\left(\begin{array}{c}
+			P_{m_1}^{1} (t) & \vdots & P_{m_n}^{1} (t)
+		\end{array}\right) \cdot e^{\lambda t} .
+\]
+
+\begin{note}[Случай 1]
+	Пусть $\lambda _i \in R, \ i = \overline{1,r} $ и $\lambda _i \ne \lambda _j \ (i = j)$. Тогда $\overline{x} _j = \overline{v} _i e^{\lambda _i t} $ является решением однородной системы $\dot{\overline{x} } = A \overline{x} $,
+	\[
+		\nabla \underbrace{\lambda _i \overline{v} _i e^{\lambda _i t}}_{\dot{\overline{x} _i}} = A \overline{v} _i e^{\lambda _i t} = A \overline{x} _j \implies x_{00} = \sum_{k=1}^{n} C_k \overline{v} _k e^{\lambda _k t} .
+	\]
+\end{note}
+
+\begin{remark}
+	$\lambda _i \in R \ (i = \overline{1,n} )$ и $\lambda _i = \lambda _j \ (i \ne j) ; \ \lambda _i $ дают $n$ ЛНЗ собств. векторов.
+\end{remark}
+
+\begin{note}[Случай 2]
+	Пусть $\lambda _1 = a + bi, \ \overline{v} _1(t) = \overline{v}_{1}^{1} (t) + i \overline{v}_{1}^{2} (t)$ -- собств. вектор, отвечающий $\lambda _1$. Тогда $\lambda _2 = a - b_i $ и $\overline{v} _2 (t) = \overline{v}_{1}^{1} (t) - i \overline{v}_{1}^{2} (t)$ -- собств. вектор отв. $\lambda _2$.
+
+	Сравнить $A \overline{v}_1 = \lambda_1 \overline{v}_1$ и $A \overline{v} _2 = \lambda _2 \overline{v} _2$.
+
+	Выберем 2 действ. ($\overline{x} _1 (t) = \overline{v} _1 (t) e^{\lambda _1 t} ; \ \overline{x} _2 (t) = \overline{v}_2(t)e^{\lambda _2 t} $),
+	\[
+		\overline{x}_{1}^{R} = \frac{1}{2} \big(\overline{x} _1(t) + \overline{x} _2(t)\big) = \Re \overline{x} _1 (t),
+	\]
+	\[
+		\overline{x}_{2}^{R} = \frac{1}{2i} \big(\overline{x} _1 (t) - \overline{x} _2(t)\big) = \Im \overline{x} _1 (t).
+	\]
+\end{note}
+
+\begin{theorem}
+	Решение системы $\dot{\overline{x} } = Ax$ имеет вид:
+	\[
+		\left(\begin{array}{c}
+				x_1 \\ \vdots \\ x_n
+			\end{array}\right) = \left(\begin{array}{c}
+				P_{m_1}^{1} (t) \\ \vdots \\ P_{m_n}^{n} (t)
+			\end{array}\right)e^{\lambda _1 t} + \ldots + \left(\begin{array}{c}
+				P_{1_1}^{1} (t) \\ \vdots \\ P_{1_n}^{n} (t)
+			\end{array}\right) e^{\lambda_s t} \quad (*)
+	\]
+	$\lambda _1,\ldots ,\lambda _s$ -- собственные числа $A$. Степени множеств в $i$-ом столбце на 1 меньше, чем макс. размернок ШК, соотв. $\lambda _i$.
+
+	Формула $(*)$ включает $n$ производных постоянных и выражает общее решение системы,
+	\[
+		e^{\lambda t} \left(\begin{array}{c}
+				P_{k-m}^{1} (t) \\ \vdots \\ P_{k-m}^{n} (t)
+			\end{array}\right).
+	\]
+\end{theorem}
+
+\section{Устойчивость решения систем ДУ}
+
+\[
+	(1) \ \left\{\begin{array}{l}
+		\dot{x} = f(t,x) \\
+		x(t_0) = x_0
+	\end{array}\right. \quad f\in C, \ f \in \Lip x \ \text{или} \ f \in C^1.
+\]
+
+\begin{definition}[Устойчивое по Ляпунову решение]
+	Решение $\phi (t)$ задачи $(1)$ называется \emph{устойчивым по Ляпунову}, если $\forall \epsilon > 0 \ \exists \delta > 0: \ \forall x(t)$ -- решение $(1): \ \big|x(t_0) - \phi (t_0)\big|< \delta $ выполняется неравенство $\big|x(t) - \phi (t)\big|< \epsilon $ для $\forall t \geqslant t_0$.
+\end{definition}
+
+\begin{definition}[Устойчивое решение]
+	Решение $\phi (t)$ задачи $(1)$ называется \emph{устойчивым}, если $\exists \epsilon >0 : \ \forall \delta > 0 \ \exists \widetilde{x}(t)$ -- решение $(1)$: $\big|\widetilde{x}(t_0) - \phi (t_0)\big| < \delta $ и $\exists t_1 > t_0$ выполняется неравенство $\big|\widetilde{x}(t_1) - \phi (t_1)\big| \geqslant \epsilon $.
+\end{definition}
+
+\begin{definition}[Асимптотическое решение]
+	Решение $\phi (t)$ задачи $(1)$ называется \emph{асимптотическим}, если:
+	\begin{enumerate}
+		\item Оно устойчиво по Ляпунову.
+		\item $\exists \delta >0: \ \forall x(t)$ решений $(1): \ \big|x(t_0) - \phi (t_0)\big| < \delta $ выполняется
+		      \[
+			      \underset{t \rightarrow \infty }{\lim} \big|x(t) - \phi (t)\big| = 0.
+		      \]
+	\end{enumerate}
+\end{definition}
+
+\begin{remark}
+	Из неограниченности решений не следует неустойчивость,
+	\[
+		\left\{\begin{array}{l}
+			\dot{x} + x = t+1 \\
+			x(0) = 0
+		\end{array}\right.
+	\]
+	\[
+		\dot{x}+x = 0, \ -\frac{dx}{x} = dt, \ x_{00} = Ce^{-t} , \ \frac{dx}{x} = -x, \ \ln(x) = -t + \ln C.
+	\]
+	\[
+		\begin{array}{l}
+			x_{OH} = C(t)e^{-t}                     \\
+			\dot{x}_{OH} = C '(t)e^{-t} -C(t)e^{-t} \\
+			C ' (t) e^{-t} = t + 1
+		\end{array}
+	\]
+	\[
+		\begin{array}{l}
+			C '(t) = (t+1)e^{-t} \\
+			C(t) = \int e^t dt + \int te^t dt = e^t + t e^t - \int e^t dt = te^t + C
+		\end{array}
+	\]
+	\[
+		x_{OH} = (t e^t + C) e^{-t} = t + Ce^{-t} .
+	\]
+
+	Найдем $\phi (t): \ \phi (0) = o + C \cdot 1 = 0 \implies  C = 0 \implies  \phi (t) = t$.
+
+	Исследуем на устойчивость:
+	\[
+		\begin{array}{l}
+			x(0) = x_0            \\
+			x(t) = t + x_0 e^{-t} \\
+			x(0) = \alpha         \\
+			x(0) = 0 + C \cdot 1 = \alpha  \implies  C = \alpha
+		\end{array}
+	\]
+	$x(t) = t + \alpha e^{-t} $,
+	\[
+		\underset{t \rightarrow \infty }{\lim} \big|x(t) - \phi (t)\big| = \underset{t \rightarrow \infty }{\lim} |\alpha e^{-t} | = 0 \implies
+	\]
+	$\implies \phi (t)$ асимптотически устойчива, хотя и неограничена.
+\end{remark}
+
+\begin{remark}
+	Из ограниченности решений не следует устойчивость ($f$ -- лин., то ограниченность $\equiv $ устойчивость).
+	\[
+		(2) \ \left\{\begin{array}{l}
+			\dot{x} = \sin^2 x \\
+			x(0) = 0
+		\end{array}\right. \quad (\phi (t) \equiv 0 \ \text{является решением }(2), \ \phi (t) \text{ -- устойчива}).
+	\]
+\end{remark}
+
+\section{Устойчивость решений линейных автономных систем}
+
+$(1) \ \dot{\overline{x} } = Ax, \ A$ -- постоянная матрица $n \times n$. \\
+$(2) \ \det (A - \lambda E) = 0$ -- хар-ое уравнение.
+
+$\overline{x} _0 = \left(\begin{array}{c}
+			0 \\ 0 \\ \vdots \\ 0
+		\end{array}\right)$ -- нулевое решение.
+
+\begin{definition}[Устойчивое по Ляпунову нулевое решение]
+	Нулевое решение $\overline{x} _0 = \left(\begin{array}{c}
+				0 \\ 0 \\ \vdots \\ 0
+			\end{array}\right)$ называется \emph{устойчивым по Ляпунову}, если $\forall \epsilon  > 0 \ \exists \delta  > 0: \ \forall \overline{x} (t): \ \big\| \overline{x} (t_0) - \overline{x} _0 \big\| < \delta $ имеем $\big\| \overline{x} (t) - \overline{x} _0\big\| < \epsilon \ \forall t \geqslant t_0$.
+\end{definition}
+
+\begin{theorem}\leavevmode
+	\begin{enumerate}
+		\item Если все корни $\lambda _1,\ldots ,\lambda _n$ хар-го уравнения $(2)$ имеют отриц. действительные части ($\Re \lambda _k < 0, \ k = \overline{1,n} $), то нулевое решение системы $(1)$ \emph{асимптотически}.
+		\item Если $\exists $ хотя бы один кореньт хар-го уравнения $(2)$ с положительной действительной частью ($\exists m : \Re (\lambda _m)> 0$), то нулевое решение системы $(1)$ \emph{неустойчиво}.
+		\item Если $\exists $ корни хар-го уравнения $(2)$ с нулевой, причем размерность соответствующих им клеток в ШФ матрицы $A$ равна $1$, то нулевое решение системы $(1)$ устойчиво, но не асимптотически устойчиво (предполагается, что все остальные корни имеют отрицательные действительные части).
+		\item Если $\exists $ корни хар-го уравнения $(2)$ с нулевой действительной частью, хотя бы одному из $j$-ых отвечает клетка размерности $\geqslant 2$ в ШФ матрицы $A$, то решение системы $(1)$ устойчиво.
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}\leavevmode
+	\begin{enumerate}
+		\item $\overline{x} (t) = e^{\lambda_k t} \cdot \big(P_{k-1}^{1} (t) P_{k-1}^{2} \ldots P_{k-1}^{n} (t) \big)^T, \ \lambda _k \in R$.
+		\item $\overline{x} (t) = e^{\lambda_k t} \left(\begin{array}{c}
+					      P_{k-1}^{1} (t) \\ \vdots \\ P_{k-1}^{n} (t)
+				      \end{array}\right) \cos \beta t + e^{\lambda _k t} \left(\begin{array}{c}
+					      Q_{k-1}^{1} \\ \vdots \\ Q_{k-1}^{n} (t)
+				      \end{array}\right) \sin \beta t, \ \lambda _k \in \C$,
+		      \begin{itemize}
+			      \item $t \rightarrow \infty , \ e^{\lambda _k t} \rightarrow \overline{0} $;
+			      \item $\begin{array}{ll}
+					            e^{\lambda _k t} \rightarrow \infty  & \lambda _k < 0 \\
+					            e^{\lambda _k t} \rightarrow +\infty & \lambda _k > 0
+				            \end{array}$;
+			      \item $\Re \lambda _k = 0 \implies e^{\lambda _k t} = 1 \implies  \left(\begin{array}{c}
+						            P_{k-1}^{1} (t) \\ \vdots \\ P_{k-1}^{n} (t)
+					            \end{array}\right)$ -- $const$.
+		      \end{itemize}
+	\end{enumerate}
+\end{proof}

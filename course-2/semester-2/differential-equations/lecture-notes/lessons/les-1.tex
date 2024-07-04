@@ -1,0 +1,214 @@
+\chapter{Системы ДУ 1-го порядка}
+
+\lesson{1}{от 20 фев 2024 10:30}{Начало}
+
+
+Рассмотрим систему 1-го порядка из $m$ уравнений с $n$ неизвестными:
+\[
+	(1) \ \left\{\begin{array}{l}
+		F_1(t,x_1,\ldots ,x_n,\ldots ,\dot{x_n}) = 0 \\
+		\vdots                                       \\
+		F_m(t,x_1,\ldots ,x_n,\dot{x_1},\ldots ,\dot{x_n}) = 0
+	\end{array}\right.
+\]
+
+Далее $m = n$.
+
+\begin{definition}[Нормальная система ДУ 1-го порядка]
+	Систему ДУ 1-го порядка назовем \emph{нормальной}, если она имеет вид:
+	\[
+		(2) \ \left\{\begin{array}{l}
+			\dot{x_1} = f_1(t,x_1,\ldots ,x_n) \\
+			\vdots                             \\
+			\dot{x_n} = f_n(t,x_1,\ldots ,x_n)
+		\end{array}\right. \quad \text{или} \quad \begin{array}{l}
+			\dot{\overline{x} } = \overline{f} (t,\overline{x} ), \\
+			\dot{\overline{x} } = \left(\frac{d x_1}{d t} \ldots \frac{d x_n}{d t} \right)^T.
+		\end{array} \ (2 ')
+	\]
+\end{definition}
+
+\begin{definition}[Решение системы ДУ 1-го порядка]
+	\emph{Решением} системы ДУ 1-го порядка $\overline{x} (t) = \phi (t) = \big(\phi _1(t)\ldots \phi _n (t)\big)^T$ называется набор дифференциальных функций, обращающих уравнение системы в верное тождество.
+\end{definition}
+
+\begin{definition}[Задача Коши для системы ДУ 1-го порядка]
+	\emph{Задачей Коши} для системы ДУ 1-го порядка называется задача отыскания решения системы $(2)$ или $(2 ')$, удовлетворяющего условиям:
+	\[
+		(3) \ \left\{\begin{array}{l}
+			x_1(t_0) = x_{1}^{\circ} \\
+			\vdots                   \\
+			x_n(t_0) = x_{n}^{\circ}
+		\end{array}\right. \quad \text{или} \quad \overline{x} (t_0) = \overline{x^{\circ}  } \ (3 ')
+	\]
+\end{definition}
+
+\begin{theorem}[$\exists$ и $!$ решения задачи Коши для системы]
+	Пусть $\overline{f} (t,\overline{x} )$ определена и непрерывна в области $D \subset R^{n+1} $ и удовлетворяет условию Липшица по переменным $x_1,\ldots ,x_n$ (более сильное условие -- частные производные $\frac{\partial f_i}{\partial x_j} $ непрерыные в области $D, \ i,j=\overline{1,n} $).
+
+	Тогда решение задачи $(2),(3)$ или $(2 '),(3 ')$ $\exists $ и $!$ в интервале $[t_0 - h ; t_0 +h)$, где $h = r \setminus \sqrt{M^2 + 1} $, $r$ -- радиус шара $B_r$ с центром $(t_0,\overline{x^{\circ}  } )$, целиком лежащего в $D$, $M = \underset{B_r}{\sup} \big\|\overline{f} (t,\overline{x} )\big\|$.
+\end{theorem}
+
+\begin{definition}[Линейная система]
+	Система ДУ 1-го порядка называется \emph{линейной}, если она имеет вид:
+	\[
+		(4) \ \left\{\begin{array}{l}
+			\dot{x_1} = a_{11} (t)x_1 + \ldots + a_{1n} (t)x_n + g_1(t) \\
+			\vdots                                                      \\
+			\dot{x_n} = a_{n1} (t)x_1 + \ldots + a_{nn} (t)x_n + g_n(t)
+		\end{array}\right.
+	\]
+	\[
+		\text{или}
+	\]
+	\[
+		(4 ') \ \begin{array}{l}
+			\dot{\overline{x} } = A(t) \cdot \overline{x} + \overline{g} (t) \\
+			A(t) = \big(a_{ij} (t)\big), \ \overline{g} (t) = \big(g(t)\big), \ i,j = \overline{1,n}
+		\end{array}
+
+	\]
+\end{definition}
+
+\begin{definition}[Однородные системы]
+	Система $(4)$ или $(4 ')$ называется \emph{однородной}, если $\overline{g} (t) = 0$, то есть
+	\[
+		(5) \ \overline{x '} = A(t) \cdot \overline{x}.
+	\]
+
+	Если матрица $A(t)$ имеет пост. элементы, то $A(t) =A$.
+\end{definition}
+
+\begin{theorem}[О продолжаемости решения системы на интервале]
+	Пусть $a_{ij} (t)$ и $g_j(t)$ непрерывны на $(\alpha ; \beta )$, $i,j=\overline{1,n} $. Тогда решение задачи Коши $(4 '), (3 ')$ существует и единственно и продолжено на $(\alpha ; \beta )$, $\big[-\infty \leqslant \alpha < \beta \leqslant +\infty \ (\alpha ; \beta )\big]$.
+\end{theorem}
+
+\begin{definition}[ЛЗ система]
+	Система функций $\overline{x} ^1,\ldots ,\overline{x} ^n$ называется \emph{ЛЗ} на $(\alpha ; \beta )$, если $\exists $ набор действительных чисел $C_1,\ldots ,C_n$, не всех равных нулю, такой, что
+	\[
+		(6) \ C_1\overline{x} ^1 + \ldots + C_n \overline{x} ^n = 0 \ \text{на} \ (\alpha ; \beta ).
+	\]
+\end{definition}
+
+\begin{definition}[ЛНЗ система]
+	Если в равенстве $(6)$ $C_1 = C_2 = \ldots = C_n = 0$, то система функций $\overline{x} ^1, \ldots , \overline{x} ^n$ ЛНЗ.
+\end{definition}
+
+\begin{definition}[Фундаментальная система]
+	Любая ЛНЗ система решений $\overline{x} ^1, \ldots , \overline{x} ^n$ называется \emph{фундаментальной (ФСР)}.
+\end{definition}
+
+\begin{definition}[Фундаментальная матрица]
+	Матрица, столбцы которой являются ФСР, называется \emph{фундаментальной матрицей},
+	\[
+		\Phi (t) = \left(\begin{array}{ccc}
+				x_{1}^{1} & \cdots & x_{1}^{n} \\
+				\vdots    & \ddots & \vdots    \\
+				x_{n}^{1} & \cdots & x_{n}^{n}
+			\end{array}\right), \quad \dot{\overline{x} } = A(t)\overline{x} .
+	\]
+\end{definition}
+
+\begin{definition}[Определитель Вронского]
+	\emph{Определителем Вронского} называется определитель фундаментальной матрицы,
+	\[
+		W(t) = \det \Phi (t).
+	\]
+\end{definition}
+
+\begin{theorem}
+	Если система функций $\overline{x} ^1, \ldots , \overline{x} ^n$ ЛЗ, то $W(t) = 0$.
+\end{theorem}
+
+\begin{corollary}
+	Если $W_{\overline{x} ^1,\ldots ,\overline{x} ^n} (t) \ne 0$, то $\overline{x} ^1,\ldots ,\overline{x} ^n$ ЛНЗ система функций.
+\end{corollary}
+
+\begin{theorem}
+	Пусть $\exists t_0 \in (\alpha ; \beta ): \ W(t_0) = 0$ и $a_{ij} (t)$ из $(5)$ непрерывна на $(\alpha ; \beta )$. Тогда $W(t) = 0$ на $(\alpha ; \beta )$ и $\overline{x} ^1,\ldots ,\overline{x} ^n$ ЛЗ.
+\end{theorem}
+
+\begin{theorem}[Формула Лиувиш-Остроградского]
+	Определитель Вронского для матрицы, составленной из решений $(5)$, находятся по формуле Л-О:
+	\[
+		e^{\int_{t_0}^{t} TrA(s)ds } W(t_0) = W(t),
+	\]
+	\[
+		TrA(t) = a_{11} (t) + \ldots + a_{nn} (t).
+	\]
+\end{theorem}
+
+\begin{proof}
+	Для произвольного $x^j$:
+	\[
+		\left(\begin{array}{c}
+				\dot{x_{1}^{j} } \\ \vdots \\ \dot{x_{i}^{j} } \\ \vdots \\ \dot{x_{n}^{j} }
+			\end{array}\right) = \left(\begin{array}{ccc}
+				a_{11} (t) & \cdots & a_{1n} (t) \\
+				\vdots     & \ddots & \vdots     \\
+				a_{i1} (t) & \cdots & a_{in} (t) \\
+				\vdots     & \ddots & \vdots     \\
+				a_{n1} (t) & \cdots & a_{nn} (t)
+			\end{array}\right) \left(\begin{array}{c}
+				x_{1}^{j} \\ \vdots \\ x_{i}^{j} \\ \vdots \\ x_{n}^{j}
+			\end{array}\right),
+	\]
+	\[
+		\dot{W}(t) = \sum_{i=1}^{n} \left|\begin{array}{ccc}
+			x_{1}^{1}   & \cdots & x_{1}^{n}   \\
+			\vdots      & \ddots & \vdots      \\
+			x_{i-1}^{1} & \cdots & x_{i-1}^{n} \\
+			x_{i}^{1}   & \cdots & x_{i}^{n}   \\
+			x_{i+1}^{1} & \cdots & x_{i+1}^{n} \\
+			\vdots      & \ddots & \vdots      \\
+			x_{n}^{1}   & \cdots & x_{n}^{n}
+		\end{array}\right| \circled{=}
+	\]
+	\begin{multline*}
+		\dot{x_{i}^{j} } = a_{i1}(t) x_{1}^{j} + a_{i2} (t)x_{2}^{j} + \ldots + a_{in} (t)x_{n}^{j} = \\
+		= \sum_{k=1}^{n} a_{ik} x_{k}^{j}, \ i = \overline{1,n} , \ j = \overline{1,n},
+	\end{multline*}
+	\[
+		\circled{=} \sum_{i=1}^{n} \left|\begin{array}{ccc}
+			x_{1}^{1}                      & \cdots & x_{1}^{n}                       \\
+			\vdots                         & \ddots & \vdots                          \\
+			\sum_{k=1}^{n} a_{ik}x_{k}^{1} & \cdots & \sum_{k=1}^{n} a_{ik} x_{k}^{n} \\
+			\vdots                         & \ddots & \vdots                          \\
+			x_{n}^{1}                      & \cdots & x_{n}^{n}
+		\end{array}\right| =
+	\]
+	\[
+		= \sum_{i=1}^{n} \left|\begin{array}{cccc}
+			\cdots           & \cdots           & \cdots & \cdots           \\
+			a_{ii} x_{j}^{1} & a_{ii} x_{i}^{2} & \cdots & a_{ii} x_{i}^{n} \\
+			\cdots           & \cdots           & \cdots & \cdots
+		\end{array}\right| \circled{=}
+	\]
+	\begin{multline*}
+		\sum_{k=1}^{n} a_{ik} x_{k}^{1} - a_{i1} x_{1}^{1} - a_{i2} x_{2}^{1} - \ldots \\
+		\ldots - a_{i1 - 1} x_{i - 1}^{1} - a_{ii+1} x_{i+1}^{1} - \ldots - a_{in} x_{n}^{1} = a_{ii} x_{i}^{1} ,
+	\end{multline*}
+	\[
+		\circled{=} \sum_{i=1}^{n} a_{ii} W(t) = W(t) \cdot TrA(t).
+	\]
+
+	На $[t_0 ; t ]$:
+	\[
+		\int_{t_0}^{t} \frac{\dot{W}(s)}{W(s)} ds = \int_{t_0}^{t} TrA(t)dt = \ln\big|W(t)\big| - \ln \big|W(t_0)\big| = \int_{t_0}^{t} Tr(A)(s)ds \implies
+	\]
+	\[
+		\implies W(t) = W(t_0) \cdot \exp \left(\int_{t_0}^{t} TrA(s)ds\right).
+	\]
+\end{proof}
+
+\begin{corollary}
+	Если $\exists t_0 \in (\alpha ; \beta ): \ W(t_0) =0 \implies W(t) = 0$ для $\forall t \in (\alpha ; \beta )$.
+\end{corollary}
+
+\begin{theorem}[О структуре общего решения однородной системы ДУ]
+	Пусть $\overline{x} ^1(t),\overline{x} ^2(t),\ldots ,\overline{x} ^n(t)$ -- до. е. р., тогда:
+	\[
+		\overline{x}_{00} = \sum_{k=1}^{n} C_k \overline{x} ^k(t),
+	\]
+	$C_k$ -- произвольная постоянная.
+\end{theorem}

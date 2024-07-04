@@ -1,0 +1,103 @@
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks,
+	linkcolor={black},
+	citecolor={black},
+	urlcolor={blue!80!black}
+}
+
+\usepackage{amsmath, amsfonts, mathtools, amsthm, amssymb}
+\usepackage{tikz}
+
+% theorems
+\usepackage{thmtools}
+\usepackage[framemethod=TikZ]{mdframed}
+\mdfsetup{skipabove=1em,skipbelow=0em, innertopmargin=5pt, innerbottommargin=6pt}
+
+\declaretheoremstyle[
+	headfont=\bfseries\sffamily,
+	bodyfont=\normalfont,
+	mdframed={ nobreak }
+]{thmbox}
+
+\declaretheoremstyle[
+	headfont=\bfseries\sffamily,
+	bodyfont=\normalfont
+]{thmunbox}
+
+\declaretheoremstyle[
+	headfont=\bfseries\sffamily,
+	bodyfont=\normalfont,
+	numbered=no,
+	mdframed={ rightline=false, topline=false, bottomline=false, },
+	qed=\qedsymbol
+]{thmproofline}
+
+\declaretheorem[numbered=no, style=thmbox, name=Определение]{definition}
+\declaretheorem[numbered=no, style=thmbox, name=Следствие]{corollary}
+\declaretheorem[numbered=no, style=thmbox, name=Предложение]{prop}
+\declaretheorem[numbered=no, style=thmbox, name=Теорема]{theorem}
+\declaretheorem[numbered=no, style=thmbox, name=Лемма]{lemma}
+\declaretheorem[numbered=no, style=thmbox, name=Критерий]{crit}
+
+\declaretheorem[numbered=no, style=thmproofline, name=Доказательство]{replacementproof}
+\declaretheorem[style=thmunbox, numbered=no, name=Упражнение]{ex}
+\declaretheorem[style=thmunbox, numbered=no, name=Пример]{eg}
+\declaretheorem[style=thmunbox, numbered=no, name=Замечание]{remark}
+\declaretheorem[style=thmunbox, numbered=no, name=Примечание]{note}
+\declaretheorem[style=thmunbox, numbered=no, name=Задача]{task}
+
+\renewenvironment{proof}[1][\proofname]{\begin{replacementproof}}{\end{replacementproof}}
+
+\AtEndEnvironment{eg}{\null\hfill$\diamond$}
+
+\newtheorem*{notation}{Обозначение}
+\newtheorem*{previouslyseen}{Как было замечено ранее}
+\newtheorem*{problem}{Проблема}
+\newtheorem*{observe}{Наблюдение}
+\newtheorem*{property}{Свойство}
+\newtheorem*{intuition}{Предположение}
+
+\usepackage{etoolbox}
+\AtEndEnvironment{vb}{\null\hfill$\diamond$}
+\AtEndEnvironment{intermezzo}{\null\hfill$\diamond$}
+
+
+% custom commands
+\let\epsilon\varepsilon
+
+\newcommand\N{\ensuremath{\mathbb{N}}}
+\newcommand\R{\ensuremath{\mathbb{R}}}
+\newcommand\Z{\ensuremath{\mathbb{Z}}}
+\newcommand\Q{\ensuremath{\mathbb{Q}}}
+\renewcommand\C{\ensuremath{\mathbb{C}}}
+\newcommand{\diff}{\ensuremath{\operatorname{d}\!}}
+\renewcommand{\d}{\operatorname{d}}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\Arg}{\operatorname{Arg}}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\cl}{\operatorname{cl}}
+\newcommand{\Cl}{\operatorname{Cl}}
+\newcommand{\Ln}{\operatorname{Ln}}
+\newcommand{\Arcsin}{\operatorname{Arcsin}}
+\newcommand{\Arccos}{\operatorname{Arccos}}
+\newcommand{\const}{\operatorname{const}}
+\newcommand{\dom}{\operatorname{dom}}
+
+\newcommand{\abs}[1]{\left\lvert #1\right\rvert}
+\newcommand{\verteq}[0]{\rotatebox{90}{$=$}}
+\newcommand{\vertneq}[0]{\rotatebox{90}{$\ne$}}
+\newcommand{\equalto}[2]{\underset{\scriptstyle\overset{\mkern4mu\verteq}{#2}}{#1}}
+\newcommand{\nequalto}[2]{\underset{\scriptstyle\overset{\mkern4mu\vertneq}{#2}}{#1}}
+\newcommand{\RomanNumeralCaps}[1]{\MakeUppercase{\romannumeral #1}}
+
+\newcommand*\circled[1]{
+	\tikz[baseline=(char.base)]{
+		\node[shape=circle,draw,inner sep=1pt] (char) {#1};
+	}
+}

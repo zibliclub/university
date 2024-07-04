@@ -1,0 +1,133 @@
+\lesson{3}{от 19 мар 2024 10:30}{Продолжение}
+
+
+\section{Устойчивость по первому приближению}
+
+\begin{theorem}[Ляпунова]
+	$(3) \ \dot{\overline{x} } = \overline{f} (\overline{x} ,t)$. Пусть $\overline{f} (\overline{x} ,t) = A \overline{x} + \overline{\phi } (\overline{x} ,t)$. \\
+	$(4) \ \big|\overline{\phi } (\overline{x} ,t)\big|< j(\overline{x} ) \cdot |\overline{x} |, \ j(\overline{x} ) \rightarrow 0$ при $\abs{\overline{x} } \rightarrow 0$.
+
+	\[
+		\|\cdot \| \sim |\cdot |, \ \abs{\overline{x} } = \sqrt{x_{1}^{2} + x_{2}^{2} + \ldots + x_{n}^{2} }.
+	\]
+
+	Тогда:
+	\begin{enumerate}
+		\item Если все корни $\lambda _1, \ldots ,\lambda _n$ уравнения $(3)$ имеют отриц. действ. части ($\Re \lambda _k < 0, \ k = \overline{1,n} $), то нулевое решение системы $(3)$ асимптотически устойчиво.
+		\item Если $\exists$ хотя бы один корень хар-го уравнения $(2)$ с полож. действ. частью ($\exists m: \ \Re \lambda _m > 0$), то нулевое решение системы $(3)$ неустойчиво.
+	\end{enumerate}
+\end{theorem}
+
+\section{Исследование отрицательности действительных частей корней хар-го уравнения}
+
+$(5) \ a_0 \lambda ^n + a_1 \lambda^{n-1} + \ldots + a_{n-1} + a_n = 0$ -- хар. уравнение, $a_k \in R, \ h = \overline{0,n} , \ a_0 \ne 0$.
+
+Составим матрицу Гурвица:
+\[
+	\Gamma = \left(\begin{array}{cccccc}
+			a_1    & a_0    & 0      & 0      & \cdots & 0      \\
+			a_3    & a_2    & a_1    & a_0    & \cdots & 0      \\
+			a_5    & a_4    & a_3    & a_2    & \cdots & 0      \\
+			\vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+			0      & 0      & 0      & 0      & \cdots & a_n
+		\end{array}\right)
+\]
+
+\begin{theorem}[Необходимое условие отрицательности действительных частей всех корней]
+	$\lambda _i, \ i = \overline{1,n} $ является $a_k > 0, \ k = \overline{0,n} $.
+
+	Для $n \leqslant 2$ это условие является и достаточным.
+\end{theorem}
+
+\begin{theorem}[Достаточное условие отрицательности всех действительных частей корней характеристического уравнения $(5)$]
+	Если все главные миноры матрицы Гурвица больше $0$, то все действительные части корней хар. ур. $(5)$ отрицательны.
+\end{theorem}
+
+\begin{crit}[Рауса-Гурвица]
+	Пусть:
+	\begin{enumerate}
+		\item $a_k > 0, \ k = \overline{0,n} $ в уравнении $(5)$.
+		\item Все главные миноры матрицы Гурвица положительные, то есть $\triangle_1 = a_1 > 0, \ \triangle_2 = \left|\begin{array}{cc}
+				      a_1 & a_0 \\ a_3 & a_2
+			      \end{array}\right| > 0, \ \triangle_3 = \left|\begin{array}{ccc}
+				      a_1 & a_0 & 0   \\
+				      a_3 & a_2 & a_1 \\
+				      a_5 & a_4 & a_3
+			      \end{array}\right| > 0, \ \ldots, \ \triangle_n = a_n \cdot \triangle_{n-1} > 0$,
+
+		      $\Re \lambda _k < 0, \ k = \overline{1,n} $.
+	\end{enumerate}
+\end{crit}
+
+\section{Фазовый портрет линейной автономной системы на плоскости}
+
+Рассмотрим систему на плоскости:
+\[
+	\dot{\overline{x} } = \overline{f} (\overline{x} ), \ \overline{x} = \left(\begin{array}{c}
+			x_1 \\ x_2 \\ \vdots \\ x_n
+		\end{array}\right),
+\]
+
+\[
+	(6) \ \left\{\begin{array}{l}
+		\dot{x} = f_1(x,y) \\
+		\dot{y} = f_2(x,y)
+	\end{array}\right. \text{ -- нелинейная},
+\]
+\[
+	(7) \ \left\{\begin{array}{l}
+		\dot{x} = ax + by \\
+		\dot{y} = cx + dy
+	\end{array}\right. \text{ -- линейная}, \ \left|\begin{array}{cc}
+		a & b \\ c & d
+	\end{array}\right|
+\]
+
+\begin{definition}[Траектория на дуговой плоскости]
+	\emph{Траекторией (или дуговой кривой) на дуговой плоскости} (плоскость переменных $x,y$) называется график решения, состоящий из точек $(x,y)$, где $x = x(t), \ y = y(t)$ в момент времени $t$.
+\end{definition}
+
+\begin{definition}[Фазовый портрет]
+	\emph{Фазовый портрет} -- совокупность всех фазовых кривых.
+\end{definition}
+
+Свойства траекторий:
+\begin{enumerate}
+	\item Не пересекаются.
+	\item Различным решениям системы может соответствовать одна и та же траектория.
+	\item \emph{Особой точкой} системы $\left\{\begin{array}{l}
+			      \dot{x} = f_1(x,y) \\
+			      \dot{y} = f_2(x,y)
+		      \end{array}\right.$ называется точка, координаты которой удовлетворяют уравнению $\left\{\begin{array}{l}
+			      f_1(x,y) = 0 \\
+			      f_2(x,y) = 0
+		      \end{array}\right.$
+
+	      \emph{Особая точка} -- траектория системы (так как является решением).
+
+	      \begin{remark}
+		      Траектории могут неограниченно приближаться к особой точке, никогда не входя в нее.
+	      \end{remark}
+
+	\item Пусть $\big(x_1(t), y_1(t)\big)$ и $\big(x_2(t),y_2(t)\big)$ -- две траектории, и $\exists t_1,t_2$:
+	      \[
+		      \left\{\begin{array}{l}
+			      x_1(t_1) = x_2(t_2) \\
+			      y_1(t_1) = y_2(t_2)
+		      \end{array}\right.,
+	      \]
+	      тогда эти траектории совпадают.
+
+	\item Если $\exists t_1,t_2$:
+	      \[
+		      \left\{\begin{array}{l}
+			      x(t_1) = x(t_2) \\
+			      y(t_1) = y(t_2)
+		      \end{array}\right.,
+	      \]
+	      то траектория $\big(x(t),y(t)\big)$ -- замкнутая кривая или периодическая.
+\end{enumerate}
+
+\begin{theorem}
+	Траектории автономной системы либо точка, либо период. кривая, либо кривая без самопересечений.
+\end{theorem}

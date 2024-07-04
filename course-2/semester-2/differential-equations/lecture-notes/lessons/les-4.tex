@@ -1,0 +1,85 @@
+\newpage
+
+\lesson{4}{от 28 мар 2024 10:30}{Продолжение}
+
+
+\section{Фазовый портрет нелинейной системы}
+
+\begin{definition}[Предельный цикл системы]
+	\emph{Предельным циклом системы} называется замкнутая фазовая кривая, у которой существует окружность, целиком заполненная траекториями, точки на траектории движутся к этой замкнутой привой при $t \rightarrow +\infty $ или $t \rightarrow - \infty $.
+\end{definition}
+
+\begin{note}
+	Устойчивый предельный цикл содержит неустойчивый фокус. Неустойчивый предельный цикл содержит устойчивый фокус.
+\end{note}
+
+\subsection{Исследование устойчивости с помощью функций Ляпунова}
+
+Рассмотрим нелинейную систему:
+\[
+	(1) \ \dot{\overline{x} } = \overline{F} (t,\overline{x} ), \ F = \left(\begin{array}{c}
+			f ' \\ \vdots \\ f_n
+		\end{array}\right), \ \overline{x} = \left(\begin{array}{c}
+			x_1 \\ \vdots \\ x_n
+		\end{array}\right)f_i,
+\]
+\[
+	\frac{\partial f_i}{\partial x_k} \in C(D), \ t \geqslant t_0, \ v(t,\overline{x} )\in C(R^{n} ).
+\]
+
+\begin{definition}
+	Производная $v(t,\overline{x} )$ в силу системы $(1)$ определяется по формуле:
+	\[
+		\frac{dv}{dt} \Big|_{(1)} = \frac{\partial v}{\partial k} + \frac{\partial v}{\partial x_1} f_1 + \frac{\partial v}{\partial x_2} f_2 + \ldots + \frac{\partial v}{\partial x_k} f_n = \frac{\partial v}{\partial k} + \sum_{i=1}^{n} \frac{\partial v}{\partial x_i} f_i.
+	\]
+\end{definition}
+
+Рассмотрим автономную систему:
+\[
+	(2) \ \dot{\overline{x} } = F(\overline{x} ).
+\]
+
+Будем предполагать, что $F(\overline{0} ) = \overline{0} $, $\overline{0} $ -- особая точка $(2)$.
+
+\begin{definition}[Функция Ляпунова]
+	Функция $V(x) = V(x_1,x_2,\ldots ,x_n)$, определенная на шаре $\|\overline{x} \| < R$, называется \emph{функцией Ляпунова}, если:
+	\begin{enumerate}
+		\item $V(\overline{x} ) \in C^1 \ (\|\overline{x} \| < R)$.
+		\item $V(\overline{x} ) \geqslant 0$ в $\|\overline{x} \| < R ; \ V(\overline{x} ) = 0 \iff \overline{x} = \overline{0} $.
+		\item $\frac{dV}{dt} \Big|_{(1)} = \frac{\partial V}{\partial x_1} f_1 + \frac{\partial V}{\partial x_2} f_2 + \ldots + \frac{\partial V}{\partial x_n} f_n = (\grad V, \ F) \leqslant 0$ в $0 < \|\overline{x} \| < R$.
+	\end{enumerate}
+\end{definition}
+
+\begin{theorem}[Ляпунова об устойчивости]
+	Если $\exists $ функция Ляпунова для системы $(2)$, то нулевое решение устойчиво по Ляпунову.
+\end{theorem}
+
+\begin{theorem}[Ляпунова об асимптотической устойчивости]
+	Если $\exists $ функция $V(\overline{x} ) = V(x_1,\ldots ,x_n)$, опр. на шаре $\|\overline{x} \| < R$, со свойствами:
+	\begin{enumerate}
+		\item $V(\overline{x} ) \in C^1 \ (\|\overline{x} \| < R)$.
+		\item $V(\overline{x} )\geqslant 0$ в $\|\overline{x} \| < R, \ V(\overline{x} ) = 0 \iff \overline{x}  = \overline{0}  $.
+		\item $\frac{dV}{dt} \Big|_{(1)} = (\grad V, F)\leqslant -w(x) < 0$ в $0 < \|\overline{x} \| < R, \ w(x) \in C(\|\overline{x} \| < R)$.
+	\end{enumerate}
+
+	Тогда нулевое решение $(2)$ асимптотически устойчиво.
+\end{theorem}
+
+\begin{theorem}[Ляпунова о неустойчивости]
+	Если $\exists $ функция \\ $V(\overline{x} ) = V(x_1,x_2,\ldots ,x_n)$ опр. на шаре $\|\overline{x} \| < R$, со свойствами:
+	\begin{enumerate}
+		\item $V(\overline{x} ) \in C^1 \ (\|\overline{x} \| < R)$.
+		\item $V(\overline{x} ) \geqslant 0$ в $\|\overline{x} \| < R ; \ V(\overline{x} ) = 0 \iff \overline{x} = \overline{0} $.
+		\item $\frac{dV}{dt} \Big|_{(2)} = (\grad V, F) \geqslant w(x)> 0$ в $0 < \| \overline{x} \| < R,\ t \geqslant t_0,\ w(x) \in C \ (\|\overline{x} \| < R)$.
+	\end{enumerate}
+
+	Тогда нулевое решение $(2)$ неустойчиво.
+\end{theorem}
+
+\begin{theorem}[Четаева о неустойчивости]
+	Если $\exists $ область $D$, причем $\overline{0} \in \partial D$ и $\exists $ функция $V(\overline{x} ) = V(x_1,\ldots ,x_n)$ опр. в $\|\overline{x} \| < R$, удовлетворяет условиям:
+	\begin{enumerate}
+		\item $V(\overline{x} )\in C^1 \ (\|\overline{x} \| < R)$.
+		\item $V(\overline{x} )\geqslant 0$ в $D, \ V(\overline{x} ) = 0 \iff \overline{x} \in \partial D$.
+	\end{enumerate}
+\end{theorem}
