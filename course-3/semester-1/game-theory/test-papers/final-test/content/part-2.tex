@@ -1,0 +1,103 @@
+\section{Задачи транспортного типа}
+
+\begin{equation}\label{eq:1}
+	f = \sum_{i=1}^{m} \sum_{j=1}^{n} c_{ij} x_{ij} \rightarrow \min
+\end{equation}
+\begin{equation}\label{eq:2}
+	\sum_{j=1}^{n} x_{ij} \leqslant a_i, \ i = 1,\ldots ,m
+\end{equation}
+\begin{equation}\label{eq:3}
+	\sum_{i=1}^{m} x_{ij} \geqslant b_j, \ j = 1,\ldots ,n
+\end{equation}
+\begin{equation}\label{eq:4}
+	x_{ij} \geqslant 0, \ i = 1,\ldots ,m, \ j = 1,\ldots ,n
+\end{equation}
+
+Для разрешимости задачи (\ref{eq:1})-(\ref{eq:4}) необходимо, чтобы общий объем производства покрывал суммарный спрос:
+\begin{equation}\label{eq:5}
+	\sum_{i=1}^{m} a_i \geqslant \sum_{j=1}^{n} b_j
+\end{equation}
+
+\begin{definition}[Открытая транспортная задача (ОТЗ)]
+	В случае строгого неравенства в (\ref{eq:5}) задача (\ref{eq:1})-(\ref{eq:4}) называется \emph{открытой транспортной задачей} (ОТЗ), в противном случае задача принимает вид:
+	\begin{equation}\label{eq:6}
+		f = \sum_{i=1}^{m} \sum_{j=1}^{n} c_{ij} x_{ij} \rightarrow \min
+	\end{equation}
+	\begin{equation}\label{eq:7}
+		\sum_{j=1}^{n} x_{ij} = a_i, \ i = 1,\ldots ,m
+	\end{equation}
+	\begin{equation}\label{eq:8}
+		\sum_{i=1}^{m} x_{ij} =b_j, \ j=1,\ldots ,n
+	\end{equation}
+	\begin{equation}\label{eq:9}
+		x_{ij} \geqslant 0, \ i = 1,\ldots ,m, \ j=1,\ldots ,n
+	\end{equation}
+\end{definition}
+
+\begin{definition}[Закрытая транспортная задача (ЗТЗ)]
+	Задача (\ref{eq:6})-(\ref{eq:9}) называется \emph{закрытой транспортной задачей} (ЗТЗ) и является канонической задачей ЛП.
+\end{definition}
+
+\begin{definition}[План перевозок (план ЗТЗ)]
+	Допустимую, то есть удовлетворяющую ограничениям (\ref{eq:7})-(\ref{eq:9}), таблицу (матрицу) $X = (x_{ij})$ размера $(m \times n)$, будем называть \emph{планом перевозок}, или просто \emph{планом ЗТЗ}.
+\end{definition}
+
+\begin{definition}[Базисное решение]
+	Ненулевое допустимое решение $x$ канонической задачи ЛП называется \emph{базисным}, если система вектор-столбцов матрицы ограничений, соответствующих ненулевым компонентам вектора $x$, является линейно-независимой.
+\end{definition}
+
+\begin{definition}[Основная коммуникация]
+	Каждая переменная $x_{ij} $ плана перевозок соответствует возможной \emph{коммуникации} $A_iB_j$ между пунктами производства и потребления. Коммуникацию $A_iB_j$ назовем \emph{основной коммуникацией}, если вдоль нее осуществляется перевозка, при этом соответствующую клетку таблицы будем считать \emph{отмеченной}.
+\end{definition}
+
+\begin{definition}[Граф перевозок]
+	Рассмотрим граф, вершины которого соответствуют пунктам $A_i$ и $B_j$, а ребра -- основным коммуникациям $A_iB_j$. Будем называть его \emph{графиком перевозок}.
+\end{definition}
+
+Двойственная задача имеет вид:
+\begin{equation}\label{eq:11}
+	\sum_{j=1}^{n} b_jv_j - \sum_{i=1}^{m} a_iu_i \rightarrow \max
+\end{equation}
+\begin{equation}\label{eq:12}
+	u_i \geqslant 0, \ i = 1,\ldots ,m
+\end{equation}
+\begin{equation}\label{eq:13}
+	v_j \geqslant 0, \ j = 1,\ldots ,n
+\end{equation}
+\begin{equation}\label{eq:14}
+	v_j - u_i \leqslant c_{ij}, \ i=1,\ldots ,m, \ j=1,\ldots ,n
+\end{equation}
+
+\begin{definition}[Потенциалы]
+	Переменные $u_i, \ i=1,\ldots ,m$ и $v_j, \ j = 1,\ldots ,n$ называются \emph{потенциалами}.
+\end{definition}
+
+Введем переменные:
+\[
+	x_{ij} = \left\{\begin{array}{ll}
+		1, & \text{работник $i$ назначен на должность $j$}, \\
+		0, & \text{в противном случае}.
+	\end{array}\right\}
+\]
+\begin{equation}\label{eq:16}
+	f = \sum_{i=1}^{n} \sum_{j=1}^{n} c_{ij} x_{ij} \rightarrow \min
+\end{equation}
+\begin{equation}\label{eq:17}
+	\sum_{j=1}^{n} x_{ij} =1, \ i = 1,\ldots ,n
+\end{equation}
+\begin{equation}\label{eq:18}
+	\sum_{i=1}^{n} x_{ij} =1, \ j = 1,\ldots ,n
+\end{equation}
+\begin{equation}\label{eq:19}
+	x_{ij} \in \{0,1\}, \ i = 1,\ldots n, \ j = 1,\ldots ,n
+\end{equation}
+
+\begin{definition}[Задача целочисленного линейного программирования]
+	Задача (\ref{eq:16})-(\ref{eq:19}) является задачей \emph{целочисленного линейного программирования} (ЦЛП). Поскольку ее переменные не просто целочисленные, а принимают лишь два значения 0 и 1, то такие задачи относят также к классу задач \emph{булева программирования}.
+\end{definition}
+
+\begin{definition}[Задача о назначениях на максимум]
+	На практике возникает также постановка, в которой $c_{ij} $ представляют собой \emph{эффективность} от назначения работника $i$ на должность $j$. В этом случае необходимо максимизировать суммарную эффективность.
+
+	Такую задачу будем называть \emph{задачей о назначениях на максимум}. Она может быть сведена к задаче на минимум путем домножения целевой функции на $-1$.
+\end{definition}

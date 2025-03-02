@@ -1,0 +1,119 @@
+\section{Полунорма и норма}
+
+\begin{definition}[Полунорма]
+	Пусть $X$ -- векторное пространство над полем $\mathbb{F}$. Отображение $p : X \rightarrow \mathbb{R}$ называется \emph{полунормой} на $X$, если выполнены следующие условия:
+	\begin{enumerate}
+		\item $\forall x \in X \ \forall \lambda \in \mathbb{F} \ p(\lambda x) = |\lambda |p(x)$ (абсолютная однородность).
+		\item $\forall x,y \in X \ p(x+y) \leqslant p(x) + p(y)$ (неравенство треугольника).
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}[Норма]
+	Пусть $X$ -- векторное пространство над полем $\mathbb{F}$. Отображение $p: X \rightarrow \mathbb{R}$ называется \emph{нормой} на $X$, если выполенены следующие условия:
+	\begin{enumerate}
+		\item $\forall x \in X \ \forall \lambda \in \mathbb{F} \ p(\lambda x) = |\lambda |p(x)$.
+		\item $\forall x,y \in X \ p(x + y) \leqslant p(x) + p(y)$.
+		\item $\forall x \in X \ p(x) = 0 \implies x = \mathbb{O}$.
+	\end{enumerate}
+\end{definition}
+
+\section{Нормированное и банахово пространства}
+
+\begin{definition}[Нормированное пространство]
+	Векторное пространство $X$ над полем $\mathbb{F}$ называется \emph{нормированным пространством}, если на нем задана норма, то есть некоторое отображение $p: X \rightarrow \mathbb{R}$, обладающее следующими свойствами:
+	\begin{enumerate}
+		\item $\forall x \in X \ \forall \lambda \in \mathbb{F} \ p(\lambda x) = |\lambda | p(x)$.
+		\item $\forall x,y \in X \ p(x+y) \leqslant p(x) + p(y)$.
+		\item $p(x) = 0 \iff x = \mathbb{O}$.
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}[Банахово пространство]
+	Полное нормированное пространство называется \emph{банаховым пространством (БП)}.
+\end{definition}
+
+\section{Критерий непрерывности линейного оператора в нормированных пространствах}
+
+\begin{theorem}[Критерий непрерывности в НП]
+	Пусть $A$ -- линейное отображение нормированнрого пространства $X$ в нормированное пространство $Y$. Тогда равносильны следующие утрвеждения:
+	\begin{enumerate}
+		\item $A$ непрерывно в нуле.
+		\item $A$ непрерывно.
+		\item $A$ равномерно непрерывно.
+		\item $A$ ограничено, то есть отображает каждое ограниченное множество в ограниченное.
+		\item $\exists C > 0 : \forall x \in X \ \|Ax\|_Y \leqslant C \cdot \|x\|_X$.
+		\item $\|A\| \coloneq \underset{\|x\|_X \leqslant 1}{\sup} \|Ax\|_Y < +\infty $.
+	\end{enumerate}
+\end{theorem}
+
+\section{Норма оператора}
+
+\begin{definition}[Норма линейного оператора]
+	Величина $\|A\| \coloneq \underset{\|x\|_X \leqslant 1}{\sup} \|Ax\|_Y$ называется \emph{нормой линейного оператора} $A \in L(X,Y)$.
+\end{definition}
+
+\section{Скалярное произведение и унитарное пространство}
+
+\begin{definition}[Скалярное произведение]
+	Пусть $X$ -- векторное пространство над полем $\mathbb{F}$. Отображение $(\cdot,\cdot): X^2 \rightarrow \mathbb{F}$ называется \emph{скалярным произведением} на $X$, если выполняются следующие условия:
+	\begin{enumerate}
+		\item $\forall x_1,x_2,y \in X \ \forall \lambda ,\mu \in \mathbb{F} \ (\lambda x_1 + \mu x_2,y) = \lambda (x_1,y) + \mu (x_2,y)$.
+		\item $\forall x,y \in X \ (x,y) = \overline{(y,x)} $.
+		\item $\forall x \in X \ (x,x) \geqslant 0$.
+		\item $\forall x \in X \ (x,x) = 0 \implies x = \mathbb{O}$.
+	\end{enumerate}
+\end{definition}
+
+\section{Неравенство Коши-Буняковского-Шварца}
+
+\begin{theorem}[Неравенство Коши-Буняковского]
+	Пусть $X$ -- векторное пространство и $(\cdot,\cdot)$ -- скалярное произведение на $X$. Тогда для любых $x,y \in X$ выполняется неравенство
+	\[
+		\big\|(x,y)\big\|^2 \leqslant (x,x)\cdot(y,y).
+	\]
+\end{theorem}
+
+\section{Гильбертово пространство}
+
+\begin{definition}[Евклидово, унитарное, предгильбертово, гильбертово пространство]
+	Векторое пространство с заданным на нем скалярным произведением называется \emph{евклидовым, унитарным} или \emph{предгильбертовым пространством}. Топологическая структура евклидова пространства определяется нормой, порождаемой скалярным произведением. Полное евклидово пространство называется \emph{гильбертовым (ГП)} и обычно обозначается буквой \emph{Н}.
+\end{definition}
+
+\section{Теорема Банаха о замкнутом графике}
+
+\begin{theorem}[О замкнутом графике]
+	Если линейный оператор отображает одно банахово пространство в другое, то его непрерывность равносильна его замкнутости.
+\end{theorem}
+
+\section{Принцип равномерной ограниченности}
+
+\begin{theorem}[Принцип равномерной ограниченности]
+	Пусть $X$ -- банахово пространство, а $Y$ -- нормированное пространство. Тогда для любого множества операторов $\mathfrak{A}\subset L(X,Y)$ равносильны следующие утверждения:
+	\begin{enumerate}
+		\item $\underset{A \in \mathfrak{A}}{\sup} \|A\| < +\infty $.
+		\item $\forall x \in X \ \underset{A \in \mathfrak{A}}{\sup} \|Ax\| < +\infty $.
+	\end{enumerate}
+\end{theorem}
+
+\section{Теорема Банаха-Штейнгауза}
+
+\begin{theorem}[Банах-Штейнгауз]
+	Пусть $X$ и $Y$ -- банаховы пространства, ${A_n}_{n\in \mathbb{N}} \subset L(X,Y)$ -- последовательность непрерывных линейных операторов и
+	\[
+		E \coloneq \{x \in X | \exists \underset{n \rightarrow \infty }{\lim} A_n x\}.
+	\]
+
+	Тогда равносильны следующие условия:
+	\begin{enumerate}
+		\item $E = X$.
+		\item $E$ плотно в $X$ и $\underset{n \in \mathbb{N}}{\sup} \|A_n\| < +\infty $.
+	\end{enumerate}
+
+	При выполнении любого из этих условий линейных оператор $A$, определяемый равенством $Ax \coloneq \underset{n \rightarrow \infty }{\lim} A_n x \ (x \in X)$, непрерывен и справедливо неравенство $\|A\| \leqslant \underset{n \rightarrow \infty }{\underline{\lim} } \|A_n\|$.
+\end{theorem}
+
+\section{Компактный оператор}
+
+\begin{definition}[Компактный оператор]
+	Линейное отображение $A$ ТВП $X$ в ТВП $Y$ называется \emph{компактным оператором}, если существует окрестность нуля $V \in O^X$ такая, что множество $A(V)$ относительно компактно в $Y$. Множество всех компактных линейных отображений $X$ в $Y$ обозначается $\mathscr{K}(X,Y)$.
+\end{definition}
